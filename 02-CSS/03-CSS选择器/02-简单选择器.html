@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简单选择器</title>
+    <style type="text/css">
+        /* 通用选择器 选择页面上的所有的 HTML 元素 */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            color: #3496db;
+        }
+
+        .example {
+            color: #9b59b6;
+        }
+
+        #demo {
+            color: #2ecc71;
+        }
+
+        h1.headtext {
+            color: #1abc9c;
+        }
+
+        .header.content.footer {
+            color: #f1c40f
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 元素选择器 通过元素名选取 html 元素 -->
+    <h1>元素选择器</h1>
+
+    <!-- 类选择器 通过在 html 元素中定义的class属性来选择元素，类选择器以 .号显示 -->
+    <h1 class="example">类选择器</h1>
+
+    <!-- id 选择器 通过 html 元素中定义的id属性来选择元素，id选择器以 # 号显示 -->
+    <h1 id="demo">id选择器</h1>
+
+    <!-- 组合元素选择器 选择同时包含这个元素与class= "headtext"的元素-->
+    <h1 class="headtext">组合元素选择器</h1>
+
+    <!-- 多类选择器 在 class属性中可以有多个值,各个值之间用空格分隔  选择同时包含header content footer类-->
+    <h1 class="header content footer">多类选择器</h1>
+</body>
+
+</html>

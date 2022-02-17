@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>引用和术语定义</title>
+</head>
+
+<body>
+    <!-- 引用 -->
+    <blockquote cite="http://www.baidu.com">每一位开发者都在贡献和更新技术内容，共同参与社区建设，维护社区秩序。如果你和我们一样有技术理想，并愿意贡献自己的力量，欢迎加入我们。</blockquote>
+    <q cite="http://www.baidu.com">定义长的引用</q>
+
+    <!-- 缩写与首字母缩写 -->
+    <p><abbr title="Hyper Text Markup Language">HTML</abbr> 是超文本标记语言</p>
+    <!-- HTML5不支持acronym标签，建议使用abbr标签来定义缩写或者首字母缩写 -->
+    <p><acronym title="Cascading Style Sheets">CSS</acronym> 是层叠样式表</p>
+
+    <!-- 引文和定义 -->
+    <p><cite>哈利波特</cite> 是一部非常好看的电影</p>
+    <!-- dfn在html5中3中场景的定义 -->
+    <!-- 设置了 `<dfn>` 元素的 title 属性，则定义项目 -->
+    <p><dfn title="Hyper Text Markup Language">HTML</dfn> 是超文本标记语言</p>
+    <!-- 如果 `<dfn>` 元素包含具有标题的 `<abbr>` 元素，则 title 定义项目 -->
+    <p><dfn><abbr title="Hyper Text Markup Language">HTML</abbr></dfn> 是超文本标记语言</p>
+    <!-- 不设置 title 属性，不包含具有标题的`<abbr>` 元素时，`<dfn>` 文本内容即是项目，并且父元素包含定义 -->
+    <p><dfn>HTML</dfn> Hyper Text Markup Language 是超文本标记语言</p>
+
+    <!-- 设计者信息和文字方向 -->
+    <address>
+        Written by <a href="mailto:2738389567@qq.com">JSX</a>
+    </address>
+    <!-- 文字方向 -->
+    <p><bdo dir="ltr">从左到右</bdo></p>
+    <p><bdo dir="rtl">从右到左</bdo></p>
+</body>
+
+</html>

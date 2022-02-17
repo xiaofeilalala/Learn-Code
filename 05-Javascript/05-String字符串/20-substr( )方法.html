@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>substr()方法</title>
+    <script>
+        // ECMscript没有对 substr() 方法进行标准化，因此不建议使用它
+
+        // 返回字符串从 start 到 给定 length 长度的部分
+        let str = 'javascript';
+        console.log(str.substr(2, 1)); // v
+        console.log(str.substr(-2, 2)); // pt
+
+        // 当没有第二个参数时，默认返回从字符串开始到结尾的字符
+        console.log(str.substr(2)); // vascript
+        console.log(str.substr(-2)); // pt
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>加号的扩展</title>
+    <script>
+        // 加号的扩展
+        // 在二元运算符中只要任意一个运算元是字符串，那么另一个运算元也将被转化为字符串
+        console.log(1 + '2', typeof (1 + '2')); // '12' string
+
+        // 其他算术运算符只对数字起作用，并且总是将其运算元转换为数字
+        console.log('3' - 1); // 2
+        console.log('2' * '3'); // 6
+        console.log('8' / 4 ); // 2
+
+        // 一元运算符中如果运算元不是数字，加号 + 则会将其转化为数字
+        console.log(+ '3'); // 3
+        console.log(+ true); // 1
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

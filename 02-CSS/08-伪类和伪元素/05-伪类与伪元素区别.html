@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>伪类和伪元素的区别</title>
+    <style type="text/css">
+        /* 鼠标滑到元素时触发 字体大小变为20px */
+        P.pseudo-class:hover {
+            font-size: 20px;
+        }
+        
+        /* 想要在不创建元素的情况下插入内容 通过after伪元素在元素后方插入 实际插入的内容不会在文档树中 */
+        p.pseudo-elements::after {
+            content: "插入当前元素后方";
+            color: #EE5A24;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 伪类  用于当已有元素处于的某个状态时，为其添加对应的样式 用:单引号开头-->
+    <!-- 伪元素  用于创建一些不在文档树中的元素，并为其添加样式 用::双引号开头 -->
+
+    <!-- 伪类设置当前元素样式 -->
+    <p class="pseudo-class">伪类设置当前元素样式</p>
+
+    <!-- 伪元素创建元素设置样式 -->
+    <p class="pseudo-elements">伪元素创建元素设置样式</p>
+</body>
+</html>

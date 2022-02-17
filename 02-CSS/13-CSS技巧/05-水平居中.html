@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>水平居中</title>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        span {
+            vertical-align: bottom;
+        }
+
+        .box {
+            text-align: center;
+        }
+
+        /* 利用 text-align: center 可以实现块级元素内部的内联元素水平居中 */
+
+        .box .content-box {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            background-color: #ff7b00;
+        }
+
+        .block-box {
+            width: 100px;
+            height: 100px;
+            background-color: #9900ff;
+            margin: 0 auto;
+            /* 对固定宽度的块级元素，通过设置元素左右外边距为auto,即可实现元素水平居中 */
+        }
+
+        .flex-box {
+            display: flex;
+            justify-content: center;
+            /* 需要对水平对齐元素父元素设置 */
+            /* 利用弹性布局 使用 justify-conten 属性在主轴方向上的对齐方式 */
+        }
+
+        .flex-box .content-box {
+            width: 100px;
+            height: 100px;
+            background-color: #9dff00;
+        }
+
+        .position-box {
+            width: 100px;
+            height: 100px;
+            background-color: #ee5f66;
+            position: relative;
+            left: 50%;
+            transform: translate(-50%, 0);
+            /* 给元素设置定位 给定left/right一半值，通过transform属性偏移元素自身一半的宽度 */
+        }
+
+        .burden-box .content-box {
+            position: relative;
+            left: 50%;
+            width: 100px;
+            height: 100px;
+            background-color: #5fe4ee;
+            margin-left: -50px;
+            /* 负值的margin-left */
+        }
+
+        .auto-box .content-box {
+            position: relative;
+            left: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background-color: #eeec5f;
+            margin: 0 auto;
+            /* 使用绝对定位方式, 以及left:0; right:0; margin:0 auto; */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 水平居中 -->
+
+    <!-- 行内元素水平居中：利用 text-align: center 可以实现块级元素内部的内联元素水平居中 -->
+    <div class="box">
+        <span class="content-box"></span>
+    </div>
+
+    <!-- 块级元素：通过固定宽度块级元素的 margin-left 和 margin-right 设成 auto，就可以使块级元素水平居中 -->
+    <div class="block-box"></div>
+
+    <!-- （不需要设置元素宽高）需要对水平对齐元素父元素设置，利用弹性布局，实现水平居中，其中 justify-conten 用于设置弹性盒子元素在主轴方向上的对齐方式 -->
+    <div class="flex-box">
+        <div class="content-box"></div>
+    </div>
+
+    <!-- （不需要设置元素宽高）通过定位position,left,transform属性偏移实现水平居中 -->
+    <div class="position-box"></div>
+
+    <!-- （需要设置元素宽高）使用绝对定位方式, 以及负值的 margin-left -->
+    <div class="burden-box">
+        <div class="content-box"></div>
+    </div>
+
+    <!-- （不需要设置元素宽高）使用绝对定位方式, 以及left:0; right:0; margin:0 auto; -->
+    <div class="auto-box">
+        <div class="content-box"></div>
+    </div>
+</body>
+
+</html>

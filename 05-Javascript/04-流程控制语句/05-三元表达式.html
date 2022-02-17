@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>三元表达式</title>
+    <script>
+        // 三元表达式：由三元运算符组成的式子就称为三元表达式
+        let result = 5 > 3 ? 'value1' : 'value2'; // value1
+        console.log(result);
+        // 如果结果为真，则返回 value1, 否则返回 value2
+
+        // 多个？可实现多分支语句
+        let name = 'jsx';
+        if (name == 'ljj') {
+            console.log('ljj');
+        } else if (name == 'jsx') {
+            console.log('yes');
+        } else if (name == 'wang') {
+            console.log('wang');
+        } else {
+            console.log('no')
+        }
+
+        let answer = (name == 'ljj') ? 'ljj' : (name == 'jsx') ? 'yes' : (name == 'wang') ? 'wang' : 'no';
+        console.log(answer);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

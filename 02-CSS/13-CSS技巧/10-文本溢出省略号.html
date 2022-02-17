@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文本溢出省略号</title>
+    <style type="text/css">
+        .box:nth-child(1) {
+            width: 200px;
+            height: 100px;
+            margin-bottom: 20px;
+            background-color: #9571f8;
+            /* 文字长度超出限定宽度，则隐藏超出的内容 */
+            white-space: nowrap;
+
+            /* 设置文字在一行显示，不能换行 */
+            overflow: hidden;
+
+            /* 规定当文本溢出时，显示省略符号来代表被修剪的文本 */
+            text-overflow: ellipsis;
+        }
+
+        .box:nth-child(2) {
+            width: 200px;
+            background-color: #f88171;
+            -webkit-line-clamp: 3;
+            /* 用来限制在一个块元素显示的文本的行数，2 表示最多显示 2 行。为了实现该效果，它需要组合其他的 WebKit 属性 */
+            display: -webkit-box;
+            /* 和 1 结合使用，将对象作为弹性伸缩盒子模型显示 */
+            -webkit-box-orient: vertical;
+            /* 和 1 结合使用 ，设置或检索伸缩盒对象的子元素的排列方式 */
+            overflow: hidden;
+            /* 文本溢出限定的宽度就隐藏内容 */
+            text-overflow: ellipsis;
+            /* 多行文本的情况下，用省略号 “…” 隐藏溢出范围的文本 */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 单行文本溢出省略 -->
+    <div class="box">这个世界很大很复杂，希望你们就算看惯了世间的罗生门，对待感情还是可以保留那份真诚</div>
+
+    <!-- 多行文本溢出省略 -->
+    <div class="box">这个世界很大很复杂，希望你们就算看惯了世间的罗生门，对待感情还是可以保留那份真诚</div>
+</body>
+
+</html>

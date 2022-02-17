@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文本装饰</title>
+    <style type="text/css">
+        /* line */
+        .decoration-line p:nth-child(1) {
+            text-decoration: none;
+        }
+
+        .decoration-line p:nth-child(2) {
+            text-decoration: overline;
+        }
+
+        .decoration-line p:nth-child(3) {
+            text-decoration: underline;
+        }
+
+        .decoration-line p:nth-child(4) {
+            text-decoration: line-through;
+        }
+
+        
+        /* color */
+        .decoration-color p {
+            text-decoration-color: red;
+            text-decoration-line: underline;
+        }
+        
+        
+        /* style */
+        .decoration-style p {
+            text-decoration: underline;
+        }
+
+        .decoration-style p:nth-child(1) {
+            text-decoration-style: solid;
+        }
+
+        .decoration-style p:nth-child(2) {
+            text-decoration-style: double;
+        }
+
+        .decoration-style p:nth-child(3) {
+            text-decoration-style: dotted;
+        }
+
+        .decoration-style p:nth-child(4) {
+            text-decoration-style: dashed;
+        }
+
+        .decoration-style p:nth-child(4) {
+            text-decoration-style: wavy;
+        }
+
+        
+        /* 简写 */
+        .abbre {
+            text-decoration: underline blue dashed;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 文本装饰 text-decortion-line -->
+    <!-- text-decortion: none|underline|overline|line-through; -->
+    <!-- 规定文本修饰没有线条|无线条|上划线|下划线|删除线 -->
+    <div class="decoration-line">
+        <p>无文本装饰</p>
+        <p>下划线</p>
+        <p>上划线</p>
+        <p>删除线</p>
+    </div>
+
+    <!-- text-decoration-color 文本修饰的颜色 高版本浏览器支持 -->
+    <!-- text-decoration: color; 线条颜色-->
+    <div class="decoration-color">
+        <p>文本修饰的颜色</p>
+    </div>
+
+    <!-- text-decoration-style 改变文本装饰样式 -->
+    <!-- text-decoration-style: solid|double|dotted|dashed|wavy; -->
+    <!-- 实现|双实线|点状线|虚线|波浪线 -->
+    <div class="decoration-style">
+        <p>文本装饰样式</p>
+        <p>文本装饰样式</p>
+        <p>文本装饰样式</p>
+        <p>文本装饰样式</p>
+        <p>文本装饰样式</p>
+    </div>
+    
+    <!-- 简写 -->
+    <!-- text-decoration: text-decoration-line text-decoration-color text-decoration-style -->
+    <p class="abbre">text-decoration简写</p>
+</body>
+
+</html>

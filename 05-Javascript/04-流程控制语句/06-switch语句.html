@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>switch语句</title>
+    <script>
+        // switch语句：用于基于不同的条件来执行不同的代码
+        // 当要针对变量设置一系列的特定值的选项时，就可以使用switch语句
+
+        // case语句用来与switch圆括号内表达式的值进行严格比较，严格相等才会执行该case块的代码
+        // default语句，当没有符合的case时则会执行default块内的代码
+        // break语句，用来退出switch语句，如果case语句里没有break语句则会继续执行下一个case语句
+
+        let name = 'jsx';
+        switch (name) {
+            case 'jsx':
+                console.log('yes');
+                break;
+            case 'ljj':
+                console.log('ljj');
+                break;
+            case 'jsq':
+                console.log('jsq');
+                break;
+            default:
+                console.log('？？？');
+        }
+
+        // 比较switch(...)表达式值与第一个 case是否严格相等，然后比较第二个case以此类推
+        // 如果相等，switch 语句就执行相应 case 下的代码块，直到遇到最靠近的break语句（或者直到switch语句末尾）
+        // 如果当前的case里面没有break语句，则不会退出switch语句，然后继续执行下一个case
+        // 如果没有符合的case，则执行default 代码块（如果default存在）
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

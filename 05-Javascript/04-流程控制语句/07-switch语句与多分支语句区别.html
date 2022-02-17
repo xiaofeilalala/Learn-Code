@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>switch语句与多分支语句的区别</title>
+    <script>
+        // 在一般情况下时可以互相替换
+        // switch语句通常处理值，多分支语句多用于范围判断
+        // switch语句条件判断后直接执行条件语句，多分支语句有几个条件就得判断几次
+        // 分支较多时用switch语句执行效率高，分支比较少时使用多分支语句执行效率高
+
+        let age = 18;
+        // switch语句写法
+        switch (age) {
+            case 20:
+                console.log('🏍');
+                break;
+            case 18:
+                console.log('🚲');
+                break;
+            default:
+                console.log('🦼')
+                break;
+        } 
+        
+        // if语句写法
+        if (age === 20) {
+            console.log('🏍');
+        } else if (age === 18) {
+            console.log('🚲');
+        } else {
+            console.log('🦼')
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

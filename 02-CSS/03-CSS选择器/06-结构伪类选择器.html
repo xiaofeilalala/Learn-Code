@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>结构伪类选择器</title>
+    <style type="text/css">
+        /* 匹配根元素 */
+        :root {
+            background-color: #7d5fff;
+        }
+
+        /* 匹配兄弟元素的第一个元素 */
+        .box p:first-child {
+            color: #32ff7e;
+        }
+
+        /* 匹配兄弟元素中第一个某种类型的元素 */
+        .box h3:first-of-type {
+            color: #17c0eb;
+        }
+
+        /* 匹配兄弟元素的最后面的一个元素 */
+        .box p:last-child {
+            color: #ff9f1a;
+        }
+
+        /* 匹配兄弟元素中最后面一个某种类型的元素 */
+        .box h3:last-of-type {
+            color: #e84118;
+        }
+
+        /* 匹配作为值传入自身的选择器未匹配的元素 */
+        .box :not(p) {
+            text-decoration: overline;
+        }
+
+        /* 匹配一列兄弟元素中的元素 传入的值按照an+b形式 */
+        .box p:nth-child(2) {
+            color: #7f8fa6;
+        }
+
+        /* 匹配某种类型的一列兄弟元素 传入的值按照an+b形式 */
+        .box div:nth-of-type(1) {
+            color: #fbc531;
+        }
+
+        /* 匹配一列兄弟元素中的元素 从后往前数 传入的值按照an+b形式 */
+        .box div:nth-last-child(1) {
+            color: #B33771;
+        }
+
+        /* 匹配某种类型的一列兄弟元素 从后往前数 传入的值按照an+b形式 */
+        .box h1:nth-last-of-type(1) {
+            color: #82589F;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 结构伪类选择器 -->
+    <!-- root first-child first-of-type last-child last-of-type not nth-child nth-of-type nth-last-child nth-last-of-type -->
+    <div class="box">
+        <p>结构伪类选择器</p>
+        <p>结构伪类选择器</p>
+        <p>结构伪类选择器</p>
+        <p>结构伪类选择器</p>
+        <p>结构伪类选择器</p>
+        <p>结构伪类选择器</p>
+        <p>结构伪类选择器</p>
+        <p>结构伪类选择器</p>
+        <h3>结构伪类选择器</h3>
+        <h3>结构伪类选择器</h3>
+        <h1>结构伪类选择器</h1>
+        <h1>结构伪类选择器</h1>
+        <div>结构伪类选择器</div>
+        <div>结构伪类选择器</div>
+    </div>
+</body>
+
+</html>

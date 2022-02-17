@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>margin塌陷</title>
+    <style type="text/css">
+        .father {
+            width: 200px;
+            height: 200px;
+            background-color: #00a8ff;
+            margin-top: 50px;
+        }
+
+        .son {
+            width: 90px;
+            height: 90px;
+            background-color: #9c88ff;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- margin塌陷 -->
+    <!-- 父子元素在标准文档流中父子元素同时设置了上外边距 -->
+    <!-- 当子元素设置margin-top小于父元素margin时子元素margin就会重叠 -->
+    <!-- 当子元素设置margin-top大于父元素margin时子父元素就会受子元素影响塌陷 -->
+    <div class="father">
+        <div class="son"></div>
+    </div>
+</body>
+
+</html>

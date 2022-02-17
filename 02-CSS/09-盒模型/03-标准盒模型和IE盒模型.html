@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>标准盒模型和IE盒模型</title>
+    <style type="text/css">
+        .border-box {
+            /* IE盒模型下 width与height只包括内容的宽和高 */
+            box-sizing: border-box;
+            width: 200px;
+            height: 200px;
+            margin: 20px;
+            padding: 20px;
+            border: 10px solid #333;
+        }
+        
+        .content-box {
+            /* 标准盒模型下 width与 height属性包括内容 */
+            box-sizing: content-box;
+            width: 200px;
+            height: 200px;
+            margin: 20px;
+            padding: 20px;
+            border: 10px solid #333;
+        }
+    </style>
+</head>
+    
+<body>
+    <div class="border-box">宽高为200px</div>
+    <div class="content-box">宽高为260px</div>
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>元素显示模式</title>
+    <style type="text/css">
+        .block {
+            /* 
+               会独占一行 高度，行高，
+               外边距和内边距都可以单独设置 
+               宽度默认是容器（父级宽度）的100% 
+            */
+            width: auto;
+            height: 100px;
+            background-color: #0077ff;
+            color: #fff;
+            font-size: 24px;
+            text-align: center;
+            line-height: 100px;
+            font-weight: bold;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        .inline {
+            /* 
+               相邻行内元素在一行上，一行可以显示多个
+               高、宽、上下外边距直接设置是无效的
+               默认宽度就是它本身内容的宽度 
+            */
+            width: 200px;
+            height: 100px;
+            background-color: #0077ff;
+            color: #fff;
+            font-size: 18px;
+            text-align: center;
+            line-height: 100px;
+            font-weight: bold;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        .inline-block {
+            /* 
+                和相邻行内元素（行内块）在一行上，但是他们之间会有空白缝隙
+                一行可以显示多个（行内元素特点）
+                默认宽度就是它本身内容的宽度（行内元素特点）
+                高度，行高、外边距以及内边距都可以控制
+            */
+            width: 300px;
+            height: 30px;
+            padding: 10px;
+            margin: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            border: 1px solid #b9b9b9;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 显示模式：块级元素，行内元素，行内块元素 -->
+    <div class="block">块级元素</div>
+    <span class="inline">行内元素</span>
+    <span class="inline">行内元素</span>
+    <input type="text" class="inline-block" value='行内块元素'>
+    <input type="text" class="inline-block" value='行内块元素'>
+</body>
+
+</html>

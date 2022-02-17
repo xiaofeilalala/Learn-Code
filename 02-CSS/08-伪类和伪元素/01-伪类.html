@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>伪类</title>
+    <style type="text/css">
+        /* 未访问状态 */
+        a:link {
+            color: #fc5c65;
+        }
+
+        /* 访问后状态 */
+        a:visited {
+            color: #2bcbba;
+        }
+
+        /* 鼠标滑到元素时的状态 */
+        a:hover {
+            color: #fd9644;
+        }
+
+        /* 鼠标点击元素不松手时的状态 */
+        a:active {
+            color: #26de81;
+        }
+
+        /* 元素获取焦点时的状态 */
+        input {
+            outline: 0;
+        }
+        input:focus {
+            border: 2px solid#a55eea;
+        }
+
+        /* 匹配兄弟元素的第一个元素 */
+        .dom-box p:first-child {
+            background-color: #4b7bec;
+        }
+
+        /* 匹配兄弟元素的最后一个元素 */
+        .dom-box p:last-child {
+            background-color: #4b7bec;
+        }
+
+        /* 匹配自定义的兄弟元素 兄弟元素按照 an+b形式的式子进行匹配 */
+        .dom-box p:nth-child(2n+1) {
+            background-color: #eb3b5a;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 伪类：以冒号:开头 用于当前文档树中有的元素处于某种状态时，为其添加对应的样式 -->
+    <!-- 常用的伪类 :link :visited :focus :hover :active :first-child :last-child :nth-child -->
+    <a href="#">伪类</a>
+    <input type="text">
+    <div class="dom-box">
+        <p>感觉方大同的歌不好唱 他的唱腔太难模仿</p>
+        <p>多少年了，方大同还是等不到薛凯琪回头，好心疼，吃不下第二碗了</p>
+        <p>一个人久了，连煮个汤圆都要把两个粘在一起的分开</p>
+        <p>很遗憾大同的歌被听的最多的不是他最希望被认同和欣赏的...</p>
+        <p>感觉方大同的歌不好唱 他的唱腔太难模仿</p>
+        <p>多少年了，方大同还是等不到薛凯琪回头，好心疼，吃不下第二碗了</p>
+        <p>一个人久了，连煮个汤圆都要把两个粘在一起的分开</p>
+        <p>很遗憾大同的歌被听的最多的不是他最希望被认同和欣赏的...</p>
+    </div>
+</body>
+
+</html>

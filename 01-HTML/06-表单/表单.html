@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表单</title>
+    <link href="https://cdn.bootcdn.net/ajax/libs/minireset.css/0.0.2/minireset.css" rel="stylesheet">
+    <style type="text/css">
+        .col-4 {
+            width: 33.33%;
+        }
+
+        .col-8 {
+            width: 66.66%;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            color: #333;
+        }
+
+        .wrapper {
+            width: 600px;
+            margin: 30px 0;
+            padding: 30px;
+            border-radius: 4px;
+            margin: 30px auto;
+            box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-list {
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            padding: 10px 0;
+            width: 100%;
+        }
+
+
+        label {
+            padding: 10px;
+            height: 40px;
+        }
+
+        input[type=text],
+        input[type=password],
+        select,
+        textarea {
+            display: block;
+            height: 40px;
+            padding: 10px;
+            line-height: 40px;
+            color: #333;
+            background-color: #fff;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .radio-box {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            height: 40px;
+            line-height: 40px;
+            padding: 10px;
+        }
+
+        .radio-list {
+            margin-right: 20px;
+        }
+
+        .radio-list span {
+            display: inline-block;
+            margin-left: 10px;
+        }
+
+        textarea {
+            height: 160px;
+            line-height: 1.5;
+        }
+
+        input[type=submit],
+        button {
+            display: inline-block;
+            font-weight: 400;
+            color: #212529;
+            text-align: center;
+            color: #fff;
+            background-color: #007bff;
+            border: 1px solid #007bff;
+            padding: 10px;
+            height: 40px;
+            border-radius: 4px;
+            outline: 0;
+            width: 30%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <form class="form-table">
+            <div class="form-list">
+                <label class="col-4">普通文本框</label>
+                <input type="text" class="col-8">
+            </div>
+            <div class="form-list">
+                <label class="col-4">密码框</label>
+                <input type="password" class="col-8">
+            </div>
+            <div class="form-list">
+                <label class="col-4">单选框</label>
+                <div class="radio-box col-8">
+                    <div class="radio-list">
+                        <input type="radio" value="正确"><span>正确</span>
+                    </div>
+                    <div class="radio-list">
+                        <input type="radio" value="错误"><span>错误</span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-list">
+                <label class="col-4">多选框</label>
+                <div class="radio-box col-8">
+                    <div class="radio-list">
+                        <input type="checkbox" value="苹果"><span>苹果</span>
+                    </div>
+                    <div class="radio-list">
+                        <input type="checkbox" value="梨子"><span>梨子</span>
+                    </div>
+                    <div class="radio-list">
+                        <input type="checkbox" value="香蕉"><span>香蕉</span>
+                    </div>
+                    <div class="radio-list">
+                        <input type="checkbox" value="牛奶"><span>牛奶</span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-list">
+                <label class="col-4">下拉列表</label>
+                <select class="col-8">
+                    <option value="衣服">衣服</option>
+                    <option value="鞋子">鞋子</option>
+                    <option value="装饰">装饰</option>
+                </select>
+            </div>
+            <div class="form-list">
+                <label class="col-4">文本域</label>
+                <textarea cols="30" rows="10" class="col-8"></textarea>
+            </div>
+            <div class="form-list">
+                <label class="col-4">提交按钮</label>
+                <input type="submit">
+            </div>
+            <div class="form-list">
+                <label class="col-4">button按钮</label>
+                <button>button按钮</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

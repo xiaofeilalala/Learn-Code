@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数字类型转换</title>
+    <script>
+        // 数字类型转换
+        // parseInt()、parseFloat()、Number()、算数运算符 *、-、/ 隐式转换
+        let str = '123.123.12';
+        // parseInt() 返回一个整数，从左往右开始第一个字符如果是非数字则返回NaN,小数点后面的数字会被去除
+        console.log(parseInt(str), typeof parseInt(str)); // 123 number
+        // parseFloat() 返回一个浮点数，从左往右开始第一个字符如果是非数字则返回NaN,如果是有小数的数字,会被保留,但是只有第一个小数点后的数字保留
+        console.log(parseFloat(str), typeof parseFloat(str)); // 123.123 number
+
+        let str1 = '666';
+        // Number() 如果有非字符则返回NaN
+        console.log(Number(str), typeof Number(str)); // NaN number
+        console.log(Number(str1), typeof Number(str1)); // 666 number
+        // 隐式转换 算数运算符 - * /
+        console.log(('11' - 2), typeof ('11' - 2)); // 9 number
+        console.log(('11' * 2), typeof ('11' * 2)); // 22 number
+        console.log(('10' / 2), typeof ('11' / 2)); // 5 number
+
+        // 其它类型转换为数字类型规则：
+        // 字符串类型转换为数字类型
+        // 去掉首尾空格后的纯数字字符串中含有的数字。如果剩余字符串为空，则转换结果为 0。否则，将会从剩余字符串中读取数字。当类型转换出现 error 时返回 NaN
+        let str2 = '777';
+        console.log(Number(str2), typeof Number(str2)); // 777 number
+
+        let str3 = ' 888 ';
+        console.log(Number(str3), typeof Number(str3)); // 888 number
+
+        let str4 = ' 777z ';
+        console.log(Number(str4), typeof Number(str4)); // NaN number
+
+        // 布尔类型转换为数字类型
+        console.log(Number(true), typeof Number(true)); // 1 number
+        console.log(Number(false), typeof Number(false)); // 0 number
+
+        // null 和 undefined 转换为数字类型
+        console.log(Number(null), typeof Number(null)); // 0 number
+        console.log(Number(undefined), typeof Number(undefined)); // NaN number
+
+        // 对象类型和数组类型转换为数字类型
+        let obj = {};
+        let arr = ['jsx', 2];
+        console.log(Number(obj), typeof Number(obj)); // NaN number
+        console.log(Number(arr), typeof Number(arr)); // NaN number
+
+        // 函数转换为数字类型
+        let func = function () {};
+        console.log(Number(func), typeof Number(func)); // NaN number
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

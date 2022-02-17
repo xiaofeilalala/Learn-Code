@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>visibility隐藏</title>
+    <style type="text/css">
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: #1abc9c;
+        }
+
+        .hidden {
+            visibility: hidden;
+        }
+
+        .show {
+            /* 值为visible 显示元素 */
+            visibility: visible;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- visibility: hidden; 可以隐藏某个元素，但隐藏的元素仍需占用与未隐藏之前一样的空间  -->
+    <!-- 该元素虽然被隐藏了，但仍然会影响布局 -->
+    <div class="box hidden"></div>
+    <div class="box show"></div>
+</body>
+
+</html>

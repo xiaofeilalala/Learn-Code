@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>substring()方法</title>
+    <script>
+        // substring() 返回字符串在 start 到 (不包括)end 部分的字符
+        let str = 'javascript';
+        console.log(str.substring(3, 2)); // va
+
+        // 当 start 大于 end 自动调换位置
+        console.log(str.substring(5, 1)); // avas
+
+        // 当没有第二个参数，则默认到字符串结尾
+        console.log(str.substring(3)); // ascript
+
+        // 不支持负参数 负参数默认为0
+        console.log(str.substring(-3)); // javascript
+        console.log(str.substring(-3, -1)); // '' 相当于(0, 0) 空字符
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

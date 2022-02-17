@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>if else if多分支语句</title>
+    <script>
+        // if else if多分支语句
+        // 当有多个条件需要判断时可以使用多分支语句
+        // 多分支语句只有一个分支语句执行
+
+        let age = +prompt('请输入你的年龄？');
+        console.log(age);
+        if (age > 18) {
+            alert('成年啦');
+        } else if (age < 18) {
+            alert('未成年');
+        } else {
+            alert('请输入数字');
+        }
+
+        // 当条件表达式 age>18 成立时则执行该分支语句内的代码
+        // 当条件表达式 age>18 不成立时，则向下执行直到条件判断成功则执行该分支语句内的代码
+       // 当条件表达式都不成立，则执行else语句里的代码
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

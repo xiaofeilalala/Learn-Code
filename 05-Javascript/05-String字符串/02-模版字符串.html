@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模版字符串</title>
+    <script>
+        // 模版字符串：反引号允许我们通过${…}将任何表达式嵌入到字符串中
+
+        // 使用变量
+        let str = 'world';
+        console.log(`hello ${str}`); // hello world
+
+        // 可以使用表达式
+        let str1 = 2;
+        console.log(5 - `${str1}`); // 3
+        console.log(Number(`${5 - 1}`)); // 4
+
+        // 可以调用函数
+        function addNum() {
+            return 5;
+        }
+        console.log(`${addNum()}` + 55); // 555
+
+        // 模版字符串可以嵌套
+        let str2 = 'jsx';
+        let str3 = `${'hello' + '\t' + `${str2}`}`;
+        console.log(str3);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

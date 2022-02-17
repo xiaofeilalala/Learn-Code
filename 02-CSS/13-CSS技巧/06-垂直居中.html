@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>垂直居中</title>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .lh {
+            line-height: 200px;
+        }
+
+        .container {
+            position: relative;
+            background-color: #f5f5f5;
+            height: 200px;
+            margin-bottom: 20px;
+        }
+
+        .box {
+            /* 适用于文本垂直场景 使元素垂直居中使用 vertical-align: middle */
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            background-color: #ff7b00;
+            vertical-align: middle;
+        }
+
+        /* 在父元素中设置一个行内的伪元素,让行内的子元素与这个伪元素垂直对齐 */
+        .container.before::before {
+            content: "";
+            display: inline-block;
+            width: 0;
+            height: 100%;
+            vertical-align: middle;
+        }
+
+        .pseudo-box {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            background-color: #66ff00;
+            vertical-align: middle;
+        }
+
+        .container.table {
+            width: 100%;
+            display: table;
+        }
+
+        /* 设置为table布局 然后设置为单元格 通过vertical-align属性设置单元格对齐方式 */
+        .table-box {
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        .last-box {
+            width: 100px;
+            height: 100px;
+            background-color: #0059ff;
+        }
+
+        .flex-box {
+            display: flex;
+            align-items: center;
+            height: 200px;
+            background-color: #f5f5f5;
+            margin-bottom: 20px;
+            /* 需要对垂直对齐元素父元素设置 */
+            /* 利用弹性布局 使用 align-items 属性在竖轴方向上的对齐方式 */
+        }
+
+        .flex-box .content-box {
+            width: 100px;
+            height: 100px;
+            background-color: #9900ff;
+        }
+
+        .position-box .content-box {
+            width: 100px;
+            height: 100px;
+            background-color: #ee5f66;
+            position: absolute;
+            top: 50%;
+            transform: translate(0, -50%);
+            /* 给元素设置定位 给定top/bottom一半值，通过transform属性偏移元素自身一半的宽度 */
+        }
+
+        .burden-box .content-box {
+            position: absolute;
+            top: 50%;
+            width: 100px;
+            height: 100px;
+            background-color: #5fe4ee;
+            margin-top: -50px;
+            /* 负值的margin-top */
+        }
+
+        .auto-box .content-box {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100px;
+            height: 100px;
+            background-color: #eeec5f;
+            margin: auto 0;
+            /* 使用绝对定位方式, 以及top:0; bottom:0; margin:0 auto; */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 垂直居中 -->
+
+    <!-- 通过设置内联元素的高度height 和行高 line-height相等，从而使元素垂直居中 -->
+    <div class="container lh">
+        文本
+        <div class="box"></div>
+    </div>
+
+    <!-- 行内块级元素, 使用 display: inline-block, vertical-align: middle 加上伪元素辅助实现 -->
+    <div class="container before">
+        <div class="pseudo-box"></div>
+    </div>
+
+    <!-- 通过表格的特性,在表单元格中，这个vertical-align属性会设置单元格框中的单元格内容的对齐方式  -->
+    <div class="container table">
+        <div class="table-box">
+            <div class="last-box"></div>
+        </div>
+    </div>
+
+    <!-- （不需要设置元素宽高）需要对水平对齐元素父元素设置，利用弹性布局，实现水平居中，其中 justify-conten 用于设置弹性盒子元素在主轴方向上的对齐方式 -->
+    <div class="flex-box">
+        <div class="content-box"></div>
+    </div>
+    
+    <!-- 在标准文档流中，竖直方向会出现上下外边距重叠现象，所以在使用 position 定位时必须使用 absolute 触发BFC -->
+    <!-- （不需要设置元素宽高）通过定位position,top,transform属性偏移实现水平居中 -->
+    <div class="position-box container">
+        <div class="content-box"></div>
+    </div>
+
+    <!-- （需要设置元素宽高）使用绝对定位方式, 以及负值的 margin-top -->
+    <div class="burden-box container">
+        <div class="content-box"></div>
+    </div>
+
+    <!-- （不需要设置元素宽高）使用绝对定位方式, 以及top:0; bottom:0; margin:auto 0; -->
+    <div class="auto-box container">
+        <div class="content-box"></div>
+    </div>
+</body>
+
+</html>

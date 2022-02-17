@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>单元格间距</title>
+    <style type="text/css">
+        table {
+            margin: 0 auto 20px auto;
+            border-collapse: separate;
+            table-layout: auto;
+            width: 50%;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #333;
+        }
+
+        .spacing-odd {
+            border-spacing: 10px;
+        }
+
+        .spacing-even {
+            border-spacing: 20px 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 单元格间距 border-spacing: length length -->
+    <!--一个 length 参数定义的是水平和垂直间距 -->
+    <!-- 两个 length 参数，那么第一个设置水平间距，而第二个设置垂直间距 -->
+    <table class="spacing-odd">
+        <tbody>
+            <tr>
+                <td>HTML</td>
+                <td>CSS</td>
+                <td>JavaScript</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="spacing-even">
+        <tbody>
+            <tr>
+                <td>HTML</td>
+                <td>CSS</td>
+                <td>JavaScript</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

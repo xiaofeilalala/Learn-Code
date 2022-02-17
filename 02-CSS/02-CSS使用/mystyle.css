@@ -1,0 +1,17 @@
+@charset "utf-8";
+
+/**
+ * @desc mystyle.css
+ * @author jsx
+ * @date 2021-10-19
+ */
+
+/* mystyle.css */
+body {
+    color: #000;
+}
+
+h1 {
+    text-align: center;
+    color: #9b59b6;
+}

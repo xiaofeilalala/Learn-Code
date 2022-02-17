@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>代码结构</title>
+    <script>
+        // 语句
+        // 语句是执行行为的语法结构和指令
+        // 建议在一条语句结尾使用分号进行分隔
+        console.log("hello world");
+
+        
+        // 分号
+        // 当js语句中存在换行符时，大多数情况下可以省略分号，有时候有可能会存在语句没有分隔合并导致报错
+        // 建议即使换行语句之间都要使用分号分隔防止报错
+        // 正确示例
+        console.log("一条语句结束推荐使用分号分隔");
+        // 错误示例
+        console.log("hello world")
+        [1, 2].forEach(value => {
+            console.log(value)
+        });
+        
+
+        // 注释 不支持注释嵌套
+        // 单行注释以两个双斜线字符开始
+        /* 多行注释以一个正斜杠和星号开始，并以一个星号和正斜杠结束 */
+        
+        // console.log("hello world");
+        /* document.write("hello world");
+           console.log('hello world'); */
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

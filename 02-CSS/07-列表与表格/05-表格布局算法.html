@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表格布局算法</title>
+    <style type="text/css">
+        table, th, td {
+            border: 1px solid #333;
+            border-collapse: collapse;
+        }
+        .table-fixed {
+            table-layout: fixed;
+            width: 30%;
+            margin-bottom: 50px;
+            overflow-x: auto;
+        }
+        .table-auto {
+            table-layout: auto;
+            width: 30%;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 表格布局算法 table-layout: auto|fixed;  自动布局|固定布局 -->
+    <!-- 自动布局：列的宽度由列的单元格内容设定 -->
+    <!-- 固定布局：水平布局仅取决于表格宽度、列宽度、表格边框宽度、单元格间距 -->
+    <table class="table-fixed">
+        <caption>固定表格布局 fixed</caption>
+        <thead>
+            <tr>
+                <th>歌手</th>
+                <th>歌曲</th>
+                <th>热度</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>邓紫棋</td>
+                <td>龙卷风</td>
+                <td>1000w</td>
+            </tr>
+            <tr>
+                <td>邓紫棋</td>
+                <td>龙卷风</td>
+                <td>1000w</td>
+            </tr>
+            <tr>
+                <td>邓紫棋</td>
+                <td>龙卷风</td>
+                <td>1000w1000w1000w1000w1000w1000w1000w</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3">我最喜欢邓紫棋</td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <table class="table-auto">
+        <caption>自动表格布局 auto</caption>
+        <thead>
+            <tr>
+                <th>歌手</th>
+                <th>歌曲</th>
+                <th>热度</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>邓紫棋</td>
+                <td>龙卷风</td>
+                <td>1000w</td>
+            </tr>
+            <tr>
+                <td>邓紫棋</td>
+                <td>龙卷风</td>
+                <td>1000w</td>
+            </tr>
+            <tr>
+                <td>邓紫棋</td>
+                <td>龙卷风</td>
+                <td>1000w1000w1000w1000w1000w1000w1000w</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3">我最喜欢邓紫棋</td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+
+</html>

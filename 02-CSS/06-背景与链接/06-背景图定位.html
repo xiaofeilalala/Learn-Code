@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>背景图定位</title>
+    <style type="text/css">
+        div {
+            display: inline-block;
+            width: 500px;
+            height: 500px;
+            margin-right: 30px;
+            background-image: url("image/1.jpeg");
+            background-color: turquoise;
+            background-repeat: no-repeat;
+            background-size: 200px 200px;
+        }
+        div.box-1 {
+            /* 第一个值为水平位置 第二个值为垂直位置 当只指定一个值时 另一个值为 center */
+            background-position: left;
+        }
+        div.box-2 {
+            /* 当只指定一个值时 另一个值为 50% */
+            background-position: 80%;
+        }
+        div.box-3 {
+            /* 当只指定一个值时 另一个值为 50%  可以混合使用％ */
+            background-position: left 80%;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 背景定位 -->
+    <!-- background-position: 关键字|百分比|px或其它单位 -->
+    <div class="box-1"></div>
+    <div class="box-2"></div>
+    <div class="box-3"></div>
+</body>
+
+</html>

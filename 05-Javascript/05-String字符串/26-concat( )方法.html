@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>concat()方法</title>
+    <script>
+        // 连接两个或者多个字符串 
+        console.log('hello'.concat(' world')); // hello world
+
+        // 不会改变字符串，返回连接字符串的新值
+        let str = 'jsx';
+        str.concat('❤ljj');
+        console.log(str); // jsx
+        
+        let newStr = str.concat('❤ljj');
+        console.log(newStr); // jsx❤ljj
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

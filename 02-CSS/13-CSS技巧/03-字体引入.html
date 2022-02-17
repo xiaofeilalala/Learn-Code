@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>字体引入</title>
+    <style type="text/css">
+        @font-face {
+            /* font-family 为载入字体命名 */
+            font-family: 'jsx';
+            /* url引入字体文件的路径：相对路径、绝对路径、网络路径 */
+            /* format 定义的字体的格式，用来帮助浏览器识别 WOFF，SVG，EOT，OTF/TTF */
+            src: url('峰广明锐体.ttf') format('truetype');
+            /* 定义样式粗细 */
+            font-weight: normal;
+            /* 设置字体样式 */
+            font-style: normal;
+        }
+
+        .box {
+            /* 元素设置font-family属性使用自己定义的字体 */
+            font-family: 'jsx';
+            font-size: 40px;
+            text-align: center;
+        }
+
+        /* format对应字体格式 以及 常见兼容性写法 */
+        @font-face {
+            font-family: 'myName';
+            src: url('../fonts/xxx.eot');
+            src: url('../fonts/xxx.eot?#iefix') format('embedded-opentype'),
+                url('../fonts/xxx.woff') format('woff'),
+                url('../fonts/xxx.ttf') format('truetype'),
+                url('../fonts/xxx.svg#defineName') format('svg');
+            font-weight: normal;
+            font-style: normal;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 字体引入 @font-face属性 -->
+    <h1 class="box">@font-face属性</h1>
+</body>
+
+</html>

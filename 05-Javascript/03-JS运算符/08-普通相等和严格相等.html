@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>普通相等和严格相等</title>
+    <script>
+        // 普通相等和严格相等 == ===
+        // 两者的区别普通相等在比较时会发生隐式转换，严格相等不会发生类型转换，严格相等必须值相等并且类型相等才会返回true
+        console.log(3 != '3'); // false
+
+        console.log('hello' === 'hello'); // true
+        console.log('2' === 2); // false
+
+        // null 和 undefined 在普通想等下比较时是相等的, 但是不与其它任何值普通相等
+        console.log(null == undefined); // true
+        console.log(null == 0); // false
+
+        // NaN 不和任何值相等，包括他本身
+        console.log(NaN == NaN); // false
+        console.log(NaN === NaN); // false
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

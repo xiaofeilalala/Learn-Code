@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>startsWith()方法</title>
+    <script>
+        // 用于检测字符串是否以指定的子字符串开始
+        let str = 'hello';
+
+        // 如果字符串是以指定的子字符串开始返回true，否则返回false
+        console.log(str.startsWith('h')); // true
+        console.log(str.startsWith('e')); // false
+
+        // 可以指定第二个参数，规定了检索从起始位置开始检索(没有第二个参数则从索引0开始)
+        console.log(str.startsWith('h', 1)); // false
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

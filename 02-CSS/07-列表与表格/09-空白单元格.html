@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>空白单元格</title>
+    <style type="text/css">
+        table {
+            margin: 0 auto 20px auto;
+            border-collapse: separate;
+            table-layout: auto;
+            width: 50%;
+            border-spacing: 20px 10px;
+            empty-cells: hide;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #333;
+        }
+    </style>
+</head>
+<body>
+    <!-- 表格单元格 empty-cells: show|hide; -->
+    <!-- show: 显示空白的单元格（包括边框背景） -->
+    <!-- hode: 不显示空白的单元格（包括边框背景） -->
+    <table>
+        <tbody>
+            <tr>
+                <td>HTML</td>
+                <td>CSS</td>
+                <td>JavaScript</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

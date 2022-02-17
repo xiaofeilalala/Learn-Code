@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>访问字符串</title>
+    <script>
+        // 访问字符串：
+        // 1. 可以在变量名的末尾包含方括号[]，通过方括号指定的索引，返回字符串指定索引位置的字符
+        // 2. str.charAt(index)方法返回指定索引位置的字符
+        // 字符的索引第一个字符索引位置为 0, 第二个字符索引位置为 1,以此类推
+        let str = 'hello';
+        console.log(str[1]); // e
+        console.log(str.charAt(2)); // l
+
+        // 获取最后一个字符
+        console.log(str[str.length-1]); // o
+
+        // 方括号[]没有找到字符返回undefined
+        console.log(str[8]); // undefined
+
+        // str.charAt()没有找到字符返回 '' 空字符串
+        console.log(str.charAt(8)); // ''
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

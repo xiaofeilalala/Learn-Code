@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>label标签</title>
+    <script>
+        // 可使用一个标签来唯一标记一个循环,然后通过break 或 continue语句来指示程序是否中断循环或继续执行
+
+        // 如果没有标签引用，只能用于跳出一个循环或一个switch
+        outNum: for (let i = 0; i < 5; i++) {
+            console.log(i);
+            
+            inNum: for (let j = 0; j < 5; j++) {
+                break; // 停止中断当前循环语句
+                console.log(j);
+            }
+        }
+        
+        // 如果有标签引用，则break语句可用于跳出任意代码块
+        outExam: for (let i = 0; i < 5; i++) {
+            console.log(i);
+            
+            inExam: for (let j = 0; j < 5; j++) {
+                break outExam; // 停止中断标签为outExam的循环语句
+                console.log(j);
+            }
+        }
+
+        // 不论有无标签引用只能用于跳过一个迭代
+        outCase: for (let i = 0; i < 5; i++) {
+            console.log(`外层--${i}`);
+            
+            inCase: for (let j = 0; j < 5; j++) {
+                if (j == 3) {
+                    continue outCase; // 当内层j = 3 时外层的循环停止迭代，开始下一次迭代
+                }
+                console.log(`内层--${j}`);
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

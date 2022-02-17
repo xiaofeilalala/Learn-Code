@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css实现三角形</title>
+    <style type="text/css">
+        .box {
+            margin-right: 40px;
+            display: inline-block;
+        }
+
+        .box:nth-child(1) {
+            border-top: 40px solid #1abc9c;
+            border-bottom: 40px solid #2ecc71;
+            border-right: 40px solid #3498db;
+            border-left: 40px solid #9b59b6;
+        }
+
+        .box:nth-child(2) {
+            border-top: 40px solid #3498db;
+            border-bottom: 40px solid #9b59b6;
+            border-right: 40px solid #9b59b6;
+            border-left: 40px solid #9b59b6;
+        }
+
+        .box:nth-child(3) {
+            border-top: 30px solid #9b59b6;
+            border-bottom: 50px solid #3498db;
+            border-right: 20px solid #9b59b6;
+            border-left: 60px solid #9b59b6;
+        }
+
+        .box:nth-child(4) {
+            
+            border-top: 40px solid #9b59b6;
+            border-bottom: 40px solid #3498db;
+            border-right: 0 solid #9b59b6;
+            border-left: 80px solid #9b59b6;
+        }
+
+        .box:nth-child(5) {
+            border-top: 40px solid #1abc9c;
+            border-bottom: 40px solid transparent;
+            border-right: 40px solid transparent;
+            border-left: 40px solid transparent;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- css实现三角形 -->
+    <!-- 通过只设置一个边框为有色，其余边框为透明色 -->
+    <!-- 三角形大小受非同向的两边框宽度影响 -->
+    <div class="box"></div>
+
+    <!-- 等边三角形 左右边框的宽度相等时，就是等边的三角形 -->
+    <div class="box"></div>
+
+    <!-- 不等边三角形 左右边框宽度不相等时，就不是等边的三角形 -->
+    <div class="box"></div>
+
+    <!-- 直角三角形 左右边框某个宽度 0 时，就是直角三角形 -->
+    <div class="box"></div>
+
+    <!-- 三角形原理 设置一个边的边框 其它边框颜色设置transparent -->
+    <div class="box"></div>
+</body>
+
+</html>

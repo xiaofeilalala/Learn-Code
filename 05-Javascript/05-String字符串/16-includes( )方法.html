@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>includes()方法</title>
+    <script>
+        // 检查字符串中是否包含了指定的子字符串
+        let str = 'jsx ljj zdj ddc ljj zdj ddc';
+
+        // 如果找到匹配的字符串则返回 `true`，否则返回 `false`
+        console.log(str.includes('ljj')); // true
+        console.log(str.includes('ccm')); // false
+
+        // 可以指定第二个参数，规定了检索从起始位置开始检索(没有第二个参数则从索引0开始)
+        console.log(str.includes('jsx', 2)); // false 从索引1开始检索
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

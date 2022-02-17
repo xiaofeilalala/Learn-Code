@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>状态伪类选择器</title>
+    <style type="text/css">
+        .box {
+            display: block;
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            background-color: #3486db;
+            color: #fff;
+            line-height: 200px;
+            text-align: center;
+        }
+
+        .box:link {
+            background-color: #40407a;
+        }
+
+        .box:visited {
+            background-color: #706fd3;
+        }
+
+        .box:hover {
+            background-color: #ff5252;
+        }
+
+        .box:active {
+            background-color: #33d9b2;
+        }
+
+        .box-input {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .box-input input {
+            height: 36px;
+            font-size: 18px;
+            outline: 0;
+            border: 1px solid #333;
+            padding: 4px 10px;
+            box-sizing: border-box;
+        }
+
+        .box-input input:focus {
+            background-color: #ffb8b8;
+            border: 1px solid #ffb8b8;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 状态伪类选择器 -->
+    <!-- link visited hover action focus -->
+    <div class="box">状态伪类选择器</div>
+    <div class="box-input">
+        <input type="text" name="" id="">
+    </div>
+</body>
+
+</html>

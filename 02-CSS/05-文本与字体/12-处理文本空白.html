@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文本空白处理</title>
+    <style type="text/css">
+        .white-space {
+            width: 500px;
+            margin: 0 auto;
+            padding: 10px 20px;
+            background-color: #ababab;
+            border-radius: 4px;
+            color: #4c4a4a;
+        }
+
+        h1 {
+            /* white-space: normal; */
+            /* white-space: pre; */
+            /* white-space: nowrap; */
+            /* white-space: pre-wrap; */
+            white-space: pre-line;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 文本空白处理 white-space: normal|pre|nowrap|pre-wrap|pre-line; -->
+    <!-- normal 默认浏览器会默认清楚空格 -->
+    <!-- pre 空白保留 不换行 -->
+    <!-- nowrap 文本不换行 直到遇到 br 标签 -->
+    <!-- pre-wrap 保留空白 换行 -->
+    <!-- pre-line 保留空格 多个空格合并为一个 换行 -->
+    <div class="white-space">
+        <h1>
+            2019年8月为了演出 跟哈迪斯兴奋的从济南到青岛兜里揣着200坐绿皮火车去
+
+            被人偷了包丢了钱丢了身份证 台下十几个观众 没人看得起我们
+
+            没人知道我们 主办可怜我们给了108块演出费 两个人挤一张单人床度
+
+            过阴雨的夜晚 一肚子憋屈却还是笑着说 下一场能演的更好
+        </h1>
+    </div>
+</body>
+
+</html>

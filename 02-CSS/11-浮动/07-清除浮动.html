@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>清除浮动</title>
+    <style type="text/css">
+        .box {
+            float: left;
+            width: 200px;
+            height: 200px;
+            background-color: #56ebeb;
+        }
+
+        p {
+            background-color: #9900ff;
+            /* 不允许元素左侧浮动 */
+            clear: left;
+            padding: 10px;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 清除浮动 -->
+    <!-- clear: left|right|both|none; -->
+    <!-- 不允许左侧不浮动|不允许右侧不浮动|不允许两侧浮动|允许浮动元素出现在两侧 -->
+    <div class="box"></div>
+    <p>我是标准文档流的元素 我是块级元素</p>
+</body>
+
+</html>

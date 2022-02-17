@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>优先级选择器</title>
+    <style>
+        * {
+            color: #1abc9c;
+        }
+
+        .class {
+            color: #3498db;
+        }
+
+        #id {
+            color: #9b59b6;
+        }
+
+        div[class="class"] {
+            color: #f1c40f;
+        }
+
+        div:first-child {
+            color: #e67e22;
+        }
+
+        div {
+            color: #e74c3c;
+        }
+
+        div::first-letter {
+            content: "";
+            color: #6210e6;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="class" id="id" style="color: #2ecc71;">优先级选择器</div>
+</body>
+
+</html>

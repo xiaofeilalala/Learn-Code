@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slice()方法</title>
+    <script>
+        // slice() 提取字符串的某个部分并在新字符串中返回被提取的部分
+        let str = 'hello';
+        console.log(str.slice(1, 3)); // el
+
+        // 当没有指定第二个参数时，slice()函数会执行到字符串末尾
+        console.log(str.slice(2)); // llo
+
+        // 参数的值可以为负数， 负数则开始位置索引为字符串末尾
+        console.log(str.slice(-4)); // ello
+        console.log(str.slice(-3, -1)); // ll
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

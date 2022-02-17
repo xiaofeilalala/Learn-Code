@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>转义字符</title>
+    <script>
+        // 转义字符：为了避免插入特殊字符问题，确保使它识别成文本，通过在字符之前放一个反斜杠来实现 \
+        // 常用的转义字符：\n 换行, \r 回车, \' \" 单引号双引号, \\ 反斜线, \t 缩进, \b 退格
+        console.log('\\'); // \
+        console.log('\''); // '
+        console.log('\"'); // "
+        console.log('java \r script');
+        console.log('java \b script');
+        console.log('java \t script');
+        console.log('java \r script');
+
+        // 插入引号
+        let str = 'I\'m a cool boy';
+        console.log(str);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

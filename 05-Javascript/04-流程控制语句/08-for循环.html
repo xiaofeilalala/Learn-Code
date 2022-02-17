@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for循环</title>
+    <script>
+        // for循环：用于多次遍历代码块
+        // for循环执行步骤：初始化变量赋值 -> 迭代时判断条件表达式是否成立 -> 成立执行，否则停止循环 -> 在每次迭代后更新递增或者递减
+        // for 循环由初始变量、条件表达式、操作表达式组成
+        for (let i = 0; i <= 3; i++) {
+            console.log(`i = ${i}`); // 0 1 2 3
+        };
+        // 初始化变量：其实就是用let声明一个普通的变量，并且这个变量通常是作为计数器使用
+        // 条件表达式：用来决定每一次循环是否继续执行，也就是循环的终止条件
+        // 操作表达式：每次循环最后执行的代码，经常用于更新计数器（递增或递减）
+
+        // for循环可以省略一部分语句
+        let j = 1;
+        // 不再需要条件表达式语句段
+        for(; j <= 3; j++) {
+            console.log(`j = ${j}`); // 1 2 3
+        }
+
+        // 省略操作表达式
+        let y = 1;
+        for(; y <= 3;) {
+            console.log(`y = ${y++}`); // 1 2 3
+        }
+
+        // 无限循环
+        // 两个 ; 必须存在，否则会出现语法错误
+        for (;;) {
+            console.log('无限循环');
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

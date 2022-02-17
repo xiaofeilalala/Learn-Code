@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>字符串引号</title>
+    <script>
+        // 字符串可以包含在单引号'',双引号"",反引号``中
+        let str = 'hello';
+        let str1 = "world";
+        let str2 = `jsx`;
+        console.log(str, str1, str2);
+
+        // 单引号，双引号，反引号能相互嵌套，同类引号不能嵌套
+        let str3 = `<div class="box">${str2}</div>`;
+        console.log(str3);
+
+        // 反引号允许跨行
+        // let str4 = 'jsx
+        // ljj
+        // zdj 
+        // ddc';
+        // console.log(str4); // 错误 单引号双引号字符串不能换行
+
+        let str5 = `jsx
+        ljj
+        zdj
+        ddc`;
+        console.log(str5);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fromCharCode()方法</title>
+    <script>
+        // 通过字符编码返回字符  不能识别码点大于0xFFFF的字符
+        console.log('🦓'.charCodeAt(0)); // 55358 🦓 是4字节 55358为前2个字节的编码值
+        console.log('🦓'.charCodeAt(1)); // 56723 🦓 是4字符 55358为后2个字节的编码值
+
+        console.log('🦓'.codePointAt(0)); // 129427 该方法可以处理4字节 返回一个编码值
+        console.log(String.fromCharCode(129427)); // 煉 该方法识别大于0xFFFF的字符最高位2会被舍弃 导致返回的字符不正确
+        console.log(String.fromCodePoint(129427)); // 🦓 能识别大于0xFFFF的字符
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

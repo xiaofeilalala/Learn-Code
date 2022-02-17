@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>字符串不可变</title>
+    <script>
+        let str = 'hello';
+        str[0] = 'H';  // 这种方式只能访问字符串不能修改
+        console.log(str[0]); // h
+
+        str =  str[0] + 'ELLO';
+        console.log(str); // hELLO
+        // 看上去是改变了字符串，实际上没有改变，只是重新给变量赋值了内存中开辟了新的内存空间，变量指向的地址变了，原始变量的值不会被修改依然存在
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

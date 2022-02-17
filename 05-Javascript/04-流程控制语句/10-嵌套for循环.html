@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>嵌套for循环</title>
+    <script>
+        // 嵌套for循环：在一个循环语句内再定义一个循环语句，也被称为双重for循环\
+
+        // 外部循环一次，内部的循环执行全部
+        for (let i = 1; i <= 3; i++) {
+            console.log(`外层${i}`);
+            for (let j = 1; j <= 5; j++) {
+                console.log(`内层----${j}`);
+            };
+        };
+
+        // 打印5行5列的星星
+        let star = '';
+        for (let i = 1; i <= 5; i++) {
+            for (let j = 1; j <= 5; j++) {
+                star = star + '🖕';
+            };
+            star = star + '\n';
+        };
+        console.log(star);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

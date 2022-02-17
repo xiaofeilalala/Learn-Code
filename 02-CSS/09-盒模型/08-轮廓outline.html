@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>轮廓</title>
+    <style type="text/css">
+        .box {
+            width:200px;
+            height: 200px;
+            background-color: rgb(255, 135, 66);
+            /* 设置轮廓的颜色 */
+            outline-color: #5f37f1;
+
+            /* 设置轮廓样式 */
+            outline-style: solid;
+
+            /* 设置轮廓宽度 */
+            outline-width: 4px;
+
+            /* 轮廓属性简写 */
+            outline:#5f37f1 solid 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- outline设置元素轮廓 围绕元素周围 不是元素尺寸的一部分 元素的宽度和高度属性不包含轮廓的宽度 -->
+    <div class="box"></div>
+</body>
+
+</html>

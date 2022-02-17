@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户调整元素尺寸</title>
+    <style type="text/css">
+        .box {
+            display: inline-block;
+            margin-right: 20px;
+            resize: horizontal;
+            width: 200px;
+            height: 100px;
+            background-color: #9840e0;
+            /* 属性生效，需要设置元素的 overflow 属性，值可以是 auto、hidden 或 scroll */
+            overflow: hidden;
+        }
+
+        textarea {
+            resize: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 用户调整元素尺寸 -->
+    <!-- resize: none|both|horizontal|vertical; -->
+    <!-- none：用户无法调整元素的尺寸 -->
+    <!-- both：用户可调整元素的高度和宽度 -->
+    <!-- horizontal：用户可调整元素的宽度 -->
+    <!-- vertical：用户可调整元素的高度 -->
+    <div class="box">用户调整元素尺寸</div>
+    
+    <!-- 防止文本域拖拽 -->
+    <textarea cols="30" rows="10">防止文本域拖拽</textarea>
+</body>
+
+</html>

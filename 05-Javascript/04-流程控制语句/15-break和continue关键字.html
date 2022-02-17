@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>break和continue关键字</title>
+    <script>
+        // break 会中断循环，并继续执行循环之后的代码(可用于for、for in、while、do while、switch语句)
+        // continue 中断循环中的一个迭代，条件成立再继续迭代(只能用于循环体)
+        for (let i = 0; i <= 5; i++) {
+            if (i == 3) {
+                break; // 当 i = 3 时条件成立执行 break终止循环
+            };
+            console.log(i); // 0 1 2
+        }
+        
+
+        for (let i = 0; i <= 5; i++) {
+            if (i == 3) {
+                continue; // 当 i = 3 时条件成立执行 continue中断循环中 i = 3 这次迭代
+            };
+            console.log(i); // 0 1 2 4 5
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

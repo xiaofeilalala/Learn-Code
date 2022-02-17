@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BFC详解</title>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .plan1 .plan1-box {
+            width: 100px;
+            height: 100px;
+            background-color: #ec532c;
+            border: 2px solid #49e6aa;
+        }
+
+        .plan2 .plan2-box {
+            width: 100px;
+            height: 100px;
+            background-color: #ec532c;
+            border: 2px solid #49e6aa;
+        }
+        .plan2 .plan2-box:nth-child(1) {
+            margin-bottom: 20px;
+        }
+
+        .plan2 .plan2-box:nth-child(2) {
+            margin-top: 30px;
+        }
+
+        .plan3 {
+            background-color: #50bfff;
+            overflow: hidden;
+        }
+        
+        .plan3 .plan3-box {
+            float: left;
+            width: 100px;
+            height: 100px;
+            background-color: #ec532c;
+            border: 2px solid #49e6aa;
+            margin: 0 20px;
+        }
+        .normal {
+            width: 170px;
+            height: 170px;
+            background-color: #783ae4;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 具有 BFC 特性的元素可以看作是隔离了的独立容器，容器里面的元素不会在布局上影响到外面的元素，并且 BFC 具有普通容器所没有的一些特性 -->
+
+    <!-- 特性一：具有 BFC 特性元素的子元素会一个接一个的放置 -->
+    <h3>具有 BFC 特性元素的子元素会一个接一个的放置</h3>
+    <div class="plan1">
+        <div class="plan1-box"></div>
+        <div class="plan1-box"></div>
+        <div class="plan1-box"></div>
+    </div>
+
+    <!-- 特性二：具有 BFC 特性的元素中相邻的块级元素的外边距会折叠 -->
+    <h3>具有 BFC 特性的元素中相邻的块级元素的外边距会折叠</h3>
+    <div class="plan2">
+        <div class="plan2-box"></div>
+        <div class="plan2-box"></div>
+    </div>
+
+    <!-- 特性三：BFC 可以包含浮动的元素（清除浮动），阻止元素被浮动元素覆盖 -->
+    <!-- 特性四：计算BFC的高度时，浮动子元素也参与计算 -->
+    <h3>BFC 可以包含浮动的元素（清除浮动），阻止元素被浮动元素覆盖</h3>
+    <div class="plan3">
+        <div class="plan3-box"></div>
+        <div class="plan3-box"></div>
+        <div class="plan3-box"></div>
+        <div class="plan3-box"></div>
+    </div>
+    <div class="normal"></div>
+</body>
+
+</html>

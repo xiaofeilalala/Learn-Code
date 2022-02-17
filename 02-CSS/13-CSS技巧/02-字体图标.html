@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>字体图标</title>
+    <!-- font class引入 -->
+    <!-- 先引入iconfont文件 -->
+    <link rel="stylesheet" href="./font_2983890_dyeqx3kmxej/iconfont.css">
+
+
+    <style type="text/css">
+        /* unicode引入 */
+        /* 设置字体 @font-face */
+        @font-face {
+            font-family: 'iconfont';
+            src: url('./font_2983890_dyeqx3kmxej/iconfont.woff2') format('woff2'),
+                url('./font_2983890_dyeqx3kmxej/iconfont.woff') format('woff'),
+                url('./font_2983890_dyeqx3kmxej/iconfont.ttf') format('truetype');
+        }
+
+        /* 定义使用 iconfont 的样式 */
+        .iconfont {
+            font-family: "iconfont" !important;
+            font-size: 16px;
+            font-style: normal;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+    </style>
+
+    <!-- symol引入 是通过svg来使用 -->
+    <script src="./font_2983890_dyeqx3kmxej/iconfont.js"></script>
+    <!-- 定义字体样式 -->
+    <style type="text/css">
+        .icon {
+            width: 1em;
+            height: 1em;
+            vertical-align: -0.15em;
+            fill: currentColor;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- iconfont阿里巴巴字体图标 -->
+    <!-- unicode引入、font class引入、symbol引入 -->
+
+    <!-- font class引入 使用下载图标的对应类名 -->
+    <div class="iconfont icon-meh-filling"></div>
+
+    <!-- unicode引入 使用下载图标的对应字符编码 -->
+    <div class="iconfont">&#xe68b;</div>
+
+    <!-- symbol引入 使用svg标签引入对应的类名 -->
+    <svg class="icon" aria-hidden="true">
+        <use xlink:href="#icon-cry-filling"></use>
+    </svg>
+</body>
+
+</html>

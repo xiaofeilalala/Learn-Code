@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鼠标样式</title>
+    <style type="text/css">
+        img {
+            /* url 指向一个图像文件 */
+            /* x y 每个 url 后面都可选跟一对空格分隔的数字 x y 表示偏移 */
+            /* 浏览器将尝试加载指定的第一个图像，如果无法加载则返回下一个图像，如果无法加载图像或未指定图像，则使用关键字值代表的指针类型 */
+            cursor: url(https://cn.vuejs.org/images/icons/apple-icon-57x57.png) 4 12, pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- cursor 属性 设置光标的类型（如果有），在鼠标指针悬停在元素上时显示相应样式 -->
+    <img src="https://cn.vuejs.org/images/icons/apple-icon-57x57.png" alt="">
+</body>
+
+</html>

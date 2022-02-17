@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css书写规范</title>
+    <!-- css文件引入 -->
+    <!-- link方式 -->
+    <link rel="stylesheet" href="index.css">
+
+    <style type="text/css">
+        /* @import方式 */
+        @import url('index.css');
+
+        .wrapper-a {
+            position: relative;
+            display: block;
+            margin: 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            font-size: 18px;
+            font-family: Arial, Helvetica, sans-serif;
+            transition: all .5s;
+        }
+
+        /* 属性书写顺序：
+           布局定位属性
+           盒子模型自身属性
+           文本属性
+           其它css3属性
+        */
+
+        /* 语法规范：
+           选择器 属性名 属性值关键字全部小写 属性值字符串允许大写 
+           在每个声明块的左花括号前添加一个空格
+           在属性冒号：后加入一个空格
+           每一条声明语句必须使用 ;分号结尾
+           属性缩写
+           省略属性值小数点前面的0
+           简写16进制 用 #fff 代替 #ffffff
+           属性值为0 后面不要加入单位
+           一般使用 class 类选择器声明
+           多个选择器声明时建议分隔
+        */
+
+        /* 单行注释 */
+
+        /* 模块注释 */
+        /* Module c
+        ----------------------------------------------- */
+        .wrapper-c {
+            color: red;
+        }
+
+        /* 多行注释 */
+        /* .wrapper-c {
+            display: block;
+            font-size: 18px;
+            color: rgb(127, 34, 202);
+        } */
+
+        /* 文件信息注释 */
+        /**
+         *@desc index.css
+         *@author jsx
+         *@data 2021-10-12 
+         */
+    </style>
+</head>
+
+<body>
+    <h2 class="wrapper-a">css规范</h2>
+    <h2 class="wrapper-b">css规范</h2>
+    <h2 class="wrapper-c">css规范</h2>
+</body>
+
+</html>

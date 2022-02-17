@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>display属性</title>
+    <style type="text/css">
+        .block-box {
+            display: block;
+            height: 20px;
+            padding: 10px;
+            margin: 10px;
+            background-color: #9900ff;
+        }
+
+        .inline-box {
+            display: inline;
+            padding: 10px;
+            margin: 10px;
+            background-color: #00ccff;
+        }
+
+        .inlineblock-box {
+            display: inline-block;
+            width: 40%;
+            height: 20px;
+            padding: 10px;
+            margin: 10px;
+            background-color: #00ff95;
+        }
+
+        .list {
+            display: list-item;
+            list-style: inside disc;
+        }
+
+        .table-box {
+            display: table;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .table-caption-box {
+            display: table-caption;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .table-header-box {
+            display: table-header-group;
+        }
+
+        .table-body-box {
+            display: table-row-group;
+        }
+
+        .table-footer-box {
+            display: table-footer-group;
+        }
+
+        .table-tr-box {
+            display: table-row;
+        }
+
+        .table-th-box {
+            display: table-cell;
+            font-weight: bold;
+            border: 1px solid #ddd;
+            padding: 10px;
+            background-color: #aaaaaa;
+        }
+
+        .table-td-box {
+            display: table-cell;
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+
+        .flex-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            margin-top: 30px;
+        }
+
+        .flex-box .flex-list {
+            width: 20%;
+            height: 100px;
+            background-color: #ee8d47;
+            text-align: center;
+            line-height: 100px;
+        }
+
+        .grid-box {
+            display: grid;
+            margin-top: 40px;
+            grid-template-columns: 100px 100px;
+            grid-template-rows: 100px 100px;
+        }
+
+        .grid-box .grid-list:nth-child(1) {
+            background-color: #d2b11e;
+        }
+
+        .grid-box .grid-list:nth-child(2) {
+            background-color: #d21e87;
+        }
+
+        .grid-box .grid-list:nth-child(3) {
+            background-color: #ae1ed2;
+        }
+
+        .grid-box .grid-list:nth-child(4) {
+            background-color: #d2481e;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- display属性 -->
+    <!-- block：这个值会生成一个块级元素盒子，同时在该元素之前和之后换行 -->
+    <div class="block-box">block：这个值会生成一个块级元素盒子，同时在该元素之前和之后换行</div>
+
+    <!-- inline: 这个值会生成一个行内元素盒子，该元素之前和之后不会换行。如果空间充足，该元素后的元素将会在同一行显示 -->
+    <div class="inline-box">行内元素</div>
+    <div class="inline-box">该元素之前和之后不会换行</div>
+    <div class="inline-box">元素将会在同一行显示</div>
+
+    <!-- inline-block: 元素会产生一个块元素盒子，并且像内联盒子一样 -->
+    <div class="inlineblock-box">行内块元素</div>
+    <div class="inlineblock-box">元素会产生一个块元素盒子，并且像内联盒子一样</div>
+
+    <!-- list-item: 列表显示模式 -->
+    <div class="listitem-box">
+        <div class="list">列表显示模式</div>
+        <div class="list">为块级盒子</div>
+        <div class="list">内部显示类型变为多个列表显示</div>
+    </div>
+
+    <!-- table: 元素会作为块级表格来显示 -->
+    <div class="table-box">
+        <div class="table-caption-box">盒子名称</div>
+        <div class="table-header-box">
+            <div class="table-tr-box">
+                <div class="table-th-box">属性</div>
+                <div class="table-th-box">值</div>
+            </div>
+        </div>
+        <div class="table-body-box">
+            <div class="table-tr-box">
+                <div class="table-td-box">display</div>
+                <div class="table-td-box">table</div>
+            </div>
+            <div class="table-tr-box">
+                <div class="table-td-box">display</div>
+                <div class="table-td-box">flex</div>
+            </div>
+        </div>
+        <div class="table-footer-box">
+            <div class="table-tr-box">
+                <div class="table-td-box">display</div>
+                <div class="table-td-box">grid</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- flex: 是一种弹性布局属性 -->
+    <div class="flex-box">
+        <div class="flex-list">flex</div>
+        <div class="flex-list">flex</div>
+        <div class="flex-list">flex</div>
+    </div>
+
+    <!-- grid: 栅格模型，网格布局 -->
+    <div class="grid-box">
+        <div class="grid-list">grid</div>
+        <div class="grid-list">grid</div>
+        <div class="grid-list">grid</div>
+        <div class="grid-list">grid</div>
+    </div>
+
+    <!-- none: 关闭元素的显示 -->
+    <!-- contents: 这些元素自己不显示。它们被它们的伪盒（pseudo-box）和子项盒（child boxes）取代 -->
+    <!-- inline-flex:元素表现为一个内联元素，并对内容采用弹性盒子模型进行布局 -->
+    <!-- inline-grid: 元素表现为一个内联元素，并对内容采用网格模型进行布局 -->
+    <!-- inline-table: 它表现为一个HTML table 元素  但是又表现为一个不同于块级盒子的内联盒子-->
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>触发BFC清除浮动</title>
+    <style type="text/css">
+        .box {
+            background-color: #7fffd4;
+            border: 5px solid #3961e4;
+            /* 设置overflow 触发BFC规则 */
+            /* 缺点：当文本过长，且包含过长英文时，会出现英文文本被隐藏的情况 */
+            overflow: hidden;
+        }
+
+        .list-box {
+            float: left;
+            width: 120px;
+            height: 120px;
+            background-color: #ec532c;
+            margin: 0 20px;
+        }
+
+        .normal-box {
+            width: 200px;
+            height: 200px;
+            background-color: #e43a50;
+            line-height: 200px;
+            color: #fff;
+            font-size: 18px;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 触发BFC清除浮动 -->
+    <!-- 在浮动元素的父元素设置overflow属性 触发BFC规则清除浮动 -->
+    <div class="box">
+        <div class="list-box"></div>
+        <div class="list-box"></div>
+        <div class="list-box"></div>
+        <div class="list-box"></div>
+    </div>
+    <div class="normal-box">我是标准文档流的盒子</div>
+</body>
+
+</html>

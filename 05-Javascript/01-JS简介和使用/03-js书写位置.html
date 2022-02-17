@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js书写位置</title>
+    <!-- 内嵌式 -->
+    <!-- 通过scriptt标签插入到html文档内 现代javascript中不需要再声明type和language属性-->
+    <script>
+        document.write("<h1 style='text-align: center;'>Hello World</h1>");
+    </script>
+
+    <!-- 外部引用 -->
+    <!-- 通过script标签的src属性引用外部js文件，src路径可以为相对、绝对、网络路径 -->
+    <!-- 如果一个script标签设置了src属性，那么script标签内书写的代码会被忽略 -->
+    <script src="myjs.js"></script>
+    <script src="myjs.js">
+        // 这段js代码被忽略
+        document.write("<h1 style='text-align: center;'>Hello World</h1>");
+    </script>
+</head>
+
+<body>
+    <!-- 行内式：通过事件结合使用，js推荐使用单引号，html中的代码推荐使用双引号 -->
+    <h1 onclick="alert('Hello world')" style="text-align: center;">Hello world</h1>
+</body>
+
+</html>

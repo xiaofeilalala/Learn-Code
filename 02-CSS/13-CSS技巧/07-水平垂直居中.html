@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>水平垂直居中</title>
+    <style type="text/css">
+        .container {
+            background-color: #f5f5f5;
+            text-align: center;
+            height: 200px;
+            line-height: 200px;
+            margin-bottom: 20px;
+        }
+        
+        .container .box {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            background-color: #008cff;
+            vertical-align: middle;
+        }
+
+        .position-box {
+            position: relative;
+            background-color: #f5f5f5;
+            text-align: center;
+            height: 200px;
+            margin-bottom: 20px;
+        }
+
+        .margin-box {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-top: -50px;
+            margin-left: -50px;
+            width: 100px;
+            height: 100px;
+            background-color: #008cff;
+        }
+
+        .transform-box {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 100px;
+            height: 100px;
+            background-color: #008cff;
+        }
+
+        .table-box {
+            display: table;
+            width: 100%;
+            background-color: #f5f5f5;
+            margin-bottom: 20px;
+            height: 200px;
+        }
+
+        .table-box .cell-box {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        .table-box .cell-box .box {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            background-color: #008cff;
+        }
+
+        .false-box {
+            background-color: #f5f5f5;
+            margin-bottom: 20px;
+            height: 200px;
+            text-align: center;
+        }
+
+        .false-box::before {
+            display: inline-block;
+            content: "";
+            height: 100%;
+            width: 0;
+            vertical-align: middle;
+        }
+
+        .false-box .box {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            background-color: #008cff;
+            vertical-align: middle;
+        }
+
+        .auto-box {
+            position: relative;
+            background-color: #f5f5f5;
+            margin-bottom: 20px;
+            height: 200px;
+        }
+
+        .auto-box .box {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background-color: #008cff;
+            margin: auto;
+        }
+
+        .flex-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 200px;
+            background-color: #f5f5f5;
+            margin-bottom: 20px;
+        }
+
+        .flex-box .box {
+            width: 100px;
+            height: 100px;
+            background-color: #008cff;
+        }
+
+        .grid-box {
+            display: grid;
+            height: 200px;
+            background-color: #f5f5f5;
+            grid-template-columns: repeat(1, 1fr);
+            justify-items: center;
+            align-items: center;
+        }
+        .grid-box .box {
+            width: 100px;
+            height: 100px;
+            background-color: #008cff;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 水平垂直居中 -->
+
+    <!-- text-align + line-height （行内元素/行内块元素|父元素需要设置高度，子元素可以不设置高度） -->
+    <div class="container">
+        <div class="box"></div>
+    </div>
+
+    <!-- position + margin-top/margin-bottom （块级元素/行内元素/行内块元素|子元素需要设置高度） -->
+    <div class="position-box">
+        <div class="margin-box"></div>
+    </div>
+
+    <!-- position + transform （块级元素/行内元素/行内块元素） -->
+    <div class="position-box">
+        <div class="transform-box"></div>
+    </div>
+
+
+    <!-- display: table + display: table-cell + text-align + vertical-center （行内元素/行内块元素） -->
+    <div class="table-box">
+        <div class="cell-box">
+            <div class="box"></div>
+        </div>
+    </div>
+
+
+    <!-- 伪元素 + text-align + vertical-center （行内元素/行内块元素|父元素需要设置高度） -->
+    <div class="false-box">
+        <div class="box"></div>
+    </div>
+
+
+    <!-- position + top/right/bottom/left: 0 + margin （块级元素/行内元素/行内块元素|子元素需要设置高度） -->
+    <div class="auto-box">
+        <div class="box"></div>
+    </div>
+
+
+    <!-- flex + align-items + justify-content （块级元素/行内元素/行内块元素） -->
+    <div class="flex-box">
+        <div class="box"></div>
+    </div>
+
+    <!-- grid （块级元素/行内元素/行内块元素） -->
+    <div class="grid-box">
+        <div class="box"></div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动态伪类</title>
+    <style type="text/css">
+        .box {
+            display: block;
+            width: 100px;
+            height: 100px;
+            background-color: #4b7bec;
+            color: #fff;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .box:hover {
+            background-color: #eb3b5a;
+        }
+
+        .box:active {
+            border: 4px solid #2bcbba;
+        }
+
+        input {
+            display: inline-block;
+            outline: 0;
+            margin: 0 auto;
+        }
+        input:focus {
+            border: 2px solid#a55eea;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 动态伪类  用户以某种方式和文档交互的时候应用。这些用户行为伪类，有时叫做动态伪类 -->
+    <!-- :hover —— 只会在用户将指针挪到元素上的时候才会激活，一般就是链接元素 -->
+    <!-- :focus —— 某个标签获得焦点时的样式时激活（比如某个输入框获得焦点） -->
+    <!-- :active —— 鼠标点击标签，但是不松手时激活 -->
+    <p>用户将指针挪到元素上的时候才会激活</p>
+    <p>鼠标点击标签，但是不松手时激活</p>
+    <div class="box">动态伪类</div>
+
+    <p>获得焦点时的样式时激活</p>
+    <input type="text">
+</body>
+
+</html>

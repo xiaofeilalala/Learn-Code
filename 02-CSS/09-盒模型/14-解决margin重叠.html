@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>解决margin重叠方案</title>
+    <style type="text/css">
+        .father-box {
+            /* 父元素设置overflow 触发BFC */
+            overflow: hidden;
+        }
+
+        .box-top,
+        .box-bottom {
+            width: auto;
+            height: 200px;
+        }
+
+        .box-top {
+            background-color: #00a8ff;
+            margin-bottom: 50px;
+        }
+
+        .box-bottom {
+            background-color: #9c88ff;
+            /* 去掉这个元素的margin 来解决margin重叠 */
+            /* margin-top: 30px; */
+        }
+
+        .box-son {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- margin重叠 -->
+    <!-- 解决方案一：只给其中一个元素设置margin来解决 -->
+    <div class="box-top"></div>
+    <div class="box-bottom"></div>
+
+    <!-- 解决方案二：给每个元素添加父元素 然后触发BFC规则 -->
+    <div class="father-box">
+        <div class="box-top"></div>
+    </div>
+    <div class="father-box">
+        <div class="box-bottom box-son"></div>
+    </div>
+</body>
+
+</html>

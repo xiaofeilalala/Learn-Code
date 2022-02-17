@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>字符串拼接</title>
+    <script>
+        // +号拼接字符串是一种隐式转换，当字符串类型与其它类型相加时就会将其它类型转换为字符串然后拼接
+        console.log('js' + 'hello'); //jshello
+        console.log('js' + 1); //js1
+        console.log('js' + true); // jstrue
+        console.log('js' + null); // jsnull
+        console.log('js' + undefined); // jsundefined
+        console.log('js' + { name: 'jsx', age: 23 }); // js[object Object]
+        console.log('js' + [1, 2, 3]); // js1,2,3
+        console.log('js' + function () { }); // jsfunction(){}
+
+        // 空字符串''、字符串 '1'、字符串 '0' 转换为 ''、'1'、'0'
+        // 数字类型 0、1、NaN、Infinity、-Infinity 转换为 '0'、'1'、'NaN'、'Infinity'、'-Infinity'
+        // 布尔类型 true 和 false 转换为 'true'、'false'
+        // null、undefined 值 转换为 'null'、'undefined'
+        // 空对象 { } 转换为 '[object Object]'
+        // 数组[]空数组、['jsx'] 数组、['jsx', 'ljj']数组 转换为 ''、'jsx'、'jsx' 'ljj'
+        // 函数 function() { } 转换为 'function() {}'
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

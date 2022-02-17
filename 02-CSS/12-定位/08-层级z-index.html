@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>层级z-index</title>
+    <style type="text/css">
+        .box {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+        }
+
+        .big {
+            /* 层级最高 */
+            z-index: 999;
+            background-color: #00a8ff;
+            width: 200px;
+            height: 200px;
+        }
+
+        .normal {
+            /* 层次第二 */
+            z-index: 100;
+            background-color: #9c88ff;
+            width: 240px;
+            height: 240px;
+        }
+
+        .small {
+            /* 层级最小 */
+            z-index: 1;
+            background-color: #fbc531;
+            width: 260px;
+            height: 260px;
+        }
+
+        .same {
+            /* 层级第二 后面覆盖前面 */
+            z-index: 100;
+            background-color: #4cd137;
+            width: 230px;
+            height: 230px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 层级 z-index: auto|number -->
+    <!-- 一个元素可以有正数或负数的堆叠顺序（数字越大层级越高） -->
+    <!-- 如果属性相同的情况下，则按照书写顺序，后面的层叠前面的 -->
+    <!-- 只有定位的元素才具有 z-index 属性 -->
+    <div class="box big"></div>
+    <div class="box normal"></div>
+    <div class="box small"></div>
+    <div class="box same"></div>
+</body>
+
+</html>

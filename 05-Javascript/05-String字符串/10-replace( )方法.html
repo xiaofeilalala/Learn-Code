@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>replace()替换</title>
+    <script>
+        // 替换字符串：replace() 方法用于在字符串中用一些字符替换另一些字符，或替换一个与正则表达式匹配的字符串
+        // str.replace(searchValue, newValue);
+        // 方法不会改变调用它的字符串。它返回的是新字符串
+        let str = 'Hello World';
+        let str1 = str.replace('World', 'JSX');
+        console.log(str); // Hello World
+        console.log(str1); // Hello JSX
+
+        // 对大小写敏感，只替换首个匹配 如果要全局替换，需要使用正则
+        let str2 = 'Today is fine day,today is fine day';
+        str3 = str2.replace('Today', 'Torrow');
+        console.log(str2.replace('today', 'Torrow')); // 大小写敏感 匹配不到不替换
+        console.log(str3); // Torrow is fine day,today is fine day 只匹配了首个
+
+        // 替换一个与正则表达式匹配的子串
+        str4 = str2.replace(/Today/gi, 'Torrow');
+        console.log(str4); // Torrow is fine day,Torrow is fine day
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

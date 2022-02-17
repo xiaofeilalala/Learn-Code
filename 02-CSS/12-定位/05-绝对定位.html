@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>绝对定位</title>
+    <style type="text/css">
+        .box {
+            position: relative;
+            width: 220px;
+            height: 220px;
+            background-color: #df5c5c;
+        }
+
+        .child-box {
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+            width: 100px;
+            height: 100px;
+            background-color: #7700ff;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 绝对定位 absolute -->
+    <!-- 以元素父元素为基点定位 当父元素未设置定位或者设置static时 会向外层选择定位的元素直到根元素 html 这是就以根元素为基点定位-->
+    <!-- 脱离文档流 在正常页面流中，该元素所占空间为零，周边元素不受影响 -->
+    <!-- 搭配 top|right|bottom|left 用来指定偏移的方向和距离 -->
+    <div class="box">
+        <div class="child-box"></div>
+    </div>
+</body>
+
+</html>

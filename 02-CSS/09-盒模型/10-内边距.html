@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>内边距</title>
+    <style type="text/css">
+        .box1,
+        .box2 {
+            display: inline-block;
+            width: 200px;
+            height: 200px;
+            background-color: #594aaf;
+
+            /* padding可以设置元素4个边的内边距 */
+            /* 顺序为 top -> right -> bottom -> left */
+            padding-top: 20px;
+            padding-right: 20px;
+            padding-bottom: 20px;
+            padding-left: 20px;
+
+            /* padding 简写属性 */
+            padding: 20px 20px 20px 20px;
+        }
+
+        /* 块级元素默认为横占一行宽度为100%，当不给块级元素设置宽度（默认宽度）然后再设置padding，此时块级元素的宽度不会改变 */
+        /* 块级元素设置了宽度此时再设置padding就会撑大盒子 */
+        .box2 {
+            width: 100%;
+        }
+
+        .box3 {
+            padding: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- padding 内边距 元素边框与元素内容之间的空间 -->
+    <!-- padding填充的区域会受到元素背景颜色的填充 -->
+    <div class="box1">
+        <div class="box3"></div>
+    </div>
+    <div class="box2"></div>
+</body>
+
+</html>

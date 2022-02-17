@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数字类型</title>
+    <script>
+        // 数字类型：用来定义数字代表整数和浮点数
+        let num = 123;
+        let num1 = 1.3415926;
+
+        // 最大的正数
+        let maxNum = Number.MAX_VALUE;
+        console.log(maxNum);
+        // 最小的正数 最小正数即最接近 0 的正数 (实际上不会变成 0)
+        let minNum = Number.MIN_VALUE;
+        console.log(minNum);
+
+        // 特殊数字：Infinity,-Infinity,NaN
+        // 无穷大,负无穷大,NaN一个不正确的或者一个未定义的数学操作所得到的结果,任何对NaN的进一步操作都会返回NaN
+        console.log(1 / 0); // Infinity
+        console.log(- (1 / 0)); // -Infinity
+        console.log(3 / "jsx"); // NaN
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

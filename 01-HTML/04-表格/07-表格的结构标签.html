@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表格的结构标签</title>
+</head>
+
+<body>
+    <table border="1px" cellspacing="0px" cellpadding="0px" height="160px" width="240px">
+        <!-- 表格标题标签必须紧随 table 标签之后，并且一个表格只能有一个标签 -->
+        <caption align="left">人员信息表</caption>
+
+        <!-- 表格的头部 -->
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>分数</th>
+            </tr>
+        </thead>
+
+        <!-- 表格的主体 -->
+        <tbody>
+            <tr align="center">
+                <td>威廉</td>
+                <td>男</td>
+                <td>99分</td>
+            </tr>
+
+            <tr align="center">
+                <td>杰克</td>
+                <td>男</td>
+                <td>80分</td>
+            </tr>
+
+            <tr align="center">
+                <td>利维亚</td>
+                <td>女</td>
+                <td>60分</td>
+            </tr>
+        </tbody>
+
+        <!-- 表格的尾部 -->
+        <tfoot>
+            <tr>
+                <td colspan="2" align="center">总分</td>
+                <td colspan="1" align="center">239分</td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+
+</html>

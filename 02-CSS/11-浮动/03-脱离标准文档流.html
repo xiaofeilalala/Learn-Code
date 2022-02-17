@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>脱离标准文档流</title>
+    <style type="text/css">
+        .box1 {
+            /* 设置浮动后元素会浮动 */
+            /* 元素不会占据原来位置 会浮在标准文档流元素上 */
+            float: left;
+            width: 150px;
+            height: 100px;
+            background-color: #43e7b1;
+        }
+
+        .box2 {
+            width: 200px;
+            height: 200px;
+            background-color: #ee632d;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 浮动特性 脱离标准文档流 -->
+    <!-- 在标准文档流下两个块级元素是换行排列 -->
+    <div class="box1"></div>
+    <div class="box2"></div>
+</body>
+
+</html>

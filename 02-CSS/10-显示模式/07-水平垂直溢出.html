@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>水平垂直溢出</title>
+    <style type="text/css">
+        div {
+            float: left;
+            width: 200px;
+            height: 100px;
+            background-color: #ddd;
+            margin: 0 20px;
+            padding: 10px;
+        }
+
+        .box-x {
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        .box-y {
+            overflow-y: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 水平垂直溢出 -->
+    <!-- overflow-x 指定如何处理内容的左/右边缘 -->
+    <div class="box-x">overflow-x 和 overflow-y 属性规定是仅水平还是垂直地（或同时）更改内容的溢出overflow-x 和 overflow-y
+        属性规定是仅水平还是垂直地（或同时）更改内容的溢出</div>
+
+    <!-- overflow-y 指定如何处理内容的上/下边缘 -->
+    <div class="box-y">overflow-x 和 overflow-y 属性规定是仅水平还是垂直地（或同时）更改内容的溢出overflow-x 和 overflow-y
+        属性规定是仅水平还是垂直地（或同时）更改内容的溢出</div>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>什么是定位?</title>
+    <style type="text/css">
+        .box {
+            /* absolute，fixed 定位会脱离标准文档流，sticky 当为页面未超过设置区域时按照标准文档流，当超出设置区域时会脱离标准文档流 */
+            position: static;
+            position: relative;
+            position: absolute;
+            position: fixed;
+            position: sticky;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 定位：定位用来指定一个元素在网页的位置 -->
+    <!-- static 静态定位 默认 元素会按照标准文档流放在正常的位置 -->
+    <!-- relative 相对定位 相对于元素自身的位置进行偏移 -->
+    <!-- absolute 绝对定位 相对于元素的父元素定位 当父元素设置了静态定位时相对于文档最外层元素html定位 -->
+    <!-- fixed 固定定位 相对于浏览器窗口定位 元素不会随着页面滚动变化位置 -->
+    <!-- sticky 粘性定位 基于浏览器滚动位置定位 当页面滚动超出设置sticky属性的区域时 该元素就会固定在目标位置 -->
+    <div class="box"></div>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>布尔类型转换</title>
+    <script>
+        // 布尔类型转换
+        // Boolean()、!非运算符 隐式转换
+        let num = 3;
+        console.log(Boolean(num), typeof Boolean(num)); // true boolean
+        // !非运算符是布尔取反操作 可以通过 !! 进行布尔类型转换
+        console.log(!!num, typeof (!!num)); // true boolean
+
+        // 其它类型转换为布尔类型规则：
+        // 直观上为空的值（0、空字符串、null、undefined 和 NaN）将变为 false
+        // 其他值变成 true
+        let str = 'jsx';
+        console.log(Boolean(str), typeof Boolean(str)); // true boolean
+        console.log(Boolean(''), typeof Boolean('')) // false boolean
+        console.log(Boolean(123), typeof Boolean(123)); // true boolean
+        console.log(Boolean(0), typeof Boolean(0)); // false boolean
+        console.log(Boolean(NaN), typeof Boolean(NaN)); // false boolean
+        console.log(Boolean(null), typeof Boolean(null)); // false boolean
+        console.log(Boolean(undefined), typeof Boolean(undefined)); // false boolean
+        
+        // 对象类型和数组类型转换为布尔类型
+        let obj = {};
+        let arr = ['jsx', 2];
+        console.log(Boolean(obj), typeof Boolean(obj)); // true boolean
+        console.log(Boolean(arr), typeof Boolean(arr)); //true boolean
+
+        // 函数转换为布尔类型
+        let func = function () {};
+        console.log(Boolean(func), typeof Boolean(func)); // true boolean
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

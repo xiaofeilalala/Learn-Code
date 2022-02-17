@@ -1,0 +1,23 @@
+{
+  "id": "2983890",
+  "name": "im-qq",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "15838616",
+      "name": "meh-filling",
+      "font_class": "meh-filling",
+      "unicode": "e68b",
+      "unicode_decimal": 59019
+    },
+    {
+      "icon_id": "15838617",
+      "name": "cry-filling",
+      "font_class": "cry-filling",
+      "unicode": "e689",
+      "unicode_decimal": 59017
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>属性选择器</title>
+    <style type="text/css">
+        /* a标签中有title属性的元素设置颜色样式 */
+        a[title] {
+            color: #FD7272;
+        }
+
+        /* a标签中有target属性并且值为_blank的元素设置样式 */
+        a[target="_blank"] {
+            color: #9b59b6;
+        }
+
+        /* p标签中有class属性并且值包含hello的元素设置样式 */
+        p[class~="hello"] {
+            background-color: #e74c3c;
+        }
+
+        /* p标签中有class属性并且值必须以top开头的元素设置样式 值必须为完整单词 */
+        p[class|="top"] {
+            background-color: #3498db;
+        }
+
+        /* p标签中有class属性并且值必须以top开头的元素设置样式 值不必为完整单词 */
+        p[class^="text"] {
+            background-color: #2ecc71;
+        }
+
+        /* p标签中有class属性并且值必须以box结尾的元素设置样式 值不必为完整单词 */
+        p[class$="box"] {
+            background-color: #1abc9c;
+        }
+
+        /* p标签中有class属性并且值包含指定词的元素 值不必为完整单词 */
+        p[class*="sp"] {
+            background-color: #f1c40f;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 属性选择器 -->
+    <!-- [attribute] 匹配带有指定属性的元素 -->
+    <div>
+        <a href="#">匹配带有指定属性的元素</a>
+        <a href="#" title="链接">匹配带有指定属性的元素</a>
+    </div>
+
+    <!-- [attribute="value"] 匹配带有指定属性和值的元素-->
+    <div>
+        <a href="#" target="_blank">匹配带有指定属性和值的元素</a>
+        <a href="#">匹配带有指定属性和值的元素</a>
+    </div>
+
+    <!-- [attribute~="value"] 选择器选取属性值包含指定词的元素 -->
+    <div>
+        <p class="hello world">选择器选取属性值包含指定词的元素</p>
+        <p class="world">选择器选取属性值包含指定词的元素</p>
+    </div>
+
+    <!-- [attribute|="value"] 选择器用于选取指定属性以指定值开头的元素 值必须是完整单词-->
+    <div>
+        <p class="top-box">选择器用于选取指定属性以指定值开头的元素</p>
+        <p class="topbox">选择器用于选取指定属性以指定值开头的元素</p>
+    </div>
+
+    <!-- [attribute^="value"]  选择器用于选取指定属性以指定值开头的元素 值不必是完整单词 -->
+    <div>
+        <p class="text">选择器用于选取指定属性以指定值开头的元素</p>
+        <p class="textbox">选择器用于选取指定属性以指定值开头的元素</p>
+        <p title="文本描述">选择器用于选取指定属性以指定值开头的元素</p>
+    </div>
+
+    <!-- [attribute$="value"] 选择器用于选取指定属性以指定值结尾的元素 值不必是完整单词 -->
+    <div>
+        <p class="content-box">选择器用于选取指定属性以指定值结尾的元素</p>
+        <p class="contentbox">选择器用于选取指定属性以指定值结尾的元素</p>
+        <p class="content-boxs">选择器用于选取指定属性以指定值结尾的元素</p>
+    </div>
+
+    <!-- [attribute*="value"] 选择器选取属性值包含指定词的元素 值不必是完整单词 -->
+    <div>
+        <p class="nbsp">选择器选取属性值包含指定词的元素</p>
+        <p class="spell">选择器选取属性值包含指定词的元素</p>
+    </div>
+</body>
+
+</html>

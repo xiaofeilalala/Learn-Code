@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>overflow溢出</title>
+    <style type="text/css">
+        div {
+            float: left;
+            width: 200px;
+            height: 100px;
+            background-color: #ddd;
+            margin: 0 20px;
+            padding: 10px;
+        }
+
+        .visible {
+            overflow: visible;
+        }
+
+        .hidden {
+            overflow: hidden;
+        }
+
+        .scroll {
+            overflow: scroll;
+        }
+
+        .auto {
+            overflow: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- overflow溢出 -->
+    <!-- overflow: hidden|visible|scroll|auto; -->
+    <!-- 溢出隐藏|默认溢出没有被剪裁。内容在元素框外渲染|溢出被剪裁，同时添加滚动条以查看其余内容|仅在必要时添加滚动条 -->
+    <div class="visible">溢出隐藏|默认溢出没有被剪裁。内容在元素框外渲染|溢出被剪裁，同时添加滚动条以查看其余内容|仅在必要时添加滚动条</div>
+    <div class="hidden">溢出隐藏|默认溢出没有被剪裁。内容在元素框外渲染|溢出被剪裁，同时添加滚动条以查看其余内容|仅在必要时添加滚动条</div>
+    <div class="scroll">溢出隐藏|默认溢出没有被剪裁。内容在元素框外渲染|溢出被剪裁，同时添加滚动条以查看其余内容|仅在必要时添加滚动条</div>
+    <div class="auto">溢出隐藏|默认溢出没有被剪裁。内容在元素框外渲染|溢出被剪裁，同时添加滚动条以查看其余内容|仅在必要时添加滚动条</div>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>伪元素</title>
+    <style type="text/css">
+        /* first-letter 匹配元素内的第一个字符 */
+        p::first-letter {
+            font-size: 30px;
+        }
+        
+        p::selection {
+            color: #3ada95;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 伪元素 以::双冒号开头 用于创建一些不在文档树中的元素，并为其添加样式 -->
+    <p>伪元素</p>
+    <p>::selection匹配元素被选中的不分</p>
+</body>
+
+</html>

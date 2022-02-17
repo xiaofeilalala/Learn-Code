@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浮动元素内联排列</title>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .box {
+            /* 当浮动元素父元素宽度不够时折行排列 */
+            width: 40%;
+        }
+
+        .box-list {
+            float: left;
+            width: 100px;
+            height: 100px;
+            font-size: 18px;
+            text-align: center;
+            line-height: 100px;
+        }
+
+        .box-list:nth-child(1) {
+            background-color: #1abc9c;
+        }
+
+        .box-list:nth-child(2) {
+            background-color: #2ecc71;
+        }
+
+        .box-list:nth-child(3) {
+            background-color: #3498db;
+            height: 120px;
+            line-height: 120px;
+        }
+
+        .box-list:nth-child(4) {
+            background-color: #9b59b6;
+        }
+
+        .box-list:nth-child(5) {
+            background-color: #34495e;
+        }
+
+        .box-list:nth-child(6) {
+            background-color: #f1c40f;
+            height: 50px;
+            line-height: 50px;
+        }
+
+        .box-list:nth-child(7) {
+            background-color: #e67e22;
+        }
+
+        .box-list:nth-child(8) {
+            background-color: #e74c3c;
+        }
+
+        .box-list:nth-child(9) {
+            background-color: #ecf0f1;
+        }
+
+        .box-list:nth-child(10) {
+            background-color: #95a5a6;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 浮动元素会整行一起顶端对齐排列 当多个浮动元素沾满一行时会折行排列 -->
+    <!-- 浮动元素会一行排列 顶端对齐 -->
+    <!-- 当一行沾满后会折行排列 -->
+    <div class="box">
+        <div class="box-list">1</div>
+        <div class="box-list">2</div>
+        <div class="box-list">3</div>
+        <div class="box-list">4</div>
+        <div class="box-list">5</div>
+        <div class="box-list">6</div>
+        <div class="box-list">7</div>
+        <div class="box-list">8</div>
+        <div class="box-list">9</div>
+        <div class="box-list">10</div>
+    </div>
+</body>
+
+</html>

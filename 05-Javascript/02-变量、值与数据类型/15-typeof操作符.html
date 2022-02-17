@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>typeof操作符</title>
+    <script>
+        // typeof 操作符用来判断类型
+        // 运算符形式 typeof x
+        // 函数形式 typeof(x);
+
+        // 判断字符串返回String
+        console.log(typeof ("jsx"));
+
+        // 判断数字返回Number
+        console.log(typeof (123));
+
+        // 判断布尔值返回Boolean
+        console.log(typeof (true));
+
+        // 判断bigInt值返回BigInt
+        console.log(typeof (12312523453453n));
+
+        // 判断null返回Object 官方承认的typeof的行为上的错误
+        console.log(typeof (null));
+
+        // 判断undefined返回undefined
+        let name;
+        console.log(typeof (name));
+
+        // 判断symbol类型
+        console.log(typeof (Symbol('id')));
+
+        // typeof 运算符用于判断对象的类型，但是对于一些创建的对象，它们都会返回 object
+        // 判断object
+        let obj = {
+            name: 'jsx',
+            age: 22
+        }
+        console.log(typeof (obj));
+
+        let arr = [1, 2, 3];
+        console.log(typeof(arr));
+        
+        // 判断function
+        let func = function () {};
+        console.log(typeof(func));
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

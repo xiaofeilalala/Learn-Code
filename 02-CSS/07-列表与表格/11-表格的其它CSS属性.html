@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表格的其它css属性</title>
+    
+    <style type="text/css">
+        html {
+            font-family: arial, sans-serif;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #333;
+            border-collapse: collapse;
+            /* text-align 设置单元格内容水平对齐 */
+            text-align: center;
+            /* vertical-align 设置单元格内容垂直对齐 */
+            vertical-align: middle;
+        }
+
+        th,
+        td {
+            /* 设置单元格内边距 */
+            padding: 5px 10px;
+        }
+
+        thead tr th{
+            /* 单元格颜色 */
+            background-color: #333;
+            color: #fff;
+        }
+
+        table {
+            /* 设置表格的宽度 */
+            width: 40%;
+            /* 设置表格高度 */
+            height: 100%;
+            margin: 0 auto;
+        }
+
+        caption {
+            caption-side: top;
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #e94242;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <caption>网易云歌手排行</caption>
+        <thead>
+            <tr>
+                <th>排行榜</th>
+                <th>明星</th>
+                <th>代表作品</th>
+                <th>喜欢程度</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1️⃣</td>
+                <td>薛之谦</td>
+                <td>方圆几里</td>
+                <td>⭐⭐⭐⭐</td>
+            </tr>
+            <tr>
+                <td>2️⃣</td>
+                <td>薛之谦</td>
+                <td>方圆几里</td>
+                <td>⭐⭐⭐⭐</td>
+            </tr>
+            <tr>
+                <td>3️⃣</td>
+                <td>邓紫棋</td>
+                <td>泡沫</td>
+                <td>⭐⭐⭐⭐⭐</td>
+            </tr>
+            <tr>
+                <td>4️⃣</td>
+                <td>方大同</td>
+                <td>特别的人</td>
+                <td>⭐⭐⭐⭐⭐</td>
+            </tr>
+            <tr>
+                <td>5️⃣</td>
+                <td>许嵩</td>
+                <td>幻听</td>
+                <td>⭐⭐⭐⭐</td>
+            </tr>
+            <tr>
+                <td>6️⃣</td>
+                <td>陈柏宇</td>
+                <td>你瞒我瞒</td>
+                <td>⭐⭐⭐⭐⭐</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

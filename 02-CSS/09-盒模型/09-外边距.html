@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>外边距</title>
+    <style type="text/css">
+        .box1,
+        .box2,
+        .box3 {
+            display: inline-block;
+            width: 200px;
+            height: 200px;
+            background-color: #cf672b;
+
+            /* margin可以设置元素4个边的外边距 */
+            /* 顺序为 top -> right -> bottom -> left */
+            margin-top: 20px;
+            margin-right: 20px;
+            margin-bottom: 20px;
+            margin-left: 20px;
+            
+            /* margin 简写属性 */
+            margin: 20px 20px 20px 20px;
+        }
+
+        /* margin 会在元素边框外设置外边距推开其它元素，不会改变元素自身的宽度和高度 */
+        .box3 {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- margin 外边距 设置外边距（盒子与其它盒子之间的距离）-->
+    <!-- margin 没有背景颜色，是完全透明的 -->
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+</body>
+
+</html>

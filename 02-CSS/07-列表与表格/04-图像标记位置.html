@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图像标记位置</title>
+    <style type="text/css">
+        .list-inside {
+            list-style-image: url("image/list.png");
+            list-style-position: inside;
+        }
+
+        .list-outside {
+            list-style-image: url("image/list.png");
+            list-style-position: outside;
+        }
+
+        ul>li {
+            border: 1px solid #333;
+            margin-bottom: 10px;
+            margin-right: 80%;
+        }
+    </style>
+</head>
+<body>
+    <!-- 图像标记位置 list-style-position: inside|outside; -->
+    <!-- 文本内 环绕文本根据标记对齐|文本外 环绕文本不根据标记对齐 -->
+    <ul class="list-inside">
+        <li>列表标记</li>
+        <li>列表标记</li>
+        <li>列表标记</li>
+    </ul>
+
+    <ul class="list-outside">
+        <li>列表标记</li>
+        <li>列表标记</li>
+        <li>列表标记</li>
+    </ul>
+</body>
+</html>

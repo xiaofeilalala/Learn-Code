@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>显示模式转换</title>
+    <style type="text/css">
+        .box {
+            /* div默认为块级元素 通过display转换后为行内元素 */
+            /* 行内元素特点：一行多个显示 不能设置宽高上下外边距 */
+            display: inline;
+            width: 200px;
+            height: 200px;
+            background-color: #ff7300;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        .inline-box {
+            /* span默认为行内元素 通过display转换后为块级元素 */
+            /* 块级元素特点：默认宽度为父元素100% 可以设置宽高内外边距 独占一行 */
+            display: block;
+            background-color: #eb3241;
+            width: auto;
+            height: 200px;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        .inline-block-box {
+            /* span默认为行内元素 通过display转换后为行内块元素 */
+            /* 行内块元素特点：默认宽度为自身内容宽度 可以设置宽高内外边距 一行多个显示 */
+            display: inline-block;
+            background-color: #32c6eb;
+            width: auto;
+            height: 200px;
+            padding: 10px;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 显示模式转换 -->
+    <!-- 通过display属性给不同显示模式的元素设置显示模式 -->
+    <!-- display:inline 转换为行内元素 -->
+    <!-- display:block 转换为块级元素 -->
+    <!-- display:inline-block 转换为行内块元素 -->
+    <div class="box">块级元素</div>
+    <span class="inline-box">行内元素</span>
+    <span class="inline-block-box">行内块元素</span>
+</body>
+
+</html>

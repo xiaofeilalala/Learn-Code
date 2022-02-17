@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>流程控制</title>
+    <script>
+        // 流程控制：就是用来控制代码按照怎样的顺序来执行
+        // 有三大结构：顺序结构、分组结构、循环结构
+
+        // 分组结构: if语句、if else双分支语句、if else if多分支语句、switch语句、三元表达式
+        // 循环结构：for循环、while循环、do while循环
+
+        // if语句
+        if (3 > 1) {
+            console.log('if语句')
+        }
+
+        // if else 双分支语句
+        if (1 >= 0) {
+            console.log('if块')
+        } else {
+            console.log('else块')
+        }
+
+        // if else if 多分支语句
+        let year = 22;
+        if (year == 18) {
+            console.log(18);
+        } else if (year > 18) {
+            console.log('大于18')
+        } else if (year < 18) {
+            console.log('小于18')
+        } else {
+            console.log('错误')
+        }
+
+        // switch 语句
+        let name = 'ljj';
+        switch (name) {
+            case 'jsx':
+                console.log('jsx');
+                break;
+            case 'jf':
+                console.log('jf');
+                break;
+            default:
+                console.log('hello javascript');
+        }
+
+        // 三元表达式
+        let result = 5 > 2 ? true : false;
+        console.log(result)
+
+        // for 循环
+        for (let i = 0; i <= 5; i++) {
+            console.log(i);
+        }
+
+        // while 循环
+        let num = 0;
+        while (num <=3) {
+            console.log(num);
+            num++;
+        }
+
+        // do while 循环
+        let age = 18; 
+        do {
+            console.log('未成年');
+            break;
+        } while (age >=18)
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

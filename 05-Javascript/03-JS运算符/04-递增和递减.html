@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>递增和递减</title>
+    <script>
+        // 递增和递减：将变量与1相加或者相减
+        // 递增和递减分为：前置递增、递减和后置递增和递减
+
+        // 前置递增
+        let num = 1;
+        ++num;
+        console.log(num); //2
+        --num;
+        console.log(num); // 1
+
+        // 后置递增
+        let num1 = 1;
+        num1++;
+        console.log(num1); // 2
+        num1--;
+        console.log(num1); // 1
+
+        // 1.如果自增/自减的值不会被使用，那么两者形式没有区别
+
+        // 2.前置递增/递减就是先自身计算，再赋值给变量
+        let num2 = 1;
+        console.log(++num2); // 2
+
+        // 3.后置型递增/递减是先将自身的值赋值给变量，然后再计算自增/自减1
+        let num3 = 1;
+        console.log(num3++); //1
+
+        console.log(num3++ + ++num3); // 2 + (3+1) = 6
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

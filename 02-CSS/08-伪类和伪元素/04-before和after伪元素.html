@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>before和after伪元素</title>
+    <style type="text/css">
+        p::before {
+            content:"before元素前方插入";
+            color: #C4E538;
+            font-size: 18px;
+        }
+        p::after {
+            content:"after元素后方插入";
+            color: #12CBC4;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <!-- ::before 在元素前方插入内容 实际不会在文档树里 -->
+    <!-- ::after 在元素后方插入内容 实际不会在文档树里 -->
+    <!-- ::before和::after有一个属性content 用来创建插入的内容 -->
+    <p>before和after伪元素</p>
+</body>
+</html>

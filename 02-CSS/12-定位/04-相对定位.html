@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>相对定位</title>
+    <style type="text/css">
+        .box {
+            float: left;
+            width: 100px;
+            height: 100px;
+            margin: 0 20px;
+            background-color: #7700ff;
+        }
+
+        .position {
+            position: relative;
+            top: 20px;
+            left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 相对定位 relative -->
+    <!-- 相对于元素以本身为基点定位 不会脱离标准文档流 -->
+    <!-- 搭配 top|right|bottom|left 用来指定偏移的方向和距离 -->
+    <div class="box"></div>
+    <div class="box position"></div>
+    <div class="box"></div>
+</body>
+
+</html>

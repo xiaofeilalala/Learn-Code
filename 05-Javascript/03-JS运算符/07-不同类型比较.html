@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>不同类型比较</title>
+    <script>
+        // 不同类型比较
+        // 使用 > >= < <= == != 比较运算符是会发生隐式类型转换，转换为数字类型再进行比较
+        // null 被转化为 0，undefined 被转化为 NaN
+        console.log('5' > 3); // true
+        console.log(true == 1); // true
+        console.log(4 > 6); // false
+        console.log(1 >= '1'); // true
+        console.log(2 <= false); // false
+        console.log(null >= 0); // true
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

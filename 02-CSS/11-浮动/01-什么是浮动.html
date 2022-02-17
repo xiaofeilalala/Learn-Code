@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>什么是浮动</title>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        ul {
+            display: block;
+        }
+
+        ul>li {
+            /* 通过float属性 将元素脱离标准流向左或向右浮动 */
+            float: left;
+            display: block;
+            width: 200px;
+            height: 200px;
+            list-style: none;
+            text-align: center;
+            font-size: 30px;
+            color: #fff;
+            line-height: 200px;
+        }
+
+        ul li:nth-child(1) {
+            background-color: #49f39e;
+        }
+
+        ul li:nth-child(2) {
+            background-color: #4954f3;
+        }
+
+        ul li:nth-child(3) {
+            background-color: #f36249;
+        }
+
+        ul li:nth-child(4) {
+            background-color: #f3d449;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 浮动 float: none|left|right -->
+    <!-- 不浮动默认|左浮动|右浮动 -->
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+</body>
+
+</html>

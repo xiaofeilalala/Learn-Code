@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>input其它属性</title>
+</head>
+
+<body>
+    <form>
+        <!-- name属性 设置input元素的名字-->
+        <h3>name属性：</h3>
+        <input type="text" name="username">
+
+        <!-- name属性在复选框或者单元框使用时需保持相同的值 -->
+        <div class="radio-box">
+            <!-- checked属性 规定单选框或者多选框选中状态 -->
+            <input type="radio" name="gender" value="男" checked>男
+            <input type="radio" name="gender" value="女">女
+        </div>
+        <div class="checkbox-box">
+            <input type="checkbox" name="like" checked>篮球
+            <input type="checkbox" name="like">乒乓球
+        </div>
+
+        <!-- value属性 input元素的值 -->
+        <h3>value属性：</h3>
+        <input type="text" value="我是文本框的值">
+
+        <!-- maxlength属性 控制input元素输入字符长度 -->
+        <h3>maxlength属性：</h3>
+        <input type="text" maxlength="2">
+
+        <!-- readonly属性 规定只读不可修改input元素值 光标不会变化-->
+        <h3>readonly属性：</h3>
+        <input type="text" value="readonly" readonly>
+
+        <!-- disabled属性 规定只读不可修改input元素值 光标会变化不可点击-->
+        <h3>disabled属性：</h3>
+        <input type="text" value="disabled" disabled>
+
+        <!-- size属性 规定以字符数计的input元素的可见宽度 -->
+        <div class="size-box">
+            <h3>size属性：</h3>
+            <input type="text" size="30" value="size=30">
+            <input type="text" value="默认">
+        </div>
+        
+        <!-- checked属性 规定单选框或者多选框选中状态 -->
+        <h3>checked属性：</h3>
+        <div class="radio-box">
+            <input type="radio" name="isMarry">是
+            <input type="radio" name="isMarry" checked>否
+        </div>
+        <div class="checkbox-box">
+            <input type="checkbox" name="fruits">苹果
+            <input type="checkbox" name="fruits" checked>哈密瓜
+        </div>
+    </form>
+</body>
+
+</html>

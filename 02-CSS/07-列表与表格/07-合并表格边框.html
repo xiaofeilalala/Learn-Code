@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>合并表格边框</title>
+    <style type="text/css">
+        table {
+            margin: 0 auto 20px auto;
+            background-color: #93beff;
+            table-layout: auto;
+            width: 40%;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #333;
+        }
+
+        .separate {
+            border-collapse: separate;
+            border-spacing: 20px 10px;
+            empty-cells: hide;
+
+        }
+
+        .collapse {
+            border-collapse: collapse;
+            border-spacing: 5px;
+            empty-cells: hide;
+
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 合并表格边框 border-collapse: separate|collapse -->
+    <!-- sepatate: 默认不合并，不会忽略 border-spacing和 empty-cells属性 -->
+    <!-- collapse: 合并为一个单一的边框，会忽略border-spacing 和 empty-cells属性 -->
+    <table class="separate">
+        <tbody>
+            <tr>
+                <td>HTML</td>
+                <td>CSS</td>
+                <td>JavaScript</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="collapse">
+        <tbody>
+            <tr>
+                <td>HTML</td>
+                <td>CSS</td>
+                <td>JavaScript</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

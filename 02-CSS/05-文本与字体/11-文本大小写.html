@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文本大小写</title>
+    <style type="text/css">
+        .transform h1 {
+            text-align: center;
+        }
+
+        .transform h1:nth-child(1) {
+            text-transform: none;
+        }
+
+        .transform h1:nth-child(2) {
+            text-transform: capitalize;
+        }
+
+        .transform h1:nth-child(3) {
+            text-transform: uppercase;
+        }
+
+        .transform h1:nth-child(4) {
+            text-transform: lowercase;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 文本大小写 text-transform: none|capitalize|uppercase|lowercase; -->
+    <!-- 大小写标准文本|首字母大写|全部大写|全部小写 -->
+    <div class="transform">
+        <h1>Enjoy da big money 大小写标准文本</h1>
+        <h1>Enjoy da big money 首字母大写</h1>
+        <h1>Enjoy da big money 全部大写</h1>
+        <h1>Enjoy da big money 全部小写</h1>
+    </div>
+</body>
+
+</html>

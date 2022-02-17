@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>meta标签</title>
+</head>
+
+<body>
+    <!-- meta标签 -->
+    <h1>meta标签</h1>
+
+    <!-- 标签的作用 -->
+    <p>meta标签提供了HTML文档的元数据，位于文档的头部，不包含任何内容，不会显示在客户端，但是会被浏览器解析</p>
+
+    <!-- meta标签的属性 -->
+    <p>scheme属性，http-equiv 属性、name 属性和 HTML5 中的charset 属性</p>
+
+
+
+    <!-- scheme属性 HTML5不支持此属性-->
+    <h2>scheme属性</h3>
+    <p>用于翻译 content 属性的值的方案（格式和url）</p>
+    <!-- <meta scheme="ISBN" name="identifier" content="0-14-XXXXXX-1" > -->
+
+
+
+    <!-- charset属性 HTML5新属性 -->
+    <h2>charset属性</h3>
+    <p>用于定义字符集，即网页的编码方式</p>
+    <p>替代了HTML4.01 通过content-type定义</p>
+    <!-- HTML4.01 <meta http-equiv="content-type" content="text/html; charset=UTF-8" /> -->
+    <!-- HTML5.0 <meta charset="UTF-8" /> -->
+
+
+
+    <!-- name属性 -->
+    <h2>name属性</h3>
+    <p>name属性主要用于描述网页，与之对应的属性值为content，content中的内容主要是便于搜索引擎查找信息和分类信息用的。</p>
+    <!-- <meta name="参数" content="具体的参数值"> -->
+
+    <!-- keywords关键字 -->
+    <h3>keywords关键字</h3>
+    <p>告诉搜索引擎该网页的关键字</p>
+    <!-- <meta name="keywords" content="关键字"> -->
+
+    <!-- description 描述 -->
+    <h3>description 描述</h3>
+    <p>用于告诉搜索引擎你网站的主要内容，有助于 SEO 搜索引擎优化</p>
+    <!-- <meta name="description" content="网页的主要内容"> -->
+
+    <!-- author 作者 -->
+    <h3>author 作者</h3>
+    <!-- <meta name="author" content="jsx"> -->
+
+    <!-- generator 网页编辑器软件 -->
+    <h3>generator 网页编辑器软件</h3>
+    <!-- <meta name="generator" content="vscode,sublime"> -->
+
+    <!-- copyright 版权 -->
+    <h3>copyright 版权</h3>
+    <!-- <meta name="copyright" content="jsx©"> -->
+
+    <!-- robots 定义搜索引擎爬虫的索引方式 -->
+    <h3>robots 定义搜索引擎爬虫的索引方式</h3>
+    <ul>
+        <li>all：文件将被检索，且页面上的链接可以被查询，默认为all</li>
+        <li>none：文件将不被检索，且页面上的链接不可以被查询</li>
+        <li>index：文件将被检索</li>
+        <li>follow：页面上的链接可以被查询</li>
+        <li>noindex：文件将不被检索，但页面上的链接可以被查询</li>
+        <li>nofollow：文件将被检索，但页面上的链接不可以被查询</li>
+    </ul>
+    <!-- <meta name="robos" content="all"> -->
+
+    <!-- viewport 视口 -->
+    <h3>viewport 视口</h3>
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <ul>
+        <li>width：设置layout viewport的宽度，为一个正整数，或字符串width-device</li>
+        <li>initial-scale：设置页面的初始缩放值，为一个数字，可以带小数</li>
+        <li>minimum-scale：允许用户的最小缩放值，为一个数字，可以带小数</li>
+        <li>maximum-scale：允许用户的最大缩放值，为一个数字，可以带小数</li>
+        <li>height：设置layout viewport的高度，这个属性对我们并不重要，很少使用</li>
+        <li>user-scalable：是否允许用户进行缩放，值为no或yes, no 代表不允许，yes 代表允许</li>
+    </ul>
+
+
+
+    <!--  http-equiv属性 -->
+    <h2>http-equiv属性</h3>
+    <p>http-equiv相当于http的文件头作用，它可以向浏览器传回一些有用的信息，以帮助正确和精确地显示网页内容</p>
+
+    <!-- Content-Type -->
+    <h3>Content-Type</h3>
+    <p>设定网页的字符集，html4.01 用法不推荐，推荐使用html5的charest属性</p>
+    <!-- <meta http-equiv="content-type" content="text/html; charset=UTF-8"> -->
+
+    <!-- Expires -->
+    <h3>Expires</h3>
+    <p>期限，可以用于设定网页的到期时间。一旦网页过期，必须到服务器上重新传输</p>
+    <!-- <meta http-equiv="expires" content="Fri,12 Jan 2022 18:18:18 GMT"> -->
+
+    <!-- Refresh -->
+    <h3>Refresh</h3>
+    <p>刷新，自动刷新并指向新页面</p>
+    <!-- <meta http-equiv="refresh" content="时间（秒为单位）;URL"> -->
+
+    <!-- Set-Cookie -->
+    <h3>Set-Cookie</h3>
+    <p>cookie设定,如果网页过期，那么存盘的cookie将被删除</p>
+    <!-- 必须使用GMT的时间格式 -->
+    <!-- <meta http-equiv="set-cookie" content="cookievalue=xxx; expires=Friday,12-Jan-2021 22:36:18 GMT; path=/"> -->
+
+    <!-- Content-Language -->
+    <h3>Content-Language</h3>
+    <p>显示语言的设定</p>
+    <!-- <meta http-equiv="content-language" content="zh-cn"> -->
+
+    <!-- Window-Target -->
+    <h3>Window-Target</h3>
+    <p>显示窗口的设定</p>
+    <ul>
+        <li>_top：表示页面以当前整个窗口显示，可以防止自己的页面被其他网页嵌套</li>
+        <li>_blank： 表示页面以新打开的窗口显示</li>
+        <li>_parent：表示页面以父容器或窗口显示</li>
+        <li>_self：表示页面以当前容器或窗口显示</li>
+    </ul>
+    <!-- _top强制页面在当前窗口以独立页面显示 -->
+    <!-- <meta http-equiv="window-target" content="_top"> -->
+
+    <!-- Pragma -->
+    <h3>Pragma</h3>
+    <p>cache模式，是用于设定禁止浏览器从本地机的缓存中调阅页面内容，设定后一旦离开网页就无法从 cache 中再调出</p>
+    <ul>
+        <li>cache模式：允许脱机浏览。</li>
+        <li>no-cache模式：无法脱机浏览。</li>
+    </ul>
+    <!-- 当前无法脱机浏览 -->
+    <!-- <meta http-equiv="peragma" content="no-cache"> -->
+
+    <!-- Imagetoolbar -->
+    <h3>Imagetoolbar</h3>
+    <p>指定是否显示图片工具栏，当为 false 代表不显示，当为true代表显示</p>
+    <!-- <meta http-equiv="imagetoolbar" content="false"> -->
+</body>
+
+</html>

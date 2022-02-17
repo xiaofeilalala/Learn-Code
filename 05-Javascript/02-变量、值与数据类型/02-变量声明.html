@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>变量声明</title>
+    <script>
+        // 变量声明
+        // 通过var,let,const关键字声明
+        var name;
+        let age;
+        const GENDER = "男";
+
+        // 变量赋值 声明变量的同时赋值被称为变量初始化
+        // 可以通过赋值运算符=来为变量赋值
+        let num = 20;
+        console.log(num)
+
+        // 同时声明多个变量
+        // 若定义多个变量，则需要在变量名之间使用逗号,分隔开
+        let str = "str", numb = 123, bool = true;
+        console.log(str, numb, bool);
+        // 多变量同时赋值
+        let money = myMoney = yourMoney = 4000;
+        console.log(money, myMoney, yourMoney);
+
+        // 更新变量值
+        // 一个变量的值被重新赋值后，它原有的值会被覆盖，变量值将以最后一次的赋值为准
+        let change = "我是jsx";
+        console.log(change);
+        change = "我是ljj";
+        console.log(change);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

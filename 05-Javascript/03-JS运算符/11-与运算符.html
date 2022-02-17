@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>与运算符</title>
+    <script>
+        // 与运算符&&，与运算符与或运算符规则非常相似
+        // 当两个操作数都是真值时，与运算返回 true，否则返回 false
+        console.log(true && true); // true
+        console.log(true && false); // false
+        
+        // 当操作数不为布尔类型时,将会被转化为布尔值来参与运算
+        // 当在与运算每一个参数时，参数转换结果为false,则立即返回该参数的初始值，不会再去处理其他参数。也被称为短路运算
+        // 当参数转换后都为true时，则返回最后参数的初始值
+        console.log('hello world' && 2 && null); // null
+        console.log(undefined && null && -2); // undefined 
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表单伪类选择器</title>
+    <style type="text/css">
+        input {
+            outline: 0;
+            border: 1px solid rgb(65, 64, 64);
+            border-radius: 3px;
+            padding: 4px 10px;
+            height: 24px;
+            font-size: 18px;
+        }
+
+        /* 匹配处于开启状态的用户界面元素 */
+        .input-box input:enabled {
+            color: #D6A2E8;
+        }
+
+        /* 验证 input输入是否正确 */
+        .input-box input:valid {
+            color: #812ece;
+        }
+
+        /* 匹配用户不可更改的元素 */
+        .input-box input:read-only {
+            color: #1B9CFC;
+        }
+
+        /* 匹配处于关闭状态的用户界面元素 */
+        .input-box input:disabled {
+            color: #F97F51;
+        }
+
+        /* 匹配处于选中状态的单选或者复选框 */
+        .input-box input:checked {
+            width: 30px;
+            height: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 表单伪类选择器 :checked :disable :read-only :enabled :valid -->
+    <div class="input-box">
+        <!-- 匹配处于开启状态的用户界面元素 -->
+        <input type="text">
+
+        <!-- 验证表单元素的输入内容是否正确 -->
+        <input type="email">
+
+        <!-- 匹配处于关闭状态的用户界面元素 -->
+        <input type="text" disabled value="disabled">
+
+        <!-- 匹配用户不可更改的元素 -->
+        <input type="text" readonly value="readonly">
+        
+        <!-- 匹配处于选中状态的单选或者复选框 -->
+        <input type="checkbox">
+    </div>
+</body>
+
+</html>

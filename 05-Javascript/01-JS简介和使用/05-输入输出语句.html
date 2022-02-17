@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>输入输出语句</title>
+    <script>
+        // alert() 函数
+        // 弹出一个提示的模态窗显示自己定义的输出的内容
+        alert('Hello world');
+
+        // prompt() 函数 用户取消或者空值会返回null
+        // 显示一个带有文本消息的模态窗口还有input输入框和确定/取消按钮
+        // 两个参数 第一个显示的文本 第二个指定input框的初始值，初始值在不指定下IE浏览器会默认为undefined
+        var result = prompt("我是一个帅哥？", "是/否");
+        console.log(result);
+
+        // confirm() 函数
+        // 显示一个带有问题以及确定取消按钮的模态窗
+        // 点击确定返回true 取消为false
+        var res = confirm("你睡的着吗？");
+        console.log(res);
+
+        // console.log() 方法，在浏览器的控制台输出信息
+        console.log("Hello World");
+
+        // document.write() 方法只在页面加载时工作，如果我们稍后调用它，则现有文档内容将被擦除
+        // 执行 doucment.write()函数会自动调用 document.open() 函数创建一个新的文档流，并写入新的内容，再通过浏览器展现，这样就会覆盖原来的内容
+        document.close();
+        document.write("<h1>Hello document.wtite</h1>");
+
+    </script>
+</head>
+
+<body>
+    <h1 class="box">Hello innerHTML</h1>
+    <script>
+        // innerHTMl 属性可以返回或设置元素中的内容
+        var headTitle = document.querySelector(".box");
+        console.log(headTitle.innerHTML);
+        headTitle.innerHTML = "修改内容 hello world";
+    </script>
+</body>
+
+</html>

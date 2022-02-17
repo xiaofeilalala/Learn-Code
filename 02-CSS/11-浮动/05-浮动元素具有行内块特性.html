@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浮动元素具有行内块特性</title>
+    <style type="text/css">
+        .box {
+            float: left;
+            background-color: #00ffff;
+        }
+
+        .inline {
+            float: left;
+            width: 100px;
+            height: 100px;
+            background-color: #e25835;
+            line-height: 100px;
+        }
+
+        .span {
+            width: 100px;
+            height: 100px;
+            background-color: #7735e2;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 浮动元素具有行内块元素特性 -->
+    <!-- 任何元素都可以设置浮动 -->
+    <!-- 当块级元素设置浮动后 元素的（大小）宽度高度由内容决定 可以设置宽度 -->
+    <!-- 当行内元素设置浮动后 元素可以设置高度宽度 元素的（大小）宽度高度由内容决定 -->
+
+    <!-- div为块级元素使用浮动后会有行内块特性 -->
+    <div class="box">块级元素</div>
+
+    <!-- span -->
+    <span class="span">span</span>
+
+    <!-- span为行内元素使用浮动后会有行内块特性 -->
+    <span class="inline">行内元素</span>
+</body>
+
+</html>
