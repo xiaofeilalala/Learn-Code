@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浮点数计算解决方案</title>
+    <script>
+        function addPointNum(arg1, arg2) {
+            // 获取arg1参数 小数点后数字长度
+            let lastNumLength1 = arg1.toString().split('.')[1].length;
+            console.log(lastNumLength1);
+
+            // 获取arg2参数 小数点后数字长度
+            let lastNumLength2 = arg2.toString().split('.')[1].length;
+            console.log(lastNumLength2);
+
+            // 通过小数点长度来乘以10的倍数化整
+            let baseNum = Math.pow(10, Math.max(lastNumLength1, lastNumLength2));
+            console.log(baseNum);
+            let result = ((arg1 * baseNum) + (arg2 * baseNum)) / baseNum;
+            console.log(result);
+            return result;
+        }
+
+        addPointNum(0.1 , 0.2); // 0.3
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

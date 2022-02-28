@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>parseFloat()方法</title>
+    <script>
+        // parseFloat()方法 解析一个字符串，返回一个浮点数
+        // 全局 parseFloat()
+        // Number对象方法 Number.ParseFloat()
+
+        // 字符串中出现第二个浮点数会停止解析
+        console.log(Number.parseFloat('2.6.8')); // 2.6
+
+        // 参数无法解析返回NaN
+        console.log(Number.parseFloat('asdas')); // NaN
+        
+        // 可以返回Infinity
+        console.log(Number.parseFloat(Infinity)); // Infinity
+
+        // 解析BigInt类型问题 末位n字符被丢弃
+        console.log(Number.parseFloat(123123241n)); // 123123241
+        console.log(typeof Number.parseFloat(123123241n)); // number
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

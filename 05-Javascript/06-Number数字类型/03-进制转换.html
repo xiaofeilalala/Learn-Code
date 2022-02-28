@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>进制转换</title>
+    <script>
+        // num.toString(base) base范围为2-36 默认为10
+        let num = 255;
+        console.log(num.toString(10)); // 255
+        console.log(num.toString(2)); // 11111111
+        console.log(num.toString(8)); // 377
+        console.log(num.toString(16)); // ff
+        console.log(num.toString(36)); // 73
+        
+
+        // 将m进制的num 转换为n进制
+        function main(num, m, n) {
+            var s = num + '';
+            var result = parseInt(s, m).toString(n);
+            return result;
+        }
+        main('ff', 16, 2);
+        console.log(main('ff', 16, 2))
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

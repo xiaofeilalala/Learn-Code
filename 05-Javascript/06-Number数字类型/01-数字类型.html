@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数字类型</title>
+    <script>
+        // 数字类型的两种类型：Number类型和bigInt类型
+        // Number类型：用来展示包括浮点数的-2^53 到 2^53 的常规数字
+        // bigInt类型：用于表示任意长度的整数，通过n附加到整数字段的末尾来创建BigInt值
+        let num = 123;
+        console.log(typeof num); // number
+
+        let num1 = 0.45;
+        console.log(typeof num1); // number 浮点数也是number类型
+
+        let num2 = 1234567n;
+        console.log(typeof num2); // bigint
+    </script> 
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>toPrecision()方法</title>
+    <script>
+        // num.toPrecision() 返回指定长度的数值字符串
+        let num = 1.37234;
+        // 值会四舍五入
+        console.log(num.toPrecision(2)); // 1.4
+
+        // 指定的值必须在1-100内，如果不在则会抛出一个错误
+        console.log(num.toPrecision(101)); // error
+
+        // 省略参数时，则会调用toString()方法，返回原始数字的字符串形式
+        console.log(num.toPrecision()); // 1.37234
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

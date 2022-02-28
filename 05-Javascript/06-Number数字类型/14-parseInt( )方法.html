@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>parseInt()方法</title>
+    <script>
+        // parseInt()方法
+        // 解析一个字符串并返回一个整数
+        
+        // 解析字符串规则：
+        // 从左到右解析，当第一个字符无法解析则返回NaN;
+        // 解析到小数点或者无法解析的字符时会返回小数点前或无法解析字符前的数字
+        console.log(parseInt(2.62)); // 2
+        console.log(parseInt('asfas')); // NaN
+
+        // 全局方法 parseInt()
+        console.log(parseInt('24a1')); // 24
+        // Number对象方法number.parseint();
+        console.log(Number.parseInt('23.1')); // 23
+
+        // parseInt() 第二个参数radix 表示解析的数字的基数 范围2-36
+        // 字符串以0X开头默认16进制解析
+        console.log(Number.parseInt('0X56')) // 86
+
+        // 字符串以0开头，es5以10进制解析，使用时建议指定第二个参数值
+        console.log(Number.parseInt('0123')); // 123
+
+        // 字符串以其它值开头默认10进制解析
+        console.log(Number.parseInt('102')); // 102
+        
+        // 不可以返回Infinity
+        console.log(Number.parseInt(Infinity)); // NaN
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

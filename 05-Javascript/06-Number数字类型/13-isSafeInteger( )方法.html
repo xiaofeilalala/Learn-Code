@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>isSafeInteger()方法</title>
+    <script>
+        // isSafeInteger() 检测传递值是否在安全整数范围内
+        let num = 10;
+        console.log(Number.isSafeInteger(num)); // true
+        
+        // 超出范围2的53次幂 返回false
+        console.log(Number.isSafeInteger(9007199254740992)); // false 
+
+        // 最大安全整数
+        console.log(Number.MAX_SAFE_INTEGER); // 9007199254740991
+
+        // 最小安全整数
+        console.log(Number.MIN_SAFE_INTEGER); // -9007199254740991
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

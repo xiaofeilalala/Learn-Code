@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浮点数计算问题</title>
+    <script>
+        // 浮点数运算精度偏差问题
+        console.log(0.1 + 0.2); // 0.30000000000000004
+        console.log((0.1 + 0.2) == 0.3); // false
+         
+        // 浮点数一般精确到小数点后17位
+        // 数字是以2进制形式储存的，在10进制中的浮点数实际在2进制中是无限循环的小数
+        console.log(0.1.toFixed(20)); 0.10000000000000000555
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

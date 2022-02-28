@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>编写数字方式</title>
+    <script>
+        // 数字分隔符_ 可以每几位加一个分隔
+        // 不能放在数字或者浮点数最前面和最后面
+        // 不能两个或者多个分隔符连在一起使用
+        let num = 100_000_0000; // 1000000000
+        console.log(num);
+
+        let num1 = 0.0_000_1; // 0.00001
+        console.log(num1)
+        
+
+        // 通过在数字后面附加字母e 并指定零的个数来缩短数字
+        let num3 = 2e4; // 20000
+        console.log(num3)
+        
+        // e把数字乘以1后面跟着给定数量的0的数字
+        let num4 = 0.2e3; // 0.2*1000 = 200
+        console.log(num4)
+
+        // 后面的负数表示除以 1 后面跟着给定数量的 0 的数字
+        let num5 = 3.1415926e-4; // 3.1415926/10000 = 0.00031415926
+        console.log(num5)
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

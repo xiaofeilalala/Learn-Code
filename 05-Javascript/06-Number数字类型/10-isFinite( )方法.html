@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>isFinite()方法</title>
+    <script>
+        // isFinite()方法 用来检测数值是否为有限的
+        // 当数字为NaN,Infinity,-Infinity时返回false
+        console.log(isFinite(NaN)); // false
+        console.log(isFinite(Infinity)); // false
+        console.log(isFinite(-Infinity)); // false
+
+        // 全局isFinity()方法 会先将值转换为Number类型再检测值是否有限
+        console.log(isFinite('2')); // 转化为数字2 在检测
+        
+        // Number对象方法 Number.isFinity() 不会发生类型转换，检测值不是Number类型，则返回false
+        console.log(Number.isFinite('2')); // false
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
