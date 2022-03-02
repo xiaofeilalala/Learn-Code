@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>性能检测</title>
+    <script>
+        // 通过getTime获取时间戳 将函数运行时间相减来测量
+        function fun1(a, b) {
+            return 100000000 + a * b;
+        }
+
+        function fun2(a, b) {
+            return a ** b;
+        }
+
+        function compare(f) {
+            let x = 14564506456;
+            let y = 20045666666666666;
+
+            let start = Date.now();
+            for (let i = 0; i <= 100000; i++) {
+                f(x, y);
+            }
+            return Date.now() - start;
+        }
+
+        let time1 = 0;
+        let time2 = 0;
+
+        for (let i = 0; i < 10; i++) {
+            time1 += compare(fun1);
+            time2 += compare(fun2);
+        }
+        console.log(time1);
+        console.log(time2);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

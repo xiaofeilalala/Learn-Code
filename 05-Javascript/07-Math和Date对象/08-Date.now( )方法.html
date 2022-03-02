@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date.now()方法</title>
+    <script>
+        // Date.now() 返回当前时间的时间戳
+        console.log(Date.now()); // 1646208865454
+        console.log(new Date(1646208865454)); // Wed Mar 02 2022 16:14:25 GMT+0800 (中国标准时间)
+        
+        // 也可用于性能测试
+        let start = Date.now();
+        for (let i = 0; i <= 1000; i++) {
+            console.log(i)
+        }
+        let end = Date.now();
+        let result = `使用了${end - start}毫秒`
+        console.log(result)
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

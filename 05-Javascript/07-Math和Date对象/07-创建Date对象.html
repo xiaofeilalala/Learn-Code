@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>创建Date对象</title>
+    <script>
+        // 无参数 表示当前日期和时间的 Date 对象 返回字符串
+        let date = new Date();
+        console.log(date); // Tue Mar 01 2022 22:57:38 GMT+0800 (中国标准时间)
+
+        // 参数为时间戳 通过时间戳创建日期
+        let date1 = new Date(0);
+        console.log(date1) // Thu Jan 01 1970 08:00:00 GMT+0800 (中国标准时间)
+
+        // 参数为字符串 会根据你运行代码时的时区进行调整
+        let date2 = new Date('2022-03-02');
+        console.log(date2); // Wed Mar 02 2022 08:00:00 GMT+0800 (中国标准时间)
+
+        // 参数为时区中的给定组件，年月参数必须
+        // 1秒 = 1000 毫秒
+        let date3 = new Date(2022, 2, 2, 22, 50, 59, 999);
+        console.log(date3); // Wed Mar 02 2022 22:50:59 GMT+0800 (中国标准时间)
+
+        // 当时分秒毫秒未设置 默认为0
+        let date4 = new Date(2022, 2, 2);
+        console.log(date4); // Wed Mar 02 2022 00:00:00 GMT+0800 (中国标准时间)
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>世界时间标准访问日期组件</title>
+    <script>
+
+        // UTC 世界时间标准日期
+        // 北京时间所属时区: UTC/GMT +8
+        // 可以自定义日期,也可以不传参数返回当前日期
+        let date = new Date('Wed Mar 02 2022 20:49:37.100 GMT+0800 (中国标准时间)');
+        console.log(date); 
+
+        // 以世界时为标准返回指定日期对象的年份 4位数
+        console.log(date.getUTCFullYear()); // 2022
+
+        // 以世界时为标准返回指定日期对象的月份
+        console.log(date.getUTCMonth()); // 2 
+
+        // 以世界时为标准返回指定日期对象中的一日
+        console.log(date.getUTCDate()); // 2
+
+        // 以世界时为标准返回指定日期对象的小时
+        console.log(date.getUTCHours()); // 12
+
+        // 以世界时为标准返回指定日期对象的分钟数
+        console.log(date.getUTCMinutes()); // 49
+
+        // 以世界时为标准返回指定日期对象的秒数
+        console.log(date.getUTCSeconds()); // 37
+
+        // 以世界时为标准返回指定日期对象的毫秒数
+        console.log(date.getUTCMilliseconds()); // 100
+
+        // 以世界时为标准返回指定日期对象的星期几
+        console.log(date.getUTCDay()); // 3
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

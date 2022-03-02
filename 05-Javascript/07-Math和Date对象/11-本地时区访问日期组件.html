@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>本地时区访问日期组件</title>
+    <script>
+        // 可以自定义日期,也可以不传参数返回当前日期
+        let date = new Date('Wed Mar 02 2022 20:49:37.100 GMT+0800 (中国标准时间)');
+        console.log(date); 
+
+        // 根据本地时间返回指定日期对象的年份 4位数
+        console.log(date.getFullYear()); // 2022
+
+        // 根据本地时间返回指定日期对象的月份
+        console.log(date.getMonth()); // 2 
+
+        // 根据本地时间返回指定日期对象中的一日
+        console.log(date.getDate()); // 2
+
+        // 根据本地时间返回指定日期对象的小时
+        console.log(date.getHours()); // 20
+
+        // 根据本地时间返回指定日期对象的分钟数
+        console.log(date.getMinutes()); // 49
+
+        // 根据本地时间返回指定日期对象的秒数
+        console.log(date.getSeconds()); // 37
+
+        // 根据本地时间返回指定日期对象的毫秒数
+        console.log(date.getMilliseconds()); // 100
+
+        // 根据本地时间返回指定日期对象的星期几
+        console.log(date.getDay()); // 3
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

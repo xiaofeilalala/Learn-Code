@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date.parse()方法</title>
+    <script>
+        // 该方法可以在字符串中读取日期；
+
+        // 会解析给定格式的字符串，并返回时间戳
+        // JavaScript 中时间戳以毫秒为单位，而不是秒
+        // 格式为YYYY-MM-DDTHH:mm:ss.sssZ
+        console.log(Date.parse('2022-03-02')); // 1646179200000
+        console.log(new Date(1646179200000)); // Wed Mar 02 2022 08:00:00 GMT+0800 (中国标准时间)
+        
+        // 字符串格式不对返回NaN
+        console.log(Date.parse('12asd')); // NaN
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

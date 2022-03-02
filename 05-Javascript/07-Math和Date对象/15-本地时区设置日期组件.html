@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>本地时区设置日期组件</title>
+    <script>
+        
+        let date = new Date('Wed Mar 02 2022 20:49:37.100 GMT+0800 (中国标准时间)');
+
+        // 根据本地时间设置日期的年份
+        // 未设置月,日,会默认通过月，日方法获取
+        console.log(date.setFullYear(2008, 10, 20));
+        console.log(date); // Thu Nov 20 2008 20:49:37 GMT+0800 (中国标准时间)
+
+        // 根据本地时间设置日期的月
+        // 未设置日,会默认通过月方法获取
+        console.log(date.setMonth(11));
+        console.log(date); // Sat Dec 20 2008 20:49:37 GMT+0800 (中国标准时间)
+
+        // 根据本地时间设置日期的天
+
+        // 设置为0,则为上个月最后一天
+        console.log(date.setDate(0));
+        console.log(date); // Sun Nov 30 2008 20:49:37 GMT+0800 (中国标准时间)
+        
+        // 设置为负数 则是上个月最后一天减去负数的绝对值
+        console.log(date.setDate(-3)); // 31 - 3 = 28
+        console.log(date); // Sun Nov 28 2008 20:49:37 GMT+0800 (中国标准时间)
+    
+        // 根据本地时间设置日期小时
+        // 未设置分,秒,毫秒，会默认通过分,秒,毫秒方法获取
+        console.log(date.setHours(20));
+        console.log(date); // Tue Oct 28 2008 20:49:37 GMT+0800 (中国标准时间)
+        
+        // 根据本地时间设置日期分
+        // 未设置秒,毫秒，会默认通过秒,毫秒方法获取
+        console.log(date.setMinutes(59));
+        console.log(date); // Tue Oct 28 2008 20:59:37 GMT+0800 (中国标准时间)
+
+
+        // 根据本地时间设置日期秒
+        // 未设置毫秒，会默认通过毫秒方法获取
+        console.log(date.setSeconds(33));
+        console.log(date); // Tue Oct 28 2008 20:59:33 GMT+0800 (中国标准时间)
+
+        
+        // 根据本地时间设置日期毫秒
+        // 毫秒超过1000,秒会加1
+        console.log(date.setMilliseconds(6000));
+        console.log(date); // Tue Oct 28 2008 20:59:39 GMT+0800 (中国标准时间)
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
