@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>join()方法</title>
+    <script>
+        // join() 方法 通过将所有数组元素放入一个字符串，然后通过指定分割符连接返回
+        let arr = ['jsx', '520', 'ljj'];
+        let arr1 = arr.join('');
+        console.log(arr1); // jsx520ljj
+
+        arr1 = arr.join('-')
+        console.log(arr1); // jsx-520-ljj
+        
+        // 如果省略该参数，则使用逗号作为分隔符
+        arr1 = arr.join()
+        console.log(arr1); // jsx,520,ljj
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

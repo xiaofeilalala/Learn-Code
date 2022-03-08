@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>find、findIndex方法</title>
+    <script>
+        // find(callback(item, index, array){}, thisArg);
+        // 返回第一个匹配元素，没有符合的返回undefined
+        let arr = [1, 45, 30];
+        let result = arr.find(function (item, index, arr) {
+            console.log(item);
+            console.log(index);
+            console.log(arr);
+            return item > 20
+        })
+
+        console.log(result); // 45
+
+        // findIndex(callback(item, index, array){}, thisArg);
+        // 返回的是第一个匹配的元素的索引，如果没有符合条件的元素返回-1
+        let arr1 = [2, 59, 18];
+        let result1 = arr1.findIndex(function (item, index, arr) {
+            return item > 4909
+        })
+        console.log(result1); // -1
+
+        let obj = [
+            { id: 1, name: "John" },
+            { id: 2, name: "Pete" },
+            { id: 3, name: "Mary" }
+        ]
+        let res = obj.find((item, index) => this.id = 3)
+        console.log(res.id, res.name); // 1 'John'
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

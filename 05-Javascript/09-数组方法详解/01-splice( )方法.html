@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>splice()方法</title>
+    <script>
+        // splice() 改变原始数组 可以添加删除元素
+        // arr.splice(start, deleteCount, elem1, .., elemN)
+        let arr = ['jsx', 'ljj'];
+        arr.splice(0, 1, 'jsx', '520');
+        console.log(arr); // ['jsx', '520', 'ljj']
+
+        // 参数start必须 规定添加删除元素的位置
+        // 负数从数组末尾第几位开始，超出数组长度从末未开始
+        let arr1 = ['jsx', 'ljj', 'ddc'];
+        // 由被删除的元素组成的一个数组
+        console.log(arr1.splice(-1, 1)); // ['ddc']
+        console.log(arr1); // ['jsx', 'ljj']
+        
+        // 参数deleteCount必须 要删除的项目数量
+        // 参数为0或负数，不移除元素
+        let arr2 = ['html', 'css', 'js'];
+        arr2.splice(0, 0); // 不移除元素
+        arr2.splice(0, -2); // 不移除元素
+        console.log(arr2); // ['html', 'css', 'js']
+
+        // 参数大于开始索引后元素数量总和，删除包含start索引后的所有元素
+        let arr3 = ['html', 'css', 'js'];
+        arr3.splice(1, 2);
+        console.log(arr3); // ['html']
+
+        // 如果 deleteCount被省略了从start位开始数组的所有元素都会被删除
+        let arr4 = ['html', 'css', 'js'];
+        arr4.splice(1);
+        console.log(arr4); // ['html']
+
+        // elem1, .., elemN 要添加进数组的元素
+        let arr5 = ['html', 'css', 'js'];
+        arr5.splice(3, 0, 'vue', 'react');
+        console.log(arr5); // ['html', 'css', 'js', 'vue', 'react']
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

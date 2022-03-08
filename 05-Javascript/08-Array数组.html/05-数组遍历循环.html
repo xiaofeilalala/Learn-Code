@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组遍历循环</title>
+    <script>
+        // for循环
+        let arr = ['jsx', 22, true, { name: 'ljj' }, 123n, [1, 2, 3], function () { console.log('hello function') }];
+        for (let i = 0; i < arr.length; i++) {
+            console.log(arr[i]);
+        }
+
+       // for..in 主要用于循环对象属性
+       // 遍历数组时为数组的下标，遍历对象时为对象的 key值
+        let arr2 = ['jsx', 'ljj'];
+        for (let key in arr2) {
+            console.log(key);
+            console.log(arr2[key]);
+        }
+
+        // for..of循环 用来遍历拥有迭代器对象的合集
+        let arr1 = ['jsx', 22, true, { name: 'ljj' }, 123n, [1, 2, 3], function () { console.log('hello function') }];
+        for (let arr of arr1) {
+            console.log(arr);
+        }
+
+        // 对象
+        let obj = {
+            name: 'jsx',
+            age: 22,
+            grilfriend: {
+                name: 'ljj',
+                age: 23
+            }
+        }
+        // for..of 不支持普通对象遍历，没有迭代器对象
+        for (let objs of obj) {
+            console.log(objs);
+        }
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

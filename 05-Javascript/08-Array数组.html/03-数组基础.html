@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组基础</title>
+    <script>
+        // 数组访问 通过[]索引获取, 0为数组第一个元素
+        let arr = ['jsx', 'ljj', 'zdj', 'ddc'];
+        console.log(arr[0]); // jsx
+        console.log(arr[1]); // ljj
+        console.log(arr[2]); // zdj
+
+        // 通过使用索引来替换数组中的元素
+        let arr1 = ['jsx', 'ljj', 'zdj', 'ddc'];
+        arr1[1] = '520ljj';
+        console.log(arr1); // ['jsx', '520ljj', 'zdj', 'ddc']
+
+        // 通过使用索引来添加数组中的元素
+        let arr2 = ['jsx', 'ljj', 'zdj', 'ddc'];
+        arr2[4] = '520ljj';
+        console.log(arr2); // ['jsx', 'ljj' , 'zdj', 'ddc', '520ljj']
+
+
+        // 数组的length属性,值是数组中元素的总个数
+        let arr3 = ['jsx', 'ljj', 'zdj', 'ddc'];
+        console.log(arr3.length); // 4
+
+        // 当手动增长length时，多出来的元素为null
+        arr3.length = 10;
+        console.log(arr3); // ['jsx', 'ljj', 'zdj', 'ddc', 空属性 × 6]
+
+        // 当手动缩短length时，数组就会被截断，多出的元素会被删除
+        arr3.length = 2;
+        console.log(arr3); // ['jsx', 'ljj']
+
+
+        // 数组可以储存任何类型的元素
+        let arr4 = ['jsx', 22, true, { name: 'ljj' }, 123n, [1, 2, 3], function () { console.log('hello function') }];
+        console.log(arr4); // (7) ['jsx', 22, true, {…}, 123n, Array(3), ƒ]
+        console.log(arr4[3].name); // ljj
+
+        // 多维数组
+        let arr5 = ['jsx', ['ljj', ['ddc']]]
+        console.log(arr5); // ['jsx', Array(2)]
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

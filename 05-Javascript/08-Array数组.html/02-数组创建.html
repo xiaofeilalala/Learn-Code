@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组创建</title>
+    <script>
+        // 数组创建有两种方法
+
+        // 字面量创建
+        let arr = ['jsx', 'ljj'];
+        // 可以空格折行，最后一个元素后不能有逗号
+        let arr1 = [
+            'jsx',
+            'ljj',
+            'ddc'
+        ];
+        console.log(arr);
+        console.log(arr1);
+
+        // 通过构造函数创建
+        let arr2 = new Array('jsx', 'ljj', 'ddc');
+        console.log(arr2);
+
+        // 当参数为0时，为空数组
+        // 当参数为一个数字时，则会创建一个指定长度的空数组
+        // 当多个参数时，则表示数组中的元素
+        let arr3 = new Array();
+        console.log(arr3); // []
+
+        let arr4 = new Array(4);
+        console.log(arr4); // (4) [空属性 × 4]
+
+        let arr5 = new Array('jsx', 'ljj', 'zdj', 'ddc');
+        console.log(arr5); // ['jsx', 'ljj', 'zdj', 'ddc']
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

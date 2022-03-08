@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>copyWithin()方法</title>
+    <script>
+        // copyWithin(target, start, end)方法
+        // 按照规定范围来浅赋值数组中的元素，然后插入到指定位置
+        let arr = ['jsx', 'ljj', '520', 'love'];
+        // target 复制到指定位置
+        // start,end 开始复制起始和结束位置，范围包括start不包括end
+        arr.copyWithin(0, 1); // ['ljj', '520', 'love', 'love']
+        console.log(arr);
+
+        // target大于arr.length不会发生拷贝
+        arr.copyWithin(1, 0);
+        console.log(arr); //  ['ljj', 'ljj', '520', 'love']
+
+        // start,end都为负数，则都从末尾开始计算
+        arr.copyWithin(0, -1, -3);
+        console.log(arr); //  ['ljj', 'ljj', '520', 'love']
+    
+        // start,end被忽略，start则从0开始，end则一直复制到结尾
+        arr.copyWithin(1);
+        console.log(arr); // ['ljj', 'ljj', 'ljj', '520']
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

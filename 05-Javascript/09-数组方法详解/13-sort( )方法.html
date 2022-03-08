@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sort()方法</title>
+    <script>
+        // sort() 原位排序,元素默认情况下被按字符串进行排序
+        // 默认升序 元素会类型转为字符串然后字符串通过编码比较
+        let arr = [1, 2, 'jsx', 3];
+        console.log(arr.sort()); //  [1, 2, 3, 'jsx']
+        console.log('1'.charCodeAt()); // 49
+        console.log('2'.charCodeAt()); // 50
+        console.log('3'.charCodeAt()); // 51
+        console.log('jsx'.charCodeAt()); // 106
+
+        let array = [0, 1, 5, 10, 15];
+        // 升序排序
+        let array2 = array.sort((a, b) => a - b);  
+        console.log(array2)  // [0, 1, 5, 10, 15]
+        
+        // 降序排序
+        let array3 = array.sort((a, b) => b - a);  
+        console.log(array3)  // [15, 10, 5, 1, 0]
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

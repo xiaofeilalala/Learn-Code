@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>splice()操作</title>
+    <script>
+        // 删除元素 指定start,deleteCount两个参数
+        let arr = ['html', 'css', 'js', 'vue'];
+        arr.splice(0, 2);
+        console.log(arr); // ['js', 'vue']
+
+        // 替换 指定start,deleteCount,elemN三个参数
+        let arr1 = ['html', 'css', 'js'];
+        arr1.splice(0, 3, 'jsx', 'ljj');
+        console.log(arr1); // ['jsx', 'ljj']
+
+        // 插入元素 通过deleteCount参数为0或者负数
+        let arr2 = ['html', 'css', 'js'];
+        arr2.splice(arr2.length, -1, 'webpack');
+        // arr2.splice(arr2.length, 0, 'webpack');
+        console.log(arr2); // ['html', 'css', 'js', 'webpack']
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

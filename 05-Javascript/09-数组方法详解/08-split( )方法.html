@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>split()方法</title>
+    <script>
+        // split() 通过分隔符将字符串分隔为一个数组
+        let str = 'javascript';
+
+        // 空参数会将字符串拆分为单个字母
+        console.log(str.split('')); // ['j', 'a', 'v', 'a', 's', 'c', 'r', 'i', 'p', 't']
+        
+        let str1 = 'jsx, ljj, ddc, zdj';
+        console.log(str1.split(',')); // ['jsx', ' ljj', ' ddc', ' zdj']
+
+        // 第二个参数控制数组长度，超出设置的长度会忽略
+        console.log(str1.split(',', 2)); // ['jsx', ' ljj']
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slice()方法</title>
+    <script>
+        // slice(begin, end) 返回从begin到end 不包括end的新数组
+        let arr = ['html', 'css', 'js'];
+        console.log(arr.slice(0, 2)); // ['html', 'css']
+        
+        // 当参数begin和end为负数时从数组尾部开始算起或结束的元素
+        console.log(arr.slice(-3, -1)); //  ['html', 'css']
+
+        // 当参数end被省略时，则会一直获取到数组结尾
+        console.log(arr.slice(0)); // ['html', 'css', 'js']
+        console.log(arr.slice(0, -1)); // ['html', 'css', 'js']
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

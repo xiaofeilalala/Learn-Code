@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>concat()方法</title>
+    <script>
+        // concat()方法 用来连接两个或者多个数组，返回一个新数组
+        let arr = ['jsx', 'ljj'];
+        let arr1 = ['ddc', 'zdj'];
+        let arr2 = arr.concat(arr1, arr);
+        // 不会改变元素数组
+        console.log(arr);
+        console.log(arr2); //  ['jsx', 'ljj', 'ddc', 'zdj','jsx', 'ljj']
+    
+        // 省略参数调用浅拷贝
+        let arr3 = arr.concat();
+        console.log(arr3);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
