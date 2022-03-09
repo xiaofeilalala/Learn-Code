@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>forEach()方法</title>
+    <script>
+        // arr.forEach(function(item, index, array){}, thisArg)
+        // 按升序为数组中含有效值的每一项元素执行一次callback函数
+        // 改变原素组 没有返回值
+        let arr = ['html', 'css', 'js'];
+        arr.forEach(function (item, index, arr) {
+            console.log(item, index, arr);
+            // html 0 ['html', 'css', 'js']
+            // css 1 ['html', 'css', 'js']
+            // js 2 ['html', 'css', 'js']
+        })
+        // 第二个参数用来绑定回调函数的this
+        let arr1 = ['jsx', 'ljj', 'ddc'];
+        arr.forEach(function (item, index, arr) {
+           console.log(this[index]); // jsx ljj ddc
+        }, arr1)
+        
+        // forEach() 没有返回值返回值为undefined
+        let arr2 = arr.forEach(function (item, index, arr) {
+           return this[index]
+        }, arr1)
+        console.log(arr2)
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

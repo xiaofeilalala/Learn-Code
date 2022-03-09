@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>map()方法</title>
+    <script>
+        // arr.map(callback(item, index, array){}, thisArg)
+        // 按顺序给原始数组中的元素调用callback函数
+        // 返回新数组,不会改变原来数组
+        let arr = ['html', 'css', 'js'];
+        let arr1 = arr.map(function(item, index, arr) {
+            return item;
+        })
+        // 返回新数组
+        console.log(arr1); // ['html', 'css', 'js'];
+        
+        let arr3 = ['a', undefined, '']
+        let arr2 = arr.map(function(item, index, arr) {
+            return this[index];
+        }, arr3)
+        console.log(arr2); // ['a', undefined, '']
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>filter()方法</title>
     <script>
-        // filter()函数用来过滤，满足条件的都返回
+        // arr.filter(callback(item, index, arr){}, thisArg)
+        // 用来过滤，满足条件的都返回
         let arr = ['jsx', null, undefined, 520, 'ljj'];
         let result = arr.filter(Boolean);
         console.log(result); //  ['jsx', 520, 'ljj']

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flatMap()方法</title>
+    <script>
+        // arr.flatMap(callback(current, index, arr){}, thisArg)
+        // 对数组每个元素执行一个函数，执行map(), 然后对值组成的数组执行flat()
+        // 返回一个新数组，不改变原始数组
+        let arr = ['jsx', '', 'ljj'];
+        let arr1 = arr.map(current => current.split(' '));
+        console.log(arr1); // [Array(1), Array(1), Array(1)]
+
+        let arr2 =  arr.flatMap(current => current.split(' ')); //  ['jsx', 'ljj', '']
+        console.log(arr2); // ['jsx', '', 'ljj']
+    </script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>

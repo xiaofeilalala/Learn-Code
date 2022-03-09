@@ -8,17 +8,20 @@
     <title>indexOf、lastIndexOf、includes方法</title>
     <script>
         // 数组搜索方法：严格搜索相等
-        // indexOf(item, from); 找到返回索引值,未找到返回-1
+        // indexOf(item, from) 
+        // 找到返回索引值,未找到返回-1
         let arr = ['html', 'css', 'js', 'vue'];
         console.log(arr.indexOf('webpack', 0)); // -1
 
         // from参数可以为负数，从数组末尾开始
         console.log(arr.indexOf('vue', -1)); // 3
 
-        // LastIndexOf(item, from); 从右向左
+        // LastIndexOf(item, from) 
+        // 从右向左
         console.log(arr.lastIndexOf('vue', -2)); // -1
 
-        // includes(item, from); 找到返回true,未找到返回false
+        // includes(item, from) 
+        // 找到返回true,未找到返回false
         console.log(arr.includes('vue', 0)); // true
 
     </script>
