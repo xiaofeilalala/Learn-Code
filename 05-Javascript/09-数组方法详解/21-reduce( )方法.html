@@ -7,7 +7,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>reduce()方法</title>
     <script>
-        
+        // arr.reduce(function(accumulator, item, index, array) {}, initial)
+        // 将数组中每个元素升序进行reduce函数，将结果汇总为单个值返回
+        let arr = [1, 2, 3, 4, 5];
+        // 没有提供initial,将使用数组中的第一个元素
+        let result = arr.reduce(function(prev, item, index, array) {
+            console.log(prev, item, index);
+            return prev + item;
+        });
+        console.log(result); // 15
+
+        // 提供initial, 将initial为初始值
+        let result1 = arr.reduce(function(prev, item, index, array) {
+            console.log(prev, item, index);
+            return prev + item;
+        }, 3);
+        console.log(result1); // 18
     </script>
 </head>
 

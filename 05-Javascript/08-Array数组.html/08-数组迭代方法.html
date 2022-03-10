@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组迭代方法</title>
+    <script>
+        // keys() 返回数组索引的迭代器
+        // values() 方法返回数组元素的迭代器
+        // entries() 方法返回索引值对的迭代器
+        let arr = ['html', 'css', 'js', 'vue']
+        console.log(arr.values().next());
+        console.log(arr.keys().next());
+        console.log(Array.from(arr.keys())); // [0, 1, 2, 3]
+        console.log(Array.from(arr.values())); // ['html', 'css', 'js', 'vue']
+        console.log(Array.from(arr.entries())); // [[0, 'html'], [1, 'css'], [2, 'js'], [3, 'vue']]
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

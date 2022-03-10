@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>类数组场景</title>
+    
+</head>
+
+<body>
+    <ul>
+        <li class="list">类数组场景</li>
+        <li class="list">类数组场景</li>
+        <li class="list">类数组场景</li>
+        <li class="list">类数组场景</li>
+        <li class="list">类数组场景</li>
+    </ul>
+
+    <script>
+        // arguments 函数对象 类数组
+        function foo (name, age) {
+            console.log(arguments);
+            console.log(typeof arguments); // object
+            console.log(arguments.length); // 2
+        }
+        foo('jsx', 22); // ['jsx', 22, callee: ƒ, Symbol(Symbol.iterator): ƒ]
+        
+        // dom 元素集合 类数组
+        let list = document.getElementsByClassName("list");
+        console.log(list);
+        console.log(typeof list); // object
+
+        // nodeList 节点的集合 类数组
+        let list1 = document.querySelectorAll("ul > li");
+        console.log(list1)
+        for (let item of list1) {
+            console.log(item)
+            item.style.color = 'red';
+        }
+        
+    </script>
+</body>
+
+</html>

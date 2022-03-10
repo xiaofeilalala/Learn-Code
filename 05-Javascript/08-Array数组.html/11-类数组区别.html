@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>类数组区别</title>
+    <script>
+        // 类数组不能用数组的方法
+        let obj = {
+            0: 'jsx',
+            1: 22,
+            length: 2
+        }
+
+        let arr = ['jsx', 'ljj'];
+        // 用isArray判断会返回 false
+        console.log(Array.isArray(arr)); // true
+        console.log(Array.isArray(obj)); // false
+
+        obj.push('ljj'); // obj.push is not a function
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

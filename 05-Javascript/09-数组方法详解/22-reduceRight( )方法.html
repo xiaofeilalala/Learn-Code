@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>reduceRight()方法</title>
+    <script>
+        // let value = arr.reduceRight(function(accumulator, current, index, array) {...}, initial)
+        // 该方法与reduce()一样，元素执行回调按从右到左顺序
+        let arr = [1, 2, 3, 4, 5];
+        // 没有提供initial,数组从第二个元素开始执行回调
+        let result = arr.reduceRight(function (prev, item, index, array) {
+            console.log(prev, item, index);
+            return prev + item;
+        });
+        console.log(result); // 15
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

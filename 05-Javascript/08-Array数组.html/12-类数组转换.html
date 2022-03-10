@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>类数组转换</title>
+    <script>
+        // Array.from(arrayLike, mapFn, thisArg)
+        // 接收可迭代和类数组转化为真数组
+        let obj = {
+            0: 'jsx',
+            1: 22,
+            length: 2
+        }
+        let newArr = Array.from(obj, function (value, index) {
+            console.table(value, index, this, arguments.length)
+            return value;
+        }, obj)
+        console.log(newArr); // ['jsx', 22]
+        console.log(Array.isArray(newArr)); // true
+
+        // 可迭代对象也可以转换为数组
+        // String
+        console.log(Array.from('abc')); // ["a", "b", "c"]
+        // Set
+        console.log(Array.from(new Set(['abc', 'def'])));  // ["abc", "def"]
+        // Map
+        console.log( Array.from(new Map([[1, 'ab'], [2, 'de']]))); // [[1, 'ab'], [2, 'de']]
+      
+        // Array.prototype.slice.call()
+        // ES6 中的扩展运算符...
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

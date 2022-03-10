@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>什么是类数组</title>
+    <script>
+        // 类数组是可以通过索引访问元素并拥有length属性
+        let obj = {
+            0: 'jsx',
+            1: 22,
+            length: 2
+        }
+        console.log(obj) // {0: 'jsx', 1: 22, length: 2}
+        // 可以访问元素
+        console.log(obj[1]); // 22
+
+        // 可以给元素赋值
+        obj[0] = 'jsx-ljj';
+        console.log(obj);
+        
+        // 可以获取长度
+        console.log(obj.length); // 2
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>可迭代对象</title>
+    <script>
+        // 当数据结构拥有Symbol.interation属性，则该数据时可迭代对象
+        // 该属性是个函数执行时会返回一个迭代器
+        let arr = ['jsx', 'ljj'];
+        let iter = arr[Symbol.iterator]();
+        console.log(iter.next()); // {value: 'jsx', done: false}
+        console.log(iter.next()); // {value: 'ljj', done: false}
+        console.log(iter.next()); // {value: undefined, done: true}
+
+        // String、Array、TypedArray、函数的 arguments 对象、NodeList 对象、Map和Set都是内置可迭代对象
+        let str = 'jsx';
+        let result = str[Symbol.iterator]();
+        console.log(result); // StringIterator {}
+        console.log(result.next());
+
+        // 普通对象转换为可迭代对象
+        let obj = {
+            name: 'jsx',
+            age: 22
+        }
+        let arr1 = [];
+
+        for (let i in obj) {
+            let obj1 = {};
+            obj1[i] = obj[i]
+            arr1.push(obj1);
+        }
+        obj.date = arr1;
+        console.log(obj);
+
+        obj[Symbol.iterator] = function () {
+            let self = this;
+            let index = 0;
+            console.log(this)
+            return {
+                next: function () {
+                    if (index < self.date.length) {
+                        return {
+                            value: self.date[index++],
+                            done: false
+                        }
+                    }
+                    return {value: undefined, done: true}
+                }
+            }
+        }
+         
+        for (let i of obj) {
+            console.log(i);
+        }
+        // {name: 'jsx'}
+        // {age: 22}
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
