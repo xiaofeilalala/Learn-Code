@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array.of()方法</title>
+    <script>
+        // Array.of(element0, element1, ..., elementN)
+        // 将参数依次转化为数组项 然后返回新数组
+        console.log(Array.of(8.0)); // [8]
+        console.log(Array(8.0)); // [empty × 8]
+
+        console.log(Array.of(8.0, 5)); // [8, 5]
+        console.log(Array(8.0, 5)); // [8, 5]
+
+        console.log(Array.of('8')); // ["8"]
+        console.log(Array('8')); // ["8"]
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
