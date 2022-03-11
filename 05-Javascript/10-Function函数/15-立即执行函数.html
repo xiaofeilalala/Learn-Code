@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>立即执行函数</title>
+    <script>
+        // 在函数定以后则会立即执行的函数被称为立即执行函数
+        (function sum() {
+            console.log('执行')
+        })();
+
+        (function sum() {
+            console.log('执行')
+        }());
+
+        // 函数内定义的变量，外部不能访问
+        (function sum() {
+            let res = 'jsx';
+            console.log('执行')
+        })();
+        // 外部无法访问，变量私有
+        console.log(res1); // res1 is not defined
+
+        let b = (function () {
+            var res2 = 'ljj'
+        })();
+        console.log(res2); // res2 is not defined
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

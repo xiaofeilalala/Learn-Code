@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数表达式</title>
+    <script>
+        // 可以通过函数表达式声明函数
+        let result = function () {
+            console.log('javascript');
+        }
+        console.log(result()); // javascript
+
+        // 可以将函数赋值给其它变量
+        let fn = function () {
+            console.log('jsx');
+        }
+        let newFn = fn;
+        fn(); // jsx
+        newFn(); // jsx
+
+        // 函数表达式没有函数提示
+        sum(1, 2); //  Cannot access 'sum' before initialization
+        let sum = function (a, b) {
+            return a + b;
+        }
+        console.log(sum(1, 2)); // 3
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

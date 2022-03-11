@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>回调函数</title>
+    <script>
+        // 回调函数
+        // 当函数被当做形参传递给另一个函数调用时则该函数被称为回调函数
+        function getName(name) {
+            console.log(name)
+        }
+
+        function editName(callback) {
+            let result = prompt('你的名字？')
+            callback(result);
+        }
+        editName(getName);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

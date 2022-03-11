@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>剩余参数</title>
+    <script>
+        // 通过...语法 将剩余的参数收集到一个数组
+        function scalNum(...num) {
+            // 返回数组为true
+            console.log(Array.isArray(num), num);
+            for (let i of num) {
+                console.log(i)
+            }
+
+        }
+        console.log(scalNum(1, 2, 3));
+
+        function fn(num1, num2, ...numN) {
+            console.log(num1, num2, numN);
+        }
+        console.log(fn(1, 2, 3, 4, 5, 6));
+        
+        // 实参数量小于形参时，形参值为默认参数，剩余参数则为空数组
+        console.log(fn(1)); // 1 undefined []
+
+        // 剩余参数位置必须在参数末尾
+        // function fn1 (num1, ...numN, num2) {
+        //     console.log(num1, numN, num2);
+        // }
+        console.log(fn1(1, 2, 3, 4)); 
+        // error:Rest parameter must be last formal parameter
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

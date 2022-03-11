@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数的返回值</title>
+    <script>
+        // 函数返回值通过return关键字
+        // return语句可以结束函数执行，并将返回值返回
+        function getName(nameArr) {
+            let name;
+            for (let i of nameArr) {
+                console.log(i);
+                if (i == 'jsx') {
+                    name = i;
+                    return name;
+                }
+            }
+            
+        };
+        console.log('返回值：' + getName(['ljj', 'jsx', 'ddc'])); // jsx
+    
+        // 空值的return或没有return的函数返回值为undefined
+        function fn () {
+            return;
+        }
+        console.log(fn()); // undefined
+
+        // 不要在return加新行；js会自动给return分号，自后代码不会执行
+        function scaleNum(a, b) {
+            return (
+            a + b);
+        }
+        console.log(scaleNum(1, 2)); // 2
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

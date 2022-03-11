@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>命名函数表达式</title>
+    <script>
+        // 命名函数表达式
+        // 函数名称将只作为函数作用域内有效
+        let fn = function fn1(a, b) {
+            console.log(typeof fn1); // function
+            return a + b;
+        }
+        console.log(typeof fn1); // undefined
+        console.log(fn(3, 5)); // 8
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
