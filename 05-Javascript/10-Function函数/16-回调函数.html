@@ -8,16 +8,30 @@
     <title>回调函数</title>
     <script>
         // 回调函数
-        // 当函数被当做形参传递给另一个函数调用时则该函数被称为回调函数
-        function getName(name) {
-            console.log(name)
-        }
+        // 当函数被当做参数传递给另一个函数并调用时被称为回调函数
 
-        function editName(callback) {
-            let result = prompt('你的名字？')
-            callback(result);
+        // 匿名回调函数
+        function getName(name, callback) {
+            // 函数传递一个name参数，一个callback函数
+            callback(name);
+            // callback参数为name值
         }
-        editName(getName);
+        
+        // 调用外部定义函数
+        getName('jsx', function (name) {
+            // 匿名函数回调,传入参数name 返回name
+            console.log(name); // jsx
+        })
+
+        // 命名回调函数
+        function getAge(age, callback) {
+            callback(age);
+        }
+        
+        function showAge(age) {
+            console.log(age);
+        }
+        getAge(22, showAge); // 22
     </script>
 </head>
 
