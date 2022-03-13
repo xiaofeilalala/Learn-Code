@@ -23,6 +23,7 @@
         console.log(fn(1, 2, 3)); // 6
 
         // 箭头函数没有arguments对象
+        // 指向的外部函数的arguments
         function fn1() {
             console.log(arguments);
             let showArg = () => console.log(arguments);
