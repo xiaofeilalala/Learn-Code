@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作用域链</title>
+    <script>
+        // 作用域链
+        // 在函数作用域内,函数中内部可以访问外部变量，当上一层未找到时则会一直向上找,找到则返回
+        var username = 'jsx';
+        function outerFn() {
+            // var username = 'jsx';
+            function outerFn1() {
+                function outerFn2() {
+                    function outerFn3() {
+                        console.log(username); // jsx
+                    }
+                    outerFn3();
+                }
+                outerFn2()
+            }
+            outerFn1()
+        }
+        outerFn();
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

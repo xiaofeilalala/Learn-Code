@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=a, initial-scale=1.0">
+    <title>全局预编译</title>
+    <script>
+        // 预编译分为两种
+        // 函数预编译和全局预编译
+        global = 100;
+        console.log(global); // 100
+        function fn() {
+            console.log(global); // undefined
+            global = 200;
+            console.log(global); // 200
+            var global = 300;
+            console.log(global); // 300
+        }
+        fn();
+        
+        // 全局预解析：
+        // 先创建Go对象
+        // 再将函数形参和变量声明作为Go对象属性名值为undefined
+        // 在全局对象找函数声明，将函数名作为Go对象属性名，值为函数体
+        // 最后执行
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

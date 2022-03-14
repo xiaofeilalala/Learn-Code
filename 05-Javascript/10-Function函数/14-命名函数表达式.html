@@ -9,12 +9,18 @@
     <script>
         // 命名函数表达式
         // 函数名称将只作为函数作用域内有效
-        let fn = function fn1(a, b) {
-            console.log(typeof fn1); // function
-            return a + b;
-        }
-        console.log(typeof fn1); // undefined
-        console.log(fn(3, 5)); // 8
+        let sayHi = function func(who) {
+            if (who) {
+                console.log(`Hello ${who}`);
+            } else {
+                func("jsx"); // 使用 func 再次调用函数自身
+            }
+        };
+
+        sayHi(); // Hello jsx
+
+        // 但这不工作
+        func(); // Error, func is not defined（在函数外不可见）
     </script>
 </head>
 

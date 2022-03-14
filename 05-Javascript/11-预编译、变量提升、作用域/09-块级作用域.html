@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>块级作用域</title>
+    <script>
+        // ES5中，{}代码块中用var声明的变量会提升
+        // {...} 块语句
+        {
+            var ES5 = 'ES5';
+        }
+        console.log(ES5); // ES5
+
+        // ES6中通过let,const关键字声明的变量有块级作用域，外部无法访问
+        {
+            let ES6 = 'ES6';
+            console.log(ES6); // ES6
+        }
+        // console.log(ES6); // error: 外部无法访问
+
+        // let, const声明变量不会提升
+        // console.log(username, MYNAME); // error: 不会提升
+        let username = 'jsx';
+        const MYNAME = 'ljj';
+
+        // 禁止重复声明
+        // let againVar = '重复声明';
+        // let againVar = '重复声明';
+        // console.log(againVar); // 不能重复声明
+
+        // 每一层都有独立作用域
+        function run() {
+            value = "jsx";
+            if (true) {
+                let value = "ljj";
+                console.log(value); //ljj
+            }
+            console.log(value); //jsx
+        }
+        run();
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

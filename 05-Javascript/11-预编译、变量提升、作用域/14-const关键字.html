@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>const关键字</title>
+    <script>
+        // 声明常量
+        // 不会变量提升，暂时性死区先声明后使用
+        // console.log(MAXVALUE); //  Cannot access 'MAXVALUE' before initialization
+        const MAXVALUE = 100;
+        console.log(MAXVALUE);
+
+        {
+            // 块级作用域
+            const TOPONE = 1;
+            console.log(TOPONE);
+        }
+        // 无法访问块作用域内部的变量
+        // console.log(TOPONE); //  TOPONE is not defined
+
+        // 声明时必须赋值
+        // const LEFTNUM;
+        // console.log(LEFTNUM); // Missing initializer in const declaration
+
+        // 同一作用域下const定义变量不可以重复声明
+        const TOPONE = 1000;
+        console.log(TOPONE); // 1000
+
+        // 可以修改引用类型的值
+        const obj = {
+            name: 'jsx',
+            age: 22
+        }
+        console.log(obj);
+        obj.name = '520->ljj';
+        console.log(obj); // {name: '520->ljj', age: 22}
+
+        //    同一作用域下，常量不可修改
+        const NOEDIT = 1;
+        NOEDIT = 2;
+        console.log(NOEDIT); //  Assignment to constant variable
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

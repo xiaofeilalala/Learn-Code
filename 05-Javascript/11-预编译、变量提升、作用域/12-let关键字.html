@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>let关键字</title>
+    <script>
+        // let关键字有块级作用域
+        {
+            let num = 100;
+            console.log(num); // 100
+        }
+        // 外部无法访问内部变量
+        // console.log(num); // error
+
+        // 同一作用域下不可重复声明
+        // console.log(next); // 不存在变量提升
+        // 暂时性死区，得先声明再使用
+        // Cannot access 'next' before initialization
+        let next = 'next';
+        if (true) {
+            let next = 'next to';
+            console.log(next); // next to
+        }
+        console.log(next); // next
+        
+        let peter;
+        console.log(peter); // undefined
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

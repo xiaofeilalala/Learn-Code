@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>什么是作用域？</title>
+    <script>
+        // 作用域：全局作用域和局部作用域
+        // 局部作用域：函数作用域，块级作用域
+        // 作用域用来隔离变量防止冲突泄露
+
+        // 全局作用域
+        var global = 'global';
+        globalFn(); // 函数可以在任何地方使用
+        function globalFn() {
+            // 变量可以在任何地方访问
+            console.log(global); // global
+        }
+        
+        // 局部作用域
+        function partFn() {
+            var part = 'part';
+            function inPartFn() {
+                // 函数内部可以访问外部
+                console.log(part); // part
+            }
+            inPartFn();
+        }
+        partFn();
+        console.log(part); // error:外部无法访问内部变量
+         
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

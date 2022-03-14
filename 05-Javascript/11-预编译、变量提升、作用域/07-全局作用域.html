@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全局作用域</title>
+    <script>
+        // 全局作用域
+        // 最外层函数和最外层的变量声明
+        var global = 'global';
+        function globalFn () {
+            console.log(global); // global
+            function inpartFn() {
+                console.log(global); // global
+            }
+            inpartFn();
+        }
+        globalFn();
+
+        // 所有未声明并直接赋值的变量
+        nodefind = '未声明'
+        console.log(nodefind); // 未声明
+        function Fn() {
+            console.log(nodefind); // 未声明
+            // 函数作用域定义未声明赋值变量
+            nodefindFn = '函数->未声明赋值变量'
+            console.log(nodefindFn); // // 函数->未声明赋值变量
+        }
+        Fn();
+        console.log(nodefindFn); // 函数->未声明赋值变量
+    
+        // window对象的属性
+        window.jsx = 'jsx';
+        console.log(window);
+        function attrFn() {
+            console.log(jsx);
+        }
+        attrFn(); // jsx
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

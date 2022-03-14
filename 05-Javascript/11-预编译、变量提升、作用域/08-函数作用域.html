@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数作用域</title>
+    <script>
+        // 函数作用域
+        // 内层可以访问外层，外层不能访问内层
+        var outerLayer = '外层';
+        function outerFn() {
+            console.log(outerLayer); // 外层
+            var inLayer = '内层';
+            // console.log(inEnd); // error: 内层不能访问外层
+            function inFn() {
+                console.log(inLayer); // 内层
+                var inEnd = 'inFn-> 内层'
+            }
+            inFn();
+        }
+        outerFn()
+
+        // 函数作用域中，var声明为局部变量,未声明直接赋值变量为全局
+        function global () {
+            var sendVar = '使用var声明';
+            noSendVar = '未用var声明';
+        }
+        global();
+        // 外部可访问
+        console.log(noSendVar); // 未用var声明
+        // console.log(send); // error: 外部无法访问
+        
+        // 形参也会产生变量提升
+        // 形参也是局部变量，外部无法访问
+        function parms(arg) {
+            console.log(arg);
+        }
+        parms(); // undefined
+        parms(123); // 123
+        console.log(arg); // error
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

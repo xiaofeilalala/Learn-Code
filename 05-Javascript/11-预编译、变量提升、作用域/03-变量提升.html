@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>变量提升</title>
+    <script>
+        // js在执行代码时，会将var关键字和function关键字声明的变量和函数名提升
+        // 变量提升并赋值为undefined
+        console.log('声明前：' + username); // undefined
+        var username = 'jsx';
+        console.log('声明后：' + username); // jsx
+
+
+        // 函数声明，函数名提升，并赋值函数体
+        console.log(getName('ljj')); // ljj
+        function getName(name) { return name };
+        console.log(getName('ljj')); // ljj
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

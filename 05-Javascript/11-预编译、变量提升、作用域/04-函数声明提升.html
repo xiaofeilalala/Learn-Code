@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数的声明提升</title>
+    <script>
+        // 函数声明
+        fn();
+        function fn() {
+            console.log('函数声明')
+        }
+
+        // 函数表达式
+        console.log(fn1); // undefined
+        fn1(); // error: 因为var变量提升导致此时fn1赋值为undefined
+        
+        var fn1 = function () {
+            console.log('函数表达式')
+        }
+        
+        console.log(fn2); // error 块级作用域中变量不会提升到顶部
+        let fn2 = function () {
+            console.log('函数表达式')
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

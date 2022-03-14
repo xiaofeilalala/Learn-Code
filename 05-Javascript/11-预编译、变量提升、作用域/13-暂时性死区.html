@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>暂时性死区</title>
+    <script>
+        // 暂时性死区
+        // 变量已存在必须先声明再使用
+        // console.log(a); //  Cannot access 'a' before initialization
+        let a = 1;
+
+        value = "jsx";
+        console.log(value); // jsx
+        function getValue() {
+            console.log(value); // Cannot access 'hd' before initialization
+            let value = "ljj";
+        }
+        // getValue();
+        
+        // let和const声明的就会被放到TDZ中，前提是只会针对当前作用域内有效
+        console.log(typeof str)  // "undefined"
+        if (true) {
+            console.log(str);
+            let str = "hello"
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

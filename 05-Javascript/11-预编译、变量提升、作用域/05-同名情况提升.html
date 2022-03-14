@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>同名情况提升</title>
+    <script>
+        // 同名情况下
+        // var先提升，然后函数名提升覆盖提升
+        console.log(username); // function username(){console.log('同名提升')}
+        var username = 'jsx';
+        function username() {
+            console.log('同名提升')
+        }
+        console.log(username); // jsx
+        console.log(username()); // 'jsx'() error
+
+
+        console.log('1', fn())
+        function fn() {
+            console.log(1)
+        }
+
+        console.log('2', fn())
+        function fn() {
+            console.log(2)
+        }
+
+        console.log('3', fn())
+        var fn = 'jsx'
+
+        console.log('4', fn())
+        function fn() {
+            console.log(3)
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

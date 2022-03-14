@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>var关键字</title>
+    <script>
+        // var 关键字可以重复声明
+        var message = 'jsx';
+        var message = 'jsx';
+        console.log(message); // jsx
+
+        // var全局声明变量在window对象中
+        var global = '全局';
+        console.log(window.global == global); // true
+
+        // var 没有块级作用域
+        if (true) {
+            var block = 'block'
+            console.log(block);
+        }
+        // 外部能访问{}块语句内变量
+        console.log(block); // block
+
+        // 变量提升
+        console.log(update); // undefined
+        var update = '变量提升'
+        function updateFn() {
+            console.log(inUpdate); // undefined
+            var inUpdate = '函数内变量'
+        }
+        updateFn(); 
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

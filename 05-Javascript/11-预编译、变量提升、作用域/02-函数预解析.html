@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数预解析</title>
+    <script>
+        // 函数预解析
+        function fn(arg) {
+            console.log(num); // undefined
+            console.log(fn1); // fun1() {console.log('函数声明')}
+            console.log(fn2); // undefined
+            console.log(fn3); // fun3() {console.log('函数声明')}
+            console.log(arg); // 1
+            var num = 123;
+            
+            function fn1() {
+                console.log('函数声明')
+            };
+            
+            var fn2 = function () {
+                console.log('函数表达式')
+            };
+            
+            function fn3() {
+                console.log('函数声明')
+            }
+        }
+        fn(1);
+ 
+       
+        // 创建Ao对象
+        // 找到形参和变量声明作为AO属性名,值为undefined
+        // 将形参与实参统一,即更改形参后的 undefined为具体的形参值
+        // 在函数体内找函数声明，将函数作为AO对象属性名,值为函数体
+        // 最后执行
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
