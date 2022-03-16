@@ -22,12 +22,19 @@
             console.log('执行')
         })();
         // 外部无法访问，变量私有
-        console.log(res1); // res1 is not defined
+        // console.log(res1); // res1 is not defined
 
         let b = (function () {
             var res2 = 'ljj'
         })();
-        console.log(res2); // res2 is not defined
+        // console.log(res2); // res2 is not defined
+        
+        // 立即执行函数参数
+        var i = 2;
+        (function (i) {
+             console.log(i); // 2
+        })(i)
+        
     </script>
 </head>
 

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>构造函数</title>
+    <script>
+        // 构造函数 new Function
+        let fn = new Function('jsx', 'ljj', 'console.log("构造函数")')
+        console.log(fn()); // 构造函数
+        
+        // 待产室的构造函数
+        let fn1 = new Function('a, b', 'console.log(a + b)')
+        console.log(fn1(2, 3)); // 5
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

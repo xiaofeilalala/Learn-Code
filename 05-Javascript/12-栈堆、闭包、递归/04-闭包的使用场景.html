@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>闭包的左右</title>
+    <script>
+        // 函数作为参数
+        var str = 'ddc';
+        function myFunc() {
+            var str = 'jsx';
+            function returnFunc() {
+                console.log(str);
+            }
+            return returnFunc;
+        }
+        function getStr(fun) {
+            var str = 'ljj';
+            fun();
+        }
+        getStr(myFunc()); // jsx
+
+        // 立即执行函数
+        var nowFn = (function () {
+            var num = 0;
+            return function () {
+                return num += 1
+            }
+        })();
+        console.log(nowFn()); // 1
+        console.log(nowFn()); // 2
+
+        // for 循环定时器问题
+        // var 声明i为全局变量，导致循环赋值同一个变量
+        for (var i = 0; i < 3; i++) {
+            setTimeout(() => {
+                console.log(i) // 3 3 3
+            })
+        }
+
+        // 通过let时变量拥有块级作用域
+        for (let i = 0; i < 3; i++) {
+            setTimeout(() => {
+                console.log(i) // 0 1 2
+            })
+        }
+
+        // 立即执行函数
+        for (var i = 0; i < 3; i++) {
+            (function (j) {
+                setTimeout(() => {
+                    console.log(j); // 0 1 2
+                })
+            })(i)
+        }
+
+        // 回调函数
+        function callback(num) {
+            console.log(num);
+        }
+
+        function getBack(call) {
+            var str = 'oj8k';
+            call(str);
+        }
+        getBack(callback) // oj8k
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

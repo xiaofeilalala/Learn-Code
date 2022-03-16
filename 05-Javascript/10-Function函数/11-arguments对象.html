@@ -31,6 +31,20 @@
         }
 
         console.log(fn1(1, 2, 3));
+
+        // callee属性
+        // 返回正在执行的函数
+        function newFn() {
+            console.log('new');
+            otherFn();
+            console.log(arguments.callee); // newFn()
+        }
+        newFn();
+        function otherFn() {
+            console.log('other');
+            // caller 返回调用指定函数的函数
+            console.log(arguments.callee.caller); // newFn()
+        }
     </script>
 </head>
 

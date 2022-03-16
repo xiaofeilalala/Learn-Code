@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>闭包的优缺点</title>
+    <script>
+        // 闭包的作用
+        // 闭包可以将变量私有化
+        // 防止全局变量污染
+        // 变量存储在栈内存中，不会被销毁
+
+        function add(x) {
+            return function (y) {
+                return x + y;
+            }
+        }
+
+        let add3 = add(3);
+        let add5 = add(5);
+        console.log(add3(5));
+        console.log(add5(5));
+        // 释放对闭包的引用
+        add5 = null;
+        console.log(add5(1)); //Uncaught TypeError: add5 is not a function
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
