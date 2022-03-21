@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bind()方法</title>
+    <script>
+        // bind()改变this指向,返回新数组
+        function global(arg) {
+            console.log(arg);
+            console.log(this.name)
+        }
+        let html = {
+            name: 'html'
+        }
+        let vue = {
+            name: 'vue'
+        }
+        let newFn = global.bind(html, 'js'); // 不会立即执行
+        newFn(); // html js
+        
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

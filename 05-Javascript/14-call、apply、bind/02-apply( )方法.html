@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>apply()方法</title>
+    <script>
+        // apply() 方法改变this指向，参数传递为数组或者类数组
+        function getInfo(...arg) {
+            console.log(arg)
+            console.log(this.name);
+        }
+        let jsx = {
+            name: 'jsx'
+        }
+
+        let ljj = {
+            name: 'ljj'
+        }
+        let arr= ['html', 'css', 'js']
+        getInfo.apply(ljj, arr); //ljj 'html', 'css', 'js'
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

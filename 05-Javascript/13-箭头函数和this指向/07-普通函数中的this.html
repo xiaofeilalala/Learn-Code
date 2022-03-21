@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>普通函数中的this</title>
+    <script>
+        // 函数中的this
+        // 在没有明确调用者时，this指向window
+        function func() {
+            function func1() {
+                function func2() {
+                    console.log(this)
+                }
+                func2()
+            }
+            func1();
+        }
+        func();
+
+        // 函数内部，严格模式下this为undefined
+        function strictFn() {
+            'use strict';
+            console.log(this);
+        }
+        strictFn(); // undefined
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

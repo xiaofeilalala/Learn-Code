@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>箭头函数的函数体</title>
+    <script>
+        // 参数和箭头之间不能换行
+        // let fn5 = (x, y)
+        //     => x + y;
+        // console.log(fn5(7, 8)); //  Unexpected token '=>'
+        
+        // 可以通过()、{}来实现换行
+        let fn5 = (
+            x,
+            y) => x + y;
+        console.log(fn5(7, 8));
+
+        // {}花括号包裹为代码块,会被解析为语句
+        let fn6 = (a, b) => { a: b };
+        console.log(fn6(name, 'jsx')); // undefined
+
+        // 返回对象必须加上大括号
+        let fn7 = (a, b) => ({ name: b });
+        console.log(fn7('name', 'jsx')); // {name: 'jsx'}
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

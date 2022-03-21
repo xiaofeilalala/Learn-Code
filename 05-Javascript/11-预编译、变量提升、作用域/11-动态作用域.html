@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动态作用域</title>
+    <script>
+        // 动态作用域， this指向上下文
+        let method = {
+            fn : function () {
+                console.log(this.name)
+            },
+            name: 'jsx'
+        }
+
+        var name = 'ljj'
+        var changeName = method.fn;
+        console.log(changeName);
+        // ƒ () {
+        //         console.log(this.name); // this 指向window window.name为ljj
+        //     }
+
+        method.fn(); // jsx this 指向对象method
+        changeName(); // ljj
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

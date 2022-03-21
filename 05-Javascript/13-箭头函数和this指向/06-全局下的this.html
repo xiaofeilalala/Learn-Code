@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全局下的this</title>
+    <script>
+        // 全局下无论是否则严格模式下，this都指向window
+        function global() {
+            console.log(this); // window
+        }
+        global();
+
+        // 严格模式下
+        "use strict"
+        function strictFn() {
+            console.log(this);
+        }
+        strictFn(); // window
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM事件中的this</title>
+    <style>
+        .box {
+            width: 100px;
+            background-color: #a3a3a3;
+            list-style: none;
+            padding: 20px;
+
+        }
+
+        .box li {
+            display: block;
+            width: 100px;
+            height: 30px;
+            background-color: rgb(223, 223, 223);
+            margin-bottom: 20px;
+            text-align: center;
+            line-height: 30px;
+        }
+        .box li:last-child{
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="box">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <script>
+        // dom事件中的this
+        window.onload = function () {
+            function fn(e) {
+                console.log(this); //  指向事件源对象
+                console.log(e.currentTarget); // 绑定dom对象
+                console.log(e.target) // 触发事件的对象
+                console.log(this === e.currentTarget);   // 总是true
+                console.log(this === e.target);
+            }
+            let ele = document.getElementsByClassName('box');
+            for (let i = 0; i < ele.length; i++) {
+                ele[i].addEventListener('click', fn)
+            }
+        }
+    </script>
+</body>
+
+</html>

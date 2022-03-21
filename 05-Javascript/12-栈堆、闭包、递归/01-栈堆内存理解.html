@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>栈堆内存理解</title>
+    <script>
+        //  栈内存：用来执行代码和存储基本类型值的
+        // 堆内存：堆内存是用来存储引用数据类型值的
+
+        // 堆内存释放:赋值为null
+        // 栈内存释放：
+        // * 全局下页面关闭时销毁
+        // * 私有: 函数执行后会释放,闭包不会释放
+
+        let obj = {
+            name: 'jsx'
+        };
+        // 此时obj和oop都占用着对象的堆内存，想要释放堆内存，需要手动解除变量和值的关联
+        let loop = obj;
+        obj = null;
+        loop = null;
+        console.log(obj, loop); // null null
+
+        // 闭包
+        function fn() {
+            //...
+        }
+        fn(); //=>函数执行形成栈内存，执行完成栈内存销毁
+
+        function method() {
+            return function () {
+                //...
+            }
+        }
+        let fn = method(); // fn执行，形成闭包，methods函数内的变量为栈内存私有化不能释放
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

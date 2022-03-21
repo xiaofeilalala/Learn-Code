@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>三种方法的区别</title>
+    <script>
+        // cal和apply第二个参数，call传递指定参数，apply传递数组或类数组
+        // call和apply使用会马上执行函数返回函数结果， bind 返回一个新数组，新数组的this 指向bind的第一个参数
+        const obj = {
+            age: 24,
+            name: 'OBKoro1',
+        }
+        const obj2 = {
+            age: 777
+        }
+        callObj(obj, handle)
+        callObj(obj2, handle)
+        // 根据某些条件来决定要传递参数的数量、以及顺序
+        function callObj(thisAge, fn) {
+            let params = [];
+            if (thisAge.name) {
+                params.push(thisAge.name)
+            }
+            if (thisAge.age) {
+                params.push(thisAge.age)
+            }
+            fn.apply(thisAge, params) // 数量和顺序不确定 不能使用call
+        }
+        function handle(...params) {
+            console.log('params', params) // do some thing
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>call()方法</title>
+    <script>
+        // call用来改变this指向，指定的参数列表
+        function getInfo(arg1, arg2) {
+            console.log(arg1, arg2)
+            console.log(this.name);
+        }
+        let jsx = {
+            name: 'jsx'
+        }
+
+        let ljj = {
+            name: 'ljj'
+        }
+        getInfo.call(jsx, '蒋壮壮', '刘草草'); // 蒋壮壮 刘草草
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -5,7 +5,60 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>箭头函数的特性</title>
+    <script>
+        // 箭头函数没有 arguments对象
+        // 可以通过rest语法获取参数
+        let arrow = (...all) => {
+            // console.log(arguments); // arguments is not defined
+            console.log(all); // [2, 8]
+        }
+        console.log(arrow(2, 8))
+
+        // 没有prototype原型
+        let arrow1 = (a) => a;
+        console.log(arrow1.prototype); // undefined
+
+        // 不可当做构造函数
+        // let arrow2 = (a) => a;
+        // let arrow3 = new arrow2(2); // arrow2 is not a constructor
+
+        // 没有自己的this,会获取定义时候上下文的this
+        let obj = {
+            fun: function () {
+                console.log(this); // this 普通函数拥有自己的this
+                var obj1 = {
+                    fun1: () => {
+                        console.log(this);
+                    }
+                }
+                obj1.fun1();
+            }
+        }
+        obj.fun(); // this 指向fun 函数
+
+        function global() {
+            console.log(this) // this 指向window
+            setTimeout(() => {
+                console.log(this); // this 指向window 上下文
+            })
+        }
+        global()
+
+        // 箭头函数不支持new.target
+        let a = () => {
+            console.log(new.target); // 报错：new.target 不允许在这里使用
+        };
+        a(); // new.target expression is not allowed here
+
+        function func() {
+            let a = () => {
+                console.log(new.target);
+            }
+            a();
+        }
+        new func(); // f func(){}
+    </script>
 </head>
 
 <body>

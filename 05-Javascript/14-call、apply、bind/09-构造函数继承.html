@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>构造函数继承</title>
+    <script>
+        // 通过借用父类的构造方法来实现父类方法/属性的继承
+        let global = function(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+        let fn1 = function (name) {
+             global.call(this, name);
+        }
+        let fn2 = function(name, age) {
+            global.apply(this, arguments);
+        }
+        let method1 = new fn1('jsx', 22)
+        console.log(method1) // fn1 {name: 'jsx', age: undefined}
+        let method2 = new fn2('ljj', 23)
+        console.log(method2) // fn2 {name: 'jsx', age: 23}
+    </script>
+</head>
+<body>
+
+</body>
+</html>

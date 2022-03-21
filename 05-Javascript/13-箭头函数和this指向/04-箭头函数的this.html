@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>箭头函数的this</title>
+    <script>
+        // 箭头函数没有自己this 获取上下文this
+        let jsx = {name: 'jsx'}
+        let ljj = {name: 'ljj'}
+        function fn1() {
+            console.log(this)
+            let a = () => {
+                console.log(this);
+            }
+            a();
+        }
+        function fn2() {
+            console.log(this);
+        }
+        fn1(); // this 为windows
+        fn1.call(ljj); // this指向ljj 箭头函数跟随外层普通函数
+        fn2();
+        fn2.apply(jsx); // this 指向jsx
+        fn2.bind(jsx); // this 指向jsx
+        
+        // 箭头函数外层没有函数时指向window
+        let nofun = () => {
+            console.log(this); // window
+        }
+        nofun();
+
+        // call, apply, bind 无法改变this指向
+        let html = {name: 'html'}
+        let vue = {name: 'vue'}
+        function method() {
+            console.log(this);
+            let a = () => {
+                console.log(this);
+            }
+            a.call(html); // 不会改变，外层改变获取外层this跟着改变
+            a.apply(html);
+            a.bind(html);
+        }
+        method.call(vue)
+
+        // 箭头函数arguments继承
+        function args(a, b, c) {
+            console.log(arguments);
+            let x = () => {
+                console.log(arguments); // Arguments(3) [1, 2, 3, callee: ƒ, Symbol(Symbol.iterator): ƒ]
+            }
+            x();
+        }
+        args(1, 2, 3); 
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

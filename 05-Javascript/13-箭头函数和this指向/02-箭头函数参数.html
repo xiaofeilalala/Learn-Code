@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>箭头函数的使用</title>
+    <title>箭头函数参数</title>
     <script>
         // 无参数时括号必须保留
         let fn = () => 1;
@@ -23,21 +23,9 @@
         }
         console.log(fn3(5, 5)); // 25
 
-        // 不支持重名函数参数
+        // 不允许重复的参数名
         // let fn4 = (a, a) => a + a;
         // cosnole.log(fn4(1, 3)); // Uncaught SyntaxError: Duplicate parameter name not allowed in this context
-
-        // 参数和箭头之间不能换行
-        // let fn5 = (x, y)
-        //     => x + y;
-        // console.log(fn5(7, 8)); //  Unexpected token '=>'
-
-        // {} 大括号包裹为代码块
-        let fn6 = (a, b) => {a: b};
-        console.log(fn6(name, 'jsx')); // undefined
-
-        let fn7 = (a, b) => ({name: b});
-        console.log(fn7('name', 'jsx')); // {name: 'jsx'}
     </script>
 </head>
 

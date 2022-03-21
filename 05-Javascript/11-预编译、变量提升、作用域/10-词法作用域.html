@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>词法作用域</title>
+    <script>
+        // 词法作用域也是静态作用域
+        // 在词法阶段定义的作用域
+
+        // foo1 在全局定义，value会在全区作用域找
+        var value1 = 1;
+        function foo1() {
+            console.log(value1);
+        }
+        function bar1() {
+            var value1 = 2;
+            foo1();
+        }
+        bar1(); // 1　
+
+
+        var value = 1;
+        function bar() {
+            var value = 2;
+            function foo() {
+                console.log(value);
+            }
+            // foo 函数在函数作用域，value会向外层找
+            foo();
+        }
+
+        bar(); // 2
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
