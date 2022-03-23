@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array.prototype.slice</title>
+    <script>
+        // slice局限性，若数组里面是引用类型的话还是浅拷贝
+        let arr = [1, 3, {
+            username: ' kobe'
+        }];
+        let arr3 = arr.slice();
+        arr3[2].username = 'wade'
+        console.log(arr); // [ 1, 3, { username: 'wade' } ]
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

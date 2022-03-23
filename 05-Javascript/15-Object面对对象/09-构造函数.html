@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>构造函数</title>
+    <script>
+        // 构造函数
+        // 在函数内部通过this属性设置属性方法，通过new关键字创建对象实例
+        function Methods(name, mygril, message) {
+            this.name = name;
+            this.mygril = mygril;
+            this.message = message;
+            this.tellme = function() {
+                console.log(this.message)
+            }
+        }
+        let obj = new Methods('jsx', 'ljj', '520')
+        obj.tellme();
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

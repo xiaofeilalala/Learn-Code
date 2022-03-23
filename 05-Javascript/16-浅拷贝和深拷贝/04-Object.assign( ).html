@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>object.assign()方法</title>
+    <script>
+        // Object.assign()
+        // 将可枚举属性复制给目标对象
+         let obj = {
+            name: 'html',
+            message: {
+                info: 'hello'
+            }
+        }
+        let obj2 = {
+            name: 'js'
+        }
+        // 目标对象和源对象属性相同时，源对象覆盖目标对象
+        let obj3 = Object.assign(obj2, obj);
+        console.log(obj3)
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

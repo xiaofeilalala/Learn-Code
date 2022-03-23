@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>构造函数return</title>
+    <script>
+        // 构造函数return
+        // 当构造函数返回一个对象时，就返回这个对象
+        function Method(name) {
+            this.name = name;
+            return {name: 'ljj'};
+        }
+        let obj = new Method('jsx');
+        console.log(obj.name); // ljj
+
+        // 当return返回一个原始类型时，则会忽略
+        function fn(user) {
+            this.user = user;
+            return 'ljj'
+        }
+        let obj1 = new fn('jsx');
+        console.log(obj1.user); // jsx
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

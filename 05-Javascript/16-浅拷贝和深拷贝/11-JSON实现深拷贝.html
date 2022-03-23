@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON实现深拷贝</title>
+    <script>
+        // JSON.parse 将json字符串转为js对象
+        // JSON.stringify 将js对象转为json字符串
+
+        let deepObj = {
+            name: '前端',
+            lesson: {
+                class1: 'html',
+                class2: 'css',
+                class3: 'js'
+            },
+            // 不能处理函数与正则
+            fn: function(){
+                console.log('hello world')
+            },
+            rege: /^[0-9]+$/
+        }
+        // 通过JSON.parse和JSON.stringify
+        let newObj = JSON.parse(JSON.stringify(deepObj));
+        newObj.lesson.class1 = 'vue';
+        console.log(deepObj); // {name: '前端', lesson: {class1: 'html', class2: 'css' ,class3: 'js'}}
+        console.log(newObj); // // {name: '前端', lesson: {class1: 'vue', class2: 'css' ,class3: 'js'}}
+        
+        let rege = /^[0-9]+$/;
+        let newRege = JSON.parse(JSON.stringify(rege))
+        console.log(newRege)
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

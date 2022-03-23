@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>深拷贝</title>
+    <script>
+        // 深拷贝：将对象里的全部属性拷贝，在堆内存重新开辟空间，不会影响原始对象数据
+        let deepObj = {
+            name: '前端',
+            lesson: {
+                class1: 'html',
+                class2: 'css',
+                class3: 'js'
+            }
+        }
+        // 通过JSON.parse和JSON.stringify
+        let newObj = JSON.parse(JSON.stringify(deepObj));
+        newObj.lesson.class1 = 'vue';
+        console.log(deepObj); // {name: '前端', lesson: {class1: 'html', class2: 'css' ,class3: 'js'}}
+        console.log(newObj); // // {name: '前端', lesson: {class1: 'vue', class2: 'css' ,class3: 'js'}}
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

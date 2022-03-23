@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>赋值与深浅拷贝区别</title>
+    <script>
+        // 浅拷贝： 基本数据互不影响，引用数据类型会相互影响
+
+        // 基本数据类型不会影响
+        let name = 'jsx';
+        let user = name;
+        user = 'ljj';
+        console.log(name, user); // jsx ljj
+
+        // 引用类型浅拷贝
+        let obj = {
+            name: 'html',
+            age: 20,
+            grilfriend: {
+                name: 'css'
+            }
+        }
+        let obj1 = Object.assign({}, obj);
+        obj1.name = 'js';
+        obj1.grilfriend.name = 'vue'
+        console.log(obj); // {name: 'html', age: 20, grilfriend: {name: 'vue'}}
+        console.log(obj1); // {name: 'js', age: 20, grilfriend: {name: 'vue'}}
+
+        // 深拷贝
+        let method = {
+            user : 'bbc',
+            info: {
+                change: true
+            },
+            fn: function() {}
+        }
+        let newObj = JSON.parse(JSON.stringify(method));
+        newObj.info.change = 'ok';
+        console.log(method);
+        console.log(newObj);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

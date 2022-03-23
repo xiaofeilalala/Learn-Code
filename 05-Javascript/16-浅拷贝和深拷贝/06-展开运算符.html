@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>展开语法浅拷贝</title>
+    <script>
+        // 展开语法浅拷贝
+        let obj = {
+            name: 'jsx',
+            info: {
+                age: 20
+            }
+        }
+        let obj1 = {...obj};
+        obj1.name = 'ljj';
+        obj1.info.age = 23;
+        console.log(obj); // {name: 'jsx', info: {age: 23}}
+        console.log(obj1); // {name: 'ljj', info: {age: 23}}
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

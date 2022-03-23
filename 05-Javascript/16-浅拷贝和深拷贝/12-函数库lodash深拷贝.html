@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>_.cloneDeep深拷贝</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+    <script>
+        // _.cloneDeep
+        let deepObj = {
+            name: '前端',
+            lesson: {
+                class1: 'html',
+                class2: 'css',
+                class3: 'js'
+            }
+        }
+        // 通过lodash函数库
+        let newObj = _.cloneDeep(deepObj);
+        newObj.lesson.class1 = 'vue';
+        console.log(deepObj);
+        console.log(newObj);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

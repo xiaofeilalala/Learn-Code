@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>内存地址</title>
+    <script>
+        // 栈内存：引用类型储存在堆类型中
+        // 栈内存：基本数据类型存储在栈内存中，引用类型在栈中存储指针，指向堆中内存地址
+        let str = 'jsx'; // string
+        let num = 100; // number
+        let bool = true; // boolean
+        let arr = ['html', 'vue']; // array
+        let fn = function() {
+            console.log('function')
+        } // function
+        let obj = {name: 'jsx'}; // object
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

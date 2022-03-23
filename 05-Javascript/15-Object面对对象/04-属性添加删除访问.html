@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>属性添加删除访问</title>
+    <script>
+        // 通过.访问或者添加属性
+        // .点操作符访问不能有空格，数字开头，特殊字符
+        let obj = {
+            message: 'hello'
+        }
+        console.log(obj.message);
+        obj.name = 'jsx';
+        console.log(obj.name)
+
+        // 多词属性设置通过[]方括号
+        let methods = {
+            lesson: 'vue'
+        }
+        methods['hello world'] = 'javascript';
+        console.log(methods); // {lesson: 'vue', hello world: 'javascript'} 
+
+        // delete删除属性
+        let all = {
+            name: 'ljj',
+            age: 22
+        } 
+        delete all.name
+        console.log(all); // {age: 22}
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浅拷贝</title>、
+    <script>
+        // 浅拷贝
+        // 能够复制对象第一层属性，深层的对象属性不能复制
+        let obj = {
+            name: 'html',
+            message: {
+                info: 'hello'
+            }
+        }
+        let obj1 = Object.assign({}, obj);
+        obj1.name = 'css';
+        obj1.message.info = 'hello jsx';
+        console.log(obj); // {name: 'html', message: {name: 'hello jsx'}}
+        console.log(obj1); // {name: 'css', message: {name: 'hello jsx'}}
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

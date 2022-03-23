@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>属性简写与限制</title>
+    <script>
+        // 在对象中，当属性名与属性值相同时可以简写属性
+        function makeUser(name, age) {
+            return {
+                name, // name: name
+                age // age = age
+            }
+        }
+        console.log(makeUser('jsx', 22)); // {name: 'jsx', age: 22}
+        
+        var lesson = 'vue', time = 2022;
+        let user = {
+            lesson,
+            time
+        }
+        //  这里对象里的this向外层获取lesson
+        console.log(user); // {lesson: 'vue', time: 2022}
+
+        // 对象中属性值名称无任何限制，当为多词属性时用引号包住
+        let obj = {
+            'like it': 'vue',
+             for: 2,
+             return: false
+        }
+        console.log(obj); // {like it: 'vue', for: 2, return: false}
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
