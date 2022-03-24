@@ -15,7 +15,16 @@
                 info: 'hello'
             }
         }
-        let obj1 = Object.assign({}, obj);
+        function lightCopy(obj) {
+            let target = {};
+            for (let key in obj) {
+                if (obj.hasOwnProperty(key)) {
+                    target[key] = obj[key]
+                }
+            }
+            return target;
+        }
+        let obj1 = lightCopy(obj);
         obj1.name = 'css';
         obj1.message.info = 'hello jsx';
         console.log(obj); // {name: 'html', message: {name: 'hello jsx'}}

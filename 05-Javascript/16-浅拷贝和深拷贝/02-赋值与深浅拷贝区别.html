@@ -23,19 +23,28 @@
                 name: 'css'
             }
         }
-        let obj1 = Object.assign({}, obj);
-        obj1.name = 'js';
-        obj1.grilfriend.name = 'vue'
+        function lightCopy(obj) {
+            let target = {};
+            for (let key in obj) {
+                if (obj.hasOwnProperty(key)) {
+                    target[key] = obj[key]
+                }
+            }
+            return target;
+        }
+        let obj1 = lightCopy(obj);
+        obj1.grilfriend.name = 'vue';
         console.log(obj); // {name: 'html', age: 20, grilfriend: {name: 'vue'}}
         console.log(obj1); // {name: 'js', age: 20, grilfriend: {name: 'vue'}}
 
+
         // 深拷贝
         let method = {
-            user : 'bbc',
+            user: 'bbc',
             info: {
                 change: true
             },
-            fn: function() {}
+            fn: function () { }
         }
         let newObj = JSON.parse(JSON.stringify(method));
         newObj.info.change = 'ok';
