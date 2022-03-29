@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>禁止添加</title>
+    <script>
+        // Object.preventExtensions()
+        // 禁止添加属性
+        let obj = {name: 'jsx'};
+        Object.preventExtensions(obj);
+        obj.age = 22;
+        console.log(obj); // {name: 'jsx'}
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

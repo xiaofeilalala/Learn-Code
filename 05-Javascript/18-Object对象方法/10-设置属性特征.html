@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>设置属性特征</title>
+    <script>
+        // Object.defineProperty()
+        // 设置属性特征
+        let obj = {
+            name: 'jsx',
+            age: 22
+        }
+        Object.defineProperty(obj, 'name', {
+            value: 'ljj',
+            configurable: false,
+            enumerable: false,
+            writable: false
+        })
+        // 只读
+        console.log(obj.name);// ljj
+        obj.name = 'xlb';
+        console.log(obj.name); // ljj
+        // 不能遍历
+        console.log(Object.keys(obj)); // ['age']
+        // 不能删除
+        delete obj.name;
+        console.log(obj); // {age: 22, name: 'ljj'}
+        // 不可配置
+        Object.defineProperty(obj, 'name', {
+            value: 'ljj',
+            configurable: true,
+            enumerable: true,
+            writable: true
+        })
+        obj.name = 'asdasd';
+        console.log(obj.name); // 报错 name属性不可配置
+   </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symbol.toPrimitive</title>
+    <script>
+        // Symbol.toPrimitive 可以适用所有转换场景
+        // string, number, default 三种hint
+        let obj = {
+            name: 'jsx',
+            age: 22,
+            money: true,
+            [Symbol.toPrimitive](hint) {
+                console.log(hint)
+                return hint == 'string' ? `{name: '${this.name}'}` : this.age;
+            }
+        }
+        console.log(obj + 2); // 24
+        console.log(obj + 'ljj'); // 22ljj
+        console.log(+obj); // 22
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

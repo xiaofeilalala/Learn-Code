@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象遍历ES6方法</title>
+    <script>
+        // Object.keys() 返回可枚举键
+        // Object.values() 返回可枚举值
+        // Object.entries() 返回可枚举键值对
+        let obj = {
+            name: 'jsx',
+            age: 22,
+            lesson: 'js',
+            fn: function() {
+                console.log(this.name)
+            },
+            grilFriend: {
+                name: 'ljj'
+            }
+        }
+        console.log(Object.keys(obj));
+        // ['name', 'age', 'lesson', 'fn', 'grilFriend']
+        console.log(Object.values(obj));
+        // ['jsx', 22, 'js', ƒ, {name: 'ljj'}]
+        console.log(Object.entries(obj));
+        // [['name', 'jsx'], ['age', 22], ['lesson', 'js'], ['fn', ƒ], ['grilFriend', {name: 'ljj'}]]
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

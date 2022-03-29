@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>访问器描述符</title>
+    <script>
+        // 访问器描述符
+        // get 获取属性调用
+        // set 写入属性调用
+        // enumerable 是否可枚举
+        // configurable 是否可删除
+        // 可以通过defineProperty 设置访问器描述符
+        let obj = {
+            name: 'jsx',
+            age: 22
+        }
+        Object.defineProperty(obj, 'userInfo', {
+            set(val) {
+                console.log(val);
+                [this.name, this.age] = val.split(',')
+            },
+            get() {
+                return `${this.name} ${this.age}`
+            },
+            // 不可枚举
+            enumerable: false,
+            // 不可删除
+            configurable: false
+        })
+        obj.userInfo;
+
+        // 判断访问器属性是否能改
+        obj.userInfo = 'ljj,23';
+        console.log(obj); // obj 里有userInfo 属性
+        // 可枚举
+        console.log(Object.keys(obj)); // ['name', 'age']
+        // 是否能删除
+        delete obj.userInfo;
+        console.log(obj)
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

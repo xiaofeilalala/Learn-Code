@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>封闭对象</title>
+    <script>
+        // Object.seal()
+        // 封闭对象 禁止添加删除 设置configurable
+        let obj = {name: 'jsx'};
+        Object.seal(obj);
+        // 禁止添加
+        obj.age = 22;
+        // 禁止删除
+        delete obj.name;
+        // 原先可读为true 则可修改
+        obj.name = 'ljj'
+        console.log(obj); // {name: 'ljj'}
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

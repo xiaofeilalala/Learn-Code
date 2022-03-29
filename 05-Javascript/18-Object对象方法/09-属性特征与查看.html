@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>属性特征与查看</title>
+    <script>
+        // 属性特征 value、writable、configurable、enumerable
+        // 属性值, 只读, 可配置, 枚举
+        let obj = {
+            name: 'jsx',
+            age: 22,
+            lesson: ['html', 'css']
+        }
+        // 通过Object.getOwnPropertyDescriptor() 查看特征
+        console.log(Object.getOwnPropertyDescriptor(obj, 'name'))
+        // {value: 'jsx', writable: true, enumerable: true, configurable: true}
+
+        // Object.getOwnPropertyDescriptors() 获取对象身上所有属性描述
+        console.log(Object.getOwnPropertyDescriptors(obj))
+        // age: { value: 22, writable: true, enumerable: true, configurable: true }
+        // lesson: { value: Array(2), writable: true, enumerable: true, configurable: true }
+        // name: { value: 'jsx', writable: true, enumerable: true, configurable: true }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

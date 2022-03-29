@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getter&setter</title>
+    <script>
+        // getter和setter
+        // set 将对象属性绑定到要调用函数
+        // 只有一个参数，用来设置属性的新值
+        // 在写入访问器属性时执行
+
+        // getter 读取访问器属性时执行
+        let obj = {
+            name: 'jsx',
+            set newName(val) {
+                console.log('设置属性时执行')
+                console.log(val)
+                this.name = val
+            },
+            get newName() {
+                console.log('读取时执行')
+                console.log(this.name)
+            }
+        }
+        obj.newName; // jsx
+
+        obj.newName = 'ljj'; // ljj
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

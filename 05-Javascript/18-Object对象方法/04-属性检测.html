@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>属性检测</title>
+    <script>
+        // obj.hasOwnProperty()
+        // 检测对象自身是否含有此属性，返回布尔值
+        let obj = {
+            name: 'jsx',
+            age: 22
+        }
+        console.log(obj.hasOwnProperty('name')); // true
+
+        // 在obj的原型对象中有hasOwnProperty属性
+        console.log(obj.hasOwnProperty('hasOwnProperty')); // false
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

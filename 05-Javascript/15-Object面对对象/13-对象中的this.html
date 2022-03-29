@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象中的this</title>
+    <script>
+        // this 指向当前对象的引用
+        // 方法中调用 this 指向该对象
+        let obj = {
+            name: 'jsx',
+            fn: function () {
+                console.log(this); // {name: 'jsx', fn: ƒ}
+                console.log(this.name) // jsx
+            }
+        }
+        obj.fn();
+
+        // 在没有对象情况下 this 指向window
+        // 严格模式下为undefined
+        function global() {
+            'use strict'
+            console.log(this); // undefined
+        }
+        global(); // Window {window: Window, self: Window, document: document, name: '', location: Location, …}
+
+        // 对象中的箭头函数通过上下文获取this
+        let method = {
+            num: 2,
+            sum: function () {
+                return () => {
+                    console.log(this) // {num: 2, sum: ƒ}
+                    console.log(this.num); //  2
+                }
+            }
+        }
+        method.sum()();
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

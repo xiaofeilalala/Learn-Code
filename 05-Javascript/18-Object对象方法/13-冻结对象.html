@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>冻结对象</title>
+    <script>
+        // Object.freeze()
+        // 冻结对象 禁止增加删除修改枚举性可配置属性值
+        let obj = {name: 'jsx'};
+        obj.age = 22;
+        delete name;
+        obj.name = 'ljj';
+        Object.defineProperty(obj, 'name', {
+            value: 'xdm',
+            configurable: true,
+            enumerable: true,
+            writable: true
+        })
+        console.log(obj); // {name: 'xdm', age: 22}
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

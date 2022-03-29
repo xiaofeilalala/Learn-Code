@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象引用特性</title>
+    <script>
+        // 对象时引用类型,存储在堆内存中，赋值变量对象实际是对它的引用
+        // 对象变量被复制时引用被复制，内存地址不变
+        let obj = {
+            name: 'jsx'
+        }
+        let obj1 = obj;
+        obj1.age = 22;
+        console.log(obj); // {name: 'jsx', age: 22}
+        console.log(obj1); // {name: 'jsx', age: 22}
+
+        // 对象最为函数参数也不会完全赋值，共用同一对象
+        let user = {
+            name: 'jsx'
+        }
+        function getUser(value) {
+            value.name = 'ljj'
+        }
+        getUser(user);
+        console.log(user); // {name: 'ljj'}
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
