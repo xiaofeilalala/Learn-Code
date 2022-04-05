@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this与原型无关</title>
+    <script>
+        // 当函数作为对象里的方法被调用时，this被设置为调用该函数的对象
+        // 改变对象的原型不会影响this
+        let user = {
+            name: 'jsx',
+        }
+        let viper = {
+            name: 'ljj',
+            show() {
+                console.log(this.name)
+            }
+        }
+        Object.setPrototypeOf(user, viper);
+        // this不被原型影响，谁调用我this就执行谁
+        user.show(); // jsx
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

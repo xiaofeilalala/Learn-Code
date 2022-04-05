@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>构造继承</title>
+    <script>
+        // 在子类构造函数内部使用call或apply来调用父类构造函数
+        // function Child() {
+        //     Parent.call(this, ...arg)
+        //     Parent.apply(this, ...arg)
+        // }
+        function Parent(name) {
+            this.name = name;
+            this.lesson = ['html', 'css', 'js']
+        }
+
+        Parent.prototype.fn = function() {
+            console.log('Parent Fn')
+        }
+
+        function Child(name) {
+            Parent.call(this, name)
+        }
+
+        let child = new Child('jsx')
+        console.log(child.name) // ['html', 'css', 'js', 'vue']
+        child.lesson.push('vue')
+        console.log(child.lesson)
+        // child.fn() 不能使用Parent构造函数的原型方法
+
+        let child2 = new Child();
+        console.log(child2.lesson); // ['html', 'css', 'js']
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

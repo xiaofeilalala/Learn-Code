@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>组合继承</title>
+    <script>
+        // 组合继承 = 原型链继承 + 构造继承
+        // Child.prototype = new Parent()
+        // function Child() {
+        //     Parent.call(this, ...ageument)
+        // }
+        // 原型链继承：继承父类的原型属性与方法
+        // 构造函数继承：继承父类自身属性与方法
+        function Parent(name) {
+            this.name = name;
+            this.lesson = ['html', 'css', 'js']
+        }
+        Parent.prototype.fn = function() {
+            console.log('Parent fn')
+        }
+
+        function Child(name) {
+            Parent.call(this, name)
+        }
+        Child.prototype = new Parent();
+        // constructor修改
+        console.log(Child.prototype.constructor) // 指向Parent()
+        Child.prototype.constructor = Child;
+
+        let child = new Child('jsx')
+        console.log(child.name); // jsx 可以接受参数
+        child.fn(); // Parent fn 继承了父类的原型中的方法与属性
+        child.lesson.push('vue')
+        console.log(child.lesson); // ['html', 'css', 'js', 'vue']
+
+        let child1 = new Child('ljj')
+        console.log(child1.lesson); // ['html', 'css', 'js'] 引用类型属性改变不会影响其它子类实例对象属性
+
+        // constructor 属性
+        function Func() {
+            console.log('constructor')
+        }
+        let func = new Func();
+        console.log(func.constructor === Func) // true
+        console.log(Func.prototype.constructor === Func) // true
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

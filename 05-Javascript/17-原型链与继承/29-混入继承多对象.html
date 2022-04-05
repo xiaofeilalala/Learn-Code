@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>混入方式继承多对象</title>
+    <script>
+        // 通过call、apply Objct.assign 将多个对象的属性与方法拷贝到一个对象里
+        function Viper(name) {
+            this.name = name
+        }
+        Viper.prototype.fn = function () {
+            console.log("Viper fn")
+        }
+
+        function User(lesson) {
+            this.lesson = lesson;
+        }
+        User.prototype.fn1 = function () {
+            console.log("User lesson")
+        }
+
+        function Admin(name, age) {
+            Viper.call(this, name)
+            User.call(this, age)
+            this.name = 'jsx'
+        }
+        Admin.prototype = Object.create(Viper.prototype)
+        Object.assign(Admin.prototype, User.prototype)
+        Admin.prototype.constuctor = Admin;
+
+        let admin = new Admin('ljj', ['js', 'vue'])
+        admin.fn();
+        admin.fn1();
+        console.log(admin.name) // jsx 后面覆盖前面的属性
+        console.log(admin.lesson) // ['js', 'vue']
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

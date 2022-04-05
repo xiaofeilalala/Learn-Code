@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>instanceof运算符</title>
+    <script>
+        // instanceof 用来检测构造函数的原型是否在某个实例对象的原型链上
+        function Func1() { }
+        function Func2() { }
+        let fn1 = new Func1;
+        console.log(fn1 instanceof Func1); // true
+        console.log(fn1 instanceof Object); // true
+        console.log(Func1.prototype instanceof Object); // true
+
+        // 改变Func1的原型指向
+        Func1.prototype = {}
+
+        let fn2 = new Func1;
+        console.log(fn2 instanceof Func1)
+        // 构造函数fFunc1此时prototype属性指向空对象
+        console.log(fn1 instanceof Func1); // false
+
+        Func2.prototype = new Func1; // 继承
+        let fn3 = new Func2;
+        console.log(fn3 instanceof Func1); // true
+        console.log(fn3 instanceof Func2); // true
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

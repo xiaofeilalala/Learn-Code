@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[[Prototype]]和__proto__</title>
+    <script>
+        // [[Prototype]] 和 __proto__ 区别
+        // 两者用途相同，在ES5之前浏览器没有标准方法访问，浏览器可通过__proto__ 访问
+        let obj = {};
+        console.log(obj);
+        console.log(obj.prototype); // undefined 对象没有prototype属性
+
+        // console.log(obj[[Prototype]]); // 无法访问
+        // console.log(obj.[[Prototype]]); // 无法访问
+        console.log(obj.__proto__); // 通过__proto__ 访问原型对象
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

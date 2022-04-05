@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>设置原型</title>
+    <script>
+        // 设置原型 Object.setPrototypeOf()
+        // 将参数2对象设置为参数1的原型
+        let obj = {
+            name: 'jsx'
+        }
+        let jsx = {
+            name: 'ljj'
+        }
+        Object.setPrototypeOf(obj, jsx);
+        console.log(obj);
+        // { name: 'jsx' }
+        //   name: "jsx"
+        //   [[Prototype]]: Object
+        //     name: "ljj"
+        //     [[Prototype]]: Object
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

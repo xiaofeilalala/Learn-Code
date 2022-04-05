@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6类继承</title>
+    <script>
+        // ES6类继承 通过constructor和super
+        class Parent {
+            constructor(name) {
+                this.name = name
+            }
+            fn() {
+                console.log(this.name)
+            }
+        }
+        class Child extends Parent {
+            constructor(name) {
+                super(name)
+                this.name = 'jsx'
+            }
+        }
+        var child = new Child('ljj')
+        console.log(child);
+        child.fn(); // jsx
+
+        console.log(child instanceof Child) // true
+        console.log(child instanceof Parent) // true
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>构造函数的原型</title>
+    <script>
+        // 构造函数 通过new关键调用的函数称为构造函数
+        // 实例对象 通过构造函数创建的实例被称为实例对象
+        function User(name) {
+            this.name = name
+        }
+        let jsx = new User('jsx');
+        console.log(jsx)
+        // User { name: 'jsx' }
+        // name: "jsx"
+        // ---> [[Prototype]]: Object
+        // constructor: ƒ User(name)
+        // ---> [[Prototype]]: Object
+        // constructor: ƒ Object()
+        // hasOwnProperty: ƒ hasOwnProperty()
+        // isPrototypeOf: ƒ isPrototypeOf()
+        // propertyIsEnumerable: ƒ propertyIsEnumerable()
+        // toLocaleString: ƒ toLocaleString()
+        // toString: ƒ toString()
+        // valueOf: ƒ valueOf()
+        // __defineGetter__: ƒ __defineGetter__()
+        // __defineSetter__: ƒ __defineSetter__()
+        // __lookupGetter__: ƒ __lookupGetter__()
+        // __lookupSetter__: ƒ __lookupSetter__()
+        // __proto__: （…）
+        // get __proto__: ƒ __proto__()
+        // set __proto__: ƒ __proto__()
+        console.log(jsx.__proto__ === User.prototype); // true
+        console.log(User.prototype);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

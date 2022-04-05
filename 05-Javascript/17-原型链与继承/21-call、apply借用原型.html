@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>call、apply原型借用</title>
+    <script>
+        // call, apply 借用原型
+        // 数组借用Math对象方法
+        let arr = [1, 4, 54, 99];
+        let lesson = { html: 90, css: 80, js: 70 }
+        // 获取最大值
+        let newArr = arr.sort((a, b) => b - a);
+        console.log(newArr[0]);
+        let maxNum = Math.max.apply(null, arr);
+        console.log(maxNum)
+        let lessonMax = Math.max.apply(null, Object.values(lesson))
+        console.log(lessonMax); // 90
+    </script>
+</head>
+
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li class="list">3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+    </ul>
+    <script>
+        // 类数组获取数组方法
+        let lists = document.querySelectorAll('li');
+        console.log(lists)
+        // lists.filter(item => {
+        //     // 此时类数组没有数组方法
+        //     console.log(item)
+        // })
+       lists = Array.prototype.filter.call(lists, item => {
+           return item.hasAttribute('class')
+       })
+       console.log(lists)
+       lists[0].style.color = "#ff0000";
+    </script>
+</body>
+
+</html>

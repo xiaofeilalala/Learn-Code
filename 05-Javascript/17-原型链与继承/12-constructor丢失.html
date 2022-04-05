@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>constructor丢失</title>
+    <script>
+        // 不允许改变构造函数的原型
+        function User(name) {
+            this.name = name
+        }
+        User.prototype.show = function() {
+            console.log('在构造函数原型设置方法')
+        }
+        // 这里重新给构造函数原型赋值，导致原型里没有constructor属性
+        User.prototype = {
+            constructor: User,
+            show(){
+                console.log('重新设置了原型')
+            }
+        }
+        let jsx = new User.prototype.constructor('jsx'); // 无法找到constructor属性
+        jsx.show(); // 重新设置了原型
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

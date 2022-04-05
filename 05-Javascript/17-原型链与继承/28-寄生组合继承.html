@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>寄生组合继承</title>
+    <script>
+        // 寄生组合继承
+        // 通过Object.create()创建一个新对象并继承父类原型对象中的属性与方法
+        // Child.prototype = Object.create(Parent.prototype)
+
+        function Parent(name) {
+            this.name = name;
+            this.lesson = ['html', 'css', 'js']
+        }
+        Parent.prototype.fn = function () {
+            console.log('Parent fn')
+        }
+
+        function Child(name, age) {
+            Parent.call(this, name)
+            this.age = age;
+        }
+        Child.prototype = Object.create(Parent.prototype);
+        
+        Child.prototype.constructor = Child;
+        console.log(Child.prototype.constructor === Parent) // false
+
+        let child = new Child('jsx', 22)
+        console.log(child.name); // jsx 可以接受参数
+        console.log(child.age); // 22 可以有自己的属性
+        child.fn(); // Parent fn 继承了父类的原型中的方法与属性
+        child.lesson.push('vue')
+        console.log(child.lesson); // ['html', 'css', 'js', 'vue']
+
+        let child1 = new Child('ljj')
+        console.log(child1.lesson); // ['html', 'css', 'js'] 引用类型属性改变不会影响其它子类实例对象属性
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原型链</title>
+    <script>
+        // 什么是原型链？
+        // 原型链 原型对象也有原型通过__proto__ 一层一层向上直到Object的原型对象
+        function User(){};
+        let jsx = new User();
+        console.dir(jsx.__proto__.__proto__ === Object.prototype); // true
+        // 实例对象.__prototype --> 构造函数.prototype
+        // 构造函数.prototype.constructor --> 构造函数 
+        // 所有内置对象.__proto__ --> Function.prototype
+        // Function.prototype.__proto__ --> Object.prototype
+        // Object.prototype.__proto__ --> null
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

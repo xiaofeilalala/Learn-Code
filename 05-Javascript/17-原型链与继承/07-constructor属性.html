@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>constructor属性</title>
+    <script>
+        // constructor属性，原型对象的属性指向它的构造函数
+        function User(val) {
+            console.log(val)
+        }
+        console.dir(User)
+        console.log(User.prototype.constructor === User);
+
+        let jsx = new User.prototype.constructor('hahaha'); // hahaha
+
+        // 通过constructor创建对象
+        function Fn(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        let fn1 = new Fn('jsx')
+        function creatObj(obj, ...arg) {
+            let constructor = Object.getPrototypeOf(obj).constructor;
+            return new constructor(...arg)
+        }
+
+        let fn2 = new creatObj(fn1, 'ljj', 23);
+        console.log(fn2); // {name: 'ljj', age: 23}
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

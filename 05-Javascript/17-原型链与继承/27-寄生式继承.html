@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>寄生式继承</title>
+    <script>
+       // 寄生继承在原型式继承的基础上再封装一层来增强对象然后返回
+       function Parent(name) {
+           this.name = name;
+           this.lesson = ['js', 'vue']
+       }
+       function Child(obj) {
+           let clone = Object.create(obj);
+           clone.func = function() {
+               console.log('寄生式继承')
+           }
+           return clone;
+       }
+       let parent = new Parent('jsx')
+       let result = Child(parent);
+       console.log(result.name)
+       result.func(); // 寄生式继承
+       result.lesson.push('webpack');
+       console.log(result.lesson); // ['js', 'vue', 'webpack']
+
+       let result1 = Child(parent);
+       console.log(result1.lesson); // ['js', 'vue', 'webpack']
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

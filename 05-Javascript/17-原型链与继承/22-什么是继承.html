@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>什么是继承</title>
+    <script>
+        // 继承就是一个对象能访问到另一个对象的属性和方法
+        // 继承是原型的继承而不是改变构造函数的原型
+        function Parent() {}
+        Parent.prototype.user = function () {
+            console.log('Parent')
+        }
+
+        function Child() {}
+        Child.prototype = Parent.prototype
+        let child = new Child();
+        child.user(); // parent
+        Child.prototype.show = function () {
+            console.log('Child');
+        }
+        child.show(); 
+        console.log(child)
+        console.log(child.__proto__ === Parent.prototype); // true
+        console.log(child.__proto__ === Child.prototype); // true 
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

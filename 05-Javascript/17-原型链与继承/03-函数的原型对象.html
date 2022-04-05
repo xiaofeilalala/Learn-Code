@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数的原型</title>
+    <script>
+        // 函数的原型
+        // prototype 函数作为构造函数时指向实例对象的原型
+        // __proto__ 函数作为对象或者实例对象时的原型对象
+        function user() {
+            console.log('hello')
+        }
+        console.dir(user);
+        // ƒ user()
+        // arguments: null
+        // caller: null
+        // length: 0
+        // name: "user"
+        // ---> prototype: { constructor: ƒ }
+        // [[FunctionLocation]]: 03 - 函数的原型对象.html: 13
+        // ---> [[Prototype]]: ƒ()
+        // [[Scopes]]: Scopes[1]
+        // user是Function的实例对象
+        // 构造函数的prototype属性指向实例对象的原型对象
+        console.log(user.__proto__ === Function.prototype)
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

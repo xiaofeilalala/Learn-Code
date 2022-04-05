@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原型式继承</title>
+    <script>
+        // 通过创建函数然后new实例化返回函数来浅拷贝构造函数属性
+        // Object.create()
+        // 设置空对象将空对象原型设置为某个对象
+        // function Parent(obj) {
+        //    function Func() {}
+        //    Func.prototype = obj;
+        //    Func.prototype.construct = Func;
+        //    return new Func();
+        // }
+
+        // Child.prototype = Object.create(Parent.prototype)
+
+        function Parent(obj) {
+           let obj1 = {};
+           obj1.__proto__ = obj;
+           return obj1
+        }
+
+        function Child(name) {
+            console.log('Child')
+            this.name = name;
+            this.lesson = ['html', 'css', 'js']
+        }
+        let child = new Child('jsx');
+        let result = Parent(child);
+        console.log(result.name); // jsx
+        console.log(result.lesson); // ['html', 'css', 'js']
+        result.lesson.push('vue'); 
+
+        let result1 = Parent(child)
+        console.log(result.name)
+        console.log(result.lesson)
+        result.lesson.push('vue'); // ['html', 'css', 'js', 'vue']
+        
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

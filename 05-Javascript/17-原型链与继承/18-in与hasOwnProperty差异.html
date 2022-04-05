@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>in和hasOwnProperty差异</title>
+    <script>
+        // in 和 hasOwnProperty 都是检测该属性是否在对象内
+        // in 会检查到原型链上的
+        // hasOwnProperty 不会上升到原型内检查
+        let obj = {
+            name: 'jsx'
+        }
+        let jsx = {
+            age: 22
+        }
+        // 将jsx作为obj的原型
+        Object.setPrototypeOf(obj, jsx);
+        console.log(obj)
+        console.log('name' in obj); // true
+        // 检查到obj原型上的属性
+        console.log('age' in obj); // true
+        console.log(obj.hasOwnProperty('name')); // true
+        console.log(obj.hasOwnProperty('age')); // false
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>__proto__替代</title>
+    <script>
+        // __proto_)_ 替代 getPrototype和setPrototype
+        let jsx = { name: 'jsx' };
+        let ljj = { name: 'ljj' };
+        Object.setPrototypeOf(jsx, ljj);
+        console.log(Object.getPrototypeOf(jsx)); // {name: 'ljj'}
+
+        // 对象的原型必须是对象
+        jsx.__proto__ = {
+            show() {
+                console.log(this.name)
+            }
+        }
+        jsx.__proto__ = 10; // 原型不会为基本数据类型
+        jsx.show(); // jsx
+
+        //  原理
+        let user = {
+            name: null,
+            set __proto__(val) {
+                if (val instanceof Object) {
+                   this.name = val
+                }
+            },
+            get __proto__() {
+                return this.name
+            }
+        }
+        user.__proto__ = 12;
+        user.__proto__ = { view: function () { } };
+        console.log(user.__proto__)
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>没有原型对象的场景</title>
+    <script>
+        // 可以通过Object.creat()将null当做创建的新对象的原型
+        let jsx = Object.create(null, {
+            name: {
+                value: 'jsx'
+            }
+        });
+        console.log(jsx); // 无原型
+        // { name: 'jsx' }
+        //  --> name: "jsx"
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

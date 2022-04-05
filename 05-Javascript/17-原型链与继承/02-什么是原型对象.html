@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>什么是原型对象</title>
+    <script>
+        // 原型就相当于对象的父亲，可以向原型继承方法与属性
+        // 每个对象都拥有一个隐藏的属性[[prototype]]指向原型对象
+        let obj = { name: 'jsx' };
+        console.log(obj);
+        // { name: 'jsx' }
+        // name: "jsx"
+        // ---> [[Prototype]]: Object
+        // constructor: ƒ Object()
+        // hasOwnProperty: ƒ hasOwnProperty()
+        // isPrototypeOf: ƒ isPrototypeOf()
+        // propertyIsEnumerable: ƒ propertyIsEnumerable()
+        // toLocaleString: ƒ toLocaleString()
+        // toString: ƒ toString()
+        // valueOf: ƒ valueOf()
+        // __defineGetter__: ƒ __defineGetter__()
+        // __defineSetter__: ƒ __defineSetter__()
+        // __lookupGetter__: ƒ __lookupGetter__()
+        // __lookupSetter__: ƒ __lookupSetter__()
+        // ---> __proto__: （…）
+        // get __proto__: ƒ __proto__()
+        // set __proto__: ƒ __proto__()
+
+        // 可以通过getPrototypeOf()或者__proto__访问
+        console.log(obj.__proto__);
+        console.log(Object.getPrototypeOf(obj));
+        console.log(obj.__proto__ === Object.getPrototypeOf(obj)); // true
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

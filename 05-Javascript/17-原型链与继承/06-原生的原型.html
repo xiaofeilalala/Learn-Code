@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原生的原型</title>
+    <script>
+        // 所有构造函数作为作为实例对象时它的__proto__都指向构造函数的prototype属性
+        let obj = {};
+        // let obj = new Object();
+        console.log(obj.__proto__ === Object.prototype);
+
+        let arr = [];
+        // let arr = new Array();
+        console.log(arr.__proto__ === Array.prototype)
+        console.dir(Array.prototype.__proto__ === Object.prototype); // true
+        console.log(arr.__proto__.__proto__ === Object.prototype); // true
+        console.log(Object.prototype === Object.__proto__.__proto__); // true
+        console.log(Object.prototype.__proto__); // null
+        console.log(Function.prototype.__proto__ === Object.prototype); // true
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
