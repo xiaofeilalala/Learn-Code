@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据类型检测</title>
+    <script>
+        // typeof 不能区分引用类型 数组对象和普通对象
+        // typeof null 会返回object 这是js版本兼容下遗留的错误
+        // typeof NaN或者Infinitely返回number
+        console.log(typeof 'jsx'); // string
+        console.log(typeof 123); // number
+        console.log(typeof true); // boolean
+        console.log(typeof function name() { }); // function
+        console.log(typeof ['html', 'css', 'js']); // object
+        console.log(typeof { name: 'jsx' }); // object
+        console.log(typeof null); // object
+        console.log(typeof undefined); // undefined
+        console.log(typeof Symbol('id')); // symbol
+        console.log(typeof Math); // object
+        console.log(typeof 10n); // bigint
+        console.log(typeof /^\d+$/); // Object
+
+        // instanceof 用于检测构造函数的prototype属性是否出现在某个实例对象的原型链上
+        // 弥补typeof 无法细分对象类型的缺点
+        console.log(['html', 'css', 'js'] instanceof Array); // true
+        console.log({ name: 'jsx' } instanceof Object); // true
+        console.log(/^\d+$/ instanceof Object); // true
+        console.log(null instanceof Object); // false
+        // 只能检测引用类型
+        console.log('jsx' instanceof String); // false
+
+        // constructor 检测当前实例的constructor是否指向它的构造函数
+        // 通过构造函数的实例来检测判断数据类型
+        // constuctor有可能会被更改存在不确定性
+        function User() { }
+        let user = new User()
+        console.log(user.__proto__.constructor === User); // true
+        console.log(User.prototype.constructor === User); // true
+        console.log({}.constructor === Object); // true
+        console.log([].constructor === Array); // true
+        console.log(function name() { }.constructor === Function); // true
+        console.log('jsx'.constructor === String); // true
+        console.log(true.constructor === Boolean); // true
+        let num = 100;
+        console.log(num.constructor === Number); // true
+        console.log(Symbol('id').constructor === Symbol); // true
+        console.log(10n.constructor === BigInt); // true
+        console.log(/^\d+$/.constructor === RegExp); // true
+
+        // Object.prototype.toString.call()
+        // {}.toString.call()
+        // 可以检测任何数据类型
+        function User1() { }
+        let user1 = new User1()
+        // 不能检测自定义类
+        console.log({}.toString.call(user1)) // [object Object]
+
+        let name = ['jsx', 'ljj']
+        console.log({}.toString.call(name)) // [object Array]
+
+        console.log({}.toString.call(10)); //=>"[object Number]"
+        console.log({}.toString.call(NaN)); //=>"[object Number]"
+        console.log({}.toString.call("xxx")); //=>"[object String]"
+        console.log({}.toString.call(true)); //=>"[object Boolean]"
+        console.log({}.toString.call(null)); //=>"[object Null]"
+        console.log({}.toString.call(undefined)); //=>"[object Undefined]"
+        console.log({}.toString.call(Symbol())); //=>"[object Symbol]"
+        console.log({}.toString.call(BigInt(10))); //=>"[object BigInt]"
+        console.log({}.toString.call({ xxx: 'xxx' })); //=>"[object Object]"
+        console.log({}.toString.call([10, 20])); //=>"[object Array]"
+        console.log({}.toString.call(/^\d+$/)); //=>"[object RegExp]"
+        console.log({}.toString.call(function () { })); //=>"[object Function]" 
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

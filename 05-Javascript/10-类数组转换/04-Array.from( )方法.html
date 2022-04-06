@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array.from()</title>
+    <script>
+        // Array.from() 返回新创建的数组
+        let likeArr = {
+            0: 'jsx',
+            1: 'ljj',
+            2: 'ddc',
+            3: 'zdj',
+            length: 4
+        }
+        let arr = Array.from(likeArr)
+        console.log(arr); // ['jsx', 'ljj', 'ddc', 'zdj']
+        console.log(arr instanceof Array); // true
+
+        console.log(Array.from('jsx')); // ['j', 's', 'x']
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

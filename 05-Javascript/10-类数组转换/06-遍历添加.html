@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>遍历添加</title>
+    <script>
+        //  通过循环迭代 遍历添加
+        // for for..in for...of Object.values()
+        window.onload = function () {
+            let list = document.querySelectorAll('li');
+            console.log(list)
+            console.log(list instanceof Array) // false
+            console.log(typeof list[Symbol.iterator] === 'function'); // true
+
+            let arr = [];
+            for (let item of list) {
+                arr.push(item)
+            }
+            console.log(arr)
+            // 可以使用数组方法
+            arr.map(item => item.innerHTML = '遍历添加')
+        }
+    </script>
+</head>
+
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+</body>
+
+</html>
