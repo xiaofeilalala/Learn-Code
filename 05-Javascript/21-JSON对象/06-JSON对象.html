@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON对象</title>
+    <script>
+        // JSON对象
+        // 可通过. []来访问属性值
+        let json = { "name": "jsx", "age": 22 }
+        console.log(json['name'], json.age) // jsx 22
+
+        // 可循环
+        for (let key in json) {
+            console.log(json[key]); // jsx 22
+        }
+
+        // 可修改
+        json.name = "ljj";
+        console.log(json); // {name: 'ljj', age: 22}
+
+        // 可删除
+        delete json.age;
+        console.log(json); // {name: 'ljj'}
+
+        // 可嵌套
+        let json1 = {
+            "name": "runoob",
+            "alexa": 10000,
+            "sites": {
+                "site1": "www.runoob.com",
+                "site2": "m.runoob.com",
+                "site3": "c.runoob.com"
+            }
+        }
+        console.log(json1)
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON反序列化</title>
+    <script>
+        // JSON.parse() 解析JSON字符串， 将JSON转换为对象
+        let json = '{"name": ["js", "webpack"], "age": 22, "gridFriend": "ljj"}'
+        console.log(JSON.parse(json)) // {name: Array(2), age: 'jsx'}
+
+        // 第二个参数是一个可选参数用来调用key和value
+        let result = JSON.parse(json, (key, value) => {
+            if (key == "age") {
+                return `年龄：${value}`
+            }
+            return value
+        })
+        console.log(result)
+        // {name: Array(2), age: '年龄：22', gridFriend: 'ljj'}
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

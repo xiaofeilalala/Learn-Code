@@ -1,0 +1,14 @@
+{
+    "name": "jsx",
+    "age": 20,
+    "gridFriend": true,
+    "lesson": [
+        "html",
+        "css",
+        "js"
+    ],
+    "obj": {
+        "dev": "run dev"
+    },
+    "type": null
+}

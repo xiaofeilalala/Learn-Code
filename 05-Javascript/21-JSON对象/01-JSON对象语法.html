@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON语法</title>
+    <script>
+        // 什么是json
+        // json语法和js很相似，可以通过js来解析，json数据可以ajax传输
+        // key: value 
+        // 数据由逗号分隔
+        // {}保存对象
+        // []保存数组
+        let options = {
+            "age": 30,
+            "name": "JSON学习",
+            "url": "www.runoob.com",
+            "sites": [
+                { "name": "菜鸟教程", "url": "www.runoob.com" },
+                { "name": "google", "url": "www.google.com" },
+                { "name": "微博", "url": "www.weibo.com" }
+            ],
+            "flag": true,
+            "runoob": null
+        }
+        // 因为 JSON 使用 JavaScript 语法，所以无需额外的软件就能处理 JavaScript 中的 JSON
+        console.log(options.name);
+        console.log(options)
+    </script>
+    <script type="application/json">
+        
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

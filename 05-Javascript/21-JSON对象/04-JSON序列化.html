@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON序列化</title>
+    <script>
+        // JSON.stringify(value, replacer, space)
+        // 将js对象转换为JSON字符串
+        let obj = {
+            name: 'jsx',
+            age: 22,
+            lesson: ['html', 'css', 'js']
+        }
+        let json = JSON.stringify(obj)
+        console.log(json) // {"name":"jsx","age":22,"lesson":["html","css","js"]}
+
+        // 第二个参数replacer 为函数时，被序列化的值得属性都会经过该函数转换处理
+        let obj1 = {
+            lesson: 'vue',
+            date: 2022,
+            flag: true
+        }
+        function replacer(key, value) {
+            console.log(key, value)
+            if (typeof value === "string") {
+                return undefined;
+            }
+            return value;
+        }
+        let result = JSON.stringify(obj1, replacer)
+        console.log(result); // {"date":2022,"flag":true}
+
+        // 当replacer参数为数组，数组的值代表将被序列化成 JSON 字符串的属性名
+        let result1 = JSON.stringify(obj1, ['lesson', 'date'])
+        // 只保留 “lesson” 和 “date” 属性值
+        console.log(result1); // {"lesson":"vue","date":2022}
+
+        // 第三个参数spcae,用来控制结果字符串里面的间距
+        let obj2 = {
+            name: 'jsx',
+            age: 22,
+            lesson: ['jsx', 'css', 'vue']
+        }
+        let result2 = JSON.stringify(obj2, null, 4)
+        console.log(result2)
+
+        /* {
+            "name": "jsx",
+            "age": 22,
+            "lesson": [
+                "jsx",
+                "css",
+                "vue"
+            ]
+          } 
+        */
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

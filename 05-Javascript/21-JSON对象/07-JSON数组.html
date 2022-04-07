@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON数组</title>
+    <script>
+        // JSON数组
+        // 可通过索引来访问
+        let arrJson = ["jsx", "ljj", "ddc"]
+        console.log(arrJson[0]); // jsx
+
+        // 可循环
+        for (let key of arrJson) {
+            console.log(key); // jsx ljj ddc
+        }
+
+        // 可修改
+        arrJson[0] = "jsx ❤ 520";
+        console.log(arrJson); // ['jsx ❤ 520', 'ljj', 'ddc']
+
+        // 可删除
+        delete arrJson[2];
+        console.log(arrJson); // ['jsx ❤ 520', 'ljj', 空白]
+
+        // 可嵌套
+        let arrJson1 = {
+            "name": "网站",
+            "num": 3,
+            "sites": [
+                {"name1": [["jsx", "ljj", "ddc"]]},
+                {"name2": [["jsx", "ljj", "ddc"]]},
+                {"name3": [["jsx", "ljj", "ddc"]]}
+            ]
+        }
+        console.log(arrJson1)
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
