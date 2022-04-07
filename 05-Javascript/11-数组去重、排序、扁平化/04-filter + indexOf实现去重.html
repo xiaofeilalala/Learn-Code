@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>filter + indexOf去重</title>
+    <script>
+        // filter 对数组进行迭代过滤
+        function unique(arr) {
+            if (!Array.isArray(arr)) {
+                console.log('type error!')
+                return
+            }
+            // 通过Array原型方法返回一个新数组
+            return Array.prototype.filter.call(arr, function (item, index) {
+                // 判断如果当前元素不等于当前索引则为重复元素
+                // 则返回索引与元素相符合的元素组成的新数组
+                return arr.indexOf(item) === index;
+            })
+        }
+        let arr = [2, 2, 4, 5, 7];
+        console.log(unique(arr));
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

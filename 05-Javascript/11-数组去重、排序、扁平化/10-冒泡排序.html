@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>冒泡排序</title>
+    <script>
+        // 冒泡排序
+        function bubblesSort(arr) {
+            if (!Array.isArray(arr)) return false;
+            // 获取数组length 确定循环次数
+            let arrLength = arr.length;
+            for (let i = 0; i < arrLength; i++) {
+                // 遍历数组的前len-i项
+                console.log(i)
+                for (let j = 0; j < arrLength - 1 - i; j++) {
+                    //  将每一项与后一项进行对比，不符合要求的就换位
+                    console.log(arr[j], arr[j + 1])
+                    if (arr[j] > arr[j + 1]) {
+                        [arr[j + 1], arr[j]] = [arr[j], arr[j + 1]]
+                    }
+                }
+                console.log(arr)
+
+            }
+            return arr;
+        }
+        let arr = [1, 5, 23, 2]
+        console.log(bubblesSort(arr))
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

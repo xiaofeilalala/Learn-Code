@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>归并排序</title>
+    <script>
+        // 归并排序
+        function mergeSort(arr) {
+            if (!Array.isArray(arr)) return false;
+            if (arr.length < 2) return arr;
+            // 将无序列数组划分为两个数组
+            let mid = Math.floor(arr.length / 2);
+            let left = arr.slice(0, mid);
+            let right = arr.slice(mid, arr.length)
+            console.log(left, right)
+            // 递归分别对左右两部分数组进行排序合并
+            return Merge(this.mergeSort(left), this.mergeSort(right));
+        }
+
+        function Merge(left, right) {
+            let result = [];
+            while(left.length > 0 && right.length > 0) {
+                console.log(left[0], right[0])
+                if(left[0] <= right[0]) {
+                    result.push(left.shift())
+                } else {
+                    result.push(right.shift())
+                }
+            }
+            while(left.length) {
+                result.push(left.shift())
+            }
+            while(right.length) {
+                result.push(right.shift())
+            }
+            console.log('result--> ', result)
+            return result
+        }
+        let arr = [60, 30, 5, 23, 80, 2]
+        console.log(mergeSort(arr))
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选择排序</title>
+    <script>
+        // 选择排序
+        function selectionSort(arr) {
+            if (!Array.isArray(arr)) return false;
+            // 获取数组长度
+            let len = arr.length;
+            for (let i = 0; i < len; i++) {
+                // 记录最小索引
+                let minIndex = i;
+                console.log(minIndex);
+                console.log('minIndex-->', arr[minIndex]);
+                for (let j = i + 1; j < len; j++) {
+                    console.log('i-->', i)
+                    console.log('arr[j]-->', arr[j])
+                    // 交换位置后原数组的排序会变化，获取的是排序的数组
+                    minIndex = arr[j] < arr[minIndex] ? j : minIndex
+                }
+                // 交换位置
+                [arr[minIndex], arr[i]] = [arr[i], arr[minIndex]];
+                console.log(arr)
+            }
+            return arr;
+        }
+        let arr = [1, 5, 23, 2]
+        console.log(selectionSort(arr))
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

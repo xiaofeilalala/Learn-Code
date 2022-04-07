@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flat() 扁平化</title>
+    <script>
+        // flat() 按照指定深度递归遍历数组，返回新数组
+        // 可传入参数结构深度depth 默认1
+        let arr = [[1], 2, [[3], [4]]]
+        console.log(arr.flat(2)); // [1, 2, 3, 4]
+
+        // 使用 Infinity，可展开任意深度的嵌套数组
+        let arr1 = [[[1], [[[6]], [5]]]]
+        console.log(arr1.flat(Infinity)); // [1, 6, 5]
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

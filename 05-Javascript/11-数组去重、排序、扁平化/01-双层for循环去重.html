@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>双层for循环去重</title>
+    <script>
+        // 双重for循环去重
+        // 通过原始数组与新数组中元素对比来去重
+        function unique(arr) {
+            // 判断是否为数组
+            if (!Array.isArray(arr)) {
+                console.log('type error!')
+                return
+            }
+            // 定义新数组 新数组第一个元素为元素数组第一个元素
+            let newArr = [arr[0]]
+            for (let i = 0; i < arr.length; i++) {
+                console.log(arr[i])
+                let repeat = false;
+                for (let j = 0; j < newArr.length; j++) {
+                    console.log(newArr[j])
+                    // 判断如果元素相同则返回true然后继续迭代
+                    if (arr[i] === newArr[j]) {
+                        repeat = true;
+                        break;
+                    }
+                }
+                // repeat为false时 arr[i]与newArr[j]不相等时添加新元素
+                if (!repeat) {
+                    console.log(newArr)
+                    newArr.push(arr[i])
+                    console.log(newArr)
+                }
+            }
+            // 执行完返回新数组
+            return newArr;
+        }
+
+        let arr = [1, 1, 2, 7, 7]
+        console.log(unique(arr))
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

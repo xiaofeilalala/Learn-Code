@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>递归去重</title>
+    <script>
+        // 通过递归函数来实现递归
+        function unique(arr) {
+            if (!Array.isArray(arr)) {
+                console.log('type error!');
+                return
+            }
+            // 获取原始数组的索引
+            let arrLength = arr.length;
+            // 将原始数组排序
+            arr = arr.sort();
+
+            // 创建递归函数
+            /*
+             * @index 索引
+            */
+            function loop(index) {
+                // 终止递归的条件
+                if (index >= 1) {
+                    if (arr[index] === arr[index - 1]) {
+                        arr.splice(index, 1);
+                    }
+                    loop(index - 1)
+                }
+            }
+            loop(arrLength - 1)
+            return arr
+        }
+        let arr = [2, 2, 3, 2, 4];
+        console.log(unique(arr)); // [2, 3, 4]
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

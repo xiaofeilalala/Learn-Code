@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lodash的_.flatMap方法</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/lodash.js/4.17.21/lodash.js"></script>
+    <script>
+        // _.flatMap(collection, [iteratee=_.identity])
+        function duplicate(n) {
+            return [n]
+        }
+        let arr = [1, [2, [3], [4]]]
+        console.log(_.flatMapDepth(arr, duplicate, Infinity)); // [1, 2, 3, 4]
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

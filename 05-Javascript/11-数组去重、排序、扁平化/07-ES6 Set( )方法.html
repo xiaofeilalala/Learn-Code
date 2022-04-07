@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6 Set()方法与解构赋值</title>
+    <script>
+        // Set数据结构是一个特殊集合，里面的值不会重复
+        function unique(arr) {
+            if (!Array.isArray(arr)) {
+                console.log('type error!');
+                return
+            }
+            // 通过结构赋值返回新数组
+            return [...new Set(arr)]
+            // return Array.from(new Set(arr))
+        }
+        let arr = [1, 1, 4, 4, 4];
+        console.log(unique(arr));
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

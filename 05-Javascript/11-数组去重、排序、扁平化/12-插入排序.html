@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>插入排序</title>
+    <script>
+        // 插入排序
+        /*
+         * @arr 数组类型
+         * @return arr
+         */
+        function insertionSort(arr) {
+            if (!Array.isArray(arr)) return false;
+            for (var i = 0; i < arr.length; i++) {
+                //当前元素
+                let item = arr[i];
+                //前面的索引
+                let prevIndex = i - 1;
+                // 对前面进行判断
+                console.log('prevIndex-->', prevIndex)
+                while (prevIndex >= 0 && arr[prevIndex] > item) {
+                    console.log(arr[prevIndex], item)
+                    //交换位置
+                    arr[prevIndex + 1] = arr[prevIndex];
+                    prevIndex--;
+                }
+                arr[prevIndex + 1] = item
+                console.log(arr)
+            }
+            return arr;
+
+        }
+        let arr = [60, 30, 5, 23, 80, 2]
+        console.log(insertionSort(arr))
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

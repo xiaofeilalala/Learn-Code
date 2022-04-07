@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>扩展运算符实现扁平化</title>
+    <script>
+        // ... + some
+        function flatDeep(arr) {
+            // 通过 some 判断如果是数组则扁平化
+            while (arr.some(item => Array.isArray(item))) {
+                // 一次只能扁平化一次 通过while循环调用
+                arr = [].concat(...arr)
+            }
+            return arr;
+        }
+        let arr = [1, [2], [[3]]]
+        console.log(flatDeep(arr)); // [1, 2, 3]
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
