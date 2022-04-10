@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>贪婪模式</title>
+    <script>
+        // 贪婪模式
+        // * + 量词是贪婪的， 会尽可能匹配更多的字符串
+        // .+ 会先匹配所有字符然后匹配会发生回溯
+        let reg = /".+"/g;
+        let str = 'a "witch" and her "broom" is one';
+        console.log(str.match(reg)); // "witch" and her "broom"
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

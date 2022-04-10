@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>replace()方法</title>
+    <script>
+        // str.splice(str|regexp, str|func)
+        // 传入字符串时
+        let str = 'jsx-ljj-';
+        // 只会替换一个匹配项
+        let result = str.replace('-', '❤'); // jsx❤ljj-
+        console.log(result);
+
+        // 可以使用特殊变量名来替换字符串
+        let str1 = 'jsx-ljj';
+        let res = str1.replace('-', '$$'); // jsx-ljj
+        let res1 = str1.replace('-', '$&'); // jsx-ljj
+        let res2 = str1.replace('-', '$`'); // jsxjsxljj
+        let res3 = str1.replace('-', '$\''); // jsxljjljj
+        console.log(res)
+        console.log(res1)
+        console.log(res2)
+        console.log(res3)
+
+        // 替换正则表达式带有捕获组的
+        let name = "jsx ljj ddc zdj";
+        console.log(name.replace(/(jsx) (ljj) (ddc) (zdj)/i, '$5 $4 $3 $2 $1'))
+        // $5 zdj ddc ljj jsx
+
+        // 替换具名捕获组
+        console.log(name.replace(/(?<jsx>jsx) (?<ljj>ljj) (?<ddc>ddc) (?<zdj>zdj)/i, '$<jsx> $<ljj> $<zdj> $<ddc> $<hello>'))
+        // jsx ljj zdj ddc ''
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

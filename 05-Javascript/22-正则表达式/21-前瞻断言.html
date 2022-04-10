@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>前瞻断言</title>
+    <script>
+        // x(?=y) 前瞻断言 匹配x后面是y
+        let str = '10$ 100'
+        console.log(str.match(/\d+(?=\$)/g)); // ['10']
+
+        // x(?!y) 前瞻否定断言 匹配x后面不是y
+        console.log(str.match(/\d+(?!\$)/g)); // ['1', '100']
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

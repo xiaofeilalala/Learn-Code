@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>集合和范围</title>
+    <script>
+        // 集合[], 匹配任何一个包含的字符
+        let str = 'wrok hrok';
+        console.log(str.match(/[wh]rok/g)); // ['wrok', 'hrok']
+
+        // 多个字符只会匹配一个
+        let str1 = 'voild';
+        console.log(str1.match(/vo[il]d/g)); // Null
+
+        // 通过连字符指定范围-
+        // [0-9] 匹配0-9的数字
+        let str2 = 'asd12BBN';
+        console.log(str2.match(/[0-9]/g)); // ['1', '2']
+
+        // [a-z] 匹配a-z任何小写字母
+        console.log(str2.match(/[a-z]/g)); // ['a', 's', 'd']
+
+        // [A-Z] 匹配A-Z任何大写字母
+        console.log(str2.match(/[A-Z]/g)); // ['B', 'B', 'N']
+
+        // 当-作为第一个或者最后一个或者单独字符视为普通字符
+        let nor1 = '-';
+        console.log(nor1.match(/[-]/g)); // ['-']
+        let nor2 = '-asd';
+        console.log(nor2.match(/[-a]/g)); // ['-', 'a']
+        let nor3 = 'asd-';
+        console.log(nor3.match(/[d-]/g)); // ['d', '-']
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

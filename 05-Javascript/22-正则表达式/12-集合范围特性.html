@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>集合和范围特性</title>
+    <script>
+        // 在[]中，大多数特殊字符不需要转义
+        let str = '[]()+-.^';
+        // 除了方括号其它都可以不转义
+        console.log(str.match(/[[]()+-.^]/g)); // null
+        console.log(str.match(/[\[\]()+-.^]/g)); //  ['[', ']', '(', ')', '+', '-', '.', '^']
+
+        // 匹配代理对需要使用unicode模式
+        console.log('🌏'.codePointAt(0))
+        let str1 = '🌏';
+        // 当不使用u模式 会返回两个字节
+        console.log(str1.match(/[🌏]/g)); // ['\uD83C', '\uDF0F']
+        console.log(str1.match(/[🌏]/ug)); //['🌏']
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

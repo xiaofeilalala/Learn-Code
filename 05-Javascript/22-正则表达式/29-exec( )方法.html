@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exec()方法</title>
+    <script>
+        // regexp.exec(str)
+        // 如果全局模式 则返回匹配项合并的数组
+        let lesson = "html css js vue"
+        let reg = /\w+/g
+        console.log(reg.exec(lesson))
+        // 返回第一个匹配项
+        // ['html', index: 0, input: 'html css js vue', groups: undefined]
+        console.log(reg.lastIndex); // 4
+
+        // 手动设置lastindex
+        reg.lastIndex = 11;
+        console.log(reg.exec(lesson))
+        // ['vue', index: 12, input: 'html css js vue', groups: undefined]
+        console.log(reg.lastIndex); // 15
+        
+        console.log(reg.exec(lesson)); // null
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

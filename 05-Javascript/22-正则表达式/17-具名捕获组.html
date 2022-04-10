@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>具名捕获组</title>
+    <script>
+        // 具名捕获组
+        // 通过?<name> 来命名组 
+        // 通过$<name> 获取组
+        let date = '2022-04-10'
+        let regexp = /(?<year>[\d]{4})-(?<month>[\d]{2})-(?<day>[\d]{2})/
+        let result = date.match(regexp);
+        console.log(result);
+        console.log(Array.isArray(result)); // true
+        console.log(result.groups.year) // 2022
+        console.log(result.groups.month) // 04
+        console.log(result.groups.day) // 10
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

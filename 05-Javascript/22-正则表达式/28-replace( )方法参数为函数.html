@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>replace()方法参数为函数</title>
+    <script>
+        // str.splice(str|regexp, str|func)
+        // 当第二个参数为函数时
+        // 如果正则表达式中没有括号，表示只有3个参数
+        let str = 'jsx ljj ddc zdj'
+        // 将所有项大写
+        let result = str.replace(/\w{3}/g, function (match, offest, input) {
+            console.log(match); // jsx ljj ddc zdj
+            console.log(offest); // 查看偏移量
+            console.log(input); // jsx ljj ddc zdj (4)
+            return match.toLocaleUpperCase();
+        });
+        console.log(result); // JSX LJJ DDC ZDJ
+
+        // 如果正则表达式中有括号，则有 5 个参数
+        let str1 = 'lys xyy htl xzs';
+        let result1 = str1.replace(/(?<lys>lys) (?<xyy>xyy) (?<htl>htl) (?<xzs>xzs)/i, function (match, p1, p2, p3, p4, offset, input, groups) {
+            console.info(match, p1, p2, p3, p4, offset, input, groups)
+            // lys xyy htl xzs 匹配的子串
+            // lys xyy htl xzs 分组的内容
+            // 0  字符偏移量
+            // lys xyy htl xzs 原字符串
+            // {lys: 'lys', xyy: 'xyy', htl: 'htl', xzs: 'xzs'} 命名捕获组匹配的对象
+        })
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

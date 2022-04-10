@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test()方法</title>
+    <script>
+        // regexp.test()
+        // 测试正则表达式与指定字符串是否匹配
+        let str = 'I will keep working hard'
+        let regexp = /^I/
+        console.log(regexp.test(str)); // true
+
+        // 如果设置全局 test() 方法会改变正则的lastIndex属性
+        // 连续执行后续匹配从lastIndex开始
+        let reg = /\sw/g;
+        console.log(reg.test(str)); // true
+        console.log(reg.lastIndex); // 3
+
+        console.log(reg.test(str)); // true
+        console.log(reg.lastIndex); // 13
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

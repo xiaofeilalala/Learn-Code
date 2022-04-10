@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>match()方法</title>
+    <script>
+        // str.match()
+        // 当没有修饰符g时，返回一个数组包含分组与属性
+        let str = 'I will keep working hard KEEP'
+        let result = str.match(/keep/i)
+        console.log(result)
+         // ['keep', index: 7, input: 'I will keep working hard KEEP', groups: undefined]
+        // index 匹配项位置
+        console.log(result.index); // 7
+        // input 字符串
+        console.log(result.input)
+
+        // 如果有g修饰符， 匹配数组所有项并返回
+        console.log(str.match(/keep/ig)); // ['keep', 'KEEP']
+
+        // 无匹配返回null
+        console.log(str.match(/asd/ig)); // null
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

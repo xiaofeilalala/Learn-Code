@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>捕获组</title>
+    <script>
+        // 捕获组
+        // 将量词放到()后面, ()视为整体
+        // 会将匹配结果作为数组的单独项
+        let str = 'JSXJsxxjsxxx';
+        console.log(str.match(/jsx+/i)); // ['JSX', 'Jsxx', 'jsxxx']
+        console.log(str.match(/(jsx)(jsx)/i)); // ['JSXJsx']
+
+        // 获取匹配内容
+        let result = str.match(/jsx+/ig)
+        console.log(Array.from(str.matchAll(/jsx+/ig)))
+        console.log(result[0]); // JSX
+        console.log(result[1]); // Jsxx
+
+        // 括号可以嵌套，匹配带有属性的 html 标签
+        let html = '<div asdasd class="box">盒子</box>';
+        console.log(html.match(/<(([a-z]+)[\s\S]*([^>]*))>/g))
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

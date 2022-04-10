@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>常规字符类</title>
+    <script>
+        // 常用字符类 \d \w \s
+        let str = '12v45n1'
+        // \d 匹配0-9数字
+        console.log(str.match(/\d/g)) // ['1', '2', '4', '5', '1']
+
+        // \w 匹配阿拉丁字母数组字符
+        let str1 = '32aB_!@#$%^&*()`+={}[]:;"?,.';
+        console.log(str1.match(/\w/g)); //   ['3', '2', 'a', 'B', '_']
+
+        // \s匹配空格符号
+        let str2 = '\t \r \n \v \f a1_!@#%^^&&*';
+        console.log(str2.match(/\s/g));
+        // ['\t', ' ', '\r', ' ', '\n', ' ', '\v', ' ', '\f', ' ']
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

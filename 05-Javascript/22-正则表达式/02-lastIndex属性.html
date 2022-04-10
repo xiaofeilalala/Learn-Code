@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lastIndex属性</title>
+    <script>
+        // lastIndex属性 当全局模式g下才能起作用
+        // 下一次匹配的起始索引
+        let next = 'hello world';
+        let regexp1 = /l/g;
+        console.log(regexp1.test(next)); // true
+        console.log(regexp1.lastIndex); // 3
+
+        // lastIndex > 字符串长度 匹配失败 lastIndex重置为0
+        regexp1.lastIndex = 20;
+        console.log(regexp1.test(next)); // false
+        console.log(regexp1.lastIndex); // 0
+
+        // lastIndex = 字符串长度 匹配空字符串 从lastIdnex开始
+        let reg = /\s/g;
+        reg.lastIndex = 1;
+        console.log(reg.test(next)); // true
+        console.log(reg.lastIndex); // 6
+
+        // lastIndex = 字符串长度 不匹配空字符串 重置为0
+        let reg1 = /\S/g;
+        reg1.lastIndex = next.length;
+        console.log(reg1.test(next)); // false
+        console.log(reg1.lastIndex); // 0
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>替换捕获组</title>
+    <script>
+        // 替换捕获组
+        let str = 'jsx ljj';
+        let result = str.replace(/(?<boy>\w{3}) (?<gril>\w{3})/g, '$<gril>', '$<gril>');
+        console.log(result);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

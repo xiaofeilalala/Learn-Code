@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正则创建</title>
+    <script>
+        // 字面量创建 /.../ 双斜线创建
+        let regexp = /jsx/g;
+
+        // 对象方式创建
+        let str = 'I will keep working hard'
+        let regexp1 = new RegExp("will", 'i')
+        console.log(str.search(regexp1)); // 2
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

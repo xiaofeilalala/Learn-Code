@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模式修饰符</title>
+    <script>
+        // 正则中有6个修饰符 flags
+        // i 不区分大小写
+        // g 全局
+        // m 多行
+        // s .匹配换行
+        // u unicode支持
+        // y 粘性模式
+
+        // i修饰符
+        let str = 'I will keep working hard';
+        console.log(str.search(/KEEP/g)); // -1
+        console.log(str.search(/KEEP/ig)); // 7
+
+        // g 全局
+        let str1 = 'I will keep working hard KEEP';
+        console.log(str1.match(/KEEP/ig)); // ['keep', 'KEEP']
+
+        // m 多行
+        let str3 = `1st name: JSX
+2st name: LJJ
+3st nameL DDC`
+        console.log(str3.match(/\w+$/gim)); // ['JSX', 'LJJ', 'DDC']
+        // 在多行模式下 ^ 和 $ 会匹配每一行的开始与结束
+        console.log(str3.match(/^\d+/gm)); // ['1', '2', '3']
+        // 通过\n 代替 ^ $ 换行符 \n 不会匹配字符串结尾
+        console.log(str3.match(/\w+\n/gim)); // ['JSX\n', 'LJJ\n']
+
+        // s 开启 dotall模式
+        // 开启后 g模式下 .类字符可匹配所有字符
+        let str4 = '12436>:{">{~!@(\n';
+        console.log(str4.match(/./sg));
+        // ['1', '2', '4', '3', '6', '>', ':', '{', '"', '>', '{', '~', '!', '@', '(', '\n']
+        // dotAll属性 检测是否处于dotAll模式
+        console.log(/./sg.dotAll); // true
+
+        // u 提供对unicode支持
+        let str2 = 'asd12';
+        console.log(str2.match(/\p{Ll}/ug)); // ['a', 's', 'd']
+
+        // y 粘性模式
+        // y粘连模式也是匹配全局 上一次成功下一次起始位置必须是剩余字符的第一个位置
+        let str5 = 'jsx ljj ddc';
+        let reg = /\w{3}/g;
+        console.log(str5.match(reg)); //  ['jsx', 'ljj', 'ddc']
+        console.log(reg.test(str5)); // true
+        console.log(reg.lastIndex); // 3
+        console.log(reg.test(str5)); // true
+        console.log(reg.lastIndex); // 7
+
+        let reg1 = /\w{3}/y
+        console.log(str5.match(/\w{3}/y)); // ['jsx']
+        console.log(reg1.test(str5)); // true
+        console.log(reg1.lastIndex); // 3
+        console.log(reg1.test(str5)); // false
+        console.log(reg1.lastIndex); // 0
+        reg1.lastIndex = 4;
+        console.log(reg1.test(str5)); // true
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

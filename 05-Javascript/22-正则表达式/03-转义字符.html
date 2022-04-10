@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>转义字符</title>
+    <script>
+        // 转义字符
+        // regexp转义 通过反斜线即可将特殊字符转义
+        let str = "jsx.ljj";
+        // 通过\. 将.特殊字符转义
+        console.log(str.match(/\w\.\w/g)); // ['x.l']
+
+        console.log('function go(){}'.match(/go\(\)/g)); // ['go()']
+        // 当需要一个反斜杠时，可使用两个反斜杠转义
+        console.log('as\\d'.match(/\\/g)); // ['//']
+
+        // 斜杠/ 用来关闭开启正则，如果需要匹配斜杠需要转义
+        console.log('/'.match(/\//g)); // ['/']
+
+        // 在new RegExp中/ 不需要转义
+        console.log('/'.match(new RegExp('/', 'g'))) // ['/']
+
+        // new RegExp 传入的是字符串匹配，按照字符串转义
+        let str1 = '\\d\.\\d';
+        console.log('asd5.0'.match(new RegExp(str1, 'g'))); // ['5.0']
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

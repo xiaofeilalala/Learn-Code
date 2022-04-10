@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>词边界</title>
+    <script>
+        // 词边界 \b 匹配词边界
+        // 词边界：1. 开头是\w 2. 在字符中间一个是\w 一个不是 3. 末尾是\w
+        let str = 'I will keep working hard'
+        console.log(str.match(/king\b/g)); // ['king']
+        console.log(str.match(/\bhard/g)); // ['hard']
+        console.log(str.match(/\bee\b/g)); // null
+
+        // 匹配非词边界 \B
+        let str1 = 'I will keep working'
+        console.log(str1.match(/ee\B/ig)); // ['ee']
+        console.log(str1.match(/will\B/ig)); // null
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

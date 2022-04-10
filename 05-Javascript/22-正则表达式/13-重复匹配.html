@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>重复匹配</title>
+    <script>
+        // 重复匹配量词
+        // x* 将x匹配0次或更多次
+        let str = 'asdddd';
+        console.log(str.match(/asd*/ig)); // ['asdddd']
+        // x+ 匹配0次或更多次
+        console.log(str.match(/asd+/ig)); // ['asdddd']
+        // x? 匹配0次或1次
+        console.log(str.match(/asd?/ig)); // ['asd']
+
+        // 量词匹配
+        // x{n} 匹配n次
+        let str1 = 'xxxxxl';
+        console.log(str1.match(/x{5}l/ig)); // ['xxxxxl']
+        // x{n,m} 匹配范围内
+        console.log(str1.match(/x{2,3}l/ig)); // ['xxxl']
+        // x{m,} 匹配大于等于n的数字
+        console.log(str1.match(/x{2,}l/ig)); // ['xxxxxl']
+
+        // 匹配浮点数
+        let regexp = /\d+\.\d+/g
+        console.log(regexp.test('1.234234')); // true
+
+        // 匹配HTML标签
+        let reg = /<\/?[a-z][a-z0-9]*>/ig
+        console.log(reg.test('<html></html>')) // true
+        console.log(reg.lastIndex); // 6
+        let reg1 = /<\/?[a-z][a-z0-9]*>/ig
+        console.log(reg1.test('<h1></h1>')) // true
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

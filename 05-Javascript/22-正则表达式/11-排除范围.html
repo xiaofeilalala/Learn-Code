@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>排除范围</title>
+    <script>
+        // [^] 排除范围 匹配任何没有在括号中的字符
+        let str = '1w34';
+        console.log(str.match(/[^0-9]/g)); // ['w']
+
+        // 可以通过连字符排除指定范围
+        let str1 = '2314dasB';
+        console.log(str1.match(/[^0-9a-z]/g)); // ['B']
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

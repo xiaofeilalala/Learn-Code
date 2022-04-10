@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>反向字符类</title>
+    <script>
+        // 反向字符类 \D \W \S
+        let str = '12v45n1'
+        // \D 除 \d 以外的任何字符
+        console.log(str.match(/\D/g)) // ['v', 'n']
+
+        // \W 除 \w 以外的任何字符
+        let str1 = '32aB_!@#$%';
+        console.log(str1.match(/\W/g)); // ['!', '@', '#', '$', '%']
+
+        // \S 除 \s 以外的任何字符
+        let str2 = '\t \r \n \v \f a1_&*';
+        console.log(str2.match(/\S/g));
+        // ['a', '1', '_', '&', '*']
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
