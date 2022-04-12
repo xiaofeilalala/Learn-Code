@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>call、apply借用map</title>
+</head>
+
+<body>
+    <div class="container">
+        <p>hello html</p>
+        <p>hello css</p>
+        <p>hello js</p>
+        <p>hello vue</p>
+    </div>
+    <script>
+        // 通过call/apply改变this指向借用数组map方法
+        let elem = document.querySelector('.container').children;
+        console.log(elem);
+        [].map.call(elem, (node, index) => {
+            console.log(node, index)
+        })
+    </script>
+</body>
+
+</html>

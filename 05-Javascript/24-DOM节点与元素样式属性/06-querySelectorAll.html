@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>querySelectorAll获取元素</title>
+</head>
+
+<body>
+    <div class="overview">Hello HTML</div>
+    <div class="overview">Hello JavaScript</div>
+    <div class="parent">
+        <div id="main">
+            <div class="sibling1">Hello Vue</div>
+            <div class="sibling1">Hello WebPack</div>
+        </div>
+        <div class="box" name="fight">Hello CSS</div>
+    </div>
+    <script>
+        // querySelectorAll通过css选择器匹配获取元素列表集合 NodeList
+        let elems = document.querySelectorAll('.overview');
+        console.log(elems); // NodeList(2) [div.overview, div.overview]
+
+        // 可以通过任何选择器获取元素
+        let id = document.querySelectorAll('#main');
+        console.log(id);
+        // NodeList [div#main]
+
+        // 后代选择器
+        let after = document.querySelectorAll('#main .sibling1');
+        console.log(after);
+        // NodeList(2) [div.sibling1, div.sibling1]
+
+        // :nth-child()
+        let nthChild = document.querySelectorAll('.sibling1:nth-child(1)');
+        console.log(nthChild);
+        // NodeList [div.sibling1]
+
+        // 属性选择器
+        let attr = document.querySelectorAll('.box[name="fight"]');
+        console.log(attr)
+        // NodeList [div.box]
+    </script>
+</body>
+
+</html>

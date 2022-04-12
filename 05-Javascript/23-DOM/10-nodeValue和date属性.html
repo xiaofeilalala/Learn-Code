@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nodeValue和date属性</title>
+    
+</head>
+
+<body>
+    <!-- hello dom -->
+    <div class="box">hello world</div>
+    <script>
+        let body = document.body;
+        let box = document.querySelector('.box')
+        // nodeValue 获取文本 注释内容 attributes值
+        console.log(body.nodeValue); // null
+        console.log(box.firstChild.nodeValue); // hello world
+        console.log(body.childNodes[1].nodeValue); //  hello dom 
+        console.log(box.attributes.class.nodeValue); // box
+        console.log(document.nodeValue); // null
+
+        // data获取文本节点和注释节点
+        console.log(body.data); // null
+        console.log(box.firstChild.data); // hello world
+        console.log(body.childNodes[1].data); //  hello dom 
+        console.log(box.attributes.class.data); // box
+        console.log(document.data); // null
+    </script>
+</body>
+
+</html>

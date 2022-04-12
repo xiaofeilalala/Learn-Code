@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动态集合与静态集合</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        ul {
+            display: block;
+            width: 200px;
+            list-style: none;
+            margin: 20px auto;
+        }
+
+        ul>li {
+            display: block;
+            width: 100%;
+            height: 30px;
+            margin-bottom: 10px;
+            background-color: #3169cf;
+            border-radius: 5px;
+            text-align: center;
+            color: #fff;
+            line-height: 30px;
+        }
+
+        ul>li:nth-child(1) {
+            background-color: #4636da;
+        }
+
+        ul>li:nth-child(2) {
+            background-color: #36da75;
+        }
+
+        ul>li:nth-child(3) {
+            background-color: #edbb03;
+        }
+
+        ul>li:nth-child(4) {
+            background-color: #da6536;
+        }
+
+        ul>li:nth-child(5) {
+            background-color: #da3c36;
+        }
+        .box {
+            text-align: center;
+        }
+        .btn {
+            display: inline-block;
+            margin: 20px auto;
+            width: 200px;
+            height: 40px;
+            margin: 0 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li name="jsx">1</li>
+        <li name="jsx">2</li>
+        <li name="jsx">3</li>
+        <li name="jsx">4</li>
+        <li name="jsx">5</li>
+    </ul>
+    <div class="box">
+        <button class="btn live">live 动态</button>
+        <button class="btn static">static 静态</button>
+        <button class="btn liveChangeStatic">将动态集合保存为静态集合</button>
+    </div>
+    <script>
+        // 动态集合 操作数组时会实时更新
+        let live = document.getElementsByTagName('li');
+        let static = document.querySelectorAll('li');
+        // 将动态集合保存静态集合
+        let liveChangeStatic = Array.prototype.slice.call(live);
+        console.log('live-->', live)
+        console.log('static-->', static)
+        let button1 = document.querySelector('.live');
+        let button2 = document.querySelector('.static');
+        let button3 = document.querySelector('.liveChangeStatic');
+        button1.addEventListener('click', () => {
+            document.querySelector('li').insertAdjacentHTML('beforebegin', '<li name="jsx">新元素</li>')
+            console.log('live-->', live.length)
+            console.log('live-->', live)
+        })
+        button2.addEventListener('click', () => {
+            document.querySelector('li').insertAdjacentHTML('beforebegin', '<li name="jsx">新元素</li>')
+            console.log('static-->', static.length)
+            console.log('static-->', static)
+        })
+        button3.addEventListener('click', () => {
+            document.querySelector('li').insertAdjacentHTML('beforebegin', '<li name="jsx">新元素</li>')
+            console.log('liveChangeStatic-->', liveChangeStatic.length)
+            console.log('liveChangeStatic-->', liveChangeStatic)
+        })
+    </script>
+</body>
+
+</html>

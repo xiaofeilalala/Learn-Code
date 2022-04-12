@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>naodeName和tagName属性</title>
+
+</head>
+
+<body>
+    <!-- 注释 -->
+    <h3 class="box" id="box">hello dom</h3>
+    <script>
+        let h3 = document.querySelector('.box');
+        let body = document.body;
+        // nodeNmae 获取任意节点的名称 值为大写
+        console.log(document.nodeName); // #document
+        console.log(body.nodeName); // BODY
+        console.log(h3.firstChild.nodeName); // #text
+        console.log(body.childNodes[1].nodeName); // #comment
+        console.log(h3.attributes.class.nodeName); // class
+
+        // tagName 获取元素节点的名称 值为大写
+        console.log(document.tagName); // undefined
+        console.log(body.tagName); // BODY
+        console.log(h3.firstChild.tagName); // undefined
+        console.log(body.childNodes[1].tagName); // undefined
+        console.log(h3.attributes.class.tagName); // undefined
+    </script>
+</body>
+
+</html>

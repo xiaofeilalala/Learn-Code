@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>textContent纯文本</title>
+</head>
+
+<body>
+    <div class="box">hello dom</div>
+    <script>
+        let box = document.querySelector('.box');
+        console.log(box.textContent); // hello dom
+        console.log(box); // div节点对象
+
+        // 通过textContent插入内容时，符号会按照字面意思写入
+        box.textContent = '<p>hello jsx</p>';
+        // <p>hello jsx</p>
+        // 此时符号为字符串
+    </script>
+</body>
+
+</html>

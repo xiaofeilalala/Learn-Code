@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM自动修正</title>
+    <script>
+        // 1. 当内容定义在.html文件内, 没有html标签，浏览器运行会自动创建
+        // 2. 自动修复标签
+        // 3. 自动添加表格tbody标签
+    </script>
+</head>
+
+<body>
+    <ul>
+        <!-- dom会自动修正 闭合标签 -->
+        <li>修复未闭合标签
+    </ul>
+    <table>
+        <tr>
+            <!-- dom会自动修正 添加tbody标签 -->
+            <td>自动补充tbody标签
+        </tr>
+    </table>
+</body>
+
+</html>

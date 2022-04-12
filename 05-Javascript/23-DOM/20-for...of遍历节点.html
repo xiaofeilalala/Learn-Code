@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for...of遍历节点</title>
+</head>
+
+<body>
+    <div class="container">
+        <p>hello html</p>
+        <p>hello css</p>
+        <p>hello js</p>
+        <p>hello vue</p>
+    </div>
+    <script>
+        let elem = document.querySelector('.container').children;
+        console.log(elem)
+        for (const item of elem) {
+            console.log(item)
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nodeType属性</title>
+</head>
+
+<body>
+    <div class="container">hello DOM</div>
+    <!-- hello dom -->
+
+    <script>
+        let body = document.body
+        let container = document.querySelector('.container')
+        console.log(body.nodeType); // 1 body节点属性
+
+        let attr = container.attributes.class;
+        console.log(attr.nodeType); // 2 属性节点
+        
+        console.log(body.firstChild.nodeType); // 3 文本属性
+
+        console.log(body.childNodes[3].nodeType); // 8 节点注释节点
+
+        let doc = document;
+        console.log(document.nodeType); // 9 document对象
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getElementsByName获取元素</title>
+</head>
+
+<body>
+    <div name="overview">Hello HTML</div>
+    <div name="overview">Hello JavaScript</div>
+    <script>
+        // 通过元素name属性获取
+        let names = document.getElementsByName('overview');
+        console.log(names);
+        // NodeList(2) [div, div]
+    </script>
+</body>
+
+</html>

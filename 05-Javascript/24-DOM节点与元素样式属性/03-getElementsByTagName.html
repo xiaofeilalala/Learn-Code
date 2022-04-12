@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getElementsByTagName获取元素</title>
+</head>
+
+<body>
+    <div name="overview">Hello HTML</div>
+    <div name="overview">Hello JavaScript</div>
+    <script>
+        // 通过元素标签获取元素集合HTMLCollent
+        let names = document.getElementsByTagName('div');
+        console.log(names);
+        // HTMLCollection(2) [div, div, overview: div]
+        
+        // 返回document下所有的元素节点
+        let all = document.getElementsByTagName('*');
+        console.log(all);
+        // HTMLCollection(10) [html, head, meta, meta, meta, title, body, div, div, script, viewport: meta, overview: div]
+    </script>
+</body>
+
+</html>

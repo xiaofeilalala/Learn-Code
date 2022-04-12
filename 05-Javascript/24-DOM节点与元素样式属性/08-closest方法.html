@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>closest方法</title>
+</head>
+
+<body>
+    <div class="overview">Hello HTML</div>
+    <div class="overview" name="js">Hello JavaScript</div>
+    <div id="panel">
+        <div class="sibling1">Hello Vue</div>
+    </div>
+    <script>
+        // 用于匹配离指定选择器最近的祖先元素
+        // 匹配不到返回 Null
+        let elem = document.querySelector('.sibling1');
+        console.log(elem.closest('.overview'))
+        // <div class="overview" name="js">Hello JavaScript</div>
+    </script>
+</body>
+
+</html>

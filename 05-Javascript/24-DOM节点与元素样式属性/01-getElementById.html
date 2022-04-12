@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getElementById获取元素</title>
+</head>
+
+<body>
+    <div id="overview"></div>
+    <div id="description"></div>
+    <script>
+        // 返回一个匹配的元素节点对象
+        let elem = document.getElementById('overview');
+        console.log(elem); // <div id="overview"></div>
+
+        // 批量id获取
+        function getElementByIds(id) {
+            return id.map(item => document.getElementById(item))
+        }
+        let arr = getElementByIds(['overview', 'description'])
+        for (const item of arr) {
+            console.log(item)
+            // <div id="overview"></div>
+            // <div id="description"></div>
+        }
+    </script>
+</body>
+
+</html>

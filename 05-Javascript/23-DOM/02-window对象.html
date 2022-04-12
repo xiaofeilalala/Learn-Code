@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>window对象</title>
+    <script>
+        // window对象，在js代码window对象为全局对象
+        // 全局声明的函数变量都会成为window的属性
+        var user = "jsx";
+        console.log(window.user); // jsx
+
+        function username() {
+            console.log('hello dom')
+        }
+        window.username(); // hello dom
+        
+        // 浏览器window对象，表示浏览器窗口
+        // 获取浏览器窗口高度
+        console.log(window.innerHeight); // 927
+        console.log(window)
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

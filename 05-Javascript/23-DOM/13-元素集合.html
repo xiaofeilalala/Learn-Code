@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>元素集合</title>
+</head>
+
+<body>
+    <ul>
+        <li name="jsx">1</li>
+        <li name="jsx">2</li>
+        <li id="js" name="jsx1">3</li>
+        <li name="jsx">4</li>
+        <li name="jsx">5</li>
+    </ul>
+</body>
+<script>
+    // 元素集合
+    // getElementsByName返回的是nodeList及节点集合
+    let list = document.getElementsByName('jsx')
+    console.log(list);
+    // NodeList(5) [li, li, li, li, li]
+
+    let htmllist = document.getElementsByTagName('li');
+    console.log(htmllist);
+    // HTMLCollection(5) [li, li, li, li, li, jsx: li]
+    
+    // length属性
+    console.log(htmllist.length); // 5
+    // 元素集合不是数组而是类数组
+    console.log(Array.isArray(htmllist)); // false
+
+    // item() 返回指定索引的元素
+    console.log(htmllist.item(0));
+    console.log(htmllist.item(0).nodeType); // 1 元素节点
+    htmllist.item(0).style.color = "#ff0000";
+
+    // namedItem() 根据id返回指定元素,根据字符串所表示的name属性来匹配
+    console.log(htmllist.namedItem('js')) 
+    // <li id="js" name="jsx1">3</li>
+    console.log(htmllist.namedItem('jsx1'))
+    // <li id="js" name="jsx1">3</li>
+</script>
+
+</html>

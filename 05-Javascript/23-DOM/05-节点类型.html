@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM节点类</title>
+    <script>
+        // 节点类型
+        // 1. EventTarget 用于事件的类
+        // 2. Node 是所有DOM节点的基础类
+        // 3. Element 是元素节点是所有html元素xml原型svg元素的基础类
+        // 4. XMLElement SVGElement HTMLElement 这些都是各元素基本类
+        console.dir(window)
+        // window对象包含了所有节点类
+        console.log(window.Node);
+        console.log(window.Element)
+        console.log(window.HTMLElement)
+        console.log(HTMLElement.__proto__ === Element); // true
+        console.log(Element.__proto__ === Node) // true
+        console.log(Node.__proto__ === EventTarget) // true
+        console.log(EventTarget.__proto__.__proto__.__proto__) // true
+    </script>
+</head>
+
+<body>
+    
+</body>
+
+</html>

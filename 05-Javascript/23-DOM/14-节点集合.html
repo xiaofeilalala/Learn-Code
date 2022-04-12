@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>节点集合</title>
+</head>
+
+<body>
+    <ul>
+        <li name="jsx">hello</li>
+        <li name="jsx">2</li>
+        <li name="jsx">3</li>
+        <li name="jsx">4</li>
+        <li name="jsx">5</li>
+    </ul>
+    <script>
+        // 节点集合
+        // Node.childNodes
+        let list = document.querySelector('body').childNodes
+        console.log(list);
+        // NodeList(8) [text, ul, text, comment, text, script, text, script]
+
+        // querySelectorAll
+        let list1 = document.querySelectorAll('li');
+        console.log(list1); // NodeList(5) [li, li, li, li, li]
+
+        // length属性
+        console.log(list1.length); // 5
+
+        // item() 选择节点
+        console.log(list1.item(0)); // <li name="jsx">hello</li>
+        console.log(list1.item(0).nodeType); // 1 元素节点
+    </script>
+</body>
+
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>常用节点</title>
+    
+</head>
+
+<body>
+    <!-- 链接 -->
+    <a href="javascript:;">超链接</a>
+
+    <!-- 锚点 -->
+    <a href="#box">锚点</a>
+    <a name="box" class="box">锚点</a>
+
+    <!-- img -->
+    <img src="https://lf-cdn-tos.bytescm.com/obj/static/xitu_extension/static/gold.981a5510.svg" alt="">
+
+    <!-- form表单 -->
+    <form action="">
+        <input type="text" value="form表单">
+    </form>
+
+    <script>
+        // document 操作文档起点
+        // document.documentElement html根元素节点
+        console.log(document.documentElement)
+    
+        // document 还能获取title标签 URL 域名 来源地址
+        console.log(document.title);
+        console.log(document.URL); 
+        // http://127.0.0.1:5500/05-JavaScript/23-DOM/07-%E5%B8%B8%E7%94%A8%E8%8A%82%E7%82%B9.html#box
+        console.log(document.domain); // 127.0.0.1
+        console.log(document.referrer);
+         // http://127.0.0.1:5500/05-JavaScript/23-DOM/07-%E5%B8%B8%E7%94%A8%E8%8A%82%E7%82%B9.html
+    
+        // 节点对象需要浏览器渲染了html才能读取
+        console.log(document.body); // body元素节点
+        console.log(document.head); // head元素节点
+        console.log(document.links); // 所有超链接的集合
+        console.log(document.anchors); // 获取所有锚点
+        console.log(document.images); // 获取所有图片
+        console.log(document.forms); // 获取所有图片
+    </script>
+</body>
+
+
+</html>

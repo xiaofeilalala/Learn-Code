@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>获取子节点</title>
+    
+</head>
+
+<body>
+    <div class="parent">
+        <div class="child">
+            <div class="Sibling1"></div>
+            <div class="Sibling2"></div>
+        </div>
+        <div class="child2"></div>
+    </div>
+    <script>
+        // 获取子节点
+        // firstChild dom树中第一个节点
+        // lastChild dom树中最后一个子节点
+        // childNodes 返回包含指定节点的所有子节点
+        let parent = document.querySelector('.parent');
+        console.log(parent.firstChild); // text 文本节点
+        console.log(parent.lastChild); // text 文本节点
+        // 返回所有子节点
+        console.log(parent.childNodes); 
+        // NodeList(5) [text, div.child, text, div.child2, text]
+
+        // elem.hasChildNodes() 检测指定节点是否有子节点
+        console.log(document.documentElement.hasChildNodes()); // true
+    </script>
+</body>
+
+</html>

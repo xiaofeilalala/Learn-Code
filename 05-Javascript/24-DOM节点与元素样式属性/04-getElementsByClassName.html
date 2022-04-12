@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getElementsByClassName获取元素</title>
+</head>
+
+<body>
+    <div class="overview">Hello HTML</div>
+    <div class="overview">Hello JavaScript</div>
+
+    <!-- 元素包含多个值 -->
+    <div class="overview panel"></div>
+    <script>
+        // getElementsByClassName 通过class属性获取元素
+        let elem = document.getElementsByClassName('overview');
+        console.log(elem);
+        // HTMLCollection(2) [div.overview, div.overview]
+
+        // 获取多个class属性值得元素
+        let elem1 = document.getElementsByClassName('overview panel');
+        console.log(elem1);
+        // HTMLCollection [div.overview.panel]
+    </script>
+</body>
+
+</html>

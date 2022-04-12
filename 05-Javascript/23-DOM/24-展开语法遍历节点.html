@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>...展开语法</title>
+</head>
+
+<body>
+    <div class="container">
+        <p>hello html</p>
+        <p>hello css</p>
+        <p>hello js</p>
+        <p>hello vue</p>
+    </div>
+    <script>
+        // es6 ...展开语法
+        // 通过...将类数组转为数组然后使用map方法
+        let elem = document.querySelector('.container').children;
+        console.log(elem);
+        [...elem].map((item) => {
+            console.log(item)
+        })
+    </script>
+</body>
+
+</html>
