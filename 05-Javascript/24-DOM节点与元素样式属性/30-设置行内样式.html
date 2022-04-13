@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>设置行内样式</title>
+</head>
+
+<body>
+    <div class="container"></div>
+    <div class="box"></div>
+    <div class="wrapper"></div>
+    <script>
+        // 获取元素
+        let elem = document.querySelector('.container');
+        // 需要添加单位
+        elem.style.width = "100px";
+        elem.style.height = "100px";
+
+        // 多单词驼峰式书写
+        elem.style.backgroundColor = "#ff0000";
+
+        // 浏览器前缀写法
+        elem.style.WebkitBorderRadius = '20px';
+
+        // 重置样式将其值为空就行
+        elem.style.backgroundColor = ""
+
+        elem.style.backgroundColor = '#3496db'
+        
+        // cssText多行批量设置，不需要驼峰式
+        let box = document.querySelector('.box');
+        box.style.cssText = `
+        width: 100px;
+        height: 100px;
+        background-color: rgb(239 127 102);
+        -webkit-border-radius: 20px;
+        `
+
+        // 通过setAttribute 设置样式
+        let wrapper = document.querySelector('.wrapper');
+        wrapper.setAttribute('style', 'background-color: rgb(147 52 219);width: 100px;height: 100px; -webkit-border-radius: 20px;')
+    </script>
+</body>
+
+</html>

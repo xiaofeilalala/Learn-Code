@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自定义HTML特性data</title>
+</head>
+
+<body>
+    <div class="container" data-content="jsx"></div>
+    <div class="box" data-content-title="hello"></div>
+    <script>
+        //  自定义特性 date-
+        let elem = document.querySelector('.container');
+        // 通过dateset访问
+        let dataset = elem.dataset.content
+        console.log(dataset); // jsx
+
+        // 多单词访问 用驼峰命名方式
+        let elem1 = document.querySelector('.box');
+        let dataset1 = elem1.dataset.contentTitle;
+        console.log(dataset1); // hello
+
+        // 值会影响元素
+        elem1.dataset.contentTitle = 'hello data';
+        console.log(elem1)
+        // <div class="box" data-content-title="hello data"></div>
+    </script>
+</body>
+
+</html>

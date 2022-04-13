@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>insertAdjacentText</title>
+    <style>
+        .box {
+            padding: 10px;
+            background: #9651df;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="box">Hello jsx</div>
+    </div>
+    <script>
+        // insertAdJacentText 
+        // 将给定的文本插入到指定元素给定的位置，不会对标签解析
+        let box = document.querySelector('.box');
+        // 在box元素前插入
+        box.insertAdjacentText('beforebegin', '元素前')
+        // 插入box元素后
+        box.insertAdjacentText('afterend', '元素后');
+        // 插入 box 元素内开头
+        box.insertAdjacentText('afterbegin', '元素内部前');
+        // 插入box元素内结尾
+        box.insertAdjacentText('beforeend', '元素内部后');
+    </script>
+</body>
+
+</html>

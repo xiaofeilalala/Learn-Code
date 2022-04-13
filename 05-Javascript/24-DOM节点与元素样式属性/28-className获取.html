@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>className</title>
+    <style>
+        .container {
+            width: 200px;
+            height: 200px;
+        }
+        .blue {
+            background-color: #3496db;
+        }
+        .puple {
+            background-color: #9e34db;
+        }
+    </style>
+</head>
+<body>
+    <div class="container"></div>
+    <script>
+        // 获取指定元素的class
+        // 通过class属性来修改样式
+        let elem = document.querySelector('.container');
+        console.log(elem.className); //container
+
+        // 设置样式
+        elem.className = 'container blue';
+
+        elem.className = 'container puple'
+    </script>
+</body>
+
+</html>

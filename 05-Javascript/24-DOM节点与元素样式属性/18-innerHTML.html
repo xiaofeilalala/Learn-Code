@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>innerHTML</title>
+</head>
+
+<body>
+    <!-- innerHTML -->
+    <div class="main">hello world</div>
+    <script>
+        //  innerHTML在添加内容时会发生重绘
+        let main = document.querySelector('.main');
+        console.log(main.innerHTML); // hello world
+
+        // 解析HTML标签，也可以获取HTML标签
+        main.innerHTML = '<div>hello jsx</div>';
+        console.log(main.innerHTML);
+        // <div>hello jsx</div>
+
+        // innerHTML+= 会进行重绘
+        // 导致main元素节点事件无法响应
+        main.addEventListener('click', function(e) {
+            console.log(this.innerHTML);
+            this.parentElement.innerHTML += '<h3>jsx</h3>'
+        })
+    </script>
+</body>
+
+</html>

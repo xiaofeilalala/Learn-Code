@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>属性与特性同步</title>
+</head>
+
+<body>
+    <div class="container" name="box"></div>
+    <input type="text" value="hello">
+    <script>
+        //  属性同步
+        let elem = document.querySelector('.container');
+        elem.setAttribute('name', 'box1')
+        console.log(elem);
+        // 改变属性name,同步到HTML特性
+        // <div class="container" name="box1"></div>
+        
+        // 大部分同步，也有特殊不同步
+        let input = document.querySelector('input');
+        // 改变特性会更新属性
+        input.setAttribute('value', 'jsx');
+        console.log(input);
+        // <input type="text" value="jsx">
+
+        // 改变属性不会更新特性
+        input.value = 'ljj';
+        console.log(input);
+        // <input type="text" value="jsx">
+    </script>
+</body>
+
+</html>

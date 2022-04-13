@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>旧式方法</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">hello jsx</div>
+        <div class="box-header">hello</div>
+        <div class="box-body"></div>
+    </div>
+    <script>
+        //  旧式方法，参数必须是一个节点类型
+        // 在当前节点内部结尾添加指定的子节点
+        let box = document.querySelector('.box');
+        let boxBody = document.querySelector('.box-body')
+        let container = document.querySelector('.container')
+        let boxHeader = document.querySelector('.box-header')
+        // 创建节点
+        let child = document.createElement('div');
+        child.innerHTML = '新创建节点';
+
+        // 如果给定的节点是文档中现有的节点，则会改变新的位置
+        box.appendChild(child);
+        // 在当前节点内部将一个指定的节点插入到另一个指定的节点
+        box.insertBefore(child, box.firstChild);
+
+        // 删除当前节点中指定的子节点
+        container.removeChild(boxBody);
+
+        // 将指定的节点来替换当前节点指定的子节点
+        container.replaceChild(child, boxHeader);
+    </script>
+</body>
+
+</html>

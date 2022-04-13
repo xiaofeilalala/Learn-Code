@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>outerHTML</title>
+</head>
+
+<body>
+    <div class="main">hello outer</div>
+    <div class="all">hello jsx</div>
+    <script>
+        // outerHTML
+        let main = document.querySelector('.main');
+        let all = document.querySelector('.all')
+        console.log(main.outerHTML);
+        console.log(all.innerHTML);
+        // 不会删除旧内容,新的内容替换旧的内容
+        main.outerHTML = `<h3>hello outer</h3>`
+        console.log(main.outerHTML)
+        
+        // innerHTML 添加HTML内容 会先删除旧内容然后删除新内容
+        all.innerHTML = `<h3>innerHTML</h3>`
+        console.log(all.innerHTML);
+        // <div class="main"><h3>innerHTML</h3></div>
+    </script>
+</body>
+
+</html>

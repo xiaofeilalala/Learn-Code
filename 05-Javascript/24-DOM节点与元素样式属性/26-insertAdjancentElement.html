@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>insertAdjacentElement</title>
+</head>
+
+<body>
+    <div class="parent">
+        <div class="child">HELLO jsx</div>
+        <div class="box"></div>
+    </div>
+    <script>
+        // insertAdjacentElement 将给定的元素插入到指定的位置
+        let elem = document.querySelector('.child');
+        // 新创建元素
+        let creatElem = document.createElement('div');
+        creatElem.innerHTML = 'Hello world'
+
+        // 插入元素内部的第一个子节点之前
+        elem.insertAdjacentElement('afterbegin', creatElem)
+        // 插入元素内部的最后一个子节点之后
+        elem.insertAdjacentElement('beforeend', creatElem)
+        // 元素自身的前面
+        elem.insertAdjacentElement('beforebegin', creatElem)
+        // 元素自身的后面
+        elem.insertAdjacentElement('afterend', creatElem)
+    </script>
+</body>
+
+</html>

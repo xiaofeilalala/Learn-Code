@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>创建文本节点</title>
+</head>
+
+<body>
+    <div class="container"></div>
+    <script>
+        // creattextNode 文本节点
+        let elem = document.querySelector('.container');
+        let text = document.createTextNode('hello js');
+        elem.append(text);
+        // <div class="container">hello js</div>
+    </script>
+</body>
+
+</html>

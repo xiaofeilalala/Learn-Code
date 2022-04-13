@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>classList</title>
+    <style>
+        .container {
+            width: 200px;
+            height: 200px;
+        }
+        .blue {
+            background-color: #3496db;
+        }
+        .puple {
+            background-color: #9e34db;
+        }
+    </style>
+</head>
+<body>
+    <div class="container"></div>
+    <script>
+        // classList 返回一个 DOMTokenList 集合
+        let elem = document.querySelector('.container');
+        elem.className = 'container blue';
+        elem.className = 'container puple'
+        console.log(elem.classList);
+        // DOMTokenList(2) ['container', 'puple', value: 'container puple']
+
+        // 添加类名
+        elem.classList.add('blue'); // container puple blue
+
+        // 删除类名
+        elem.classList.remove('puple'); // container blue
+
+        // 切换类名
+        elem.classList.toggle('puple'); // container blue puple
+
+        // 类名检测
+        console.log(elem.classList.contains('puple')); // true
+    </script>
+</body>
+
+</html>

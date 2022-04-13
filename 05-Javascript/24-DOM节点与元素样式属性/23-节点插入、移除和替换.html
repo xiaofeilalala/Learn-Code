@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>节点插入、移除和替换</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">我是box</div>
+        <div class="box-header">hello</div>
+        <div class="box-body"></div>
+    </div>
+    <script>
+        // 不解析标签
+        let box = document.querySelector('.box');
+        let boxHeader = document.querySelector('.box-header')
+        let boxBody = document.querySelector('.box-body')
+        // append 节点内部尾部添加
+        box.append('<h3>节点内部尾部添加</h3>');
+
+        // prepend 节点内部开始添加
+        box.prepend('<h3>节点内部开始添加</h3>');
+
+        // before 节点前面添加
+        box.before('<h3>节点前面添加</h3>');
+
+        // after 结尾后面添加
+        box.after('<h3>结尾后面添加</h3>');
+
+        // replaceWith 节点替换
+        boxHeader.replaceWith('<h3>结尾后面添加</h3>');
+
+        // remove 节点移除
+        boxBody.remove();
+    </script>
+</body>
+
+</html>

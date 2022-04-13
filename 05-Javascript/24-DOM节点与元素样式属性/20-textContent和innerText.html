@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>textContent和innerText</title>
+</head>
+
+<body>
+    <div class="container">Hello jsx</div>
+    <script>
+        // textContent 和 innerText 都是忽略标签返回存文本
+        let elem = document.querySelector('.container');
+        console.log(elem.textContent); // Hello jsx
+        console.log(elem.innerText); // Hello jsx
+    
+        // 设置文本是不会对标签解析
+        elem.textContent = '<h3>JSX LJJ</h3>'
+        console.log(elem); // '<h3>JSX LJJ</h3>'
+    
+        elem.innerText = '<h3>JSX - LJJ</h3>';
+        console.log(elem); // '<h3>JSX - LJJ</h3>'
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>importNode克隆节点</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <p>hello world</p>
+        </div>
+    </div>
+    <script>
+        // document对象方法
+        // 克隆节点并插入到当前文档
+        let elem = document.querySelector('.row');
+        // 克隆节点
+        let clone = document.importNode(elem, true);
+        console.log(clone);
+        // 插入新元素
+        elem.append(clone)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>创建空白文档片段</title>
+</head>
+
+<body>
+    <ul class="panel"></ul>
+    <script>
+        let panel = document.querySelector('.panel');
+        // 空文档片段
+        let fragment = document.createDocumentFragment();
+        console.log(fragment)
+        let arr = ['Firefox', 'Chrome', 'Opera',
+            'Safari', 'Internet Explorer']
+        arr.forEach((item) => {
+            let list = document.createElement('li');
+            list.textContent = item;
+            fragment.appendChild(list);
+        })
+        panel.appendChild(fragment);
+    </script>
+</body>
+
+</html>

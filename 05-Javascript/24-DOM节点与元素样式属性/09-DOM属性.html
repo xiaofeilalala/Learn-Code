@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM属性</title>
+</head>
+
+<body>
+    <div class="container" style="color: #3496db">hello dom</div>
+    <input type="checkbox" name="check" id="check" checked>
+    <a href="http://www.baidu.com"></a>
+    <script>
+        // DOM属性：通过标准的HTML特性转换为DOM对象属性
+        // 获取class属性
+        let elem = document.querySelector('.container');
+        console.log(elem.className)
+
+        // 给元素对象添加属性
+        elem.tool = {
+            name: 'jsx'
+        }
+        console.log(elem.tool.name); // jsx
+
+        // DOM属性多类型
+        let check = document.querySelector('[name="check"]');
+        // 布尔类型
+        console.log(check.checked); // true
+        // 对象类型
+        console.log(elem.style); // CSSStyleDeclaration 对象
+        // href属性是一个完整的url
+        // 当HTML特性里的url为相对路径则会是返回一个完整路径
+        // 当HTML特性中是一个网路路径，则返回网络路径
+        let url = document.querySelector('a');
+        console.log(url.href); //
+    </script>
+</body>
+
+</html>

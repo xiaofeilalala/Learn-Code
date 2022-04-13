@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML特性</title>
+</head>
+
+<body>
+    <div class="container" id="container" color="blue" content="jsx">hello dom</div>
+    <div class="box">hello world</div>
+    <script>
+        // attributes 是可迭代对象
+        let elem = document.querySelector('.container');
+        let box = document.querySelector('.box');
+        for (const { name, value } of elem.attributes) {
+            console.log(name, value)
+            // class container
+            // id container
+            // color blue
+            // content jsx
+        }
+        // getAttribute 获取属性值
+        console.log(elem.getAttribute('id')); // container
+        // hasAttribute 检查是否有此特性
+        console.log(elem.hasAttribute('class')); //true
+        // setAttribute 设置特性
+        box.setAttribute('id', 'box');
+        console.log(box);
+        // <div class="box" id="box">hello world</div>
+        // 移除属性
+        box.removeAttribute('id');
+        console.log(box);
+        // <div class="box">hello world</div>
+    </script>
+</body>
+
+</html>

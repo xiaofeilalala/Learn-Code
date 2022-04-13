@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>获取所有样式</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: rgb(239 127 102);
+            -webkit-border-radius: 20px;
+        }
+        .box::after {
+            background-color: rgb(139, 104, 234);
+            width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <script>
+        // getComputedStyle 获取元素所有样式
+        let box = document.querySelector('.box');
+        let elemStyle = window.getComputedStyle(box);
+        console.log(elemStyle.width); // 100px
+
+        // 获取伪元素的样式
+        let elemHover = window.getComputedStyle(box, '::after');
+        console.log(elemHover.width); // 200px
+    </script>
+</body>
+
+
+</html>

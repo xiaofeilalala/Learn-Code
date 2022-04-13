@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>insertAdjacentHTML</title>
+</head>
+
+<body>
+    <div class="parent">
+        <div class="child">HELLO jsx</div>
+        <div class="box"></div>
+    </div>
+    <script>
+        // insertAdjacentHTML 会将HTML解析并插入到指定位置
+        let elem = document.querySelector('.child');
+
+        // 插入元素内部的第一个子节点之前
+        elem.insertAdjacentHTML('afterbegin', '<h3>元素内部开始插入</h3>')
+        // 插入元素内部的最后一个子节点之后
+        elem.insertAdjacentHTML('beforeend', '<h3>元素内部结尾插入</h3>')
+        // 元素自身的前面
+        elem.insertAdjacentHTML('beforebegin', '<h3>元素自身前插入</h3>')
+        // 元素自身的后面
+        elem.insertAdjacentHTML('afterend', '<h3>元素自身后插入</h3>')
+    </script>
+</body>
+
+</html>
