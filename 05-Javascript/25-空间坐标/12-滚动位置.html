@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>滚动位置</title>
+    <style>
+        .box {
+            width: 2000px;
+            height: 2000px;
+            overflow: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <script>
+        // 获取文档滚动的x/y坐标
+        // scrollLeft/scrollTop
+        console.log(document.documentElement.scrollTop)
+        console.log(document.documentElement.scrollLeft)
+
+        // pageXOffset/pageYOffset
+        // window对象属性
+        console.log(window.pageXOffset)
+        console.log(window.pageYOffset)
+
+        document.addEventListener("scroll", function(e) {
+            console.log(this.documentElement.scrollTop)
+            console.log(this.documentElement.scrollLeft)
+        })
+    </script>
+</body>
+
+</html>

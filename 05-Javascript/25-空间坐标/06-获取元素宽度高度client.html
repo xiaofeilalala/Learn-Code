@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>获取元素宽度高度client</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            border: 10px solid #2ccb7a;
+            background-color: #8467e0;
+            padding: 10px;
+            overflow: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <p>努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强</p>
+        <p>努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强</p>
+        <p>努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强</p>
+        <p>努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强</p>
+    </div>
+    <script>
+        // 获取元素的宽度
+        // clientWidth = width + padding
+        let box = document.querySelector('.box')
+        console.log(box.clientWidth); // 103
+        // clientHeight = height + padding
+        console.log(box.clientHeight); // 120
+    </script>
+</body>
+
+</html>

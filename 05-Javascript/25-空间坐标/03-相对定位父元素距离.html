@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>相对定位父元素距离.</title>
+    <style>
+        .container {
+            position: relative;
+        }
+
+        .box {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 100px;
+            height: 100px;
+            background-color: #8467e0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box"></div>
+    </div>
+    <script>
+        // 获取该元素最近的包含定位属性的祖先元素
+        let elem = document.querySelector('.box')
+        console.log(elem.offsetParent);
+        // <div class="container"><div class="box"></div></div>
+
+        // 获取与祖先元素x轴 y轴的坐标
+        console.log(elem.offsetLeft, elem.offsetTop); // 20 20
+    </script>
+</body>
+
+</html>

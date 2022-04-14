@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>获取元素区域宽度高度scroll</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            border: 10px solid #2ccb7a;
+            background-color: #8467e0;
+            padding: 10px;
+            overflow: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <p>努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强</p>
+        <p>努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强</p>
+        <p>努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强</p>
+        <p>努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强</p>
+    </div>
+    <script>
+        // 获取元素区域的完整宽度
+        let box = document.querySelector('.box')
+        // scrollWidth = width + padding + 溢出内容
+        console.log(box.scrollWidth); // 103
+
+        // scrollHeight = width + padding + 溢出内容
+        console.log(box.scrollHeight); // 940
+    </script>
+</body>
+
+</html>

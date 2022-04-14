@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>scrollIntoview</title>
+    <style>
+        body {
+            padding:1000px 0 1000px 0;
+            height: 1000px;
+        }
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: rgb(209, 123, 255);
+        }
+        .btn {
+            position:fixed;
+            right: 20px;
+            top: 20px;
+            width: 100px;
+            height:30px;
+            text-align: center;
+        }
+        .btn:nth-child(2) {
+            top: 60px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <button class="btn">最顶层按钮</button>
+    <button class="btn">最下层按钮</button>
+    <script>
+        // 会滚动父元素使调用元素可见
+        let box = document.querySelector('.box')
+        let button = document.querySelectorAll('button');
+        button[0].addEventListener('click', function() {
+            box.scrollIntoView({block: 'start', behavior: 'smooth'});
+        })
+
+        button[1].addEventListener('click', function() {
+            box.scrollIntoView({block: 'end', behavior: 'smooth'});
+        })
+    </script>
+</body>
+
+</html>

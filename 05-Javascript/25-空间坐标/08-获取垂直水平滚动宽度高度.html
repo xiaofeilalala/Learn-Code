@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>获取垂直水平滚动宽度高度</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            border: 10px solid #2ccb7a;
+            background-color: #8467e0;
+            padding: 10px;
+            overflow: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <p>努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强</p>
+        <p>努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强</p>
+        <p>努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强</p>
+        <p>努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强</p>
+    </div>
+    <script>
+        // 获取垂直滚动条滚动的高度
+        let box = document.querySelector('.box')
+        console.log(box.scrollTop); // 0
+        
+        // 获取水平滚动条滚动的宽度
+        console.log(box.scrollLeft); // 0
+    </script>
+</body>
+
+</html>

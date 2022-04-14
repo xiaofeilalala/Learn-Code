@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getComputedStyle</title>
+</head>
+
+<body>
+    <div class="box">继承父元素宽度</div>
+    <span>行内元素</span>
+    <script>
+        // 不要从css获取样式
+        // 内联元素或者设置为auto元素获取结果为auto
+        let box = document.querySelector('.box');
+        let span = document.querySelector('span');
+        console.log(getComputedStyle(span).width); // auto
+
+        // 未设置尺寸 获取不到尺寸信息
+        console.log(getComputedStyle(box).width); // 946px
+    </script>
+</body>
+
+</html>

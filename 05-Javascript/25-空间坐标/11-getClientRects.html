@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getClientRects</title>
+</head>
+
+<body>
+    <span>努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强</span>
+     <div>努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强努力变强</div>   
+    <script>
+        // 对于行内元素 返回多行的几何尺寸
+        let elem = document.querySelector('span');
+        console.log(elem.getClientRects());
+        
+        // 对于块级元素 只返回一整块元素的几何尺寸
+        let elem1 = document.querySelector('div');
+        console.log(elem1.getClientRects());
+    </script>
+</body>
+
+</html>
