@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>reload重新加载</title>
+</head>
+
+<body>
+    <button class="btn">reload重新加载</button>
+    <button class="btn">添加文字</button>
+    <script>
+        let btn = document.querySelector('.btn');
+        btn.addEventListener('click', function (e) {
+            // assign 触发窗口加载url内容 可以回退
+            window.location.reload();
+        })
+
+        let btn1 = document.querySelector('.btn:nth-child(2)');
+        btn1.addEventListener('click', function (e) {
+            let html = `<h3>hello javascript</h3>`
+            document.documentElement.insertAdjacentHTML('afterbegin', html)
+        })
+    </script>
+</body>
+
+</html>

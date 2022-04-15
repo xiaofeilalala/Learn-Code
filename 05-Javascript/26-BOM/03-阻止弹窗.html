@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>阻止弹窗</title>
+</head>
+
+<body>
+    <button name="openbox">打开弹窗</button>
+    <script>
+        // 弹窗
+        // 弹窗必须通过事件触发打开
+        let btn = document.querySelector('button');
+        btn.addEventListener('click', function (e) {
+            // 打开百度
+            window.open('http://www.baidu.com')
+        })
+        // 拦截弹窗
+        window.open('http://www.baidu.com')
+    </script>
+</body>
+
+</html>

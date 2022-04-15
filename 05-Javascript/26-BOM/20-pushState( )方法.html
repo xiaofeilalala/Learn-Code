@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pushState</title>
+</head>
+
+<body>
+    <h1>pushState</h1>
+    <script>
+        // pushState 用来添加新条目
+        let stateObj = {
+            name: 'pushState'
+        }
+        // 浏览器未发生跳转，可以使用回退前进功能
+        // 不会向服务端请求数据
+        history.pushState(stateObj, 'page 2', './21-replaceState( )方法.html')
+        console.log(history.state)
+        
+    </script>
+</body>
+
+</html>

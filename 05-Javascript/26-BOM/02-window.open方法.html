@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>window.open()方法</title>
+</head>
+
+<body>
+    <button name="openbox">打开弹窗</button>
+    <button class="btn">创建弹窗</button>
+    <script>
+        // 弹窗
+        // 弹窗必须通过事件触发打开
+        let btn = document.querySelector('button');
+        btn.addEventListener('click', function (e) {
+            // 打开百度
+            window.open('http://www.baidu.com')
+        })
+        // 拦截弹窗
+        // window.open('http://www.baidu.com')
+
+        // 创建一个弹窗
+        let options = `scrollbars=no,
+        resizable=no,
+        status=no,
+        location=no,
+        toolbar=no,
+        menubar=no,
+        width=500,
+        height=300,
+        left=200,
+        top=200`;
+        let btn1 = document.querySelector('.btn');
+        btn1.addEventListener('click',function() {
+            window.open('/', 'test', options);
+        })
+    </script>
+</body>
+
+</html>

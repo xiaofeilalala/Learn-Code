@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关闭窗口</title>
+</head>
+
+<body>
+    <button class="btn">打开弹窗</button>
+    <button class="btn">关闭弹窗</button>
+    <button class="btn">检测弹窗</button>
+    <script>
+        // window.close() 关闭window.open创建的弹窗
+        let btn = document.querySelector('.btn');
+        let newWindow;
+        btn.addEventListener('click', function (e) {
+            newWindow = window.open('/05-JavaScript/26-BOM/05-新窗口.html', 'test', `width=500,height=400`);
+            return newWindow
+        })
+
+
+        let btn1 = document.querySelector('.btn:nth-child(2)');
+        btn1.addEventListener('click', function (e) {
+            newWindow.close();
+        })
+
+        // 检测是否关闭
+        let btn2 = document.querySelector('.btn:nth-child(3)');
+        btn2.addEventListener('click', function (e) {
+            console.log(newWindow.closed)
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>获取焦点与失焦</title>
+</head>
+
+<body>
+    <script>
+        // blur与focus事件
+        window.onfocus = function () {
+            console.log('获取焦点')
+        };
+        window.onblur = function () {
+            console.log('失去焦点')
+        };
+        
+        window.onblur = () => window.focus();
+    </script>
+</body>
+
+</html>

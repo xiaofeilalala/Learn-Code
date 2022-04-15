@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>history</title>
+    <style>
+        .container {
+            position: fixed;
+            top: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .container a {
+            display: block;
+            width: 200px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            color: #fff;
+            text-decoration: none;
+            background-color: #3496db;
+            margin-top: 20px;
+            border-radius: 50px;
+            background: #455afc;
+            box-shadow: 20px 20px 60px #3b4dd6,
+                -20px -20px 60px #4f68ff;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>history</h1>
+    <div class="container">
+        <!-- 页面跳转 -->
+        <a href="./17-back( )方法.html">back页面</a>
+        <a href="./18-forward( )方法.html">forward页面</a>
+        <a href="./19-go( )方法.html">go页面</a>
+    </div>
+    <script>
+        // 获取会话历史中元素的数目 包括自己
+        console.log(history.length)
+    </script>
+</body>
+
+</html>

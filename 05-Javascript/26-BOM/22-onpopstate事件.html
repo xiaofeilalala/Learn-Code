@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>onpopstate事件</title>
+</head>
+
+<body>
+    <h1>onpopstate事件</h1>
+    <div class="btn-box">
+        <button class="btn">go</button>
+        <button class="btn">forward下一页</button>
+        <button class="btn">back上一页</button>
+    </div>
+    <script>
+        window.onpopstate = function(e) {
+            console.log('hello')
+            console.log(e.state)
+        }
+        let btn1 = document.querySelector('.btn:nth-child(1)')
+        let btn2 = document.querySelector('.btn:nth-child(2)')
+        let btn3 = document.querySelector('.btn:nth-child(3)')
+        history.pushState({page: 1}, "title 1", "./19-go( )方法.html");
+        history.pushState({page: 2}, "title 2", "./18-forward( )方法.html");
+        history.pushState({page: 3}, "title 3", "./17-back( )方法.html");
+        btn1.addEventListener('click', function (e) {
+            window.history.go(1);
+        })
+        btn2.addEventListener('click', function (e) {
+            window.history.forward();
+        })
+        btn3.addEventListener('click', function (e) {
+            window.history.back();
+        })
+    </script>
+</body>
+
+</html>

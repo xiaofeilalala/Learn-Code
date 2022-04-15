@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新窗口</title>
+</head>
+
+<body>
+    <!-- 子窗口 -->
+    <h3>新窗口</h3>
+    <button class="btn">发送信息</button>
+    <script>
+        // 通过window.opener访问父窗口
+        let btn = document.querySelector('.btn');
+        let html = `<h3 style="text-align:center;color: #3496db;">Hello window</h3>`
+        btn.addEventListener('click', function (e) {
+            window.opener.document.body.insertAdjacentHTML('afterbegin', html)
+        })
+    </script>
+</body>
+
+</html>

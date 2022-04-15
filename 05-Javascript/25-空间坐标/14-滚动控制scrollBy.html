@@ -7,21 +7,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>scrollBy</title>
     <style>
+        .btn {
+            position: fixed;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%)
+        }
+        .container {
+            width: 500px;
+            height: 500px;
+            overflow: auto;
+        }
         .box {
-            width: 200px;
-            height: 1000px;
-            background-color:rgb(101, 106, 248);
+            width: 1200px;
+            height: 1200px;
         }
     </style>
 </head>
 
 <body>
-    <div class="box"></div>
+    <div class="container">
+        <div class="box"></div>
+    </div>
+    <button class="btn">scrollBy</button>
     <script>
-        // scrollBy 将页面滚动到当前位置的 x,y  位置
-        setInterval(() => {
-            document.documentElement.scrollBy({top: 10, left: 0, behavior: 'smooth'})
-        }, 100)
+        // scrollBy 相对于元素当前自身位置，将元素向右x,y滚动
+        let btn = document.querySelector('.btn');
+        let container = document.querySelector('.container')
+
+        // 每次调用都会根据自身位置去滚动
+        btn.addEventListener('click', function () {
+            container.scrollBy({ top: 200, left: 200, behavior: 'smooth' })
+        })
     </script>
 </body>
 

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>移动弹窗调整大小</title>
+    <style>
+        .container {
+            position: fixed;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%)
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <button class="btn">打开弹窗</button>
+        <button class="btn">关闭弹窗</button>
+        <button class="btn">moveBy</button>
+        <button class="btn">moveTo</button>
+        <button class="btn">resizeBy</button>
+        <button class="btn">resizeTo</button>
+    </div>
+    <script>
+        // window.close() 关闭window.open创建的弹窗
+        let btn = document.querySelector('.btn');
+        let newWindow;
+        btn.addEventListener('click', function (e) {
+            newWindow = window.open('/05-JavaScript/26-BOM/05-新窗口.html', 'test', `width=500,height=400`);
+            return newWindow
+        })
+
+        let btn1 = document.querySelector('.btn:nth-child(2)');
+        btn1.addEventListener('click', function (e) {
+            newWindow.close();
+        })
+        
+        // 相对于当前位置移动弹窗
+        let btn2 = document.querySelector('.btn:nth-child(3)');
+        btn2.addEventListener('click', function (e) {
+            newWindow.moveBy(100, 100)
+        })
+        
+        // 相对于屏幕移动弹窗
+        let btn3 = document.querySelector('.btn:nth-child(4)');
+        btn3.addEventListener('click', function (e) {
+            newWindow.moveTo(100, 100)
+        })
+        
+        // 相对于当前大小，调整大小
+        let btn4 = document.querySelector('.btn:nth-child(5)');
+        btn4.addEventListener('click', function (e) {
+            newWindow.resizeBy(100, 100)
+        })
+        
+        // 直接给定窗口大小
+        let btn5 = document.querySelector('.btn:nth-child(6)');
+        btn5.addEventListener('click', function (e) {
+            newWindow.resizeTo(100, 100)
+        })
+    </script>
+</body>
+
+</html>

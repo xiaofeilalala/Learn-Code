@@ -7,20 +7,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>scrollTo</title>
     <style>
+        .btn {
+            position: fixed;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%)
+        }
+        .container {
+            width: 500px;
+            height: 500px;
+            overflow: auto;
+        }
         .box {
-            width: 200px;
-            height: 1000px;
-            background-color:rgb(101, 106, 248);
+            width: 800px;
+            height: 800px;
         }
     </style>
 </head>
 
 <body>
-    <div class="box"></div>
+    <div class="container">
+        <div class="box"></div>
+    </div>
+    <button class="btn">scrollTo</button>
     <script>
-        // scrollTo 是滚动到文档某个绝对坐标
-        setInterval(() => {
-            document.documentElement.scrollTo({top: 10, left: 0, behavior: 'smooth'})
+        // scrollTo 滚动到指定坐标位置
+        let btn = document.querySelector('.btn');
+        let container = document.querySelector('.container')
+
+        // 滚动到指定坐标，相对于浏览器窗口 fixed
+        btn.addEventListener('click', function () {
+            container.scrollTo({ top: 200, left: 200, behavior: 'smooth' })
         })
     </script>
 </body>

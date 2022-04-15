@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>go</title>
+    <style>
+        .container {
+            position: fixed;
+            top: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .container a {
+            display: block;
+            width: 200px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            color: #fff;
+            text-decoration: none;
+            background-color: #3496db;
+            margin-top: 20px;
+            border-radius: 50px;
+            background: #455afc;
+            box-shadow: 20px 20px 60px #3b4dd6,
+                -20px -20px 60px #4f68ff;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>back</h1>
+    <div class="container">
+        <!-- 页面跳转 -->
+        <a href="./18-forward( )方法.html">forward页面</a>
+        <a href="./16-history属性.html">history页面</a>
+        <a href="./19-go( )方法.html">go页面</a>
+    </div>
+    <div class="btn-box">
+        <button class="btn">go</button>
+        <button class="btn">forward下一页</button>
+        <button class="btn">back上一页</button>
+    </div>
+
+    <script>
+        let btn1 = document.querySelector('.btn:nth-child(1)')
+        let btn2 = document.querySelector('.btn:nth-child(2)')
+        let btn3 = document.querySelector('.btn:nth-child(3)')
+
+        btn1.addEventListener('click', function (e) {
+            window.history.go(1);
+        })
+        btn2.addEventListener('click', function (e) {
+            window.history.forward();
+        })
+        btn3.addEventListener('click', function (e) {
+            window.history.back();
+        })
+    </script>
+</body>
+
+</html>
