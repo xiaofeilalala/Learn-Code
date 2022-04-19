@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOMContentLoaded事件</title>
+    <style>
+        img {
+            width: auto;
+        }
+    </style>
+    <script>
+        function read() {
+            // 图片以及样式不会阻塞加载
+            console.log(img.offsetWidth, img.offsetHeight); // 0 0
+            console.log('DOM ready');
+            console.log(window.getComputedStyle(img).width); // 0px
+        }
+
+        // DOMContentLoaded 发生在document对象上
+        document.addEventListener("DOMContentLoaded", read)
+    </script>
+
+    <script async>
+        // script脚本文件会阻塞加载
+        // 必须等待script甲苯加载完成，然后加载
+        console.log('script')
+    </script>
+</head>
+
+<body>
+    <img id="img" src="https://w.wallhaven.cc/full/x8/wallhaven-x8ye3z.jpg" alt="">
+    <script>
+        console.log(window.getComputedStyle(img).width); // 0px
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>error事件</title>
+</head>
+
+<body>
+    <script>
+        // 当js脚本发生错误时则执行error事件
+        let script = document.createElement('script');
+        script.src = "https://example.com/404.js"; // 没有这个脚本
+        document.head.append(script);
+
+        script.onerror = function () {
+            console.log("Error loading " + this.src); // Error loading https://example.com/404.js
+        };
+        
+        // 当图片无法加载时执行error事件
+        let img = document.createElement('img');
+        img.src = "https://js.cx/clipart/traisn.gif";
+
+        img.onload = function () {
+            console.log('加载失败')
+        };
+
+        img.onerror = function () {
+            console.log(`Error loading` + this.src);
+        };
+    </script>
+</body>
+
+</html>

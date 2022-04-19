@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>onload事件</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+    <script>
+        // script标签阻塞先执行，文档还未加载完，获取为null
+        let box = document.querySelector('.box');
+        console.log(box); // null
+        
+        // onload事件等样式图片其它资源加载完成后执行
+        window.onload = function() {
+            let box = document.querySelector('.box');
+            console.log(box);
+            // <div class="box"></div>
+        }
+    </script>
+</head>
+
+<body>
+    <div class="box"></div>
+</body>
+
+</html>

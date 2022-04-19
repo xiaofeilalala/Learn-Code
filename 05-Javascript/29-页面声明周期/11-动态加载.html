@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动态加载</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            console.log('DOMContentLoaded')
+        })
+    </script>
+</head>
+
+<body>
+    <div class="box"></div>
+    <script>
+        function loadScript(src) {
+            let script = document.createElement('script');
+            script.src = src;
+            script.async = false;
+            document.body.append(script);
+        }
+        loadScript("./index.js");
+        loadScript("./last.js");
+    </script>
+</body>
+
+</html>

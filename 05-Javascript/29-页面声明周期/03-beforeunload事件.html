@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>beforeunload事件</title>
+    <script>
+        // 当用户离开页面或者关闭页面时触发
+        // beforeunload
+        window.onbeforeunload = function (e) {
+            // 阻止无效
+            e.preventDefault();
+            return false;
+        };
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

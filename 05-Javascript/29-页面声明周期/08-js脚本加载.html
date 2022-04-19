@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js脚本加载</title>
+    <script>
+        setTimeout(() => {
+            console.log('阻塞')
+        }, 1000)
+    </script>
+    <script>
+        // 脚本不能访问到位于它们下面的 DOM 元素
+        let box = document.querySelector('.box')
+        console.log(box); // null
+    </script>
+</head>
+
+<body>
+    <div class="box"></div>
+    <h3>Hello world</h3>
+    <!-- 放到dom元素下面来获取 -->
+    <script>
+        // 脚本不能访问到位于它们下面的 DOM 元素
+        let box1 = document.querySelector('.box')
+        console.log(box1); // <div class="box"></div>
+    </script>
+</body>
+
+</html>

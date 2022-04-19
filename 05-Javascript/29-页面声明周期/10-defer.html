@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>defer</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            console.log('DOMContentLoaded')
+        })
+    </script>
+    <script defer src="./index.js"></script>
+    <!-- defer 先执行 会等待dom解析完毕 -->
+    <!-- 能获取到dom元素 -->
+    <!-- 文档顺序 -->
+    <script defer src="./last.js"></script>
+</head>
+
+<body>
+    <div class="box"></div>
+    <script>
+        // defer特性的脚本不会阻塞页面
+        // script标签必须有scr属性
+        // 会在 DOMContentLoaded 前执行
+    </script>
+</body>
+
+</html>
