@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模版字符串使用</title>
+    <script>
+        // 使用变量
+        let name = 'jsx';
+        console.log(`my name is ${name}`); // my name is jsx
+
+        // 可以使用表达式
+        let x = 1;
+        let y = 2;
+        console.log(`${2 * x + y}`); // 4
+
+        // 可以调用函数
+        function fn() {
+            return 'hello'
+        }
+        console.log(`${fn()}`); // hello
+
+        // 字符串转换
+        // 大括号中的值不是字符串则会转换为字符串
+        let obj = {name: 'jsx'};
+        let arr = [1, 2, 3];
+        console.log(`${obj}`); // [object Object]
+        console.log(`${arr}`); // 1,2,3
+        console.log(`${'hello'}`); // hello
+
+        // 模版字符串可以嵌套
+        let str = `${['jsx', 'ljj'].map((a) => `${a}`)}`
+        console.log(str); // jsx,ljj
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

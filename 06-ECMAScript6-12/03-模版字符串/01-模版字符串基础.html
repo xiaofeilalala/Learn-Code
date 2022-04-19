@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模版字符串基础</title>
+    <script>
+        // 模版字符串使用单引号 ``标识
+        let name = `jsx`;
+        console.log(name)
+
+        // 当使用模版字符串时需要 ` 反引号 需要转义
+        let greeting = `\`jsx\``
+        console.log(greeting); // `jsx`
+
+        // 模版字符串可以多行 
+        // 所有的空格和缩进都会被保留
+        let message = `
+        jsx
+        ljj
+        ddc
+        zdj
+        `
+        console.log(message);
+
+        // 正则去除空格缩进
+        console.log(message.replace(/\s+/g, ''))
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
