@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM事件处理程序</title>
+
+</head>
+
+<body>
+    <button class="btn" onclick="console.log('html绑定')">DOM事件处理程序</button>
+
+    <script>
+        // 通过dom对象上设置事件处理对象
+        let elem = document.querySelector('.btn');
+        elem.onclick = function() {
+            console.log('dom绑定')
+        }
+        elem.onclick = function() {
+            console.log('dom绑定2')
+        }
+        
+        // 不要对事件处理程序使用setAttribute方法
+        elem.setAttribute('onclick', `console.log('setAttribute')`)
+
+        // 函数赋值形式
+        function sayThanks() {
+            console.log('sayThanks')
+        }
+
+        elem.onclick = sayThanks();
+        // 这种方式是错误的，sayThanks()作为函数调用了
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>select元素属性</title>
+</head>
+
+<body>
+    <form action="" name="myForm">
+        <select name="music" id="music" multiple="multiple">
+            <option value="一样的月光">一样的月光</option>
+            <option value="到此为止" selected>到此为止</option>
+            <option value="身骑白马" selected>身骑白马</option>
+        </select>
+    </form>
+    <script>
+        // 获取select元素属性
+        // select.options 子元素集合
+        console.log(myForm.music.options);
+        // HTMLOptionsCollection(3) [option, option, option, selectedIndex: 0]
+
+        // 获取 select value值
+        console.log(myForm.music.options[2].value); // 身骑白马
+
+        // 获取所选options编号
+        music.selectedIndex = 2;
+
+        // 多选值 selected属性
+        console.log(music.options[2].selected); // true
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ie事件对象</title>
+</head>
+
+<body>
+    <button class="btn">event</button>
+    <button class="btn">window.event</button>
+    <script>
+        // ie事件处理程序在全局执行，this为window
+        var btn = document.getElementsByTagName('button')[0];
+        btn.attachEvent('onclick', function(e) {
+            // this指向window
+            console.log(this)
+
+            // 该方法内event对象会作为参数传递到方法中
+            console.log(event)
+        })
+        // event是window对象属性
+        
+        var btn1 = document.getElementsByTagName('button')[1];
+        btn1.onclick = function() {
+            // event为window属性
+            console.log(event.type)
+            console.log(window.event)
+        }
+    </script>
+</body>
+
+</html>

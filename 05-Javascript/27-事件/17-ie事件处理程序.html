@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ie事件处理程序</title>
+</head>
+
+<body>
+    <button class="btn">attachEvent</button>
+    <button class="btn">detachEvent</button>
+    <script>
+        var btn1 = document.getElementsByTagName('button')[0]
+        // 只有两个参数，事件，事件处理程序
+        // 事件必须加on
+        function btn() {
+            console.log('btn1');
+        }
+        btn1.attachEvent('onclick', btn)
+        // 添加多个事件按照添加顺序反方向执行
+        btn1.attachEvent('onclick', function (e) {
+            console.log('btn2');
+        })
+
+        var btn2 = document.getElementsByTagName('button')[1]
+        btn2.attachEvent('onclick', function () {
+            // detachEvent 移除事件
+            btn1.detachEvent('onclick', btn)
+        })
+    </script>
+</body>
+
+</html>

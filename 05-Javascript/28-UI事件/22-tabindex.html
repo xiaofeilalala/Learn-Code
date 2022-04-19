@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tabindex</title>
+    <style>
+        :focus {
+            color: #2ecc71;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="num">
+        <li tabindex="-1">one</li>
+        <li tabindex="0">two</li>
+        <li tabindex="1">three</li>
+        <li tabindex="2">four</li>
+        <li tabindex="3">five</li>
+    </ul>
+    <script>
+        // 不是所有的元素都支持聚焦
+        num.children[0].onfocus = function(e) {
+            // 不会触发
+            // 拥有tabindex属性后可触发
+            console.log('触焦')
+        }
+        // 任何具有 tabindex 特性的元素，都会变成可聚焦的
+    </script>
+</body>
+
+</html>

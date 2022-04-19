@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>handleEvent</title>
+</head>
+
+<body>
+    <button class="btn">按钮</button>
+    <script>
+        // 可以将对象方法作为事件处理程序
+        // 当事件触发会自动调用handleEvent方法
+        let btn = document.querySelector('.btn')
+        let obj = {
+            handleEvent(event) {
+                console.log(event.type)
+            }
+        }
+        btn.addEventListener('click', obj)
+    </script>
+</body>
+
+</html>

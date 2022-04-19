@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mousemove和mouseout</title>
+    <style>
+        .a {
+            width: 200px;
+            height: 200px;
+            background-color: #ff7c3e;
+        }
+
+        .b {
+            width: 160px;
+            height: 160px;
+            background-color: #5050ff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="a">
+        <div class="b"></div>
+    </div>
+    <script>
+        // mouseover 和 mouseout 会冒泡
+        let a = document.querySelector('.a');
+        a.addEventListener('mouseover', function(e){
+            console.log('parent')
+        })
+        a.addEventListener('mouseout', function(e){
+            // 通过relatedTarget来判断鼠标指针是否在元素内
+            if (e.relatedTarget === a) {
+                return false
+            }
+        })
+    </script>
+</body>
+
+</html>

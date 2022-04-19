@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>常用表单事件</title>
+</head>
+
+<body>
+    <input type="text" id="change" value="change" class="change">
+    <input type="text" id="input" value="input" class="input">
+    <span id="text"></span>
+    <script>
+        // change事件 元素更改完触发
+        change.onchange = function() {
+            console.log('元素更改完触发')
+        }
+
+        // input 事件 对值进行修改则会触发
+        input.oninput = function(e) {
+            text.innerText = e.target.value
+        }
+        text.innerText = input.value
+
+        // cut/copy/paste 剪切、复制、粘贴事件
+        input.oncut = function() {
+            console.log('剪切')
+        }
+        input.oncopy = function() {
+            console.log('复制')
+        }
+        input.onpaste = function() {
+            // 阻止默认行为 无法粘贴
+            event.preventDefault()
+            console.log('粘贴')
+        }
+    </script>
+</body>
+
+</html>

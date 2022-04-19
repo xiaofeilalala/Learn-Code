@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>relatedTarget属性</title>
+</head>
+
+<body>
+    <h3>relatedTarget属性</h3>
+    <script>
+        // relatedTarget可以为null 当鼠标从窗口外移入或者移出窗口
+        let headtitle = document.querySelector('h3');
+        // mouseover 移到元素上
+        headtitle.addEventListener('mouseover',function(e) {
+            console.log(e.target)
+            console.log(e.relatedTarget)
+            // 鼠标来自那个元素
+        })
+         // mouseout 鼠标离开的元素
+        headtitle.addEventListener('mouseout',function(e) {
+            console.log(e.target)
+            console.log(e.relatedTarget)
+            // 鼠标移动到的元素
+        })
+    </script>
+</body>
+
+</html>

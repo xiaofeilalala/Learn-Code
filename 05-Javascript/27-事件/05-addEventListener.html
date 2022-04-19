@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>addEventListener</title>
+</head>
+
+<body>
+    <button class="btn">绑定多个事件</button>
+    <script>
+        // elem.addEventListener(event, handler, options)
+        // 可以绑定多个事件处理程序
+        // event为事件类型，handler事件处理程序,options处理程序属性
+        let elem = document.querySelector('.btn');
+        elem.addEventListener('click',function(e) {
+            console.log('触发1')
+        })
+        // 都会触发
+        elem.addEventListener('click',function(e) {
+            console.log('触发2')
+        })
+        
+    </script>
+</body>
+
+</html>

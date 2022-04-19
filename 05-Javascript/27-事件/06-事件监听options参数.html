@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件监听options参数</title>
+</head>
+
+<body>
+    <!-- once -->
+    <button class="btn">once</button>
+     
+    <!-- capture -->
+    <div class="container">
+        <button class="btn1">capture:true</button>
+    </div>
+
+    <div class="container2">
+        <button class="btn2">capture:false</button>
+    </div>
+
+    <!-- passive -->
+    <a href="#">百度</a>
+    <script>
+        // 事件监听options参数
+        // once:true 指定事件只执行一次
+        let btn = document.querySelector('.btn');
+        btn.addEventListener('click',function() {
+            console.log('once 只执行一次')
+        }, {once: true})
+
+        // capture: true 捕获阶段执行
+        let container = document.querySelector('.container');
+        let btn1 = document.querySelector('.btn1');
+        container.addEventListener('click',function() {
+            console.log('container 捕获执行')
+        }, {capture: true});
+
+        btn1.addEventListener('click',function() {
+            console.log('btn1 捕获执行')
+        }, {capture: true});
+
+
+        // capture: false 冒泡阶段执行
+        let container2 = document.querySelector('.container2');
+        let btn2 = document.querySelector('.btn2');
+        container2.addEventListener('click',function() {
+            console.log('container2 冒泡执行')
+        }, {capture: false});
+
+        btn2.addEventListener('click',function() {
+            console.log('btn2 冒泡执行')
+        }, {capture: false});
+
+        // passive：true 阻止浏览器默认行为
+        let link = document.querySelector('a');
+        link.addEventListener('click',function(e) {
+            event.preventDefault();
+            console.log('阻止默认行为');
+        }, {passive: true});
+    </script>
+</body>
+
+</html>

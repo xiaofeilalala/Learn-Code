@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>scroll滚动事件</title>
+</head>
+
+<body>
+    <script>
+        // scroll 当元素或者文档滚动条滚动时触发
+        document.body.style.height = `1500px`;
+        window.addEventListener('scroll', function () {
+            console.log(document.documentElement.scrollTop)
+            document.documentElement.onclick = function (e) {
+                if (document.documentElement.scrollTop > 200) {
+                    console.log('可以点击置顶')
+                    document.documentElement.scrollTop = 0;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

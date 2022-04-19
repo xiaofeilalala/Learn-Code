@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>focus和blur事件</title>
+</head>
+
+<body>
+    <input type="text" value="加油">
+    <input type="text" value="冲鸭" name="user">
+    <script>
+        let input = document.querySelector('input');
+        // focus触发焦点
+        input.onfocus = function () {
+            console.log('触焦')
+            // document.activeElement获取所有触发焦点元素
+            console.log(document.activeElement)
+        }
+        // blur失去焦点
+        input.onblur = function () {
+            console.log('失焦')
+        }
+
+        // focus() 与 blur() 方法
+        let input1 = document.getElementsByName('user')[0];
+        input1.onfocus = function() {
+            // blur() 移除焦点
+            input1.blur();
+        }
+        // input1.onblur = function() {
+        //     // focus() 设置焦点
+        //     input1.focus();
+        // }
+    </script>
+</body>
+
+</html>

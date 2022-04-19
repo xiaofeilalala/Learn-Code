@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件流</title>
+    <style>
+        .a {
+            width: 200px;
+            height: 200px;
+            background-color: #ff7c3e;
+        }
+
+        .b {
+            width: 160px;
+            height: 160px;
+            background-color: #5050ff;
+        }
+
+        .c {
+            width: 120px;
+            height: 120px;
+            background-color: #3bb73f;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- c -> b -> a -->
+    <div class="a">
+        <div class="b">
+            <div class="c"></div>
+        </div>
+    </div>
+    <script>
+        // 事件流：三个阶段，捕获阶段，目标阶段，冒泡阶段
+        let a = document.querySelector('.a');
+        let b = document.querySelector('.b');
+        let c = document.querySelector('.c');
+        // 
+        a.addEventListener('click', function (e) {
+            console.log('a')
+            // event.eventPhase 当前阶段
+            console.log(event.eventPhase)
+
+            // 设置第三个参数 capture:true 设置为捕获阶段
+        }, {capture: true})
+        b.addEventListener('click', function (e) {
+            console.log('b')
+            console.log(event.eventPhase)
+        }, {capture: true})
+        // 目标阶段，点击目标元素，event.eventPhase为目标阶段
+        c.addEventListener('click', function (e) {
+            console.log('c')
+            console.log(event.eventPhase)
+        }, {capture: true})
+    </script>
+</body>
+
+</html>

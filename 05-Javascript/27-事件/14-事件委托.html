@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件委托</title>
+    <style>
+        li {
+            list-style: none;
+            width: 200px;
+            height: 40px;
+            border-radius: 20px;
+            background-color: #3496db;
+            text-align: center;
+            line-height: 40px;
+            color: #fff;
+            font-size: 18px;
+            margin: 20px 0;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>list-1</li>
+        <li>list-2</li>
+        <li>list-3</li>
+        <li>list-4</li>
+        <li>list-5</li>
+    </ul>
+    <script>
+        // 通过事件冒泡，将子元素的事件设置在父级，然后通过event.target来查找子元素
+        let list = document.querySelector('ul');
+        list.addEventListener('click', function (e) {
+            if (event.target.tagName === 'LI') {
+                console.log(event.target)
+                console.log(event.target.tagName)
+                event.target.style.backgroundColor = `#27ae60`
+            }
+        })
+    </script>
+</body>
+
+</html>

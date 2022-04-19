@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>阻止默认行为</title>
+</head>
+
+<body>
+    <!-- a标签跳转默认行为 -->
+    <a href="http://www.baidu.com">百度</a>
+    
+    <!-- 按钮提交默认行为 -->
+    <form action="">
+        <input type="text">
+        <input type="submit">
+    </form>
+
+    <!-- 移动选中文本默认行为 -->
+    <p>文本</p>
+    <script>
+        // 通过监听事件第三个参数 passive: true 
+        let link = document.querySelector('a');
+        link.addEventListener('click', function (e) {
+            // 设置后阻止默认行为不会被调用
+            event.preventDefault();
+            console.log('a链接阻止默认行为')
+        }, {passive: true});
+
+        // onclick 方式设置事件处理程序时
+        // return false 阻止默认行为只能用于on<event>方式
+        let submit = document.querySelector('input[type="submit"]')
+        submit.onclick = function(e) {
+            console.log('submit');
+            return false;
+        }
+
+        // event.preventDefault() 阻止默认行为
+        link.addEventListener('click',function(e) {
+            event.preventDefault();
+            // event.defaultPrevented 表示是否被阻止默认行为
+            console.log(event.defaultPrevented); // true 被阻止
+            console.log('link')
+        })
+    </script>
+</body>
+
+</html>

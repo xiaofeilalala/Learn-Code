@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>keyCode键码</title>
+</head>
+
+<body>
+    <button class="btn">按钮</button>
+    <script>
+        // keydown 按下按键时触发，长时间按下重复触发
+        let btn = document.querySelector('.btn')
+        btn.onkeydown = function (e) {
+            // event.target 返回键码
+            console.log(e.keyCode)
+            // 通过键码按下按键触发
+            if(e.keyCode === 68) {
+                console.log('D')
+            }
+        }
+    </script>
+</body>
+
+</html>

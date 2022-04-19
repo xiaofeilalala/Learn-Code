@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>防止双击选择文本与复制</title>
+</head>
+
+<body>
+    <p>防止双击选择文本与复制</p>
+    <script>
+        let text = document.querySelector('p');
+        // 双击事件时会选择文本
+        text.ondblclick = function (e) {
+            console.log('双击')
+        }
+        // 通过mousedown 来阻止选择
+        text.onmousedown = function (e) {
+            return false;
+        }
+
+        // oncapy事件 return false阻止复制
+        text.oncopy = function () {
+            event.preventDefault()
+            return false;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>键盘事件</title>
+</head>
+
+<body>
+    <button class="btn">按钮</button>
+    <script>
+        // keydown 按下按键时触发，长时间按下重复触发
+        let btn = document.querySelector('.btn')
+        btn.onkeydown = function (e) {
+            // 长按时，event.repeat值为true
+            console.log(event.repeat)
+            console.log('按下按键触发')
+            
+        }
+        // keyup 当按键被释放时会触发
+        btn.onkeyup = function (e) {
+            console.log('释放按键触发')
+        }
+    </script>
+</body>
+
+</html>

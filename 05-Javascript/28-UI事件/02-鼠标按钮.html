@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鼠标按钮</title>
+</head>
+
+<body>
+    <button class="btn">鼠标按钮</button>
+    <script>
+        // 鼠标按钮 event.button
+        // 左键 0,右键 1,中间2,侧键x1后退 3, 侧键x2前进 4;
+        let btn = document.querySelector('.btn');
+        btn.addEventListener('mousedown',function(e) {
+            console.log(event.button)
+        })
+    </script>
+</body>
+
+</html>

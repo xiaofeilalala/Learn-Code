@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>focusin和focusout</title>
+</head>
+
+<body>
+    <form action="" id="myform">
+        <input type="text" name="user" value="嘿嘿">
+        <input type="text" name="pass" value="嘻嘻">
+    </form>
+    <script>
+        // focusin和focusout与focus blur 相同
+        // focusin和focusout会冒泡
+        let user = document.querySelector('input[name="user"]')
+        user.addEventListener('focus', function() {
+            console.log(this);
+            this.style.color = '#3496db'
+        })
+        myform.addEventListener('focus', function() {
+            console.log('focus 不冒泡')
+        })
+        
+        let pass = document.querySelector('input[name="pass"]')
+        pass.addEventListener('focusin', function() {
+            console.log(this)
+            this.style.color = '#5755ed'
+        })
+        myform.addEventListener('focusin', function() {
+            console.log('focusin 冒泡')
+        })
+    </script>
+</body>
+
+</html>

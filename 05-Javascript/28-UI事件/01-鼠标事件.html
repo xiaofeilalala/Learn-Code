@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鼠标事件</title>
+</head>
+
+<body>
+    <button class="btn">click</button>
+    <button class="btn">mousedown</button>
+    <button class="btn">mouseup</button>
+    <button class="btn">mouseover</button>
+    <button class="btn">mouseout</button>
+    <button class="btn">mousemove</button>
+    <button class="btn">dblclick</button>
+    <button class="btn">contentmenu</button>
+    <button class="btn">oncopy</button>
+    <button class="btn">mouseenter</button>
+    <button class="btn">mouseleave</button>
+    <script>
+        let btn = document.querySelector('.btn');
+        let btn1 = document.querySelectorAll('.btn')[1];
+        let btn2 = document.querySelectorAll('.btn')[2];
+        let btn3 = document.querySelectorAll('.btn')[3];
+        let btn4 = document.querySelectorAll('.btn')[4];
+        let btn5 = document.querySelectorAll('.btn')[5];
+        let btn6 = document.querySelectorAll('.btn')[6];
+        let btn7 = document.querySelectorAll('.btn')[7];
+        let btn8 = document.querySelectorAll('.btn')[8];
+        let btn9 = document.querySelectorAll('.btn')[9];
+        let btn10 = document.querySelectorAll('.btn')[10];
+
+
+        // click 鼠标左键按钮
+        btn.addEventListener('click', function () {
+            console.log('鼠标左键点击')
+        })
+
+        // mousedown 元素上点鼠标按钮点击
+        btn1.addEventListener('mousedown', function () {
+            console.log('鼠标按钮点击')
+        })
+        // mouseup 元素上点鼠标按钮释放
+        btn2.addEventListener('click', function () {
+            console.log('鼠标按钮释放')
+        })
+
+        // mouseover 鼠标指针移入
+        btn3.addEventListener('mouseover', function () {
+            console.log('鼠标指针移出')
+        })
+        // mouseout 鼠标指针移出
+        btn4.addEventListener('mouseout', function () {
+            console.log('鼠标指针移入')
+        })
+
+        // mousemove 鼠标在元素上移动
+        btn5.addEventListener('mousemove', function () {
+            console.log('鼠标指针在元素上移动')
+        })
+
+        // dblclick 双击同一元素
+        btn6.addEventListener('dblclick', function () {
+            console.log('鼠标左键双击')
+        })
+
+        // contextmenu 点击鼠标右键
+        btn7.addEventListener('contextmenu', function () {
+            console.log('鼠标右键点击')
+        })
+
+        // oncopy 复制内容
+        btn8.addEventListener('oncopy', function () {
+            console.log('内容复制')
+        })
+
+        // mouseenter 鼠标移入
+        btn9.addEventListener('mouseenter', function () {
+            console.log('鼠标移入')
+        })
+        // mouseleave 鼠标移出
+        btn10.addEventListener('mouseleave', function () {
+            console.log('鼠标移出')
+        })
+    </script>
+</body>
+
+</html>

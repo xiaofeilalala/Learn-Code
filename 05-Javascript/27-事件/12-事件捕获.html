@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件捕获</title>
+    <style>
+        .a {
+            width: 200px;
+            height: 200px;
+            background-color: #ff7c3e;
+        }
+
+        .b {
+            width: 160px;
+            height: 160px;
+            background-color: #5050ff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="a">
+        <div class="b"></div>
+    </div>
+    <script>
+        let a = document.querySelector('.a');
+        let b = document.querySelector('.b');
+        function clickA() {
+            console.log('a');
+        }
+        // a -> b
+        // 捕获阶段捕获事件，设置参数{capture: true}
+        a.addEventListener('click', clickA, { capture: true })
+
+        b.addEventListener('click', function (e) {
+            console.log('b1')
+            a.removeEventListener('click', clickA, { capture: true })
+        });
+        // 同一元素的同一阶段的监听器按其设置顺序运行
+        b.addEventListener('click', function (e) {
+            console.log('b2')
+            a.removeEventListener('click', clickA, { capture: true })
+        });
+    </script>
+</body>
+
+</html>

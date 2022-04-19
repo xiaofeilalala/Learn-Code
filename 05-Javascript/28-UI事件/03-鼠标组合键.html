@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鼠标组合键</title>
+</head>
+
+<body>
+    <button class="btn">鼠标按钮</button>
+    <script>
+        let btn = document.querySelector('.btn');
+        // 鼠标组合键
+        // shiftKey shift, altKey alt, ctrlKey ctrl, metaKey mac的cmd键
+        btn.addEventListener('click', function(e) {
+            if(event.ctrlKey && event.altKey ){
+                console.log('ctrl + alt + click')
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件冒泡</title>
+    <style>
+        .a {
+            width: 200px;
+            height: 200px;
+            background-color: #ff7c3e;
+        }
+
+        .b {
+            width: 160px;
+            height: 160px;
+            background-color: #5050ff;
+        }
+
+        .c {
+            width: 120px;
+            height: 120px;
+            background-color: #3bb73f;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- c -> b -> a -->
+    <div class="a">
+        <div class="b">
+            <div class="c"></div>
+        </div>
+    </div>
+    <script>
+        // 事件冒泡，当一个事件发生在一个元素上，首先会在该元素上处理，然后一层一层向上到祖先上处理程序
+        let a = document.querySelector('.a');
+        let b = document.querySelector('.b');
+        let c = document.querySelector('.c');
+        a.addEventListener('click', function (e) {
+            console.log('a')
+            // event.target表示发生事件嵌套最深的元素目标元素
+            console.log(event.target)
+            // event.target表示当前执行事件的对象
+            // this指向event.target
+            console.log(event.currentTarget)
+            console.log(this)
+            // this 指向当前执行事件的对象
+        })
+        b.addEventListener('click', function (e) {
+            console.log('b')
+        })
+        c.addEventListener('click', function (e) {
+            console.log('c')
+        })
+    </script>
+</body>
+
+</html>

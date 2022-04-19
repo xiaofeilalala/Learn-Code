@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表单属性与方法</title>
+</head>
+
+<body>
+    <form name="form1">
+        <input type="text" name="username">
+        <input type="text" name="password">
+    </form>
+    <form name="form2"></form>
+    <script>
+        // document.forms.name || document.forms[index] 访问表单
+        console.log(document.forms[0])
+        console.log(document.forms.form2)
+
+        // form.elements[name/index] 访问表单元素
+        console.log(form1.elements.username)
+        console.log(form1.username)
+
+        // element.form 反向引用表单
+        let username = form1.username;
+        console.log(username.form); // form1
+    </script>
+</body>
+
+</html>

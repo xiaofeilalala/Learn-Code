@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>scroll滚动事件</title>
+</head>
+
+<body>
+    <script>
+        // 阻止滚动
+        document.body.style.height = '1500px';
+
+        // 设置css overflow:hidden
+        document.documentElement.style.overflow = 'hidden';
+        
+        // 设置上下按键 return false 禁止滚动
+        document.onkeydown = function(e) {
+            if(e.key === 'ArrowUp' || e.key === 'ArrowDown') {
+                e.preventDefault();
+                return false;
+            }
+        }
+    </script>
+</body>
+
+</html>

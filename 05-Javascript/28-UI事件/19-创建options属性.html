@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>new options</title>
+</head>
+
+<body>
+    <form name="myform">
+        <select name="message" id="">
+
+        </select>
+    </form>
+    <script>
+        // 创建 options元素
+        let option = new Option('创建options', '创建options', true, true)
+        myform.message.append(option);
+        console.log(myform.message.options[0].value); // 创建options
+        console.log(myform.message.selectedIndex); // 0
+        console.log(myform.message.options[0].selected); // true
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鼠标拖放</title>
+
+</head>
+
+<body>
+    <div class="box">
+        <div class="bar"></div>
+    </div>
+    <script>
+        // 1. mousedown 准备移动元素
+        // 2. mousemove 通过position移动
+        // 3. mouseup 执行完所有拖放事件
+
+        // 获取元素，设置样式
+        let box = document.querySelector('.box');
+        let bar = document.querySelector('.bar');
+        box.style.cssText = `
+        position: relative;
+        width: 300px;
+        height: 20px;
+        border-radius: 6px;
+        background-color: #ddd;
+        margin: 100px auto;
+        `;
+
+        bar.style.cssText = `
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 14px;
+        height: 30px;
+        background-color: #5e5ee9;
+        border-radius: 3px;
+        margin-top: -15px;
+        cursor: pointer;
+        `;
+
+        bar.onmousedown = function (e) {
+            event.preventDefault();
+            let shiftX = e.clientX - bar.getBoundingClientRect().left;
+            console.log(shiftX)
+            document.addEventListener("mousemove", onMouseMove)
+            document.addEventListener("mouseup", onMouseUp)
+
+            function onMouseMove(e) {
+                let newLeft = e.clientX - shiftX - box.getBoundingClientRect().left
+                console.log(newLeft)
+                if(newLeft < 0) {
+                    newLeft = 0
+                }
+                let rightWidth = box.offsetWidth - bar.offsetWidth
+                if(newLeft > rightWidth){
+                    newLeft = rightWidth
+                }
+                bar.style.left = newLeft + 'px'
+            }
+
+            function onMouseUp(e) {
+                document.removeEventListener("mousemove", onMouseMove)
+                document.removeEventListener("mouseup", onMouseUp)
+            }
+        }
+        bar.ondragstart = function () {
+            return false;
+        };
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML事件处理程序</title>
+
+</head>
+
+<body>
+    <!-- 在html元素绑定事件 -->
+    <button onclick="console.log('点击事件')">触发点击事件</button>
+    <button onclick="handle()">函数处理</button>
+    <button onclick="obj.handClick()">对象方法处理</button>
+
+    <script>
+        // 绑定事件，通过定义函数处理
+        function handle() {
+            console.log('函数处理')
+        }
+
+        // 绑定事件，通过对象中方法处理
+        let obj = {
+            handClick() {
+                console.log('对象方法处理')
+            }
+        }
+    </script>
+</body>
+
+</html>
