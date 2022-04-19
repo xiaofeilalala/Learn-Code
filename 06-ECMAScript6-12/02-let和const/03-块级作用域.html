@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>块级作用域</title>
+    <script>
+        // es6 新增块级作用域
+        // 通过let const 来形成块级作用域
+
+        // 不同块级作用域可以声明相同变量
+        function f1() {
+            let n = 5;
+            if (true) {
+                let n = 10;
+            }
+            console.log(n); // 5
+        }
+
+        // IIFE 写法
+        (function () {
+            var tmp = 'jsx';
+            console.log(tmp); // jsx
+        }());
+        // console.log(tmp) // ReferenceError
+
+        // 块级作用域写法
+        {
+            let tmp = 'jsx';
+            console.log(tmp) // jsx
+        }
+        // console.log(tmp) // ReferenceError
+
+        // 块级作用域声明函数
+        {
+            let a = 'secret';
+            let f = function () {
+                return a;
+            };
+            console.log(f()); // secret
+        }
+
+        // 块级作用域必须有大括号
+        if (true) {
+            let x = 1;
+            console.log(x)
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

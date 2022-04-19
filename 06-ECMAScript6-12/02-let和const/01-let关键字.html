@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>let关键字</title>
+    <script>
+        // let 关键字拥有块级作用域
+        {
+            let str = 'jsx';
+            var num = 123;
+            // 在同一作用域下可以访问
+            console.log(str)
+        }
+        // console.log(str); // 访问不到str
+        console.log(num);
+
+        // 不存在变量提升
+        console.log(str1); // undefined
+        var str1 = 'jsx';
+        
+        // console.log(num1); // 访问不到num1
+        let num1 = 123;
+
+        // 暂时性死区
+        if(true) {
+            // str2 = 'jsx'
+            let str2;
+            // console.log(str2); // 暂时性死区 无法访问
+        }
+        // typeof num2; // 暂时性死区 无法访问
+        let num2 = 123;
+
+        // 不允许重复声明
+        // let str3 = 'jsx'; // 报错
+        // let str3 = 'jsx';
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

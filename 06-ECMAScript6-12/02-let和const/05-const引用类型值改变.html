@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>const关键字</title>
+    <script>
+        // const 声明变量值修改问题
+        // 简单类型无法修改
+        const STRING = 'string'
+        // STRING = 'str'; // Uncaught TypeError
+
+        // 引用类型可以修改,保证变量指向的内存地址
+        const OBJECT = {
+            name: 'jsx',
+            age: 22
+        }
+        console.log(OBJECT); // {name: 'jsx', age: 22}
+        OBJECT.name = 'ljj'
+        console.log(OBJECT); // {name: 'ljj', age: 22}
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
