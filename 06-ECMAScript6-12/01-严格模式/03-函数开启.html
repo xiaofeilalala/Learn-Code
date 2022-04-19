@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数开启严格模式</title>
+    <script>
+        function strict() {
+            // 函数开启严格模式需要在函数内最开始
+            'use strict';
+            function nested() {
+                return "And so am I!";
+            }
+            return "Hi!  I'm a strict mode function!  " + nested();
+        }
+        console.log(strict()); // Hi!  I'm a strict mode function!  And so am I!s
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

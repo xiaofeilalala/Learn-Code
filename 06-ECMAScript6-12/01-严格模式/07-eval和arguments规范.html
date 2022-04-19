@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eval和arguments</title>
+    <script>
+        'use strict';
+        // eval声明变量和函数只能在eval内部有效
+        function evalFn() {
+            eval("var x = 10");
+            eval('function sayhello() {console.log("hello")}')
+            console.log(x);
+            sayhello();
+        }
+        evalFn(); // ncaught ReferenceError: x is not defined
+
+        // eval和arguments不能被绑定或者赋值
+        eval = 17;
+        arguments++;
+        ++eval;
+        var obj = { set p(arguments) { } };
+        var eval;
+        try { } catch (arguments) { }
+        function x(eval) { }
+        function arguments() { }
+        var y = function eval() { };
+        var f = new Function("arguments", "'use strict'; return 17;");
+
+        // 参数值不会随着arguments对象值改变而改变
+        function fn(num) {
+            num = 22;
+            console.log(num, arguments[0])
+        }
+        fn(24); // 22 24
+
+        // 不支持arguments.callee
+        function handle(){
+            console.log(arguments.callee)
+        }
+        handle();
+        // Uncaught TypeError: 'caller', 'callee'
+
+        // 禁止with语句
+        var str = 'jsx';
+        var obj = {
+            str: 'ljj'
+        };
+        with(obj) { str };
+        // Uncaught SyntaxError: Strict mode code may not include a with statement 
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this指向规范</title>
+    <script>
+        'use strict';
+        // 严格模式下 全局函数this指向undefined
+        function func() {
+            console.log(this)
+        }
+        func(); // undefined
+
+        // 构造函数未加new关键字，this指向undefined并报错
+        function User() {
+            this.name = 'jsx'
+            console.log(this.name)
+        }
+        User();
+        // Uncaught TypeError: Cannot set properties of undefined (setting 'name')
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
