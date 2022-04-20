@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象扩展运算符</title>
+    <script>
+        // 对象扩展运算符取出对象可遍历属性，拷贝到当前对象中
+        let obj = { name: 'jsx', age: 22 };
+        let newobj = { ...obj };
+        console.log(newobj); // {name: 'jsx', age: 22}
+
+        // 对象扩展运算符展开数组
+        let arr = ['html', 'css'];
+        let obj1 = { ...arr };
+        console.log(obj1); // {0: 'html', 1: 'css'}
+
+        // 对象扩展运算符后面是空对象则无效果
+        // 对象扩展运算符后面不是对象则转换为对象
+        let obj2 = {};
+        console.log({ ...obj2 }); // {}
+        console.log({ ...1 }); // {}
+        console.log({ ...true }); // {}
+        console.log({ ...null }); // {}
+        console.log({ ...undefined }); // {}
+
+        // 只会返回自身可枚举属性，不会返回原型属性
+        function User() {
+            let name = 'jsx';
+            let sayHi = function () { };
+            this.message = 'jsx'
+        }
+        User.prototype.attr = '原型属性';
+        let user = new User();
+        let clone = { ...user }
+        console.log(clone); // {message: 'jsx'}
+
+        // 对象扩展运算符可以扩展字符串
+        let str = 'jsx';
+        console.log({ ...str }); // {0: 'j', 1: 's', 2: 'x'}
+
+        // 扩展运算符内部有同名的属性会被覆盖掉, 后面覆盖前面同名属性
+        let obj3 = { now: 'js' }
+        let expand = { ...obj3, now: 'vue' };
+        console.log(expand); // {now: 'vue'} 
+
+        let obj4 = { now: 'js' }
+        let expand1 = { now: 'webpack', ...obj4 };
+        console.log(expand1); // {now: 'js'}
+
+        // 对象扩展语法相当于Object.assign()方法
+        let obj5 = {class: 'js'};
+        let objMax = {name: 'jsx'};
+        let obj6 = {...obj5, ...objMax};
+        console.log(obj6); // {class: 'js', name: 'jsx'}
+        console.log(Object.assign({}, obj5, objMax)); // {class: 'js', name: 'jsx'}
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

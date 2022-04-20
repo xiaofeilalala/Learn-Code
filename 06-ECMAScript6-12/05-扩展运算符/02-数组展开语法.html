@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组展开语法</title>
+    <script>
+        // spread语法也叫数组展开语法
+        // 将数组转化成参数列表
+        let arr = ['html', 'css', 'js']
+        console.log(...arr); // html css js
+
+        let arr1 = ['html', ...['css', 'js']];
+        console.log(arr1); // ['html', 'css', 'js']
+
+        function func(...array) {
+            console.log(...array)
+        }
+        let arr2 = ['zdj', 'ddc']
+        func('jsx', 'ljj', ...arr2, ...'jsx'); // jsx ljj zdj ddc j s x
+
+        // 合并，拷贝，连接，传递参数
+        console.log(['jsx', 'ljj', ...['ddc', 'zdj']]); // ['jsx', 'ljj', 'ddc', 'zdj']
+
+        let arr3 = ['html', 'css', 'js']
+        let newarr = [...arr3];
+        console.log(newarr); //  ['html', 'css', 'js']
+
+        let arr4 = ['html'];
+        let arr5 = ['css', 'js']
+        console.log([...arr4, ...arr5]); // ['html', 'css', 'js']
+
+        function arrFunc(...arg) {
+            console.log(arg);
+        }
+        arrFunc([1, 2, 3])
+
+        // 空数组展开不产生任何效果
+        // 字符串可以展开
+        let array = [];
+        console.log(...array); // 不产生任何效果
+
+        let hello = 'hello';
+        console.log(...hello); // h e l l o
+
+        // 只适用于可迭代对象
+        let obj = { name: 'jsx' };
+        // console.log(...obj); // Uncaught TypeError
+
+        window.onload = function () {
+            console.log(...document.querySelectorAll('div'))
+            // <div></div>  <div></div>  <div></div>
+        }
+    </script>
+</head>
+
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+
+</html>

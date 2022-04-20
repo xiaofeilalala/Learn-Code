@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数rest参数</title>
+    <script>
+        // rest参数 将函数内参数全部放入数组中
+        function restFn(...arg) {
+            console.log(arg);
+        }
+        restFn(1, true, { name: 'jsx' }, [1, 2, 3, 4])
+        // [1, true, {…}, Array(4)]
+        // 函数的length属性，不包括 rest 参数
+        console.log(restFn.length); // 0
+
+
+        // rest参数 替代类数组对象
+        function replaceArgument() {
+            // 没有数组方法
+            Array.from(arguments).map((item) => {
+                console.log(item)
+            });
+        }
+        replaceArgument('jsx', 100, { title: 'arguments' }, ['html', 'css'])
+
+        function restFunc(...rest) {
+            // 没有数组方法
+            rest.map((item) => {
+                console.log(item)
+            })
+        }
+        restFunc('jsx', 100, { title: 'arguments' }, ['html', 'css'])
+
+        // rest 参数后不能有其它参数
+        function morearg(...arg, title) {
+            console.log(arg, title)
+        }
+        morearg('jsx', 'ljj', 22); // Uncaught SyntaxError
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>扩展运算符使用场景</title>
+    <script>
+        // 浅拷贝数组和对象
+        let arr = ['html', 'css']
+        let newarr = [...arr];
+        console.log(newarr)
+
+        let obj = {name: 'jsx'};
+        let newobj = {...obj};
+        console.log(newobj)
+
+        // 数组合并连接
+        let arr1 = ['jsx', 'ljj'];
+        let arr2 = ['html', 'css'];
+        let allarr = [...arr1, ...arr2];
+        console.log(allarr);
+
+        // appaly使用
+        function applyFn(a, b) {
+            console.log(a, b); // jsx ljj
+        }
+        let arr3 = ['jsx', 'ljj']
+        // applyFn.apply(null, arr3);
+        applyFn(...arr3)
+
+        // 函数传递参数
+        function func(...arg){
+            console.log(arg); // ['jsx', 'ljj']
+        }
+        func('jsx', 'ljj')
+        func(...['jsx', 'ljj'])
+
+        // 数组去重
+        let arr4 = [2, 2, 3, 22];
+        let noreplace = [...new Set(arr4)]
+        console.log(arr4); // [2, 2, 3, 22]
+
+        // 类数组转换
+        function likeArr() {
+            [...arguments].map((item)=> {
+                console.log(item)
+            })
+        }
+        let arrover = ['html', 'css', 'js'];
+        likeArr(arrover); //  ['html', 'css', 'js']
+
+        // 解构赋值
+        let [numMin, ...numMax] = [1, 2, 3, 4];
+        console.log(numMin); // 1
+        console.log(numMax); // [2, 3, 4]
+
+        let objover = {
+            title: '加油',
+            message: '学习',
+            date: 20220420
+        }
+        let {title, ...objAll} = objover;
+        console.log(title); // 加油
+        console.log(objAll); // {message: '学习', date: 20220420}
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
