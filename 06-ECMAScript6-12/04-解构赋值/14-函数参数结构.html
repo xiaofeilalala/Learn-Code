@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数参数解构</title>
+    <script>
+        // 将数组作为函数参数
+        function arrFn([name, age]) {
+            console.log(name, age)
+        }
+        arrFn(['jsx', 22]); // jsx 22
+
+        // 将对象作为函数参数传递
+        let obj = {
+            title: "My menu",
+            items: ["Item1", "Item2"]
+        }
+        function objFn({ title, items: [item1, item2] }) {
+            console.log(title); // My menu
+            console.log(item1, item2); // Item1 Item2
+        }
+        objFn(obj);
+
+        // 嵌套带冒号参数
+        let obj1 = {
+            message: '嵌套带冒号',
+            info: {
+                name: 'jsx',
+                lesson: ['html', 'css'],
+                grilfriend: {
+                    xm: 'ljj'
+                }
+            }
+        }
+        function complexFn({ 
+            message, 
+            info: { 
+                name,
+                lesson: [list1, list2],
+                grilfriend: { xm }
+            }
+        }) {
+            console.log(message); // 嵌套带冒号
+            console.log(list1, list2); // html css
+            console.log(xm); // ljj
+        }
+        complexFn(obj1);
+
+        // 空对象设置默认值
+        function nullFn({info = 'jsx', width = 100, height = 200} = {}) {
+            console.log(info); // jsx
+            console.log(width); // 100
+            console.log(height); // 200
+        }
+        nullFn();
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

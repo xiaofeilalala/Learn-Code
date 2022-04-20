@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>嵌套解构</title>
+    <script>
+        // 数组嵌套
+        let [name, [name1, [name2]]] = ['jsx', ['ljj', ['ddc']]];
+        console.log(name, name1, name2); // jsx ljj ddc
+
+        // 对象解构
+        let obj = {
+            title: '对象解构',
+            info: {
+                target: '对象',
+                difficulty: {
+                    level: 1
+                }
+            }
+        }
+        let { title, info, info: { target, difficulty, difficulty: { level } } } = obj;
+        console.log(title, info, target, difficulty, level);
+        // 对象解构
+        // {target: '对象', difficulty: {…}}
+        // 对象
+        // {level: 1}
+        // 1
+
+        // 对象数组嵌套
+        let objArr = {
+            message: '对象数组嵌套',
+            lesson: ['html', 'css', 'js'],
+            news: {
+                main: '新消息'
+            }
+        }
+        let { message, lesson, lesson: [item1, item2, item3], news, news: { main } } = objArr;
+        console.log(message, lesson, item1, item2, item3, news, main)
+        // 对象数组嵌套
+        //  ['html', 'css', 'js']
+        // html css js
+        // {main: '新消息'}
+        // 新消息
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

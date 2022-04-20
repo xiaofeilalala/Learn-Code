@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>字符串解构赋值</title>
+    <script>
+        // 字符串解构
+        // 会将字符串转换成一个类数组对象
+        let [a, b, c, d ,e] = 'hello';
+        console.log(a, b, c, d ,e); // h e l l o
+
+        // 类数组对象lenth 属性解构
+        let {length : num} = 'hello';
+        console.log(num); // 5
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

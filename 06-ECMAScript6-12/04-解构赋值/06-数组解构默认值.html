@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组解构默认值</title>
+    <script>
+        // 数组解构时可以设置默认值
+        let [name1 = 'jsx', name2 = 'ljj'] = [];
+        console.log(name1, name2); // jsx ljj
+
+        // 解构内部默认值通过严格相等判断，当元素严格相等于undefined时则默认值生效
+        let [num = 123] = [undefined];
+        console.log(num); // 123
+
+        // null ！== undefined means
+        let [num1 = 123] = [null];
+        // null严格相等undefined所有默认值无效
+        console.log(num1); // null
+
+        // 默认值为函数时，函数只有在使用时才会求值
+        function func() {
+            return 123
+        }
+        let [num2 = func()] = [undefined];
+        console.log(num2)
+
+        // 默认值可以使用解构的变量，变量必须声明
+        let [str1 = 'jsx', str2 = str1] = [];
+        console.log(str1, str2); // jsx jsx
+        // str4未声明
+        let [str3 = str4, str4 = 'ljj'] = []; // Uncaught ReferenceError
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组不完全解构</title>
+    <script>
+        // 当左边变量数少于右边数组元素时，只匹配右边数组元素一部分，多余的忽略
+        let [one, two] = [1, 2, 3];
+        console.log(one, two); // 1 2
+
+        let [a, [b], c] = [1, [2, 3], 4]
+        console.log(a, b, c); // 1 2 4
+
+        // 当左边变量多余右边数组元素时，多出来的变量匹配不到值返回undefined
+        let [str1, str2] = ['jsx'];
+        console.log(str1, str2); // jsx undefined
+
+        // 变量使用扩展语法匹配不到值时返回 [] 空数组
+        let [str3, ...str4] = ['jsx'];
+        console.log(str3, str4); // jsx []
+
+        // 当匹配元素不是可迭代对象时，解构赋值报错
+        let [foo1] = 1;
+        let [foo2] = false;
+        let [foo3] = NaN;
+        let [foo4] = undefined;
+        let [foo5] = null;
+        let [foo6] = {};
+        console.log(foo1, foo2, foo3, foo4, foo5, foo6); // is not iterable
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

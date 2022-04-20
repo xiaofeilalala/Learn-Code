@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>圆括号问题</title>
+    <script>
+        // 声明语句时不能使用圆括号包裹变量
+        // let [(num)] = [1];
+        // console.log(a); // Uncaught SyntaxError
+
+        // let {(name: str)} = {name: 'jsx'};
+        // console.log(str); // Uncaught SyntaxError
+
+        // 函数参数内也不可以
+        // function fn([(a)]) {
+        //     console.log(a);
+        // }
+        // fn(1);  
+
+        // 赋值语句内不可使用圆括号包裹
+        // let a, b;
+        // ([a, b]) = [1, 2];
+        // console.log(a, b) // Uncaught SyntaxError
+
+        // 圆括号可以在非模式部分使用
+        let num;
+        [(num)] = [123];
+        console.log(num); // 123
+
+        let str;
+        ({name: str} = {name: 'jsx'});
+        console.log(str); // jsx
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

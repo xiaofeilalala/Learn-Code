@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>完全解构</title>
+    <script>
+        // 当等号两边的模式相同，左边变量会赋予对应值
+        let [one, two, three] = ['html', 'css', 'js'];
+        console.log(one, two, three); // html css js
+
+        let [str1, [str2], str3] = ['jsx', ['ljj'], 'ddc']
+        console.log(str1, str2, str3); // jsx ljj ddc
+
+        // 忽略元素中的元素使用,逗号
+        let [, , name] = ['haha', 'xixi', 'jsx'];
+        console.log(name); // jsx
+
+        let [, xixi , ] = ['haha', 'xixi', 'jsx'];
+        console.log(xixi); // xixi
+
+        // 解构数组时可以使用扩展语法... 将剩余数组赋值给一个变量
+        let [num, ...numN] = [1, 2, 3, 4];
+        console.log(num); // 1
+        console.log(numN); //  [2, 3, 4]
+
+        // 变量交换
+        let name1 = 'jsx';
+        let name2 = 'ljj';
+        let name3 = 'ddc';
+        [name1, name2, name3] = [name3, name1, name2];
+        console.log(name1, name2, name3); // ddc jsx ljj
+        
+        // 等号右侧可以时任何可迭代对象
+        let [a, b, c] = 'jsx';
+        console.log(a, b, c); // j s x
+
+        let [one1, two1, three1] = new Set([1, 2, 3]);
+        console.log(one1, two1, three1); // 1 2 3
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

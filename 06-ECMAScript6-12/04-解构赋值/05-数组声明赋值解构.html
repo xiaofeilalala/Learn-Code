@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组解构</title>
+    <script>
+        // 数组可以在变量声明并赋值时解构
+        let arr = ['jsx', 'ljj', 'zdj', 'ddc']
+        let [one, two, three, four] = arr;
+        console.log(one, two, three, four);
+        // jsx ljj zdj ddc
+
+        // 也可以在变量先声明后赋值解构
+        let name1, name2, name3, name4;
+        [name1, name2, name3, name4] = ['jsx', 'ljj', 'zdj', 'ddc'];
+        console.log(name1, name2, name3, name4);
+        // jsx ljj zdj ddc
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

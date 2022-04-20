@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象解构默认值</title>
+    <script>
+        // 对象解构默认值，当指定变量没有对应的对象属性时
+        let {name = 'jsx'} = {};
+        console.log(name); // jsx
+ 
+        let {name1 = 'jsx'} = {name1: 'ljj'};
+        // 默认值失效 
+        console.log(name1); // ljj
+
+        // 当对象属性值为undefined时有效
+        let {name2 = 'jsx'} = {name2: undefined};
+        console.log(name2); // jsx
+
+        let {x: y = 3} = {x: 5};
+        console.log(y); // 5
+
+        let {x1 = 3} = {x1: null};
+        console.log(x1); // null
+
+        // 新的该变量命名并提供默认值
+        let {user: xm = 'jsx'} = {};
+        console.log(xm); // jsx
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

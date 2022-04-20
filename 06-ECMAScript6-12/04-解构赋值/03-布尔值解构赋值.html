@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>布尔值解构赋值</title>
+    <script>
+        // 布尔值解构赋值
+        // 规则：会先将等号右边不是对象或者数组的转换为对象
+        let {toString: bool} = true;
+        console.dir(bool);
+        // 由于布尔值包装类型有toString和vlaueOf属性
+        console.log(bool === Boolean.prototype.toString); // true
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>同名解构</title>
+    <script>
+        // 由于对象和数组不一样，对象属性是没有次序的
+        // 变量名必须和对象属性同名才能解构
+        let {name, age} = {name: 'jsx', age: 22};
+        console.log(name, age); // jsx 22
+        
+        // 如果解构失败，变量的值等于undefined
+        let {a, b} = {a: 'jsx', c: 'ljj'};
+        console.log(a, b); // jsx undefined
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>解构赋值使用场景</title>
+    <script>
+        // 变量交换
+        let name1 = 'jsx';
+        let name2 = 'ljj';
+        [name1, name2] = [name2, name1];
+        console.log(name1, name2); // ljj, jsx
+
+        // 函数返回对象解构
+        function returnFn() {
+            return {
+                name: 'jsx',
+                age: 22
+            }
+        }
+        let { name, age } = returnFn();
+        console.log(name, age); // jsx 22
+
+        // 函数参数定义
+        function argumentFn([list1, list2]) {
+            console.log(list1); // jsx
+            console.log(list2); // ljj
+        }
+        argumentFn(['jsx', 'ljj'])
+
+        function argumentFn1({ obj }) {
+            console.log(obj); // jsx
+        }
+        argumentFn1({ obj: 'jsx' })
+        
+        // 解构JSON对象
+        let jsonData = {
+            id: 42,
+            status: "OK",
+            data: [867, 5309]
+        };
+        let { id, status, data: number } = jsonData;
+        console.log(id, status, number); // 42 'OK' (2) [867, 5309]
+
+        // 函数参数默认值
+        function func({ title = '默认值' } = {}) {
+            console.log(title)
+        }
+        func(); // 默认值
+
+        // 遍历解构
+        let user = {
+            name: "John",
+            age: 30
+        };
+        for (let [key, value] of Object.entries(user)) {
+            console.log(`${key}: ${value}`);
+            // name: John
+            // age: 30
+        }
+
+        const map = new Map();
+        map.set('first', 'hello');
+        map.set('second', 'world');
+
+        for (let [key, value] of map) {
+            console.log(key + " is " + value);
+            // first is hello
+            // second is world
+        }
+    </script>
+    <script type="module">
+        import {sayHi, sayHello} from './index.js';
+        sayHi(); // say hi
+        sayHello(); // say hello
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

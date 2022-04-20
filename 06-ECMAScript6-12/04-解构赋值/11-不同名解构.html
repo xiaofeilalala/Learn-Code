@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>不同名解构</title>
+    <script>
+        // 对象属性与变量名不同名时，设置:对象属性值赋值给变量
+        let { user: name, age: num } = { user: 'jsx', age: 22 }
+        console.log(name, num); // jsx 22
+
+        // 先找到同名属性，然后再赋给对应的变量，真正被赋值的是后者，而不是前者
+        let { name: str, age: num1 } = { user: 'jsx', age: 22 };
+        console.log(str, num1); // undefined 22
+
+        // foo时匹配模式 baz则是匹配属性的值
+        let { foo: baz } = { name: 'jsx' };
+        // console.log(foo); // ncaught ReferenceErro
+        console.log(baz); // undefined
+
+        // 嵌套匹配
+        let obj = { lesson: ['html', { class: 'css' }] }
+        let { lesson: [x, { class: y }] } = obj;
+        // console.log(x, y); // html css
+
+        let { lesson } = obj;
+        console.log(lesson); //  ['html', {…}]
+
+        // 嵌套赋值
+        let obj1 = {};
+        let arr1 = [];
+
+        ({ foo: obj1.prop, bar: arr1[0] } = { foo: 123, bar: true });
+
+        console.log(obj1) // {prop:123}
+        console.log(arr1) // [true]
+
+        // 获取继承属性
+        let obj2 = {};
+        let obj3 = { user: 'ljj' };
+        Object.setPrototypeOf(obj2, obj3);
+        let { user } = obj2;
+        console.log(user); // ljj
+
+        // 扩展语法 ... 
+        let options = {
+            title: "Menu",
+            height: 200,
+            width: 100
+        };
+
+        // title = 名为 title 的属性
+        // rest = 存有剩余属性的对象
+        let { title, ...rest } = options;
+
+        // 现在 title="Menu", rest={height: 200, width: 100}
+        console.log(rest.height);  // 200
+        console.log(rest.width);   // 100
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
