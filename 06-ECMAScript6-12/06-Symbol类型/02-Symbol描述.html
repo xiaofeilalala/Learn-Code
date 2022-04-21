@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symbol描述</title>
+    <script>
+        // Symbol接受一个字符串作为参数
+        let sym = Symbol(1);
+        // description来获取Symbol描述
+        console.log(typeof sym.description); // [object String]
+
+        // 当Symbol描述是一个对象时，会调用toString()转换成字符串
+        let obj = {
+            toString() {
+                return 'symbol';
+            }
+        }
+        let sym1 = Symbol(obj);
+        console.log(sym1.description); // symbol
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

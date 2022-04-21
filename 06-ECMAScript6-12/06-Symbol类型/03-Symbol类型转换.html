@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symbol类型转换</title>
+    <script>
+        // symbol值不会发生隐式转换
+        let symbol = Symbol();
+        // console.log(+symbol); Uncaught TypeError
+        // 通过toString()转换
+        let str = symbol.toString();
+        console.log(str, typeof str); // Symbol() string
+
+        // symbol可以转换为布尔类型
+        let bool = Boolean(symbol);
+        console.log(bool); // true
+
+        // 不能转为数字类型
+        let num = Number(symbol);
+        console.log(num);
+        // Cannot convert a Symbol value to a number
+    </script> 
+</head>
+
+<body>
+
+</body>
+
+</html>

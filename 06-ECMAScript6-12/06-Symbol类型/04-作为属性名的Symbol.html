@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作为属性名的Symbol</title>
+    <script>
+        // symbol作为对象属性三种写法
+        let sym = Symbol();
+        let obj = {};
+        // 添加属性方式
+        name[sym] = 'hello';
+        console.log()
+        
+        let obj1 = {
+            // 直接设置属性
+            [sym]: 'hello'
+        }
+        console.log(obj1[sym]); // hello
+
+        let obj2 = {};
+        // defineProperty添加属性
+        Object.defineProperty(obj2, sym, {value: 'hello'})
+
+        // symbol不能通过.运算符添加为对象属性
+        let sym1 = Symbol();
+        let obj3 = {};
+        obj3.sym1 = 'hello'
+        console.log(obj3[sym1]); // undefined
+        console.log(obj3['sym1']); // hello
+
+        // 使用Symbol值定义属性时需要在方括号中
+        let symbol = Symbol();
+        let objover = {};
+        objover[symbol] = 'hello';
+        console.log(objover[symbol]); // hello
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

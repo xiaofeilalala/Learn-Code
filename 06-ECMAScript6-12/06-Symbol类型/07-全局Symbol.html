@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全局Symbol</title>
+    <script>
+        // 全局 Symbol 通过Symbol.for()创建
+        // Symbol.for()会通过传递参数寻找是否有对应的symbol，有则使用，没有则创建一个新的symbol
+        let sym = Symbol('hello');
+        let sym1 = Symbol('hello')
+        console.log(sym === sym1); // false
+
+        let sym2 = Symbol.for('hello');
+        console.log(sym === sym2); // false
+
+        let sym3 = Symbol.for('hello');
+        console.log(sym3 === sym2); // true
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

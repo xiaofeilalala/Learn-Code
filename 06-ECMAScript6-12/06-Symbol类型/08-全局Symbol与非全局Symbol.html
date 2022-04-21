@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Symbol.for() 与 Symbol() 区别</title>
+    <script>
+        // Symbol() 创建的symbol不会注册在全局中
+        let symbol = Symbol('描述');
+        let sym = Symbol.for('描述');
+        console.log(sym); // Symbol(描述) 全局下的
+        console.log(symbol === sym); // false
+
+        // Symbol.for() 创建的symbol会注册在全局中
+        let sym1 = Symbol.for('描述');
+        console.log(sym1 === sym); // true
+
+        // Symbol()每次使用都是不同的值
+        let sym2 = Symbol();
+        let sym3 = Symbol();
+        console.log(sym2 === sym3); // false
+
+        // Symbol.for()会先寻找全局下是否有相同描述的symbol供使用
+        // 有则使用，没有则新创建全局symbol
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

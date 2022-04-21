@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symbol使用场景</title>
+    <script>
+        // 解决对象同名属性冲突
+        // let user1 = 'jsx';
+        // let user2 = 'jsx';
+
+        let user1 = Symbol('jsx');
+        let user2 = Symbol('jsx');
+        let obj = {
+            [user1]: ['html', 'css', 'js'],
+            [user2]: ['html', 'css', 'js', 'vue']
+        }
+        // 后面同名属性覆盖前面属性
+        // console.log(obj[user1]); // ['html', 'css', 'js', 'vue'] 
+        // console.log(obj[user2]); // ['html', 'css', 'js', 'vue']
+
+        console.log(obj[user1]); // ['html', 'css', 'js'] 
+        console.log(obj[user2]); // ['html', 'css', 'js', 'vue']
+
+        // 消除魔术字符串
+        // const TYPE_AUDIO = 'AUDIO'
+        // const TYPE_VIDEO = 'VIDEO'
+        // const TYPE_IMAGE = 'IMAGE'
+        const TYPE_AUDIO = Symbol('audio')
+        const TYPE_VIDEO = Symbol('video')
+        const TYPE_IMAGE = Symbol('image')
+
+        function handleFileResource(resource) {
+            switch (resource.type) {
+                case TYPE_AUDIO:
+                    console.log(resource)
+                    break
+                case TYPE_VIDEO:
+                    console.log(resource)
+                    break
+                case TYPE_IMAGE:
+                    preconsole.log(resource)
+                    break
+                default:
+                    console.log('错误')
+            }
+        }
+        handleFileResource({
+            type: TYPE_AUDIO
+        })
+        // {type: Symbol(audio)}
+
+        // 实例对象属性私有化
+        let name = Symbol('jsx')
+        function User() {
+            this.lesson = ['jsx', 'ljj'];
+            this.title = 'hello';
+            this[name] = 'jsx';
+        }
+        let user = new User();
+        console.log(user);
+        // User {lesson: Array(2), title: 'hello', Symbol(jsx): 'jsx'}
+        for (let item in user) {
+            console.log(item); // lesson title
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

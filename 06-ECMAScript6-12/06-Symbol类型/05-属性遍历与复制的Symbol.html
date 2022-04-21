@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>属性遍历的Symbol与复制</title>
+    <script>
+        let sym = Symbol();
+        let obj = {
+            [sym]: 'hello',
+            name: 'jsx'
+        };
+        // for in和for of遍历不到symbol属性
+        for(let item in obj) {
+            console.log(item); // name
+        }
+        for(let item of Object.keys(obj)) {
+            console.log(item); // name
+        }
+
+        console.log(Object.getOwnPropertyNames(obj)); // ['name']
+        console.log(JSON.stringify(obj)); //{"name":"jsx"}
+
+        // object.assign会复制symbol属性
+        let newobj = {...obj};
+        console.log(newobj); 
+        // {name: 'jsx', Symbol(): 'hello'}
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

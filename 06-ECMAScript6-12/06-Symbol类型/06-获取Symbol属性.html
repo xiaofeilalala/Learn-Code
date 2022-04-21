@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>获取symbol属性方法</title>
+    <script>
+        // 如何获取对象中symbol属性
+        // 1.方括号
+        // 2. Object.getOwnpropertySymbol()
+        
+        let sym = Symbol('学习');
+        let sym1 = Symbol('努力');
+        let sym2 = Symbol('加油');
+        let obj = {
+            [sym]: 'hello',
+            [sym1]: 'hello1',
+            [sym2]: 'hello2',
+        }
+        console.log(obj[sym]); // hello
+        let symbolAll = Object.getOwnPropertySymbols(obj)
+        console.log(symbolAll); 
+        // [Symbol(学习), Symbol(努力), Symbol(加油)]
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>获取全局Symbol</title>
+    <script>
+        // Symbol.keyFor() 获取
+        // 通过全局Symbol获取一个Symbol描述
+        let sym = Symbol.for('hello');
+        let symkeyfor = Symbol.keyFor(sym);
+        console.log(symkeyfor); // hello
+        
+        // 不是全局Symbol返回undefined
+        let sym1 = Symbol('嘻嘻');
+        let symkeyfor1 = Symbol.keyFor(sym1);
+        console.log(symkeyfor1); // undefined
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
