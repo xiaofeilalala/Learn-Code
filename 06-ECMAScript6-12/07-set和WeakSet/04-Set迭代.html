@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set迭代</title>
+    <script>
+        // set.keys, set.values 都是遍历键值
+        // set结构没有键名
+        let set = new Set(['jsx', 'ljj']);
+        console.log(set.keys()); // {'jsx', 'ljj'}
+        console.log(set.values()); // {'jsx', 'ljj'}
+        console.log(set.entries()); // {'jsx' => 'jsx', 'ljj' => 'ljj'}
+
+        // for of循环
+        for(let item of set) {
+            console.log(item); // jsx ljj
+        }
+
+        // forEach迭代
+        set.forEach((item) => {
+            console.log(item); // jsx ljj
+        })
+
+        // ...扩展
+        let newset = [...set].map(item => {
+            console.log(item); // // jsx ljj
+        })
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

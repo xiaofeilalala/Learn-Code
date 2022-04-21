@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeakSet类型</title>
+    <script>
+        // WeakSet类型通过 new 创建
+        // let weakset = new WeakSet('jsx'); // Uncaught TypeError
+        // let weakset = new WeakSet(['jsx', 'ljj']); // Uncaught TypeError
+        
+        // 初始化时会复制数组的元素，数组元素为数组对象不报错
+        let weakset = new WeakSet([['jsx', 'ljj']]);
+        console.log(weakset); // {Array(2)}
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

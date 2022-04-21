@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set创建</title>
+    <script>
+        // Set创建
+        // 声明
+        let set = new Set();
+
+        // 提供数组对象，则会复制数组元素以并去重
+        let set1 = new Set([1, 2, 5, 5, 5])
+        console.log(set1); // Set(3) {1, 2, 5}
+        
+        // 去除字符串里面的重复字符
+        console.log([...new Set('hello')].join('')); // helo
+
+        // Set中数据是严格相等的，NaN全等于NaN
+        let set2 = new Set(['1', 1, true, undefined, null]);
+        console.log(set2); // {'1', 1, true, undefined, null}
+
+        console.log(set2.add('1')); // {'1', 1, true, undefined, null}
+        console.log(set2.add(NaN)); // {'1', 1, true, undefined, null, NaN}
+        console.log(set2.add(NaN)); // {'1', 1, true, undefined, null, NaN}
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

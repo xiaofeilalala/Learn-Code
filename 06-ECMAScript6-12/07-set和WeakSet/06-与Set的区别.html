@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>与Set区别</title>
+    <script>
+        // Set只可以是任何类型，WeakSet值只能为对象类型
+        let set = new Set([{name: 'jsx'}, 1, true]);
+        console.log(set);
+
+        let weakset = new WeakSet([['jsx', 'css']]);
+        console.log(weakset); // WeakSet {Array(2)}
+
+        // WeakSet没有size属性 不可遍历
+        // weakset.size(); // Uncaught TypeError
+        // for(let item of weakset) {
+        //     console.log(item); // Uncaught TypeError
+        // }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

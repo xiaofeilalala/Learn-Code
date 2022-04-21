@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeakSet方法</title>
+    <script>
+        // WeakSet add has delete方法
+        const weakset = new WeakSet();
+        const arr = ["hdcms"];
+        //添加操作
+        weakset.add(arr);
+        console.log(weakset.has(arr)); // true
+
+        //删除操作
+        weakset.delete(arr);
+
+        //检索判断
+        console.log(weakset.has(arr)); // false
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

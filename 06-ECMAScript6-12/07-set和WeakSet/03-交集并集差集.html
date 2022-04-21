@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>交集、并集、差集</title>
+    <script>
+        // 交集 共同元素
+        let seta = new Set(['jsx', 'ljj']);
+        let setb = new Set(['ljj', 'ddc']);
+        let setc = new Set([...seta].filter(item => {
+            return setb.has(item);
+        }))
+        console.log(setc); //  {'ljj'}
+        
+        // 差集
+        let seta1 = new Set(['jsx', 'ljj']);
+        let setb1 = new Set(['ljj', 'ddc']);
+        let setc1 = new Set([...seta1].filter(item => {
+            return !setb1.has(item);
+        }))
+        console.log(setc1); //  {'jsx'}
+        
+        // 并集
+        console.log([...seta, ...setb]);
+        // ['jsx', 'ljj', 'ljj', 'ddc']
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
