@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map创建</title>
+    <script>
+      // Map 是一个带键的集合, Map()构造函数参数必须是可迭代对象
+      let map = new Map([['name', 'jsx'], ['age', 22]]);
+      // Map 里的元素可以是任何类型
+      console.log(map); // {'name' => 'jsx', 'age' => 22}
+
+      // 同一个键多次赋值，后面的键会覆盖前面的
+      let map1 = new Map();
+      map1.set('user', 'jsx');
+      map1.set('user', 'ljj');
+      console.log(map1); // {'user' => 'ljj'}
+
+      // 读取未知的键返回undefined
+      console.log(map1.get('user1')); // undefined
+
+      // 只有对象同一引用才为一个键，简单数据类型严格相等为同一个键
+      let map2 = new Map();
+      let key1 = ['use'];
+      let key2 = ['use'];
+      map2.set(key1, 'jsx');
+      map2.set(key2, 'jsx');
+      console.log(map2); // {Array(1) => 'jsx', Array(1) => 'jsx'}
+      
+      // 简单数据类型严格相等的键会被覆盖
+      map2.set('user', 'jsx'); // 被覆盖
+      map2.set('user', 'ljj');
+      console.log(map2); // {Array(1) => 'jsx', 'user' => 'ljj'}
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

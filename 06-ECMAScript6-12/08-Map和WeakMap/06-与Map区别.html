@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>与Map区别</title>
+  <script>
+    // WeakMap只接受对象为键名
+    let map = new Map([['name', 'jsx'], [85, 'ljj']]);
+    console.log(map); // {'name' => 'jsx', 85 => 'ljj'}
+
+    let weakmap = new WeakMap([[{'obj': 'name'}, '键为对象']]);
+    console.log(weakmap); //  {{…} => '键为对象'}
+
+    // WeakMap不支持迭代 无法获取key value
+    for(let item of weakmap) {
+      console.log(item)
+    }
+    // Uncaught TypeError: weakmap is not iterable
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

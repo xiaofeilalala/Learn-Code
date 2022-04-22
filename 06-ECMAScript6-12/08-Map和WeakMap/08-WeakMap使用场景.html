@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WeakMap应用场景</title>
+</head>
+
+<body>
+  <h3>0</h3>
+  <button class="btn">按钮 +1</button>
+  <script>
+    // 结合DOM使用
+    let weakmap = new WeakMap();
+    weakmap.set(document.querySelector('.btn'), {num: 0});
+    console.log(weakmap)
+
+    document.querySelector('.btn').addEventListener('click', function() {
+      let data = weakmap.get(document.querySelector('.btn'));
+      data.num++;
+      document.querySelector('h3').innerText = data.num;
+    }, false)
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WeakMap类型</title>
+  <script>
+    // WeakMap 键必须是对象是弱引用的 值可以是任何类型
+    let weakmap = new WeakMap();
+    // weakmap.set('name', 'jsx'); // Uncaught TypeError
+    weakmap.set({dom: 'div'}, 'jsx');
+    console.log(weakmap); // WeakMap {{…} => 'jsx'}
+    weakmap.set({dom: 'box'}, 123);
+    console.log(weakmap); // {{…} => 123, {…} => 'jsx'}
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

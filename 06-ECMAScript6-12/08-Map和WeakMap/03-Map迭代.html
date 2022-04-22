@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Map迭代</title>
+  <script>
+    // map迭代
+    let map = new Map();
+    map.set('name', 'jsx').set('study', ['html', 'css'])
+    console.log(map)
+
+    for(let item of map.keys()) {
+      console.log(item); // name study
+    }
+
+    for(let item of map.values()) {
+      console.log(item); // jsx  ['html', 'css']
+    }
+
+    for(let [key, value] of map.entries()) {
+      console.log(key, value); //  name jsx  study (2) ['html', 'css']
+    }
+
+    let result = map.forEach((item, key) => {
+      console.log(item, key); 
+      // jsx name
+      // ['html', 'css'] 'study'
+    })
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

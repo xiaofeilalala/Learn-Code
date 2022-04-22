@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Map属性与方法</title>
+  <script>
+    // set 设置key 和 value 返回整体解构
+    // key重复则不会产生新的键值对
+    let map = new Map();
+    // 链式写法
+    map.set('study', 'Map方法').set('code', '学习')
+    console.log(map); // {'study' => 'Map方法', 'code' => '学习'}
+
+    // get 读取对应key值，不存在则为undefined
+    console.log(map.get('study')); // Map方法
+
+    // size 返回元素数量
+    console.log(map.size); // 2
+
+    // has 检测key是否在map中 存在返回true 不存在返回false
+    console.log(map.has('study')); // true
+
+    // delete 删除键 删除成功返回true 失败返回false
+    console.log(map.delete('code')); // true
+    console.log(map)
+
+    // clear 清空
+    map.clear();
+    console.log(map); // Map(0) {size: 0}
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

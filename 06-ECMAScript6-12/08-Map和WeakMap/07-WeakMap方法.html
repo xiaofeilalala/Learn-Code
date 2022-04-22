@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WeakMap方法</title>
+  <script>
+    // get set has delete 方法与Map一样
+    // set 设置key value ,key必须为对象，值可以为任何类型
+    let weakmap = new WeakMap();
+    weakmap.set({'name': 'jsx'}, '任意类型')
+    console.log(weakmap); // {{…} => '任意类型'}
+
+    // get 根据key获取返回值
+    // {'name': 'jsx'} 不是同一个引用
+    console.log(weakmap.get({'name': 'jsx'})); // undefined
+
+    // has 检测属性是否存在
+    let obj = {'now': '马上'};
+    weakmap.set(obj, '字符类型');
+    console.log(weakmap.has(obj)); // true
+    console.log(weakmap); // {{…} => '字符类型', {…} => '任意类型'}
+
+    // delete 删除键
+    weakmap.delete(obj);
+    console.log(weakmap); //{{…} => '任意类型'}
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>数组解构转换</title>
+  <script>
+    // 扩展运算符 转换为素组
+    let map = new Map();
+    map.set('name', 'jsx').set('lesson', 'js');
+    let arrkey = [...map.keys()];
+    let arrvalue = [...map.values()];
+    console.log(arrkey); //  ['name', 'lesson']
+    console.log(arrvalue); // ['jsx', 'js']
+
+    // Array,form()转换
+    let arrentries = Array.from(map.entries())
+    console.log(arrentries); // [['name', 'jsx'], ['lesson', 'js']]
+
+    // 使用map 和filter方法
+    [...map].map((item) => {
+      console.log(item); 
+      //  ['name', 'jsx']
+      // ['lesson', 'js']
+    })
+
+    let result = [...map].filter(([key, value]) => {
+      return key === 'name'
+    })
+    console.log(result); // ['name', 'jsx']
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WeakMap垃圾回收</title>
+  <script>
+    // 垃圾回收
+    // 当WeakMap中的对象键未被引用时，则会被浏览器垃圾回收
+    let weakmap = new WeakMap();
+    weakmap.set({name: 'jsx'}, 'hello');
+    console.log(weakmap); // WeakMap {{…} => 'hello'}
+
+    setTimeout(() =>{
+      console.log(weakmap); // WeakMap {}
+    }, 1000)
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
