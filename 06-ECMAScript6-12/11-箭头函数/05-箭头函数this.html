@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>箭头函数this</title>
+  <script>
+    // 箭头函数没有自己的this 获取当前作用域链上一级this
+    let obj = {
+      func: function () {
+        console.log(this.name);
+        let arrow = () => {
+          console.log(this.name)
+        }
+        arrow()
+      },
+      name: 'jsx'
+    }
+    let obj1 = { name: 'ljj' }
+    obj.func();
+    obj.func.call(obj1);
+
+    // call bind apply 无法改变箭头函数this
+    let arrow = () => {
+      console.log(this); // window
+    }
+    let obj2 = { title: '学习' }
+    arrow();
+    arrow.call(obj2); // window
+    arrow.apply(obj2)  // window
+    let arrowbind = arrow.bind(obj2);
+    arrowbind();  // window
+
+    // arguments对象
+    function funcover(item1, item2) {
+      console.log(arguments); 
+      // Arguments(2) ['jsx', 'ljj', callee: ƒ, Symbol(Symbol.iterator): ƒ]
+      let arrowover = (...list) => {
+        console.log(list); // ['ddc', 'zdj']
+        console.log(arguments); 
+        // Arguments(2) ['jsx', 'ljj', callee: ƒ, Symbol(Symbol.iterator): ƒ]
+      }
+      arrowover('ddc', 'zdj')
+    }
+    funcover('jsx', 'ljj')
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

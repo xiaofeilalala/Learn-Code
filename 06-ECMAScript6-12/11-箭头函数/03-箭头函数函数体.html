@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>箭头函数函数体</title>
+  <script>
+    // 多条语句使用大括号, 并且return返回值
+    let func = (item) => {
+      console.log(item);
+      return item;
+    }
+    
+    // {}会解析为语句， 对象返回需要括号包裹
+    // let func1 = (item) => {name: 'jsx'};
+    let func1 = (item) => ({name: 'jsx'})
+    console.log(func1()); // {name: 'jsx'}
+
+    // 参数和箭头之间不能换行
+    // let func2 = item, 
+    // => item;
+    // console.log(func2('jsx'))
+
+    let func2 = (item
+    ) => {
+      console.log(item);
+    }
+    func2('jsx'); // jsx
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

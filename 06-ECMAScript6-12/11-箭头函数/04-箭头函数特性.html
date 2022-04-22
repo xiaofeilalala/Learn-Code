@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>箭头函数特性</title>
+  <script>
+    // 没有prototype
+    let arrowfn = () => console.log('没有prototype')
+    console.log(arrowfn.prototype); // undefined
+
+    // 不能使用构造器
+    let Arrowfn1 = () => {
+      this.name = 'jsx'
+    }
+    // let arrowfn1 = new Arrowfn1();
+    // Arrowfn1 is not a constructor
+
+    // 没有arguments对象
+    let arrowfn2 = (...args) => {
+      // console.log(arguments)
+      console.log(args) // [1, true, 'jsx']
+    }
+    arrowfn2(1, true, 'jsx'); // arguments is not defined
+
+    // 不能使用yield
+    // let yield = *() => {}
+    let yield = function*() {
+      let ask1 = yield "2 + 2 = ?";
+    }
+    let generator = yield();
+    console.log(generator.next().value); // 2 + 2 = ?
+
+    // 不支持new.target
+    let arrowfun4 = () => {
+      // console.log(new.target);
+      // Uncaught SyntaxError: new.target expression is not allowed here
+    }
+
+    // 没有自己的this
+    let obj = {
+      func() {
+        console.log(this)
+        let arrowfn = () => {
+          console.log(this)
+        }
+        arrowfn();
+      }
+    }
+    let obj1 = { name: 'jsx' }
+    obj.func.call(obj1);
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

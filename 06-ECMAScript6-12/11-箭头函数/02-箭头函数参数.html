@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>箭头函数参数</title>
+  <script>
+    // 没有参数 括号需要保留
+    let func = () => console.log('没有参数')
+
+    //  有一个参数可以省略括号
+    let func1 = item => console.log(item)
+
+    // 多个参数 括号内逗号隔开
+    let func2 = (item1, item2) => console.log(item1, item2)
+
+    // 不允许重复参数
+    // let func3 = (list, list) => console.log(list, list); // Uncaught SyntaxError
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
