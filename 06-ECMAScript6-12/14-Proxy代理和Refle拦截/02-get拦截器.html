@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>get拦截器</title>
+  <script>
+    // get(target, property, receiver) 读取属性
+    let obj = { name: 'jsx' }
+    let proxy = new Proxy(obj, {
+      get(target, property, receiver) {
+        if (property in target) return target[property];
+      }
+    })
+    console.log(proxy.name); // jsx
+
+    // 当一个对象不可读不可写 proxy则不能修改属性
+    let obj1 = Object.defineProperties({}, {
+      name: {
+        value: 'ljj',
+        writable: false,
+        configurable: false
+      }
+    })
+
+    let proxy1 = new Proxy(obj1, {
+      get(target, property, receiver) {
+        // 原对象不可写不可配置，代理对象proxy则不可修改
+        // return 'ljj'
+        return target[property]
+      }
+    });
+    console.log(proxy1.name); // ljj
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

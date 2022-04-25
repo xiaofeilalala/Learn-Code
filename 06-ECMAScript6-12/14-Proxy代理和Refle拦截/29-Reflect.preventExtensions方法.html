@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reflect.preventExtensions</title>
+  <script>
+    // Reflect.preventExtensions(target)
+    // 等同于Object.preventExtensions 设置对象不可扩展
+    let obj = { name: 'jsx' };
+
+    // 旧的写法
+    Object.preventExtensions(obj);
+    console.log(Object.isExtensible(obj)); // false
+    // 参数不是对象返回传入的参数
+    console.log(Object.preventExtensions(1))
+
+    // 新的写法
+    Reflect.preventExtensions(obj);
+    console.log(Reflect.isExtensible(obj)); // false
+    // 参数不是对象报错
+    // Reflect.preventExtensions(1) // 报错
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

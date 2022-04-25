@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>construct拦截器</title>
+  <script>
+    // construct 当构造函数使用new关键调用时拦截
+    function User(arg) {
+      console.log(arg)
+    }
+    // 必须拦截的是函数
+    let proxy = new Proxy(User, {
+      construct(target, args, newTarget) {
+        console.log(args); // jsx
+        return { value: 'abc' }
+        // return 1; // 必须返回对象
+      }
+    })
+    let result = new proxy('jsx');
+    console.log(result.value); // abc
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>apply拦截器</title>
+  <script>
+    // apply() 当函数调用或者call apply调用时拦截
+    let proxy = new Proxy(fn, {
+      apply(target, object, args) {
+        console.log(args)
+        return fn(...args) * 2
+      }
+    })
+    function fn (item1, item2) {
+      return item1 + item2
+    }
+    console.log(proxy(3, 4)); // 14
+    console.log(proxy.call(null, 6, 4)); // 20
+    console.log(proxy.apply(null, [9, 4])); // 26
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

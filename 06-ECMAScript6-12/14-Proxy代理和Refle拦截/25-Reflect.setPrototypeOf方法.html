@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reflect.SetPrototypeOf方法</title>
+    <script>
+        // Reflect.setPrototypeOf(obj, newProto)
+        // 类似于Objec.setPrototypeOf方法，用于设置对象的原型
+        let myobj = {name: 'jsx'}
+        let proto = {proto: 'ljj'};
+
+        // 旧的写法
+        console.log(Object.setPrototypeOf(myobj, proto));
+        // 设置成功返回成功后的对象
+        console.log(myobj)
+        // 第一个参数不是对象，返回第一个参数
+        console.log(Object.setPrototypeOf(1, proto)); // 1
+        // 第一个参数为null或者undefined 会报错
+        // Object.setPrototypeOf(null, proto)
+
+        // 新的写法
+        console.log(Reflect.setPrototypeOf(myobj, proto)); // 设置成功返回true
+        // 第一个参数不是对象，报错
+        // console.log(Reflect.setPrototypeOf(1, proto)); // Uncaught TypeError
+        // 第一个参数为null或者undefined 会报错
+        // Reflect.setPrototypeOf(null, proto)
+    </script>  
+</head>
+
+<body>
+
+</body>
+
+</html>

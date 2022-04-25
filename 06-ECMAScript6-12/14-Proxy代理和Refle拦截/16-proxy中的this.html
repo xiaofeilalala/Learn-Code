@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>proxy中的this</title>
+  <script>
+    // Proxy代理下，目标对象内部this指向代理对象
+    let title = {
+      lesson: 'js',
+      func: function () {
+        console.log(this)
+      }
+    }
+    title.func(); // {lesson: 'js', func: ƒ}
+
+    let proxy = new Proxy(title, {})
+    proxy.func(); // Proxy {lesson: 'js', func: ƒ}
+
+    // 拦截器内部this 指向handler对象
+    let obj = {name: 'jsx'};
+    let proxy1 = new Proxy(obj, {
+      get(target, prop, receiver) {
+        console.log(this); // {get: ƒ, set: ƒ}
+        return target[prop]
+      },
+      set(target, prop) {
+        console.log(this); // {get: ƒ, set: ƒ}
+        return true
+      }
+    })
+    console.log(proxy1.name)
+    console.log(proxy1.title = 'js')
+
+    // 改变`this指向，会导致 Proxy无法代理目标对象
+    let title1 = {
+      lesson: 'js',
+      func: function () {
+        console.log(this.class)
+      }
+    }
+
+    let title2 = {class: 'vue'}
+    title1.func.call(title2); // vue
+
+    let proxy2 = new Proxy(title1, {})
+    proxy2.func(); // undefined
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

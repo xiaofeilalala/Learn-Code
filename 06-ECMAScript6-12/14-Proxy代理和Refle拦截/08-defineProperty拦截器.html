@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>defineProperty拦截器</title>
+  <script>
+    // 拦截 defineProperty 操作 
+    let obj = { title: 'js' }
+
+    let proxy = new Proxy(obj, {
+      defineProperty(target, prop, descript) {
+        console.log(descript)
+        return true
+      }
+    })
+
+    console.log(Object.defineProperty(proxy, 'title', { value: 'vue' }))
+    console.log(proxy.lesson = 'react')
+
+    
+    let obj1 = { lesson: 'js' };
+
+    // 目标不可扩展，defineProperty不可添加不存在属性
+    // Object.preventExtensions(obj1)
+
+    // 不可写或不可配置, 代理后的对象不可改变这两个属性
+    Object.defineProperty(obj1, 'lesson', {
+      value: 'js',
+      writable: false,
+      configurable: false
+    })
+    let proxy1 = new Proxy(obj1, {
+      defineProperty(target, prop, descript) {
+        console.log(descript)
+        return true
+      }
+    })
+    // Uncaught TypeError 不可扩展
+    // console.log(proxy1.name = 'jsx')
+
+    // console.log(Object.defineProperty(proxy1, 'lesson', {
+    //   value: 'vue',
+    //   writable: true,
+    //   enumerable: true
+    // })) // Uncaught TypeError 
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

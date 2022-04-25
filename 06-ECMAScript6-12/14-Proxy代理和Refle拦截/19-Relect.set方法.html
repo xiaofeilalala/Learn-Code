@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reflect.set方法</title>
+    <script>
+        // Reflect.set(target, name, value, receiver)
+        // 设置target对象的name属性等于value 返回布尔值
+        let myobj = {
+            name: 'jsx',
+            age: 22,
+            set info(value) {
+                return this.name
+            }
+        }
+        
+        console.log(Reflect.set(myobj, 'info', 'javascript')); // true
+        console.log(myobj.name) // jsx
+        let receiver = {
+            name: 'vue'
+        }
+        // 设置第四个参数后，set() 赋值函数this指向第四个参数receiver
+        console.log(Reflect.set(myobj, 'info', 'javascript', receiver))
+        console.log(receiver.name); // vue
+
+        // 第一个参数必须为对象
+        // console.log(Reflect.set(true, 'info')) Uncaught TypeError
+    
+        // proxy和Reflect联合使用时 指定第四个参数后会触发proxy中的definedProperty拦截器
+        let title = {lesson: 'jsx'}
+        let proxy = new Proxy(title, {
+            set(target, key, value, receiver) {
+                console.log('触发')
+                return Reflect.set(target, key, value, receiver)
+            },
+            defineProperty(target, key, desc) {
+                console.log('触发')
+                return Reflect.defineProperty(target, key, desc)
+            }
+        })
+        console.log(proxy.lesson = 'javascript')
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

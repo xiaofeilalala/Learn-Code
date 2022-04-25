@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reflect.has方法</title>
+    <script>
+        // Reflect.has(obj, name)
+        // 对应name in obj里面的in运算符
+        let obj = { name: 'jsx' }
+
+        // 旧写法
+        console.log('name' in obj )// true
+
+        // 新写法
+        console.log(Reflect.has(obj, 'name')); // true
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

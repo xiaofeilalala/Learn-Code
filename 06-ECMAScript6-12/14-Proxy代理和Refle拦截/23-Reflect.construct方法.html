@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reflect.construct方法</title>
+    <script>
+        // Reflect.construct(target, args)
+        // 类似于 new调用函数 相等于不使用new调用构造函数
+        function User(name) {
+            this.name = name
+        }
+
+        // new 写法
+        let user = new User('jsx');
+        console.log(user); // User {name: 'jsx'}
+
+        // Reflect.construct
+        let user1 = Reflect.construct(User, ['ljj'])
+        console.log(user1); // User {name: 'ljj'}
+
+        // 第一个参数不是函数会报错
+        // let user2 = Reflect.construct(true, ['ljj']); Uncaught TypeError
+    </script>  
+</head>
+
+<body>
+
+</body>
+
+</html>

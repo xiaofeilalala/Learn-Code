@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reflect.getOwnPropertyDescriptor方法</title>
+  <script>
+    // Reflect.getOwnPropertyDescriptor(target, propertyKey)
+    // 等同于Object.getOwnPropertyDescriptor 获取对象属性描述
+    let obj = {};
+    Object.defineProperty(obj, 'name', {
+      value: 'jsx',
+      writable: true, enumerable: true, configurable: true
+    })
+    
+    // 旧的写法
+    console.log(Object.getOwnPropertyDescriptor(obj, 'name'));
+    // {value: 'jsx', writable: true, enumerable: true, configurable: true}
+    // 参数不为对象返回undefined
+    console.log(Object.getOwnPropertyDescriptor(true, 'name')); // undefined
+
+    // 新的写法
+    console.log(Reflect.getOwnPropertyDescriptor(obj, 'name'));
+    // {value: 'jsx', writable: true, enumerable: true, configurable: true}
+    // 参数不为对象报错
+    // console.log(Reflect.getOwnPropertyDescriptor(true, 'name')); // Uncaught TypeError
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

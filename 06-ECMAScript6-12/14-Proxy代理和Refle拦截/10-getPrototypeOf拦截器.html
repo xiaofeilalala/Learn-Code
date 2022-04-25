@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>getPrototypeOf拦截器</title>
+  <script>
+    // getPrototypeOf 来拦截获取对象原型
+    // Object.prototype.__proto__
+    // Object.prototype.isPrototypeOf()
+    // Object.getPrototypeOf()
+    // Reflect.getPrototypeOf()
+    // instanceof
+    let obj = { name: 'jsx' }
+    let proxy = new Proxy(obj, {
+      getPrototypeOf(target) {
+        return {message: '截获取对象原型'}
+      }
+    })
+    console.log(obj.__proto__);
+    console.log(proxy.__proto__); //{message: '截获取对象原型'}
+    console.log(Object.getPrototypeOf(obj));
+    console.log(Object.getPrototypeOf(proxy)); // {message: '截获取对象原型'}
+    console.log(Object.prototype.isPrototypeOf(obj)); // true
+    console.log(Object.prototype.isPrototypeOf(proxy)); // true
+    console.log(obj instanceof Object) // true
+    console.log(proxy instanceof Object); // true
+    console.log(Reflect.getPrototypeOf(obj))
+    console.log(Reflect.getPrototypeOf(proxy)); // {message: '截获取对象原型'}
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

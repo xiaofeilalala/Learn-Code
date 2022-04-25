@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reflect.ownKeys</title>
+  <script>
+    // Reflect.ownKeys(target)
+    // 获取对象的所有属性，字符串类型和Symbol类型
+    // Object.getOwnPropertySymbols + Object.getOwnPropertyNames
+    let obj = {
+      name: 'jsx',
+      'title': 'Reflect',
+      [Symbol('hello')]: 'hello'
+    }
+    console.log(Reflect.ownKeys(obj))
+    // ['name', 'title', Symbol(hello)]
+
+    // 参数不是对象则会报错
+    // console.log(Reflect.ownKeys(true)); // 报错
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

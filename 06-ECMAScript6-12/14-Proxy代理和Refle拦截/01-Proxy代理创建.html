@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proxy代理创建</title>
+  <script>
+    // 创建代理
+    let obj = {};
+    let proxy = new Proxy(obj, {});
+
+    // 没有设置捕捉器则会将proxy操作直接转发给target
+    proxy.name = 'jsx';
+    console.log(proxy); // Proxy {name: 'jsx'}
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

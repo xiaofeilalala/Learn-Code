@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>revocable 取消 proxy</title>
+  <script>
+    // revocable 取消代理
+    let title = {name: 'jsx'};
+    let {proxy, revoke} = Proxy.revocable(title, {
+      get(target, prop, value) {
+          return target[prop]
+      }
+    })
+    console.log(proxy.name)
+    // 取消代理
+    revoke();
+    console.log(proxy.name); // Uncaught TypeError
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

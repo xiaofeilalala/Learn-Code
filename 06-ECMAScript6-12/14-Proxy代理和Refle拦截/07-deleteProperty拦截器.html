@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>deleteProperty拦截器</title>
+  <script>
+    // deleteProperty 拦截 delete 操作
+    let obj = {title: 'js'};
+    let proxy = new Proxy(obj, {
+      deleteProperty(target, prop) {
+        if(prop === 'title') {
+          // 只能返回布尔值，非布尔值会被转成布尔值
+          delete target[prop]
+          return true
+        } else {
+          return false
+        }
+      }
+    });
+    console.log(delete proxy.title); // true
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

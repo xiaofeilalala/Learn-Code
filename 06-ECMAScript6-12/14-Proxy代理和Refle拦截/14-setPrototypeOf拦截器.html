@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>setPrototypeOf拦截器</title>
+  <script>
+    // 主要用来拦截Object.setPrototypeOf()方法
+    let obj = {};
+    let proxy = new Proxy(obj, {
+      setPrototypeOf(target, proto) {
+        console.log(proto); // {title: 'jsx'}
+        return true
+      }
+    })
+    let proto = {title: 'jsx'}
+    console.log(Object.setPrototypeOf(obj, proto))
+    console.log(Object.setPrototypeOf(proxy, proto))
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

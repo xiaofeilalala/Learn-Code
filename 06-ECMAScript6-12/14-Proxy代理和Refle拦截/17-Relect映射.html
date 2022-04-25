@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reflect映射</title>
+  <script>
+    // Reflect映射 它不是一个构造函数是一个内置对象
+    // Reflect可以优化对象的操作
+    let obj = { name: 'jsx' };
+    // 获取对象属性
+    console.log(Reflect.ownKeys(obj)); // ['name']
+
+    // 结合Proxy使用
+    let proxy = new Proxy(obj, {
+      get(target, prop, receiver) {
+        return Reflect.get(target, prop, receiver);
+      },
+      set(target, prop, value, receiver) {
+        return Reflect.set(target, prop, value, receiver)
+      }
+    }) 
+    console.log(proxy.name); // jsx
+    console.log(proxy.title = 'Reflect映射'); // Reflect映射
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

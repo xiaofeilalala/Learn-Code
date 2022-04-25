@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reflect.defineProperty方法</title>
+  <script>
+    // Reflect.defineProperty(target, key, description)
+    // 设置对象的描述特征 相当于Object.defineProperty
+    let obj = { name: 'jsx' };
+    let proxy = new Proxy(obj, {
+      defineProperty(target, key, desc) {
+        console.log(desc);
+        // {value: 'ljj', writable: true, enumerable: true, configurable: true}
+        return Reflect.defineProperty(target, key, desc)
+      }
+    })
+    console.log(Object.defineProperty(proxy, 'name', {
+      value: 'ljj',
+      writable: true, enumerable: true, configurable: true
+    })); // {name: 'ljj'}
+
+    // 如果第一个参数不是对象，会报错
+    // Reflect.defineProperty(true, 'name', {value: 'js'}) Uncaught TypeError
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

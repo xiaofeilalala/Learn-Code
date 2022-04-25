@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reflect.apply方法</title>
+    <script>
+        // Reflect.apply(func, thisarg, args) 
+        // 指定函数，指定this指向，参数数组 类似于Function.prototype.apply.call(func, thisArg, args)
+        let obj = {name: 'jsx'}
+        function getName(name) {
+            return name
+        }
+        // 旧写法
+        console.log(Function.prototype.apply.call(getName, obj, ['ljj'])); // ljj
+
+        // 新写法
+        console.log(Reflect.apply(getName, obj, ['jsx'])); // jsx
+    </script>  
+</head>
+
+<body>
+
+</body>
+
+</html>

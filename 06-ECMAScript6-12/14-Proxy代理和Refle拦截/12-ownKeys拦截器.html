@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ownKeys拦截器</title>
+  <script>
+    // ownkeys 用来拦截对象自身属性的读取操作
+    // object.keys ownkeys不会返回
+    let obj = {
+      name: 'jsx',
+      [Symbol('title')]: 'javascript',
+      message: 'thanks',
+      type: true
+    };
+    Object.defineProperty(obj, 'type', {
+      value: true,
+      enumerable: false
+    })
+    let proxy = new Proxy(obj, {
+      ownKeys(target) {
+        // 不存在的属性，属性名为Symbol值，不可遍历enumerable的属性 ownkeys不会返回
+        return ['name', 'message', 'asd', Symbol('title')]
+      }
+    })
+    console.log(Object.keys(obj)); // ['name', 'message']
+    console.log(Object.keys(proxy)); // ['name', 'message']
+
+    let obj1 = {};
+    Object.defineProperty(obj1, 'info', {
+      configurable: false,
+      enumerable: true,
+      value: 10
+    })
+    Object.preventExtensions(obj1)
+    let proxy1 = new Proxy(obj1, {
+      ownKeys: function (target) {
+        // 只能是字符串或 `Symbol` 值
+        // return [123, true, undefined, null, {}, []];
+        // 自身包含不可配置的属性必须被ownKeys()方法返回否则报错
+        // return ['info', 'name', Symbol('title')]
+        // 如果目标对象是不可扩展的ownKeys()方法返回的数组之中，必须包含原对象的所有属性，且不能包含多余的属性，否则报错
+        return ['info']
+      }
+    });
+    console.log(Object.getOwnPropertyNames(proxy1)); //  ['info', 'name']
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

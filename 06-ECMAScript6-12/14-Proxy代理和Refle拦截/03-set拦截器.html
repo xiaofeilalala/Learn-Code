@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>set拦截器</title>
+  <script>
+    // 'use strict';
+    // set 拦截某个属性的赋值操作
+    let obj = { name: 'jsx' };
+    let proxy = new Proxy(obj, {
+      set(target, property, value, receiver) {
+        if (typeof value == 'string') {
+          target[property] = value;
+          return true
+        } else {
+          return false
+        }
+      }
+    })
+    proxy.name = 'ljj';
+    console.log(proxy.name); // ljj
+
+    // 对象属性不可写。set拦截器不会生效
+    let obj1 = Object.defineProperty({}, 'name', {
+      value: 'jsx',
+      writable: false
+    })
+
+    let proxy1 = new Proxy(obj1, {
+      set(target, property, value, receiver) {
+        if (typeof value == 'string') {
+          target[property] = value;
+          return true
+        } else {
+          return false
+        }
+      }
+    })
+    proxy1.name = 22;
+    // 对二级以上属性，set拦截器不会触发
+    proxy1.name.title = 'javascript';
+    console.log(obj1.name); // jsx
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

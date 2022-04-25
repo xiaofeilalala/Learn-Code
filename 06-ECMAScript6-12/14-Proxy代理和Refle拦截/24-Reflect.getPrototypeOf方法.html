@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reflect.getPrototypeOf方法</title>
+    <script>
+        // Reflect.getPrototype(obj)
+        // 用于获取对象的原型，相等于__proto__
+        function User(){}
+        let user = new User()
+
+        // 旧的写法
+        console.log(Object.getPrototypeOf(user));
+        console.log(Object.getPrototypeOf(1)); // 参数不是对象会转换成对象类型
+
+        // 新的写法
+        console.log(Reflect.getPrototypeOf(user))
+        // console.log(Reflect.getPrototypeOf(1)); // 参数不是对象会报错
+    </script>  
+</head>
+
+<body>
+
+</body>
+
+</html>

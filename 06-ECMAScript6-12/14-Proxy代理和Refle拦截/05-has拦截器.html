@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>has拦截器</title>
+  <script>
+    // has 用来拦截对象是否有某个属性
+    let obj = { name: 'jsx', title: 'has' }
+    let proxy = new Proxy(obj, {
+      has(target, prop) {
+        if (prop in target) {
+          // 只能返回布尔值，反回非布尔值会自动转换为布尔值
+          return true
+        }
+        return false
+      }
+    })
+    console.log('name' in proxy); // true
+    // for in 循环不会触发has拦截器
+    for(let item in proxy) {
+      console.log(item)
+    }
+    // hasOwnProperty 不会触发has拦截器
+    obj.hasOwnProperty('name')
+
+
+    // 对象不可配置或者禁止扩展 has()会报错
+    let obj1 = { message: 'jsx' };
+
+    // 对象不可扩展，不可配置
+    Object.preventExtensions(obj1);
+    Object.seal(obj1)
+
+    let proxy1 = new Proxy(obj1, {
+      // has 拦截不可扩展，不可配置对象会报错
+      has(target, prop) {
+        if (prop in target) {
+          // 只能返回布尔值，反回非布尔值会自动转换为布尔值
+          return true
+        }
+        return false
+      }
+    })
+    console.log('message' in proxy1); // Uncaught TypeError
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

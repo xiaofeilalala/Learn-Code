@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reflect.deleteProperty方法</title>
+    <script>
+        // Reflect.deleteProperty(obj, name)
+        // 删除对象属性
+        let obj = {
+            name: 'jsx',
+            lesson: 'js'
+        }
+        // 旧写法
+        delete obj.name;
+        console.log(obj); // {lesson: 'js'}
+        
+        // 新写法
+        console.log(Reflect.deleteProperty(obj, 'lesson')); // true
+        console.log(obj); // {}
+
+        // 第一个参数必须为对象，否则报错
+        // console.log(Reflect.defineProperty(true, 'lesson'))
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
