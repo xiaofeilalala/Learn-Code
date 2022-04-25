@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>对象迭代</title>
+  <script>
+    // 由于对象没有默认迭代接口，需要自己去添加
+    let obj = {
+      name: 'jsx',
+      age: 22
+    }
+    let arr = [];
+    // 遍历对象的键值对
+    for (let item in obj) {
+      let newobj = {};
+      newobj[item] = obj[item];
+      arr.push(newobj)
+    }
+    obj.arr = arr;
+    console.log(obj)
+    // 添加迭代器
+    obj[Symbol.iterator] = function () {
+      let index = 0;
+      let that = this;
+      return {
+        next() {
+          if (index < that.arr.length) {
+            return { value: that.arr[index++], done: false }
+          }
+          return { value: undefined, done: true }
+        }
+      }
+    }
+    for (let list of obj) {
+      console.log(list)
+    };
+    // {name: 'jsx'}
+    // {age: 22}
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

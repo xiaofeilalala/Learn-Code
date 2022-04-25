@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>原生可迭代对象</title>
+  <script>
+    // 字符串类型 字符串是一个类数组的对象具有迭代接口
+    let str = 'hello';
+    console.log([...str])
+
+    // 数组也具备迭代接口
+    let arr = [1, 2, 3];
+    console.log(...arr); //  1 2 3
+
+    // Set 和 Map 类型都具有迭代接口
+    let set = new Set();
+    set.add(true).add('1')
+    console.log(...set) // true '1'
+
+    let map = new Map();
+    map.set('user', 'jsx');
+    map.set('grilfriend', 'ljj');
+    for (let [key, value] of map) {
+      console.log(key + ' ' + value);
+    }
+    // user jsx
+    // grilfriend ljj
+
+    // 类数组对象 函数参数
+    function getName(...arg) {
+      console.log(...arg); // html css js
+    }
+    getName('html', 'css', 'js')
+
+    // 文档节点
+    window.onload = function () {
+      let box = document.querySelectorAll('.box');
+      console.log(...box);
+      // <div class="box">1</div>
+      // <div class="box">2</div>
+      // <div class="box">3</div>
+    }
+  </script>
+</head>
+
+<body>
+  <div class="box">1</div>
+  <div class="box">2</div>
+  <div class="box">3</div>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>添加迭代器接口</title>
+  <script>
+    // 类数组添加迭代接口
+    let likeArr = {
+      0: 'html',
+      1: 'css',
+      2: 'js',
+      length: 3
+    }
+    // likeArr不是可迭代对象
+    // for(let item of likeArr) {
+    //   console.log(item)
+    // }
+    // 将类数组对象转换为可迭代对象
+    likeArr[Symbol.iterator] = Array.prototype[Symbol.iterator];
+    for (let item of likeArr) {
+      console.log(item); // html css js
+    }
+
+    // 普通对象使用数组的迭代器接口并无效果
+    let obj = { name: 'jsx' };
+    obj[Symbol.iterator] = [][Symbol.iterator]
+    for (let item of obj) {
+      console.log(item)
+    }
+
+    // 如果迭代接口不是返回指定函数，会报错
+    let arr1 = [1, 2, 3];
+    arr1[Symbol.iterator] = function() {
+      let that = this
+      let index = 0;
+      return {
+        // 必须迭代器生成函数next
+        go() {
+          if(index < that.length) {
+            return {value: that[index++], done: false}
+          }
+          return {value: undefined, done: true}
+        }
+      }
+    }
+    console.log([...arr1]); //  [1, 2, 3]
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

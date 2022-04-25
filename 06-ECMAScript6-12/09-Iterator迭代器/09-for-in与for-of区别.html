@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>for...in和for...of区别</title>
+  <script>
+    // forEach break和return 不能停止迭代
+    let arr = [1, 2, 3];
+    let newarr = arr.forEach(item => {
+      console.log(item)
+    })
+    
+    // for in 一般用来遍历对象
+    let obj = {name: 'jsx', age: 22};
+    for(let item in obj) {
+      console.log(item); // name age
+    }
+    
+    // 遍历数组，字符串作为键名
+    let arr1 = [1, 2, 3];
+    for(let list in arr1) {
+      console.log(list); // '0', '1', '2'
+    }
+
+    // for...of 用于遍历可迭代对象
+    // 数组, 可迭代类数组, 字符串, Map, Set
+    let arr2 = [1, 2, 3];
+    for(let list of arr2) {
+      console.log(list); // 1 2 3
+    }
+    for(let list of 'hello') {
+      console.log(list); // h e l l o
+    }
+    let set = new Set(['1', true, {name: 'jsx'}]);
+    for(let list of set) {
+      console.log(list); // 1 true {name: 'jsx'}
+    }
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

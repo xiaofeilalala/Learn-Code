@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>迭代器原理</title>
+  <script>
+    // 迭代器接口 [Symbol.iterator] 会返回 next() 方法
+    // next() 方法返回一个对象，包含done 和 value
+    // done 为false 则继续执行直到 true, value 则是元素的值
+    let arr = [1, 2, 3];
+
+    function makeIterator(arr) {
+      let index = 0;
+      return {
+        next() {
+          return index < arr.length ? 
+          {value: arr[index++], done: false} :
+          {value: arr[index], done: true}
+        }
+      }
+    }
+    let arrIterator = makeIterator(arr);
+   console.log( arrIterator.next()); // {value: 1, done: false}
+   console.log( arrIterator.next()); // {value: 2, done: false}
+   console.log( arrIterator.next()); // {value: 3, done: false}
+   console.log( arrIterator.next()); // {value: undefined, done: true}
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

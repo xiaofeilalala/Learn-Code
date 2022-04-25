@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>return和throw</title>
+  <script>
+    // return方法会在提前退出迭代，迭代中出错，berak语句时触发
+    let arr = [1, 2, 3];
+    for (let i of arr) {
+      console.log(i); // 1
+      break
+    }
+    
+    // throw方法搭配Generator函数使用
+    for (let i of arr) {
+      console.log(i); // 1
+      throw new Error();
+    }
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
