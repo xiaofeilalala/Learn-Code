@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>改变this指向</title>
+  <script>
+    // 在构造方法中通过bind绑定绑定this
+    class User {
+      constructor(name) {
+        this.name = name;
+        this.sayHi = this.sayHi.bind(this);
+      }
+      sayHi() {
+        return this
+      }
+      static sayHello() {
+        return this
+      }
+    }
+    let user = new User('jsx');
+    console.log(user)
+    let { sayHi } = user;
+    console.log(sayHi()); // User {name: 'jsx', sayHi: ƒ}
+    console.dir(User.sayHello())
+    let methods = user.sayHi
+    console.dir(methods())
+
+    User.sayHello = User.sayHello.bind(this)
+    console.log(User.sayHello()); // window
+
+    // 通过箭头函数
+    class Message {
+      constructor() {
+        this.sayNo = () => this
+      }
+    }
+    let message = new Message()
+    let { sayNo } = message;
+    console.log(sayNo()); // Message {sayNo: ƒ}
+
+    // proxy代理拦截
+    class Info {
+      constructor() {
+        this.name = 'jsx'
+      }
+      sayBye() {
+        return this
+      }
+    }
+    let info = new Info()
+    console.log(info.sayBye()) // Info {name: 'jsx'}
+
+    let cache = new WeakMap();
+    let proxy = new Proxy(info, {
+      get(target, key) {
+        let value = Reflect.get(target, key)
+        if (typeof value !== 'function') {
+          return value
+        }
+        if (!cache.has(value)) {
+          cache.set(value, value.bind(target))
+        }
+        return cache.get(value)
+      }
+    })
+
+    let result = proxy.sayBye;
+    console.log(result()); // Info {name: 'jsx'}
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

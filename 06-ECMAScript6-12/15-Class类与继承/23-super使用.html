@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>super使用</title>
+  <script>
+    // super必须在constructor中调用
+    class User {
+      constructor() {
+        this.title = 'jsx'
+      }
+      sayHi() {
+        console.log('Hi')
+      }
+    }
+
+    class Message extends User {
+      constructor() {
+        // console.log(this) 需要等先执行super()后才能使用this
+        super()
+        console.log(this); // 指向当前子类的实例
+      }
+      sayHi() {
+        console.log('message Hi')
+      }
+    }
+    // let message = new Message(); // 不调用则会报错
+    let message = new Message();
+    console.log(message)
+    // 子类会继承父类的所有属性与方法，除了私有
+    message.sayHi(); // Hi
+
+    // 方法重写后 先使用自身方法如果没有则找父类
+    message.sayHi(); // message Hi
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

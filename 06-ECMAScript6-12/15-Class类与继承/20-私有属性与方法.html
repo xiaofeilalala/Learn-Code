@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>私有属性与方法</title>
+  <script>
+    // 在class内部，属性前添加# 为私有属性
+    class User{
+      #title = 'jsx'
+      getTitle() {
+        // 只能在内部使用
+        console.log(this.#title)
+      }
+      // 私有方法
+      #sayHi() {
+        return 'ljj'
+      }
+      // 内部使用私有方法
+      getSayHi() {
+        console.log(this.#sayHi())
+      }
+      // 私有静态属性
+      static #message = '私有静态属性'
+      // 私有静态方法
+      static #getMessage(){
+        return '私有静态方法'
+      }
+      static getAll() {
+        console.log(this.#message + ' ' + this.#getMessage())
+      }
+    }
+    let user = new User();
+    console.log(user)
+    // console.log(user.#title); 报错
+    user.getTitle(); // jsx
+    // user.#sayHi(); 报错
+    user.getSayHi(); // ljj
+    // User.#message 报错
+    // User.getMessage(); 报错
+    User.getAll(); // 私有静态属性 私有静态方法
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

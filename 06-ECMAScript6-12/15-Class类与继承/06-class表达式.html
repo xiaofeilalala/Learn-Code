@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>class 表达式</title>
+  <script>
+    // 命名类表达式
+    let User = class Mine{
+      constructor(name) {
+        this.name = name
+      }
+      getInfo() {
+        console.log(Mine.name)
+        console.log(this.name)
+      }
+    }
+    let user = new User('jsx')
+    user.getInfo()
+
+    // 不命名类表达式
+    let Message = class {
+      constructor(name) {
+        console.log(name)
+      }
+    }
+    let message = new Message('jsx'); // jsx
+
+    // 立即执行类
+    let Product = new class {
+      constructor(name) {
+        this.name = name;
+      }
+      getInfo() {
+        console.log(this.name)
+      }
+    }('ljj')
+    Product.getInfo(); // ljj
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

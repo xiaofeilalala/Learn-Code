@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>声明提升与name属性</title>
+  <script>
+    // 类声明不会提升
+    // console.log(User) Uncaught ReferenceError
+    class User {
+      constructor() {}
+    }
+    
+    // 构造函数声明会变量提升
+    console.log(Message); // ƒ Message() {}
+    function Message() {}
+
+    // Class类有name属性
+    class Info {
+      constructor() {}
+    }
+    console.log(Info.name); // Info
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

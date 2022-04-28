@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>extends关键字</title>
+  <script>
+    // extends关键字可以创建子类，并实现子类继承父类
+    class User {
+      constructor(name) {
+        this.name = name
+      }
+      title = 'extends'
+      sayHi() {
+        console.log('Hi')
+      }
+      static message = 'hello'
+      static sayHello() {
+        console.log('hello')
+      }
+      #value = '私有'
+    }
+
+    class Info extends User {
+      constructor(name) {
+        super(name)
+      }
+    }
+    let info = new Info('jsx');
+    console.dir(info)
+    console.log(info.title)
+    console.log(Info.message)
+    info.sayHi()
+    Info.sayHello()
+    console.log(info.name)
+    // console.log(info.#value) 报错
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

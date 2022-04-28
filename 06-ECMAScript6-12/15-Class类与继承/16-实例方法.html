@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>实例方法</title>
+  <script>
+    // 类的实例方法是定义在constructor函数里的
+    // 通过this来设置实例方法
+    class User {
+      constructor () {
+        this.name = 'jsx'
+        this.asyHi = function () {
+          console.log('Hi')
+        }
+      }
+    }
+    let user = new User();
+    console.log(user); // User {name: 'jsx', asyHi: ƒ}
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

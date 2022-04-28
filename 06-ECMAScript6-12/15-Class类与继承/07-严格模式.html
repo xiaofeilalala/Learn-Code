@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>严格模式</title>
+  <script>
+    // 类声明和类表达式的主体都是在严格模式下
+    'use strict'
+    function User() {
+      console.log(this)
+    }
+    User(); // window
+    // 使用严格模式后 undefined
+    
+    // 类声明和类表达式内部默认严格模式
+    class Message {
+      show() {
+        function hide() {
+          console.log(this)
+        }
+        hide();
+      }
+    }
+    let message = new Message();
+    message.show(); // undefined
+  </script>
+</head>
+
+<body></body>
+
+</html>

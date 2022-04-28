@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WeakMap保护</title>
+  <script>
+    // 将属性定义在WeakMap里
+    let name = new WeakMap();
+    class User {
+      constructor() {
+        name.set(this, 'jsx')
+      }
+      set name(val) {
+        throw new Error('私有属性不可修改')
+      }
+      // 内部使用
+      getName() {
+        console.log(name.get(this))
+      }
+    }
+    console.log(name)
+    let user = new User();
+    console.log(user.name); // undefined
+    // user.name = 'ljj'; // Uncaught Error: 私有属性不可修改
+    user.getName(); // jsx
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

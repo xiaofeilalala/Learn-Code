@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>构造函数与类</title>
+  <script>
+    // 类是构造函数的另一种写法
+    function User(title) {
+      this.title = title
+    }
+    let user = new User('func')
+    console.log(user.title)
+
+    class Message {
+      constructor(title) {
+        this.title = title
+      }
+    }
+    let message = new Message('class')
+    console.log(message.title)
+    console.log(typeof Message); // function
+    console.log(Message === Message.prototype.constructor); // true
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

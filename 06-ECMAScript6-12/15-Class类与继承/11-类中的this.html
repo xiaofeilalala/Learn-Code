@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>类中的this</title>
+  <script>
+    // 类的方法内有this,则this指向实例对象
+    class User {
+      constructor(name) {
+        this.name = name
+      }
+      sayHi() {
+        return this
+      }
+      static sayHello() {
+        return this
+      }
+    }
+    let user = new User('jsx');
+    // User类静态方法this指向User类
+    console.dir(User.sayHello()); // User
+    // User类方法中的this指向实例对象
+    console.log(user.sayHi())
+    // 方法单独使用时
+    let method = user.sayHi;
+    console.log(method()); // undefined
+    // 静态方法单独使用
+    let method1 = User.sayHello;
+    console.log(method1()); // undefined
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

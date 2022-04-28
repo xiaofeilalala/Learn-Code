@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>类与实例的原型</title>
+  <script>
+    // ES5中的原型
+    function User() {}
+    let user = new User();
+    console.log(user.__proto__ === User.prototype); // true
+
+    // ES6的原型
+    class Message {
+      constructor() {}
+    }
+    console.dir(Message); // 同时拥有__proto__和prototype
+    let message = new Message();
+    console.log(message.__proto__ === Message.prototype)
+
+    class Info extends Message {
+      constructor() {
+        super();
+      }
+    }
+    let info = new Info();
+    // 构造函数的继承
+    console.log(Info.__proto__ === Message); // true
+    // 子类的原型的原型是父类的原型
+    console.log(Info.prototype === info.__proto__); // true
+    console.log(info.__proto__.__proto__ === message.__proto__); // true
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>静态方法</title>
+  <script>
+    // 静态方法就是定义在calss类上的方法
+    class User {
+      // static关键字声明的方法为静态方法
+      static sayHello() {
+        console.log('hello')
+      }
+      constructor() { }
+      static saythis() {
+        console.log(this)
+      }
+      saythis() {
+        console.log(this)
+      }
+    }
+
+    // 通过.添加方法
+    User.sayHi = function () {
+      console.log('静态方法')
+    }
+    // 静态方法只能class类访问，实例不能访问
+    User.sayHi(); // 静态方法
+    let user = new User();
+    // user.sayHi(); 报错
+    User.sayHello(); // hello
+    // user.sayHello() // hello
+
+    // 静态方法 this指向class类
+    User.saythis(); // User
+    // 静态与动态方法与属性可以重名
+    user.saythis(); // User{}
+
+    // 子类继承父类的静态方法
+    class Foo {
+      static classMethod() {
+        console.log('hello')
+      }
+    }
+
+    class Bar extends Foo {
+    }
+
+    Bar.classMethod() // hello
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

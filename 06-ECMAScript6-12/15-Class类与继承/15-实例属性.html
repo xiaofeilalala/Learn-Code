@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>实例属性</title>
+  <script>
+    // 实例属性就是class类生成的实例对象属性
+    // 通过constructor内this定义
+    class User {
+      constructor(name) {
+        this.name = name
+      }
+    }
+    let user = new User('jsx');
+    console.log(user.name); // jsx
+
+    // 直接定义在class内部最顶层
+    class Message {
+      title = '实例属性'
+    }
+    let message = new Message();
+    console.log(message.title); // 实例属性
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

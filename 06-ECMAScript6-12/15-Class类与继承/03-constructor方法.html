@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>constructor方法</title>
+  <script>
+    // constructor 是类默认的方法
+    // 没有定义系统会自动定义
+    class User {
+      constructor() {}
+    }
+    // constructor指向实例对象
+    let user = new User();
+    console.log(user instanceof User); // true
+
+    // 可以用来初始化对象，传递对象初始参数
+    class Message {
+      constructor(name) {
+        this.name = name
+      }
+    }
+    let message = new Message('jsx')
+    console.log(message.name); // jsx
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

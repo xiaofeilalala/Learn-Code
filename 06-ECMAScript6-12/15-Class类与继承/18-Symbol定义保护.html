@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Symbol保护</title>
+  <script>
+    // Symbol值是唯一的，可作为私有方法的方法名或者属性名
+    let symbol = Symbol();
+    class User {
+      constructor() {
+        this[symbol] = {}
+        this[symbol].name = 'jsx'
+      }
+      set name(val) {
+        throw new Error('私有属性不可修改')
+      }
+      getSymbol() {
+        console.log(this[symbol].name)
+      }
+    }
+    let user = new User();
+    console.log(user.name); // undefined
+    // user.name = 'ljj'; // Uncaught Error: 私有属性不可修改
+    user.getSymbol(); // jsx
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>getter 和 setter</title>
+  <script>
+    // getter 和 setter 设置存执取值函数
+    let method = 'getName'
+    class User {
+      constructor(name) {
+        this.name = name
+      }
+      // 类的属性名可以是使用表达式 通过[] 
+      [method]() {
+        return this.name
+      }
+      get name() {
+        return this._name
+      }
+      set name(value) {
+        this._name = value
+      }
+    }
+    let user = new User('jsx');
+    console.log(user.name); // jsx
+
+    console.log(user[method]()); // jsx
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

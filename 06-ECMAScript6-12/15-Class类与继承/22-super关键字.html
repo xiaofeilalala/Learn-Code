@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>super关键字</title>
+  <script>
+    // super关键字可作为对象或者函数使用
+    // 作为函数调用时super()只能在子类的或者对象方法中
+    class User {
+      constructor(name) {
+        this.name = name;
+      }
+      sayHello() {
+        console.log('Hello')
+      }
+      static sayHi() {
+        console.log('Hi')
+      }
+    }
+
+    class Message extends User {
+      constructor(name) {
+        // 子类super代表父类的constructor方法
+        super(name);
+      }
+      childMethod() {
+        // 作为对象时，在子类方法中指向父类的原型对象
+        super.sayHello()
+      }
+      // 在子类静态方法中，super指向父类
+      static staticMethod() {
+        super.sayHi()
+      }
+    }
+    let message = new Message('jsx');
+    console.log(message); // Message {name: 'jsx'}
+    message.childMethod(); // Hello
+    Message.staticMethod(); // Hi
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

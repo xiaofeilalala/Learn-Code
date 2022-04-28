@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>super的指向</title>
+  <script>
+    // 普通方法中的super指向父类原型
+    class User {
+      constructor() {
+        this.name = 'jsx'
+      }
+      sayHi() {
+        console.log('sayHi')
+      }
+      sayNo() {
+        console.log(this)
+      }
+      static sayGood() {
+        console.log('父类自身方法')
+        console.log(this)
+      }
+    }
+
+    class Message extends User {
+      constructor() {
+        super()
+      }
+      sayHello() {
+        console.log(this)
+        super.sayHi(); // sayHi
+        // super调用父类原型方法时，内部的this指向子类实例
+        super.sayNo(); // Message {name: 'jsx'}
+      }
+      static sayBack() {
+        // 在static中的super表示父类
+        // 内部this指向子类
+        super.sayGood()
+      }
+    }
+    let message = new Message();
+    console.log(message)
+    message.sayHello()
+    Message.sayGood(); // 父类自身方法
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

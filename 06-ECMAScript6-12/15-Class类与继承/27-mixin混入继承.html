@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>mixin混入模式</title>
+  <script>
+    function assignMixin(...mixins) {
+      // 设置一个类用来继承类集合
+      class Mixin {
+        // 传入实例属性与方法
+        constructor(...arg) {
+          mixins.forEach((mixin, index) => {
+            copyProperties(this, new mixin(arg[index])); // 拷贝实例属性
+          })
+        }
+      }
+
+      for (let mixin of mixins) {
+        // 拷贝类集合的静态属性与原型属性
+        copyProperties(Mixin, mixin); // 拷贝静态属性
+        copyProperties(Mixin.prototype, mixin.prototype); // 拷贝原型属性
+      }
+
+      return Mixin;
+    }
+
+    function copyProperties(target, source) {
+      // target为Mixin类的实例对象 source时集合类的实例对象
+      Reflect.ownKeys(source).forEach(key => {
+        // 迭代集合类的实例对象属性与方法
+        // 判断只继承自定义的属性
+        if (!/^(?:initializer|constructor|prototype|arguments|caller|name|bind|call|apply|toString|length)$/.test(key)) {
+          // 将自定义的属性与方法设置给target类
+          return Reflect.defineProperty(target, key, Reflect.getOwnPropertyDescriptor(source, key));
+        }
+      })
+    }
+
+    class Hello {
+      constructor(info) {
+        this.info = info;
+      }
+      sayHello() {
+        console.log('Hello')
+      }
+    }
+
+    class Welcome {
+      constructor(title) {
+        this.title = title
+      }
+      sayWelcome() {
+        console.log('Welcome')
+      }
+    }
+
+    class Thanks {
+      constructor(message) {
+        this.message = message
+      }
+      sayThanks() {
+        console.log('Thanks')
+      }
+    }
+
+    class Back extends assignMixin(Hello, Welcome, Thanks) {
+      constructor(...arg) {
+        super(...arg)
+      }
+    }
+    let back = new Back('jsx', 'ljj', 'ddc');
+    console.log(back)
+    console.log(back.info) // jsx
+    console.log(back.title) // ljj
+    console.log(back.message) // ddc
+    back.sayHello() // Hello
+    back.sayWelcome() // Welcome
+    back.sayThanks(); // Thanks
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

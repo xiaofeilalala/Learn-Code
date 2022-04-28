@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>静态属性</title>
+  <script>
+    // 静态属性就是类本身的属性，不会再原型上的属性
+    class User{
+      // 通过 static关键字声明
+      static message = '静态属性'
+      constructor() {
+        // 这里面定义的是实例属性
+      }
+    }
+    // 通过.点或者[]方括号方式添加类的属性
+    User.title = '静态属性'
+    console.dir(User)
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

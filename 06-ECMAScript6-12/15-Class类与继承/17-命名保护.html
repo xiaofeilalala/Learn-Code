@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>命名保护</title>
+  <script>
+    // 命名规则保护
+    // 通过开发者规范私有属性前定义下划线
+    // 在通过访问器，当有人修改私有属性时报错
+    class User {
+      // 私有属性
+      _title = 'title'
+      // 私有方法
+      _sayHi() {
+        console.log('Hi')
+      }
+      set title(val) {
+        throw new Error('私有属性不可修改')
+      }
+      // 内部使用
+      getTitle() {
+        console.log(this._title)
+      }
+    }
+    let user = new User()
+    console.log(user.title); // 不可访问
+    // user.title = '修改'; // Uncaught Error: 私有属性不可修改
+    user.getTitle(); // title
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

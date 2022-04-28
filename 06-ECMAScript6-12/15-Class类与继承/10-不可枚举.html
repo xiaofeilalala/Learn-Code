@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>不可枚举</title>
+  <script>
+    // 类中定义的方法不可枚举
+    class User {
+      constructor() {
+
+      }
+      sayHi() {
+        console.log(this)
+      }
+      sayHello() {
+        console.log(this)
+      }
+    }
+    console.dir(User)
+    console.log(Object.keys(User.prototype)); // []
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
