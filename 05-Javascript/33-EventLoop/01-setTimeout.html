@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>setTimeout</title>
+  <script>
+    // setTimeout 在指定毫秒数后执行
+    let timeId = setTimeout((...name) => {
+      // 可以使用箭头函数
+      console.log('执行')
+      // 传入参数
+      console.log(name); // ['jsx', 'ljj']
+    }, 1000, 'jsx', 'ljj')
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

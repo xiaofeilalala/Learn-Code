@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>promise和async/await</title>
+  <script>
+    // promise代码是一个同步任务
+    // .then、.catch、.finally是微任务
+    console.log('a')
+    let promise = new Promise(function (resolve, reject) {
+      console.log('b')
+      resolve();
+    }).then(function () {
+      console.log('c')
+    })
+    // a b c
+
+    // async与await await前面的代码都是同步的 await后面表达式立即执行 后面代码移入微任务
+    async function func1() {
+      console.log('a');
+      await func2();
+      console.log('b')
+    }
+
+    async function func2() {
+      console.log('c')
+    }
+    console.log('d')
+
+    setTimeout(function () {
+      console.log('setTimeout')
+    }, 0)
+
+    func1(); // dacb
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

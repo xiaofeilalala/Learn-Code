@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>任务队列</title>
+  <script>
+    // 任务队列
+    // 任务分为同步与异步，异步任务分为宏任务和微任务
+    let timeId = setTimeout(function(){
+      console.log('定时器')
+    }, 1000)
+
+    console.log('console')
+    
+    let result = new Promise(resolve => {
+      console.log('Promise resolve')
+      resolve()
+    })
+    // 微任务
+    result.then(() => {
+      console.log('Promise then')
+    })
+    // console, Promise resolve, Promise then, 定时器
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

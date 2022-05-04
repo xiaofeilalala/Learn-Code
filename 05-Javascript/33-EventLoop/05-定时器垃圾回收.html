@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>定时器垃圾回收</title>
+  <script>
+    // 定时器里传入函数，会被保存到定时器中不会垃圾回收
+    let timeId = setTimeout(time, 1000)
+    function time() {
+      console.log('执行')
+    }
+    // 取消定时器
+    clearTimeout(timeId)
+
+    let interval = setInterval(time, 1000)
+     // 取消定时器
+    clearInterval(interval)
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

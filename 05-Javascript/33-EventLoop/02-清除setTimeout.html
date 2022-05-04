@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>取消setTimeout</title>
+  <script>
+    // 定时器返回一个定时器标识符，可以通过标识符取消定时器
+    let timeId = setTimeout(function() {
+      console.log('执行')
+    }, 1000)
+    // 定时器不会执行
+    clearTimeout(timeId)
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

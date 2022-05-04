@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>任务循环</title>
+  <script>
+    // 任务循环 代码分为同步与异步任务
+    // 同步任务直接进入主线程执行，异步分为宏任务与微任务
+    // 微任务优先级大于微任务，异步任务完成后回调推入主线程
+    // 主线程执行完毕，先寻找微任务队列全部执行完成再寻找宏任务，不断循环
+    console.log('a');
+
+    new Promise(resolve => {
+      console.log('b')
+      resolve()
+    }).then(() => {
+      console.log('c')
+      setTimeout(() => {
+        console.log('d')
+      }, 0)
+    })
+
+    setTimeout(() => {
+      console.log('e')
+      new Promise(resolve => {
+        console.log('f')
+        resolve()
+      }).then(() => {
+        console.log('g')
+      })
+    }, 100)
+
+    setTimeout(() => {
+      console.log('h')
+      new Promise(resolve => {
+        resolve()
+      }).then(() => {
+        console.log('i')
+      })
+      console.log('j')
+    }, 0)
+    // a b c h j i d e f g
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
