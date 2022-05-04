@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>防抖与节流</title>
+</head>
+
+<body>
+  <input type="text">
+  <script>
+    // 防抖 事件触发 n 秒后执行一次, 如果在 n 秒内重复触发则重新计算函数执行时间
+    function debounce(func, delay) {
+      // 设置定时器标识符
+      let timer = null;
+      return function () {
+        let args = arguments;
+        // 判断定时器是否存在，清除定时器
+        timer && clearTimeout(timer)
+        // 重新调用setTimeout
+        timer = setTimeout(() =>  {
+          func.apply(this, args)
+          timer = null;
+        }, delay)
+      }
+    }
+    let input = document.querySelector('input');
+    let inputValue = throttle(inputChange, 1000)
+    function inputChange(e) {
+      console.log(e.target.value)
+    }
+    input.addEventListener('keyup', inputValue)
+
+    // 节流 事件连续触发在n秒内只触发一次
+    function throttle(func, delay) {
+      // last为上一次触发回调的时间
+      let last = 0;
+      // 将throttle处理结果当作函数返回
+      return function() {
+        // 保留调用时的this上下文
+        let context = this;
+        // 保留调用时传入的参数
+        let args = arguments;
+        // 记录本次触发回调的时间
+        let now = Date.now();
+        // 判断上次触发的时间和本次触发的时间差是否小于时间间隔的阈值
+        if (now - last >= delay) {
+          // 如果时间间隔大于我们设定的时间间隔阈值，则执行回调
+          last = now
+          func.apply(this, args);
+        }
+      }
+    }
+
+    // 定时器方式实现节流
+    function throttle1(func, delay) {
+      let sign = true;
+      return function() {
+        // 在函数开头判断标志是否为 true，不为 true 则中断函数
+        if(!sign) return;
+        //  sign 设置为 false，防止执行之前再被执行
+        sign = false;
+        setTimeout(() => {
+          func.apply(this, arguments)
+          // 执行完事件之后，重新将这个标志设置为 true
+          sign = true;
+        }, delay)
+      }
+    }
+  </script>
+</body>
+
+</html>

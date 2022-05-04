@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>防抖节流场景</title>
+  <style>
+    .container {
+      width: 100px;
+      height: 100px;
+      background-color: #3496db;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container"></div>
+  <input type="text" replacer="请输入内容">
+  <script>
+    // 防抖函数 表单校验
+    let input = document.querySelector('input');
+    let box = document.querySelector('.container')
+
+    function debounce(func, delay) {
+      let timer;
+      return function() {
+        timer && clearTimeout(timer)
+        let args = arguments;
+        timer = setTimeout(() => {
+          func.apply(this, args)
+          timer = null;
+        }, delay)
+      }
+    }
+
+    input.addEventListener('keyup', debounce(function(event) {
+      let regexp = /\d/g;
+      if(!regexp.test(event.target.value)) {
+        console.log('输入错误')
+      } else {
+        console.log(event.target.value)
+      }
+    }, 1000))
+
+    // 节流函数 获取鼠标在元素上的坐标
+    function throttle(func, delay) {
+      let last = 0;
+      return function() {
+        let args = arguments;
+        let now = Date.now();
+        if (now - last > delay) {
+          func.apply(this, args);
+          last = now
+        }
+      }
+    }
+    box.addEventListener('mousemove', throttle(function(e){
+      console.log(e.pageX)
+    }, 2000))
+  </script>
+</body>
+
+</html>
