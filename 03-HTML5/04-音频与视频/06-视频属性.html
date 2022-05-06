@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>视频属性</title>
+</head>
+
+<body>
+  <!-- 视频属性 -->
+  <!-- autoplay视频在就绪后马上播放 -->
+  <!-- controls显示控件，比如播放按钮 -->
+  <!-- width height 宽度与高度 -->
+  <!-- loop播放完重新播放 -->
+  <!-- muted静音 -->
+  <!-- poster视频加载时显示的图片 -->
+  <!-- preload是否在页面加载后载入视频 none不加载不缓存 metadata显示视频长度 auto加载视频缓存视频 -->
+  <!-- src指定video文件的本地路径的URL-->
+  <video width="320" height="240" controls autoplay loop poster="douyin.png">
+    <source src="./assets/douyin.mp4" type="video/mp4">
+    <source src="./assets/douyin.webm" type="video/webm">
+    <source src="./assets/douyin.ogg" type="video/ogg">
+    您的浏览器不支持Video标签
+  </video>
+</body>
+
+</html>

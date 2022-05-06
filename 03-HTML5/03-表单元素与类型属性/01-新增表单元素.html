@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>新增表单元素</title>
+</head>
+
+<body>
+  <!-- <datalist>规定输入域的选项列表类似于select标签 -->
+  <!-- 通过input的list属性可以引用datalist的id来展示列表选项 -->
+  <div>
+    <label for="">学习：</label>
+    <input list="lang">
+  </div>
+
+  <datalist id="lang">
+    <option value="html">
+    <option value="css">
+    <option value="javascript">
+    <option value="vue">
+    <option value="node">
+    <option value="webpack">
+  </datalist>
+
+  <!-- <keygen>已废弃 -->
+
+  <!-- <output>定义不同类型的输出 -->
+  <form oninput="result.value=parseInt(num1.value)+parseInt(num2.value)">
+    <input type="text" id="num1" value="50">+<input type="number" id="num2" value="50">
+    =<output name="result" for="num1 num2">100</output>
+  </form>
+</body>
+
+</html>

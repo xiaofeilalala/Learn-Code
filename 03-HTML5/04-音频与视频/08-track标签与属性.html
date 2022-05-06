@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>track标签及属性</title>
+</head>
+
+<body>
+  <!-- track标签及属性 -->
+  <!-- 规定外部文本轨道字幕，字幕格式有WebVTT格式.vtt格式文件 -->
+  <!-- default 默认轨道 -->
+  <!-- kind 文本轨道说明 -->
+  <!-- label文本轨道的标签和标题 -->
+  <!-- src .vtt文件路径 -->
+  <!-- srclang 轨道文本的语言 -->
+  <video width="320" height="240" controls>
+    <source src="./assets/douyin.mp4" type="video/mp4">
+    <source src="./assets/douyin.webm" type="video/webm">
+    <source src="./assets/douyin.ogg" type="video/ogg">
+    <track default kind="captions" srclang="en" src="./assets/douyin.vtt">
+    您的浏览器不支持Video标签
+  </video>
+</body>
+
+</html>

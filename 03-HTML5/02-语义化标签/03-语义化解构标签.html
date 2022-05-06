@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>语义化解构标签</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    header, footer {
+      height: 80px;
+      text-align: center;
+      line-height: 80px;
+      margin-bottom: 10px;
+      font-size: 28px;
+      color: #fff;
+      background-color: #5c55fd;
+    }
+    footer {
+      margin: 0;
+    }
+    nav {
+      background-color: #5c55fd;
+      height: 80px;
+      text-align: left;
+      line-height: 80px;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    nav a {
+      text-decoration: none;
+      color: #fff;
+      padding: 10px;
+      background-color: #7c76ff;
+      margin: 0 20px;
+    }
+    main {
+      height: calc(100vh - 270px);
+      margin-bottom: 10px;
+    }
+    aside {
+      float: left;
+      width: calc(100% - 1500px);
+      height: 100%;
+      background-color: #5c55fd;
+      margin-right: 10px;
+      text-align: center;
+      font-size: 30px;
+      color: #fff;
+    }
+    article {
+      float: left;
+      width: 1490px;
+      height: 100%;
+      background-color: #5c55fd;
+      font-size: 30px;
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- header 定义文档头部 -->
+  <header>头部</header>
+  <!-- nav 链接集合 -->
+  <nav>
+    <a href="javascript:;">链接1</a>
+    <a href="javascript:;">链接2</a>
+    <a href="javascript:;">链接3</a>
+  </nav>
+  <!-- 定义文档主体内容 -->
+  <main>
+    <!-- aside 定义内容之外的内容侧边栏 -->
+    <aside>侧边栏</aside>
+    <!-- article 定义独立的内容 -->
+    <article>
+      <!-- section 定义文档中的节 -->
+      <section>内容1</section>
+      <section>内容2</section>
+    </article>
+  </main>
+  <!-- footer 定义文档的结尾 -->
+  <footer>尾部</footer>
+</body>
+
+</html>

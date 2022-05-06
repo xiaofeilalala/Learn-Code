@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>新增input类型</title>
+  <style>
+    form {
+      margin: 20px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 新增input类型 -->
+  <form action="">
+    <!-- email 邮箱会进行邮箱验证 -->
+    <label for="">E-mail: </label>
+    <input type="email" name="email">
+    <input type="submit" value="提交">
+  </form>
+
+  <form action="">
+    <!-- tel 电话号码 -->
+    <label for="">电话号码: </label>
+    <input type="tel" name="tel">
+  </form>
+
+  <!-- url地址 -->
+  <form action="">
+    <!-- 表单提交时会验证url地址 -->
+    <label for="">URL地址: </label>
+    <input type="url" name="url">
+  </form>
+
+  <!-- number只能输入数字的input-->
+  <!-- max, min 规定输入最大数字与最小数字 -->
+  <!-- disable禁用输入 readonl只读 required必须 size宽度 value默认值 step数字间隔 -->
+  <form action="">
+    <label for="">数字输入框: </label>
+    <input type="number" name="number" min="0" max="10" value="5">
+  </form>
+
+  <!-- search用于搜索的input -->
+  <form action="">
+    <label for="">搜索: </label>
+    <input type="search" name="search">
+  </form>
+
+  <!-- rang 滑动条 -->
+  <!-- max, min 规定输入最大数字与最小数字 -->
+  <!-- value默认值 step数字间隔 -->
+  <form action="">
+    <label for="">滑动条: </label>
+    <input type="range" max="10" min="0" value="7" name="range">
+  </form>
+  
+
+  <!-- color 选取颜色 -->
+  <form action="">
+    <label for="">取色器: </label>
+    <input type="color" name="color">
+  </form>
+
+  <!-- time选择时间时分 -->
+  <form action="">
+    <label for="">时间时分: </label>
+    <input type="time" name="time">
+  </form>
+
+  <!-- date 选择日期年月日 -->
+  <form action="">
+    <label for="">日期年月日: </label>
+    <input type="date" name="date">
+  </form>
+
+  <!-- datetime UTC时间日期 -->
+  <form action="">
+    <label for="">UTC时间日期: </label>
+    <input type="datetime" name="datetime">
+  </form>
+
+  <!-- datetime-local选择日期与时间无时区 -->
+  <form action="">
+    <label for="">日期与时间无时区: </label>
+    <input type="datetime-local" name="datetime-local">
+  </form>
+
+  <!-- month选择月份和年份 -->
+  <form action="">
+    <label for="">月份和年份: </label>
+    <input type="month" name="month">
+  </form>
+
+  <!-- week选择周和年份 -->
+  <form action="">
+    <label for="">周和年份: </label>
+    <input type="week" name="week">
+  </form>
+</body>
+
+</html>

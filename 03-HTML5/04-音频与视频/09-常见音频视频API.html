@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>常见的音频与视频API</title>
+</head>
+
+<body>
+  <video width="320" height="240" src="./assets/douyin.mp4" controls id="video"></video>
+  <div class="box">
+    <button class="play">播放</button>
+    <button class="pause">暂停</button>
+    <button class="load">重新加载</button>
+  </div>
+  <script>
+    // 方法
+    // canPlayType是否能播放指定的音频或者视频类型
+    let result = document.getElementById('video')
+    console.log(result)
+    console.log(result.canPlayType('video/ogg'))
+
+    // play()播放
+    let play = document.querySelector('.play');
+    play.onclick = function () {
+      result.play();
+    }
+    // pause()暂停
+    let pause = document.querySelector('.pause');
+    pause.onclick = function () {
+      result.pause();
+    }
+
+    // 重新加载
+    let load = document.querySelector('.load');
+    load.onclick = function () {
+      result.load();
+    }
+  </script>
+</body>
+
+</html>

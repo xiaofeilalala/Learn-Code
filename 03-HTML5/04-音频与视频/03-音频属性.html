@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>音频标签属性</title>
+</head>
+
+<body>
+  <!-- 音频标签属性 -->
+  <!-- autoplay音频立即播放 -->
+  <!-- controls向用户显示控件，比如播放按钮 -->
+  <!-- loop结束时重新开始播放 -->
+  <!-- preload在何时加载音频 none不会加载 metadata获取音频长度 auto音频加载缓存 -->
+  <!-- muted false表示静音 -->
+  <!-- src属性嵌入的音频的 URL 地址 -->
+  <audio controls autoplay loop muted preload="auto">
+    的浏览器不支持 audio 元素
+    <source src="./assets/wuding.mp3" type="audio/mpeg">
+    <source src="./assets/wuding.ogg" type="audio/ogg">
+    <source src="./assets/wuding.wav" type="audio/wav">
+  </audio>
+</body>
+
+</html>

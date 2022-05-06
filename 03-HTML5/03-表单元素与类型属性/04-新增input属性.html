@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>新增input属性</title>
+  <style>
+    form {
+      margin: 20px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 新增input属性 -->
+
+  <!-- autofocus 页面加载自动获取焦点 -->
+  <form action="">
+    <label for="">autofocus属性</label>
+    <input type="text" name="autofocus" autofocus>
+  </form>
+
+  <!-- form输入域所属表单 可以多个 -->
+  <form action="" id="myform">
+    <label for="">First name: </label>
+    <input type="text" name="firstname">
+    <input type="submit" value="提交">
+  </form>
+  <form action="">
+    <label for="">Last name: </label>
+    <input type="text" name="lastname" form="myform">
+  </form>
+
+  <!-- formaction表单提交的url地址 -->
+  <!-- 设置后覆盖form元素中action属性 -->
+  <form action="xxx">
+    <label for="">First name: </label>
+    <input type="text" name="fname">
+    <label for="">Last name: </label>
+    <input type="text" name="lname">
+    <input type="submit" value="action 提交">
+    <input type="submit" formaction="xxx" value="formaction 提交">
+  </form>
+
+  <!-- formenctype表单提交post到服务器的数据编码 -->
+  <!-- 设置后会覆盖form元素中enctype属性 -->
+  <form action="" method="post">
+    <label for="">First name: </label>
+    <input type="text" name="fname">
+    <input type="submit" value="method 提交">
+    <input type="submit" formenctype="multipart/form-data" value="以 Multipart/form-data 提交">
+  </form>
+
+  <!-- formmethod属性定义了表单提交的方式 -->
+  <!-- 设置后会覆盖form元素中method属性 -->
+  <form action="" method="get">
+    <label for="">First name: </label>
+    <input type="text" name="fname">
+    <label for="">Last name: </label>
+    <input type="text" name="lname">
+    <input type="submit" value="GET 提交">
+    <input type="submit" formmethod="post" value="POST 提交">
+  </form>
+
+  <!-- formnovalidate属性表单提交时无需被验证 -->
+  <!-- 设置后会覆盖form元素中novalidate属性 -->
+  <form action="">
+    <label for="">E-mail: </label>
+    <input type="email" name="userid">
+    <input type="submit" value="提交">
+    <input type="submit" formnovalidate value="不验证提交">
+  </form>
+
+  <!-- ormtarget属性指定一个名称或一个关键字来指明表单提交数据接收后的展示-->
+  <!-- 设置后会覆盖form元素中target属性 -->
+  <form action="demo-form.php">
+    <label for="">First name: </label>
+    <input type="text" name="fname">
+    <label for="">Last name: </label>
+    <input type="text" name="lname">
+    <input type="submit" value="提交">
+    <input type="submit" formtarget="_blank" value="target 提交">
+  </form>
+
+  <!-- height和width属性规定image类型图片的宽高 -->
+  <form action="">
+    <label for="">height和width属性</label>
+    <input type="image" src="zhuang.jpg" width="100" height="100">
+  </form>
+
+  <!-- list属性 -->
+  <!-- 规定datalist属性 -->
+  <div>
+    <label for="">学习：</label>
+    <input list="lang">
+  </div>
+
+  <datalist id="lang">
+    <option value="html">
+    <option value="css">
+    <option value="javascript">
+    <option value="vue">
+    <option value="node">
+    <option value="webpack">
+  </datalist>
+
+  <!-- min与max属性约束数字与日期input类型输入框 -->
+  <form action="">
+    <label for="">只能选择2021年12月31日之前日期</label>
+    <input type="date" name="datebefore" max="2021-12-31">
+    <br>
+    <label for="">只能选择2021年12月31日之后日期</label>
+    <input type="date" name="dateafter" min="2021-12-31">
+    <br>
+    <label for="">数字大小限制1 - 5</label>
+    <input type="number" name="number" min="1" max="5">
+  </form>
+
+  <!-- multiple属性规定可选取多个值 -->
+  <form action="">
+    <label for="">multiple属性</label>
+    <input type="file" name="file" multiple>
+  </form>
+
+  <!-- pattern属性正则表达式验证input元素的值 -->
+  <form action="">
+    <label for="">pattern属性</label>
+    <input type="text" pattern="[A-Za-z]{3}" title="不能超过3个字符">
+    <input type="submit" value="提交">
+  </form>
+
+  <!-- placeholder属性输入框提示 -->
+  <form action="">
+    <label for="">placeholder属性</label>
+    <input type="text" placeholder="placeholder属性">
+  </form>
+
+  <!-- required属性规定输入框必须填写 -->
+  <form action="">
+    <label for="">required属性</label>
+    <input type="text" name="required" required>
+    <input type="submit" value="提交">
+  </form>
+
+  <!-- setp属性用于数字间隔 -->
+  <!-- 每次增加或减少按照step设置的值进行 -->
+  <form action="">
+    <label for="">setp属性</label>
+    <input type="number" name="number" step="3">
+  </form>
+</body>
+
+</html>

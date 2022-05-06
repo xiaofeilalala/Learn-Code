@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>浏览器支持</title>
+  <!-- 放置在head标签内 lte表示小于等于 -->
+  <!--[if lte IE 8]>
+     <script type="text/javascript" src="html5shiv.min.js"></script>
+  <![endif]-->
+  <!-- 将元素定义为块级元素 -->
+  <style>
+    header,
+    section,
+    footer,
+    aside,
+    nav,
+    main,
+    article,
+    figure {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- IE9之后才支持HTML5 -->
+  <!-- 兼容解决方案 -->
+  <!-- 将元素定义为块级元素 -->
+
+  <!-- js动态创建元素 -->
+  <script type="text/javascript">
+    document.createElement("header");
+    document.createElement("section");
+    document.createElement("footer");
+    document.createElement("aside");
+    document.createElement("nav");
+    document.createElement("main");
+    document.createElement("article");
+    document.createElement("figure");
+  </script>
+
+  <!-- shiv解决 -->
+  <!-- 通过第三方js库来解决 -->
+  <!--[if lte IE 8]>
+     <script type="text/javascript" src="html5shiv.min.js"></script>
+  <![endif]-->
+</body>
+
+</html>

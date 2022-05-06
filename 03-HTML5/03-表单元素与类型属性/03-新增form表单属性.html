@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>form表单属性</title>
+  <style>
+    form {
+      margin: 20px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- form表单属性 -->
+  <!-- autocomplete属性 规定是否开启自动完成功能 -->
+  <!-- on开启 off关闭 -->
+  <form autocomplete="off">
+    <label for="">autocomplete属性</label>
+    <input type="text" name="text">
+  </form>
+
+  <!-- novalidate属性提交是否验证表单 -->
+  <form novalidate>
+    <label for="">novalidate属性</label>
+    <input type="email" name="email">
+    <input type="submit" value="提交">
+  </form>
+</body>
+
+</html>
