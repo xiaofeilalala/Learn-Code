@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>拖拽列表</title>
+  <link rel="stylesheet" href="./assets/index.css">
+</head>
+
+<body>
+  <div class="container">
+    <ul class="drag-list">
+      <li draggable="true" class="1">HTML</li>
+      <li draggable="true" class="2">CSS</li>
+      <li draggable="true" class="3">JavaScript</li>
+      <li draggable="true" class="4">Vue</li>
+      <li draggable="true" class="5">TypeScript</li>
+    </ul>
+  </div>
+  <script>
+    let dragList = document.querySelector('.drag-list')
+    // 获取当前元素的index索引
+    function getIndex(elem) {
+      let index = 0;
+      if (!elem || !elem.parentNode) {
+        return -1;
+      } else {
+        while (elem = elem.previousElementSibling) {
+          index++;
+        }
+      }
+      return index;
+    }
+
+    // 当前移动的元素
+    let current = null;
+    dragList.ondragstart = function (e) {
+      current = e.target
+    }
+
+    dragList.ondragover = function (e) {
+      e.preventDefault();
+      e.dataTransfer.dropEffect = 'move'
+    }
+
+    dragList.ondrop = function (e) {
+      e.preventDefault();
+      if (e.target.nodeName === 'LI' && e.target !== current) {
+        // 如果current索引小于当前元素则替换位置
+        if (getIndex(current) < getIndex(e.target)) {
+          e.target.after(current)
+        } else {
+          e.target.before(current)
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>

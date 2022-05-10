@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>clearData方法</title>
+  <link rel="stylesheet" href="./assets/index.css">
+</head>
+
+<body>
+  <div class="main">
+    <div class="box" draggable="true"></div>
+    <div class="place-region">请拖到此区域</div>
+  </div>
+  <script>
+    let box = document.querySelector('.box')
+    let place = document.querySelector('.place-region')
+    box.ondragstart = function (e) {
+      // setData() 设置对象指定拖放类型
+      // 两种类型 text/plan text/uri-list
+      e.dataTransfer.setData('className', e.target.className)
+      e.dataTransfer.setData('text/plan', 'setData方法')
+      e.dataTransfer.setData("text/uri-list", "http://www.mozilla.org");
+
+      // clearData 删除指定类型关联的数据
+      e.dataTransfer.clearData('className');
+    }
+
+    // getData() 获取对象指定的拖放类型
+    place.ondrop = function (e) {
+      e.preventDefault();
+      // 获得设置的数据项
+
+      // 返回空字符串指定类型关联的数据已被删除
+      console.log(e.dataTransfer.getData('className'))
+      console.log(e.dataTransfer.getData('text/plan'))
+      console.log(e.dataTransfer.getData('text/uri-list'))
+      // 不存在返回空字符串
+      console.log(e.dataTransfer.getData(''))
+    }
+
+    place.ondragover = function (e) {
+      e.preventDefault();
+    }
+  </script>
+</body>
+
+</html>

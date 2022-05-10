@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DataTransferItemList对象</title>
+  <link rel="stylesheet" href="./assets/index.css">
+</head>
+
+<body>
+  <div class="container">
+    <ul class="drag-list">
+      <li draggable="true">HTML</li>
+      <li draggable="true">CSS</li>
+      <li draggable="true">JavaScript</li>
+      <li draggable="true">Vue</li>
+      <li draggable="true">TypeScript</li>
+    </ul>
+    <ul class="place-list">可放置区域</ul>
+  </div>
+  <script>
+    // DataTransferItemList对象是一组代表被拖动项的 DataTransferItem对象的列表
+    // 获取拖动列表的数量
+    let dragList = document.querySelectorAll('.drag-list > li');
+    [...dragList].forEach(list => {
+      list.addEventListener('dragstart', function (e) {
+        e.dataTransfer.items.add(this.innerText, 'text/plan');
+        if (this.innerText === 'Vue') {
+          e.dataTransfer.setData('text/paln', 'Vue')
+        }
+        if (this.innerText === 'HTML') {
+          // remove删除拖拽列表中的对象
+          e.dataTransfer.items.remove(0)
+        }
+        if (this.innerText === 'CSS') {
+          // clear() 清空拖动项列表
+          e.dataTransfer.items.clear()
+        }
+      })
+    })
+
+    let placeList = document.querySelector('.place-list')
+    placeList.addEventListener('drop', function (e) {
+      e.preventDefault()
+      let data = e.dataTransfer.items;
+      // 拖动列表的length
+      console.log(data.length)
+      // drop时无法删除拖拽列表只可读
+      console.log(data)
+    })
+    placeList.addEventListener('dragover', function (e) {
+      e.preventDefault()
+    })
+  </script>
+</body>
+
+</html>

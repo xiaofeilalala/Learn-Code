@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DataTransferItem对象</title>
+  <link rel="stylesheet" href="./assets/index.css">
+</head>
+
+<body>
+  <div class="container">
+    <ul class="drag-list">
+      <li draggable="true">HTML</li>
+      <li draggable="true">CSS</li>
+      <li draggable="true">JavaScript</li>
+      <li draggable="true">Vue</li>
+      <li draggable="true">TypeScript</li>
+    </ul>
+    <ul class="place-list">可放置区域</ul>
+  </div>
+  <script>
+    // DataTransferItemList对象是一组代表被拖动项的DataTransferItem对象的列表
+    // 获取拖动列表的数量
+    let dragList = document.querySelectorAll('.drag-list > li');
+    [...dragList].forEach(list => {
+      list.addEventListener('dragstart', function (e) {
+        e.dataTransfer.items.add(this.innerText, 'text/plan');
+      })
+    })
+
+    let placeList = document.querySelector('.place-list')
+    placeList.addEventListener('drop', function (e) {
+      e.preventDefault()
+      let data = e.dataTransfer.items;
+      // kind 获取拖拽项种类
+      console.log(data[0].kind);
+
+      // type 获取拖拽类型
+      console.log(data[0].type);
+
+      [...data].forEach(item => {
+        // 一个拖拽项为file种类的回调函数
+        if (item.kind === 'file') {
+          // 返回一个File对象
+          console.log(item.getAsFile())
+        }
+        if (item.kind === 'string') {
+          item.getAsString(function (val) {
+            // 使用拖拽项的字符串作为参数执行指定回调函数
+            console.log(val)
+          })
+        }
+      })
+    })
+    placeList.addEventListener('dragover', function (e) {
+      e.preventDefault()
+    })
+  </script>
+</body>
+
+</html>

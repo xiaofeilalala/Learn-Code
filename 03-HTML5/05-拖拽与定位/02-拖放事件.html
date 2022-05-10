@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>拖放事件</title>
+  <link rel="stylesheet" href="./assets/index.css">
+</head>
+
+<body>
+  <div class="main">
+    <div class="box" draggable="true"></div>
+    <div class="place-region">请拖到此区域</div>
+  </div>
+  <script>
+    // 拖放事件
+    // dragstart 开始拖拽元素时触发
+    let box = document.querySelector('.box')
+    let place = document.querySelector('.place-region')
+
+    // 拖动目标时触发事件，作用在被拖拽元素上
+    box.ondragstart = function (e) {
+      console.log('box dragstart')
+    }
+
+    // drag 拖拽元素触发
+    box.ondrag = function (e) {
+      console.log('box drag')
+    }
+
+    // dragend 拖拽结束时触发
+    place.ondragend = function (e) {
+      console.log('place dragend')
+    }
+    
+    // 释放目标时触发的事件，作用在放置目标元素上
+    // dragenter 拖拽到可放置区域时触发
+    box.ondragenter = function (e) {
+      console.log('box dragenter')
+    }
+
+    // dragover拖拽到可放置区域时触发
+    place.ondragover = function (e) {
+      e.preventDefault();
+      console.log('place dragover')
+    }
+
+    // dragleave 拖拽元素离开可放置区域触发
+    place.ondragleave = function (e) {
+      console.log('place dragleave')
+    }
+
+    // drop 在可放置区域释放拖拽元素时触发
+    place.ondrop = function (e) {
+      console.log('place drop')
+    }
+  </script>
+</body>
+
+</html>

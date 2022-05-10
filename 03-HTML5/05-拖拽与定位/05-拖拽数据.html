@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>拖拽数据</title>
+  <link rel="stylesheet" href="./assets/index.css">
+</head>
+
+<body>
+  <div class="main">
+    <div class="box" draggable="true"></div>
+    <div class="place-region">请拖到此区域</div>
+  </div>
+  <script>
+    // dropEffect属性 获取当前拖拽元素的操作类型或者设置新的类型
+    let box = document.querySelector('.box')
+    box.ondragstart = function(e) {
+      e.dataTransfer.setData('text/plan', e.target.className)
+      e.dataTransfer.effectAllowed = 'move'
+      // 获取允许拖拽元素执行哪几种拖拽效果
+      console.log(e.dataTransfer.effectAllowed); // move
+      // 获取所有本地文件的列表
+      console.log(e.dataTransfer.files); // FileList {length: 0}
+    }
+
+    let place = document.querySelector('.place-region')
+    place.ondrop = function(e) {
+      e.preventDefault();
+      let data = e.dataTransfer.getData('text/plan');
+      e.target.innerText = '';
+      e.target.prepend(document.querySelector('.' + data))
+      // 获取设置的格式
+      console.log(e.dataTransfer.types); // ['text/plan']
+      // 获取所有拖动数据列表
+      console.log(e.dataTransfer.items); // DataTransferItemList {0: DataTransferItem, length: 1}
+    }
+
+    place.ondragover = function(e) {
+      e.preventDefault();
+      e.dataTransfer.dropEffect = 'move'
+      // 获取拖放操作中浏览器鼠标拖动样式
+      console.log(e.dataTransfer.dropEffect); // none
+    }
+  </script>
+</body>
+
+</html>

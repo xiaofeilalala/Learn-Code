@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>拖拽效果</title>
+  <link rel="stylesheet" href="./assets/index.css">
+</head>
+
+<body>
+  <div class="main">
+    <div class="box" draggable="true"></div>
+    <div class="place-region">请拖到此区域</div>
+  </div>
+  <script>
+    let box = document.querySelector('.box')
+    let place = document.querySelector('.place-region')
+    box.ondragstart = function (e) {
+      console.log('dragstart')
+    }
+    
+    // 可放置区域必须在元素drop事件与dragover事件取消默认行为
+    place.ondrop = function (e) {
+      e.preventDefault();
+      console.log('drop')
+    }
+
+    place.ondragover = function (e) {
+      e.preventDefault();
+      console.log('dragover')
+    }
+  </script>
+</body>
+
+</html>

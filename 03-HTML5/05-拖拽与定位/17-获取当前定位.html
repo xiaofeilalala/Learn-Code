@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>获取当前定位</title>
+  <script>
+    // 通过getCurrentPosition()获取当前定位
+    navigator.geolocation.getCurrentPosition(showPosition, showError, {
+      enableHighAccuracy: true,
+      timeout: 3000,
+      maximumAge: 2000
+    })
+
+    function showPosition(position) {
+      console.log(position)
+      // 通过该函数作为成功获取定位的回调函数
+      console.log(position.coords.latitude)
+      console.log(position.coords.longitude)
+    }
+
+    // 第二个参数为获取失败的回调函数
+    function showError(error) {
+      switch (error.code) {
+        case error.PERMISSION_DENIED:
+          console.log('用户拒绝对获取地理位置的请求')
+          break;
+        case error.POSITION_UNAVAILABLE:
+          console.log('位置信息是不可用的')
+          break;
+        case error.TIMEOUT:
+          console.log('请求用户地理位置超时')
+          break;
+        case error.UNKNOWN_ERROR:
+          console.log('未知错误')
+          break;
+      }
+    }
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

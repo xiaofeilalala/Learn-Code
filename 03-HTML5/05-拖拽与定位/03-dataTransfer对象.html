@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dataTransfer对象</title>
+  <link rel="stylesheet" href="./assets/index.css">
+</head>
+
+<body>
+  <div class="main">
+    <div class="box" draggable="true"></div>
+    <div class="place-region">请拖到此区域</div>
+  </div>
+  <script>
+    // dataTransfer属性是DragEvent接口的一个实现
+    // 该属性是一个DataTransfer对象， 拖拽时的数据
+    let box = document.querySelector('.box')
+    box.ondragstart = function(e) {
+      console.log(e.dataTransfer)
+    }
+    // DataTransfer对象用于保存拖放过程中的数据
+    // 属性：dropEffect, effectAllowed, files, items, types
+    // 方法：clearData(), getData(), setData(), setDragImage()
+  </script>
+</body>
+
+</html>

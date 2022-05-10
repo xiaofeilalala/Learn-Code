@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>拖拽效果</title>
+  <link rel="stylesheet" href="./assets/index.css">
+</head>
+
+<body>
+  <div class="main">
+    <div class="box" draggable="true"></div>
+    <div class="place-region">请拖到此区域</div>
+  </div>
+  <script>
+    let box = document.querySelector('.box')
+    let place = document.querySelector('.place-region')
+    box.ondragstart = function (e) {
+      // effectAllowed属性设置拖动元素允许哪种效果
+      e.dataTransfer.effectAllowed = 'link'
+      // none 不允许
+      // copy 允许copy样式
+      // copylink 允许copy和link样式
+      // copyMove 允许copy和move样式
+      // link 允许link样式
+      // linkMove 允许link与move样式
+      // move 允许move样式
+      // all 允许所有样式
+      // uninitialized 未设置样式默认
+    }
+
+    // getData() 获取对象指定的拖放类型
+    place.ondrop = function (e) {
+      e.preventDefault();
+    }
+
+    place.ondragover = function (e) {
+      e.preventDefault();
+      // dropEffect 属性用来控制拖放操作中鼠标显示的样式
+      // 在dragenter或dragover事件期间修改dropEffect属性
+      e.dataTransfer.dropEffect = 'link'
+      // none 不能放置拖动元素
+      // copy 复制拖动元素到放置目标
+      // link 与目标元素建立链接
+      // move 移动拖动元素到放置目标
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>监视定位</title>
+  <script>
+    // watchPosition 监视定位当用户位置发生改变时自动调用
+    let watchID = navigator.geolocation.watchPosition(showPosition, showError, {
+      enableHighAccuracy: false,
+      timeout: 5000,
+      maximumAge: 0
+    });
+    // 停止监听
+    navigator.geolocation.clearWatch(watchID);
+    function showError() {
+      console.log('定位失败')
+    }
+
+    function showPosition(position) {
+      console.log(position.coords.latitude)
+      console.log(position.coords.longitude)
+    }
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
