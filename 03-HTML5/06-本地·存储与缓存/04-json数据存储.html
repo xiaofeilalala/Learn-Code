@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>json数据存储</title>
+  <script src="https://cdn.bootcdn.net/ajax/libs/js-cookie/2.1.0/js.cookie.js"></script>
+  <script>
+    // js-cookie可以存储复杂类型数据 array object
+    // set方法会将对象通过Json.stringify序列化转换
+    Cookies.set('lesson', ['html', 'css', 'js'])
+    Cookies.set('class', {name: 'jsx', age: 22})
+
+    // getJson方法会反序列化获得对象
+    // 2.1.0版本支持getJSON方法
+    console.log(Cookies.getJSON('lesson')); // ['html', 'css', 'js']
+   console.log(Cookies.getJSON('class')); // {name: 'jsx', age: 22}
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

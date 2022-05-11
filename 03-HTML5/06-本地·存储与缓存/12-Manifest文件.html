@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" manifest="./assets/manifest.appcache">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manifest文件</title>
+  <link rel="stylesheet" href="./assets/index.css">
+  <script>
+    // manifest件的建议的文件扩展名是.appcache
+    // CACHE MANIFEST 在此标题下列出的文件将在首次下载后进行缓存
+    // NETWORK 在此标题下列出的文件需要与服务器的连接，且不会被缓存
+    // FALLBACK 在此标题下列出的文件规定当页面无法访问时的回退页面
+    // # 注释行
+    // * 表示除 CACHE MANIFEST 外的所有其他资源/文件都需要因特网连接
+  </script>
+</head>
+
+<body>
+   <div class="box">
+     <img src="./assets/css.png" alt="">
+     <img src="./assets/css3.png" alt="">
+     <img src="./assets/html.png" alt="">
+     <img src="./assets/html5.png" alt="">
+     <img src="https://w.wallhaven.cc/full/6o/wallhaven-6ozkzl.jpg" alt="">
+   </div>
+</body>
+
+</html>

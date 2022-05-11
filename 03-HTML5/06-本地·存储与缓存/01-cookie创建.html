@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>cookie创建</title>
+  <script>
+    // cookie是服务器存储在计算机上的存文本文件 大小在4kb
+    // 用于与服务端通信，服务端通过cookie获取用户信息
+
+    // cookie以键值对形式存储 后面有多个属性通过分号隔开
+    document.cookie = 'username = jsx'
+    console.log(document.cookie)
+
+    // cookie属性 name=value设置键值对
+    // path=path 设置cookie路径
+    // domain=domain 设置域名
+    // maxAge=max-age-in-seconds 设置多少毫秒后失效
+    // expires=date-in-GMTString-format cookie过期时间
+    // secure 是否通过https传输
+    document.cookie = "username=jsx";
+    document.cookie = "username=jsx; expires=Thu, 18 Dec 2043 12:00:00 GMT";
+    document.cookie = "username=jsx; maxAge=2000000";
+    document.cookie = "username=jsx; domain=baidu.com";
+    document.cookie = "username=jsx; path=/";
+    document.cookie = "username=jsx; secure=true";
+    console.log(document.cookie)
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

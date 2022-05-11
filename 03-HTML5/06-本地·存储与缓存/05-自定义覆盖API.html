@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>自定义覆盖API</title>
+  <script src="https://cdn.bootcdn.net/ajax/libs/js-cookie/3.0.1/js.cookie.js"></script>
+  <script>
+    // withConverter方法可以覆盖默认的实现，返回一个新的 cookie 实例
+    document.cookie = 'escaped=jsx'
+    document.cookie = 'default=ljj'
+    // 自定义cookie操作
+    let cookies = Cookies.withConverter({
+      read: function (value, name) {
+        // Fall back to default for all other cookies
+        return Cookies.converter.read(value, name)
+      },
+      write: function(value, name) {
+        console.log(name === 'name'); // true
+        if(name === "name") {
+          return unescape('自定义set')
+        }
+        return Cookies.converter.write(value, name)
+      }
+    })
+    cookies.set('name', 'cookie');
+    console.log(cookies.get('escaped')) // jsx
+    console.log(cookies.get('default')) // ljj
+    console.log(cookies.get('name')) // 自定义set
+    console.log(cookies.get()) 
+    // {escaped: 'jsx', default: 'ljj', name: '自定义set'}
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>js-cookie使用</title>
+  <script src="https://cdn.bootcdn.net/ajax/libs/js-cookie/3.0.1/js.cookie.js"></script>
+  <script>
+    // 由于cookie值很难处理，通过js-cookie库来简化document.cookie的获取方法
+    // 设置cookie键值对
+    Cookies.set('name', 'jsx')
+    // 设置cookie过期时间
+    Cookies.set('title', 'cookie', { expires: 7 })
+    // 设置path路径
+    Cookies.set('gril', 'ljj', { path: '/name' })
+    // 获取cookie值
+    console.log(Cookies.get('name')) // jsx
+    // 获取所有cookie值
+    console.log(Cookies.get());
+    // {name: 'jsx', title: 'cookie'}
+
+    // 删除cookie
+    Cookies.remove('gril')
+    // 删除失败
+    console.log(Cookies.remove('gril')); // undefined
+    // 需要指定路径 路径指定错误删除失败
+    Cookies.remove('gril', { path: '' })
+    console.log(Cookies.get())
+    // {name: 'jsx', title: 'cookie'}
+
+    // 命名空间
+    let Cookies2 = Cookies.noConflict();
+    Cookies2.set('new', 'value');
+    console.log(Cookies2.get())
+    // {name: 'jsx', title: 'cookie', new: 'value'}
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

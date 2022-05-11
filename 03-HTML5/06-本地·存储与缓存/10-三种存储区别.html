@@ -1,0 +1,22 @@
+<!DOCTYPE html>`
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>三种存储的区别</title>
+  <script>
+    // 数据传递 —— cookie 在浏览器与服务器之间来回传递，webStorage 不会把数据发给服务器，仅在本地保存
+    // 作用范围 —— cookie、sessionStorage、localStorage 都遵循同源策略，sessionStorage除了协议、主机名、端口之外，还要求在同一窗口
+    // 存储 —— webStorage 拥有更大的存储量，cookie 大小限制 4kb，webStorage 达到 5M 或更大
+    // API —— webStorage 拥有setItem，getItem，removeItem，clear等api，cookie 需要自己封装
+    // 声明周期 —— localStorage 要手动清除，sessionStorage 在浏览器关闭后清除，cookie 可设置失效时间，否则默认为关闭浏览器后消失
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

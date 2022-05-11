@@ -1,0 +1,15 @@
+CACHE MANIFEST
+#2022-5-11 v1.0.0
+
+CACHE:
+  ./assets/css.png
+  ./assets/css3.png
+  ./assets/html.png
+  ./assets/html5.png
+  ./assets/index.css
+
+NETWORK:
+  *
+
+FALLBACK:
+  /12-Manifest文件.html ./assets/404.html

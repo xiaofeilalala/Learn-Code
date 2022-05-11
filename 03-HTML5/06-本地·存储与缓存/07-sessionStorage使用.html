@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>sessionStorage使用</title>
+  <script>
+    // 保存数据到 sessionStorage
+    sessionStorage.setItem('name', 'jsx')
+
+    // 从sessionStorage获取数据
+    console.log(sessionStorage.getItem('name', 'jsx')); // jsx
+
+    // 删除sessionStorage保存的数据
+    sessionStorage.removeItem('name');
+
+    sessionStorage.setItem('name1', 'jsx')
+    sessionStorage.setItem('name2', 'ljj')
+    // 从sessionStorage获取某个索引的 key 键名
+    console.log(sessionStorage.key(0)); // name1
+
+    // 从sessionStorage删除所有保存的数据
+    // sessionStorage.clear();
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

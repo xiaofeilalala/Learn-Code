@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>options参数</title>
+  <script src="https://cdn.bootcdn.net/ajax/libs/js-cookie/3.0.1/js.cookie.js"></script>
+  <script>
+    // options参数
+    // expires指定有效期 传入数字则是天数为单位
+    Cookies.set('expires', '有效期', { expires: 7})
+    // path cookie可见路径
+    Cookies.set('path', '可见路径', { path: '/index' })
+    // domain cookie可见域名
+    Cookies.set('domain', '可见域名', { domain: 'cn.bing.com' })
+    // secure 是否支持https传输
+    Cookies.set('secure', 'https', { secure: true })
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
