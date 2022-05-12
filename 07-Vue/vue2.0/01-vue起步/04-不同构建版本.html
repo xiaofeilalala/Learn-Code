@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>不同构建版本</title>
+  <script>
+    // 完整版 —— 同时包含编译器和运行时的版本
+    // 编译器 —— 用来将模板字符串编译成为JavaScript渲染函数的代码
+    // 运行时 —— 用来创建Vue实例、渲染并处理虚拟DOM等的代码
+    // UMD —— 通过<script>标签直接用在浏览器中
+    // CommonJS —— 用来配合老的打包工具
+    // ESModel —— 为打包工具与浏览器提供的ESM
+    // 让打包工具可以使用 tree-shaking
+    // 可以让浏览器通过 script标签 module 方式导入
+  </script>
+</head>
+
+<body>
+ <!-- CommonJS完整版开发环境 -->
+ <h3>https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.common.dev.js</h3>
+  <!-- CommonJS完整版 -->
+ <h3>https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.common.js</h3>
+  <!-- CommonJS完整版生产版 -->
+ <h3>https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.common.prod.js</h3>
+  <!-- CommonJS 运行时版 开发环境  -->
+ <h3>https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.runtime.common.dev.js</h3>
+  <!-- CommonJS 运行时版  -->
+ <h3>https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.runtime.common.js</h3>
+  <!-- CommonJS 运行时版 生产环境  -->
+ <h3>https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.runtime.common.prod.js</h3>
+
+
+  <!-- ES Module基于浏览器 完整版  -->
+ <h3>https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.esm.browser.js</h3>
+  <!-- ES Module基于浏览器 完整版 生产环境  -->
+ <h3>https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.esm.browser.min.js</h3>
+
+
+  <!-- ES Module基于构建工具 完整版  -->
+ <h3>https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.esm.js</h3>
+  <!-- ES Module基于构建工具 运行时版 -->
+ <h3>https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.runtime.esm.js</h3>
+
+
+  <!-- UMD 完整版 -->
+ <h3>https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js</h3>
+  <!-- UMD 完整版 生产环境 -->
+ <h3>https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js</h3>
+  <!-- UMD 运行时版 -->
+ <h3>https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.runtime.js</h3>
+  <!-- UMD 运行时版 生产环境 -->
+ <h3>https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.runtime.min.js</h3>
+</body>
+
+</html>

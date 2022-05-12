@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>指令缩写</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- v-bind指令缩写为: -->
+    <h3 :class="classname">v-bind指令缩写为</h3>
+    <!-- 相当于 -->
+    <!-- <h3 v-bind:class="classname">v-bind指令缩写为</h3> -->
+
+    <!-- v-on指令缩写为@ -->
+    <h3 @click="alertValue">v-on指令缩写为@</h3>
+    <!-- 相当于 -->
+    <!-- <h3 v-on:click="alertValue">v-on指令缩写为@</h3> -->
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: function() {
+        return {
+          classname: 'vue-bind'
+        }
+      },
+      methods: {
+        alertValue(event) {
+          console.log(event.target.innerText)
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

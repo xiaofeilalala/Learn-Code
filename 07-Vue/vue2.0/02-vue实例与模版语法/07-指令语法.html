@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>指令语法</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- v-bind用于绑定HTML元素的属性 -->
+    <!-- 可以用于响应的更新HTML元素属性与绑定 -->
+    <!-- v-bind: 冒号后面则是指令的参数 -->
+    <a v-bind:href="url">百度</a>
+    <button type="button" v-on:click="toBaidu">百度</button>
+
+    <!-- 可以使用方括号作为指令绑定动态参数 -->
+    <a v-bind:[hrefAttr]="base">360</a>
+    <!-- 动态参数值预期为字符串不能为null null则表示移除属性 -->
+    <img v-bind:[srcAttr]="imgUrl" alt="gril">
+
+    <!-- 修饰符 通过点字符. 指明的特殊后缀 -->
+    <a href="http://www.baidu.com" @click.prevent="stopTo">禁止跳转</a>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <script>
+    let vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {
+          url: 'https://www.baidu.com',
+          base: 'https://www.so.com',
+          // HTML元素属性大写会转换为小写
+          // data里的属性名需要小写
+          hrefattr: 'href',
+          imgUrl: 'https://tupian.qqw21.com/article/UploadPic/2022-5/202251219401537182.jpg',
+          srcattr: null
+        }
+      },
+      methods: {
+        toBaidu() {
+          window.location.href = 'https://www.baidu.com'
+        },
+        stopTo() {
+          console.log('禁止跳转')
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

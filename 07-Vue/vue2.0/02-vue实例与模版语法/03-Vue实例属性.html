@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>vue实例属性</title>
+
+</head>
+
+<body>
+  <div id="app"></div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <script>
+    // 通过Vue函数实例化对象
+    let vm = new Vue({
+      // options选项
+      el: '#app',
+      data: function () {
+        return {
+          title: 'Hello Vue',
+          lesson: {
+            name: 'Vue'
+          }
+        }
+      },
+      mounted() {
+        // Vue实例定义的数据对象
+        console.log(this.$data);
+
+        // Vue实例挂在的DOM元素
+        console.log(this.$el)
+
+        // Vue实例初始化options
+        console.log(this.$options)
+
+        // 父实例
+        console.log(this.$parent); // undefined 没有父实例
+
+        // 当前组件树的根Vue实例
+        console.log(this.$root)
+
+        // 当前实例的子组件
+        console.log(this.$children); // []
+        
+        // 当前Vue实例是否运行于服务器
+        console.log(this.$isServer); // false
+      }
+    })
+  </script>
+</body>
+
+</html>

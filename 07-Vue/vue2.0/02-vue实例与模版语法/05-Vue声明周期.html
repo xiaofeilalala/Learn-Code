@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue声明周期</title>
+</head>
+
+<body>
+  <div id="app">
+    <h1>{{title}}</h1>
+    <button type="button" @click="changeHeadTitle">更新数据</button>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <script>
+    let vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {
+          title: 'Hello Vue'
+        }
+      },
+      methods: {
+        changeHeadTitle() {
+          this.title = 'JSX ♥ LJJ'
+        }
+      },
+      // beforeCreate 初始化界面
+      beforeCreate() {
+        console.log('beforeCreate');
+        console.log("message:", this.title);
+        console.log("$el:", this.$el);
+        // data与$el都没初始化
+        console.log("------------------------");
+      },
+      // created 初始化界面后
+      created() {
+        console.log('created')
+        console.log("message:", this.title);
+        console.log("$el:", this.$el);
+        // data初始化完成 $el都没初始化
+        // 挂载阶段还没开始
+        console.log("------------------------");
+      },
+      // beforeMounted 渲染DOM前
+      beforeMount() {
+        console.log('beforeMounted')
+        console.log("message:", this.title);
+        console.log("$el:", this.$el);
+        // data与$el均已初始化完成, DOM为虚拟DOM未完全加载
+        console.log(document.querySelector('h1'));
+        // <h1>{{title}}</h1>
+        console.log("------------------------");
+      },
+      // mounted 渲染DOM后
+      mounted() {
+        console.log('mounted')
+        console.log("message:", this.title);
+        console.log("$el:", this.$el);
+        // data与$el均已初始化完成, 并且DOM加载完成, 完成挂载
+        console.log(document.querySelector('h1'));
+        // <h1>Hello Vue</h1>
+        console.log("------------------------");
+      },
+      // beforeUpdate 更新数据前
+      beforeUpdate() {
+        console.log('beforeUpdate')
+        console.log("message:", this.title);
+        console.log("$el:", this.$el);
+        // 在数据发生改变后，DOM 被更新之前被调用
+        console.log("------------------------");
+      },
+      // updated 更新数据后
+      updated() {
+        console.log('updated')
+        console.log("message:", this.title);
+        console.log("$el:", this.$el);
+        // 在数据更改导致的虚拟 DOM 重新渲染和更新完毕之后被调用
+        console.log("------------------------");
+      },
+      // beforeDestory 组件销毁前
+      beforeDestroy() {
+        console.log('beforeDestory')
+        console.log("message:", this.title);
+        console.log("$el:", this.$el);
+        console.log("------------------------");
+      },
+      // destoryed 组件销毁后
+      destroyed() {
+        console.log('destoryed')
+        console.log("message:", this.title);
+        console.log("$el:", this.$el);
+        console.log("------------------------");
+      },
+    })
+  </script>
+</body>
+</html>

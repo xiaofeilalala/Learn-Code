@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>实例化多个对象</title>
+  
+</head>
+
+<body>
+  <!-- 挂在vue1元素 -->
+  <div class="vue1">
+    <h1>{{title}}</h1>
+  </div>
+  
+  <!-- 挂在vue2元素 -->
+  <div class="vue2">
+    <h1>{{title}}</h1>
+    <button type="button" @click="changeVue1Value">修改vue1内容</button>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <script>
+    // 通过Vue函数实例化对象
+    let vm1 = new Vue({
+      // options选项
+      el: '.vue1',
+      data: function() {
+        return {
+          title: 'Hello Vue1'
+        }
+      }
+    })
+
+   let vm2 = new Vue({
+      // options选项
+      el: '.vue2',
+      data: function() {
+        return {
+          title: 'Hello Vue2'
+        }
+      },
+      methods: {
+        changeVue1Value() {
+          vm1.title = 'Hello JSX'
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

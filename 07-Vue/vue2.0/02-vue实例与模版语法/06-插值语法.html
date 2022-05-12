@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>插值语法</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- Mustache语法 将文本值插入到{{}}双大括号中 -->
+    <h1>{{title}}</h1>
+    <!-- Mustache标签对应data中的属性值 当绑定的数据发生改变时，插值处的内容会更新 -->
+    <button type="button" @click="changeHeadTitle">更新数据</button>
+     
+    <!-- v-html指令 插入HTML标签元素 -->
+    <div v-html="htmlValue"></div>
+    <!-- Mustache中的值会解析为普通文本 -->
+    <h3>{{htmlValue}}</h3>
+
+    <!-- v-bind绑定元素属性 -->
+    <h3 v-bind:class="attr">v-bind绑定元素属性</和>
+    <!-- 对于布尔类型属性只要值存在则为true  -->
+    <!-- false null undefined 或者则为 false -->
+    <h3 v-bind:hidden="bool">v-bind布尔类型</h3>
+
+    <!-- Mustache语法支持表达式形式的值 -->
+    <h3>{{num + 1}}</h3> 
+    <h3>{{bool ? 'Yes' : 'No'}}</h3>
+    <h3>{{arr.join(' ')}}</h3>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <script>
+    let vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {
+          title: 'Hello Vue',
+          htmlValue: '<h3>原生HTML插值</h3>',
+          attr: 'box',
+          bool: false,
+          num: 100,
+          arr: ['html', 'css', 'js']
+        }
+      },
+      methods: {
+        // 更新内容
+        changeHeadTitle() {
+          this.title = 'Hello JSX'
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
