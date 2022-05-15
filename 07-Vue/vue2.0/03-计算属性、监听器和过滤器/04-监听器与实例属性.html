@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>监听器与实例属性</title>
+</head>
+
+<body>
+  <div id="app">
+    <div>string：<input type="text" v-model="str"></div>
+    <div>function：<input type="text" v-model="func"></div>
+    <div>object：<input type="text" v-model="obj"></div>
+    <div>array：<input type="text" v-model="arr"></div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {
+          str: 'Hello Watch',
+          func: 'Hello Watch',
+          obj: 'Hello Watch',
+          arr: 'Hello Watch'
+        }
+      },
+      // 在options选项中定义watch选项
+      watch: {
+        // watch用来监听属性的变化
+        // 属性为字符串类型，值可以是字符串，函数，对象，数组
+        // 字符串类型 字符串为方法名
+        str: 'changeEvent',
+        // function类型 参数1新值 参数2旧值
+        func: function (newValue, oldValue) {
+          console.log('新的值 -->' + newValue, '旧的值 -->' + oldValue)
+        },
+        // object对象类型 options选项回调函数handler, 立即执行immediate，深度监听deep
+        obj: {
+          handler(newValue, oldValue) {
+            console.log('新的值 -->' + newValue, '旧的值 -->' + oldValue)
+          },
+          immediate: true,
+          deep: true
+        },
+        // 数组依次调用
+        arr: [
+          // 方法名
+          'changeEvent',
+          // 函数
+          function handler(newValue, oldValue) {
+            console.log('新的值 -->' + newValue, '旧的值 -->' + oldValue)
+          },
+          // 对象
+          {
+            handler(newValue, oldValue) {
+              console.log('新的值 -->' + newValue, '旧的值 -->' + oldValue)
+            }
+          }
+        ]
+      },
+      methods: {
+        // 当title属性值改变时触发
+        changeEvent() {
+          console.log(this.str)
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

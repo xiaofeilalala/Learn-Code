@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>过滤器使用</title>
+</head>
+
+<body>
+  <div id="app">
+    <h3>{{time | getTime('YYYY年MM月DD日')}}</h3>
+    <!-- 过滤器串联使用 -->
+    <!-- 将getHead氯气函数得到的值作为getMain过滤器函数的参数 -->
+    <h3>{{title | getHead | getMain}}</h3>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.2/dayjs.min.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: function() {
+        return {
+          time: 1652574881705,
+          title: '我是过滤器 嘻嘻'
+        }
+      },
+      filters: {
+        getTime(value, format) {
+          // 表达式的值为第一个参数
+          console.log(value)
+          // 第二个参数为过滤器函的自定义参数
+          return dayjs(value).format(format)
+        },
+        getHead(value) {
+          return value.slice(0, 5)
+        },
+        getMain(value) {
+          return value.slice(2, value.length)
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

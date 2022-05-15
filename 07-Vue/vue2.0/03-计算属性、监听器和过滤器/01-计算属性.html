@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+</head>
+
+<body>
+  <div id="app">
+    <input type="text" v-model="title">
+    <!-- 计算属性调用时不使用括号() -->
+    <h3>{{getTitle}}</h3>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: function() {
+        return {
+          // 计算属性响应式 当data数据改变时计算属性则会改变
+          title: 'Hello Computed'
+        }
+        // 计算属性通过computed选项定义
+      },
+      computed: {
+        // 两种定义计算属性的方式
+        // 1. {key: function} key为字符串
+        // 2. {get: function, set: function}
+          getTitle() {
+            // 初始化执行
+            console.log('computed 执行')
+            return this.title
+          }
+        }
+    })
+  </script>
+</body>
+
+</html>

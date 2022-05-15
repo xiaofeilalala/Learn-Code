@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>过滤器</title>
+</head>
+
+<body>
+  <div id="app">
+    <h3>{{getComputedTime}}</h3>
+    <h3>{{getMethodsTime()}}</h3>
+    <!-- 插值语法绑定 -->
+    <h3>{{time | getTime}}</h3>
+    <!-- v-bind指令绑定 -->
+    <h3 v-bind:id="title | myFilter">v-bind指令绑定</h3>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.2/dayjs.min.js"></script>
+  <script>
+    // 全局定义过滤器
+    Vue.filter('myFilter', function (value) {
+      return value.slice(4, value.length).toLowerCase()
+    })
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {
+          time: 1652496467882,
+          title: 'headTitle'
+        }
+      },
+      // 通过computed实现过滤器
+      computed: {
+        getComputedTime() {
+          return dayjs(this.time).format('YYYY年MM月DD日')
+        }
+      },
+      // 通过methods实现过滤器
+      methods: {
+        getMethodsTime() {
+          return dayjs(this.time).format('YYYY年MM月DD日')
+        }
+      },
+      // 通过过滤器定义
+      filters: {
+        getTime(value) {
+          // 过滤器的值作为过滤器函数的参数
+          return dayjs(value).format('YYYY年MM月DD日')
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

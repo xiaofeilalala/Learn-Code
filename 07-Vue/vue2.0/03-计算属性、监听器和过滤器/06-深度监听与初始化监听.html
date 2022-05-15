@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>深度监听与初始化监听</title>
+</head>
+
+<body>
+  <div id="app">
+    <div>
+      简单类型：<input type="text" v-model="title">
+      <h3>{{title}}</h3>
+    </div>
+    <div>对象嵌套：<input type="text" v-model="obj.lesson.name">
+      <h3>{{obj.lesson.name}}</h3>
+    </div>
+    <div>数组嵌套：<input type="text" v-model="arr[1][0]">
+      <h3>{{arr[1][0]}}</h3>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {
+          title: 'Hello Watch',
+          obj: {
+            lesson: {
+              name: 'vue'
+            }
+          },
+          arr: ['html', ['css', ['js']]]
+        }
+      },
+      watch: {
+        title: function (val, old) {
+          console.log('执行')
+        },
+        // 对象中的深层属性不能监听
+        obj: {
+          handler(val, old) {
+            console.log(val, old)
+          },
+          // 使用deep 深度监听
+          deep: true,
+          // immediate 初始化监听
+          immediate: true
+        },
+        // 注意属性必须为字符串
+        // 可以通过将对象深层属性作为watch监听属性
+        'obj.lesson.name': function (val, old) {
+          console.log(val, old)
+        },
+        arr: function (val, old) {
+          console.log(val, old)
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

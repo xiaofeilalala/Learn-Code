@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>监听器vs计算属性</title>
+</head>
+
+<body>
+  <div id="app">
+    <input type="text" v-model="getTitle">
+    <h3>{{getTitle}}</h3>
+
+    <input type="text" v-model="message">
+    <h3>{{message}}</h3>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: function() {
+        return {
+          title: 'Hello Vue',
+          message: 'Hello World'
+        }
+      },
+      // 1. computed 用于属性的计算
+      // 2. computed 属性值会缓存
+      // 3. computed 需要return返回值
+      // 4. computed 初始加载监听
+      // 5. computed 不支持异步
+      // 6. computed 产生新属性
+      // 7. computed 属性值是一函数
+      // 8. computed 一对多情况下使用
+      computed: {
+        getTitle: {
+          get() {
+            return this.title;
+          },
+          set(value) {
+            this.title = value;
+          }
+        }
+      },
+      // 1. watch 用于监听属性值得变化
+      // 2. watch 不会缓存值变化时回调
+      // 3. watch 不是必须使用return
+      // 4. watch 初始加载监听需要使用immediate属性
+      // 5. watch 支持异步
+      // 6. watch 不产生新属性
+      // 7. watch 属性值可以是字符串，对象，数组，函数
+      // 8. watch 一对多情况下使用
+      watch: {
+        message: {
+          handler(newVal, oldVal) {
+            this.message = newVal
+          },
+          deep: true,
+          immediate: true 
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

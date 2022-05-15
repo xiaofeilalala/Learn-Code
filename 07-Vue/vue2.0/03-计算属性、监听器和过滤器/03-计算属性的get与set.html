@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>计算属性的get与set</title>
+</head>
+
+<body>
+  <div id="app">
+    <div>first：<input type="text" v-model="first"></div>
+    <div>last：<input type="text" v-model="last"></div>
+    <h3>{{getValue}}</h3>
+    计算属性：<input type="text" v-model="getValue">
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: function() {
+        return {
+          first: 'hello',
+          last: 'computed'
+        }
+      },
+      // 第二种定义计算属性方式
+      // 通过get与set
+      computed: {
+        getValue: {
+          // 用于返回计算属性的值
+          get() {
+            // get与set中this指向Vue实例对象
+            return this.first + ' ' + this.last
+          },
+          // 用于设置计算属性的值
+          set(value) {
+            // set可以设置get中使用的数据
+            // 如果想直接修改计算属性的值必须通过set函数去修改
+            console.log(value)
+            // 也可以通过set方法去设置依赖项data中的数据
+            let str = value.split(' ')
+            this.first = str[0]
+            this.last = str[1]
+          }
+        }
+      },
+    })
+  </script>
+</body>
+
+</html>
