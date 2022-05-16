@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>前缀与多重值</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- vue会自动侦测添加相应的前缀 -->
+    <!-- css属性，vue会自动侦测并添加相应浏览器引擎前缀 -->
+    <h3  v-bind:style="{transform: 'translate(10px, 10px)'}">vue会自动侦测添加相应的前缀</h3>
+    <!-- 提供包含多个值的数组 -->
+    <!-- css属性值，可以通过提供一个数组，数组值包含多个带前缀的值供浏览器支持选择，浏览器只会渲染数组中最后一个被浏览器支持的值 -->
+    <h3 :style="{ display: ['-webkit-box', '-ms-flexbox', 'flex'] }">提供包含多个值的数组</h3>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: function() {
+        return {
+
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

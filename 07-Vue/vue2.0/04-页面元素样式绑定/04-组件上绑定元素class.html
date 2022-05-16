@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>在组件上绑定</title>
+  <style>
+    h3 {
+      color: #3496db;
+      cursor: pointer;
+    }
+
+    h3.active {
+      color: #4d34db;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 组件上绑定的class会添加到元素class属性内 -->
+    <my-component v-bind:class="{active: isActive}"></my-component>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <script>
+    // 组件绑定class
+    Vue.component('my-component', {
+      // 元素上自定义class不会覆盖
+      template: '<h3 class="hello">在组件上绑定</h3>'
+    })
+
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {
+          isActive: true
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

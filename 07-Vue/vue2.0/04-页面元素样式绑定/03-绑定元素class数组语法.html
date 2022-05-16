@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>绑定元素class数组语法</title>
+  <style>
+    h3 {
+      color: #3496db;
+      cursor: pointer;
+    }
+
+    h3.active {
+      color: #4d34db;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 数组语法同时绑定多个class -->
+    <h3 v-bind:class="[activeClass, hiddenClass]">绑定元素class数组语法</h3>
+    <!-- 通过三元表达式切换class列表中的class -->
+    <h3 v-bind:class="[isActive ? activeClass : '', hiddenClass]">三元表达式切换class</h3>
+    <!-- 对象语法嵌套对象语法 -->
+    <h3 v-bind:class="[{active: isActive}, hiddenClass]">对象语法嵌套对象语法</h3>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {
+          isActive: true,
+          activeClass: 'active',
+          hiddenClass: 'hidden'
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

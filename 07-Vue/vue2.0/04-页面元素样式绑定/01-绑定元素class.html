@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>绑定元素class</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 绑定字符串作为元素的class -->
+    <h3 v-bind:class="attr">绑定字符串作为元素的class</h3>
+    <!-- 绑定对象作为元素的class -->
+    <h3 v-bind:class="{active: isActive}">绑定对象作为元素的class</h3>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: function() {
+        return {
+          attr: 'box',
+          isActive: true
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

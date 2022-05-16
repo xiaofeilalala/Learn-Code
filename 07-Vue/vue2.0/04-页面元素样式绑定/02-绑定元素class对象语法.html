@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>绑定元素class对象语法</title>
+  <style>
+    h3 {
+      color: #3496db;
+      cursor: pointer;
+    }
+
+    h3.active {
+      color: #4d34db;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 元素自身定义的class与绑定的class可以同时存在 -->
+    <h3 class="headtitle" v-bind:class="{active: isActive}" v-on:click="changeColor">绑定元素class对象语法</h3>
+    <h3 v-bind:class="active">绑定元素class对象语法</h3>
+    <h3 v-bind:class="classObject">计算属性返回对象</h3>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {
+          isActive: true,
+          active: 'active'
+        }
+      },
+      methods: {
+        changeColor() {
+          // 对象语法用来动态切换class
+          this.isActive = !this.isActive
+        }
+      },
+      computed: {
+        // 通过计算属性返回一个对象
+        classObject: function () {
+          return {
+            active: !this.isActive
+          }
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
