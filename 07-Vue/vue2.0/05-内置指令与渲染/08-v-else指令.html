@@ -5,15 +5,19 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>绑定元素class</title>
+  <title>v-else指令</title>
 </head>
 
 <body>
   <div id="app">
-    <!-- 绑定字符串作为元素的class -->
-    <h3 v-bind:class="attr">绑定字符串作为元素的class</h3>
-    <!-- 绑定对象作为元素的class -->
-    <h3 v-bind:class="{active: isActive}">绑定对象作为元素的class</h3>
+    <!-- v-else指令用于表示v-if的else语句块 -->
+    <!-- 当v-if不成立时则使用v-else语句块内容 -->
+    <h3 v-if="Math.random() > 0.5">Hello Vue</h3>
+    <h3 v-else>Hello JSX</h3>
+
+    <!-- 必须在v-if与v-else-if指令后, 否则无法识别-->
+    <h3>Hello JavaScript</h3>
+    <h3 v-else>Hello Webpack</h3>
   </div>
   <script src="../vue.js"></script>
   <script>
@@ -21,8 +25,7 @@
       el: '#app',
       data: function() {
         return {
-          attr: 'box',
-          isActive: true
+          
         }
       }
     })

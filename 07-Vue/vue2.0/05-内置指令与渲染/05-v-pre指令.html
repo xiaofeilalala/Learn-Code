@@ -5,15 +5,15 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>绑定元素class</title>
+  <title>v-pre指令</title>
 </head>
 
 <body>
   <div id="app">
-    <!-- 绑定字符串作为元素的class -->
-    <h3 v-bind:class="attr">绑定字符串作为元素的class</h3>
-    <!-- 绑定对象作为元素的class -->
-    <h3 v-bind:class="{active: isActive}">绑定对象作为元素的class</h3>
+    <!-- v-pre指令跳过元素以及子元素的编译 -->
+    <h3 v-pre>{{title}}</h3>
+    <!-- 没有指令没有插值语法的节点使用会加快编译 -->
+    <h3 v-pre>我是JSX</h3>
   </div>
   <script src="../vue.js"></script>
   <script>
@@ -21,8 +21,7 @@
       el: '#app',
       data: function() {
         return {
-          attr: 'box',
-          isActive: true
+          title: 'v-pre指令'
         }
       }
     })

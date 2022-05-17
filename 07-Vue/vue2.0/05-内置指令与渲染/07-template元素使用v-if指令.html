@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>template元素使用v-if指令</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 当需要切换多个元素使用时 -->
+    <!-- 1. 在元素外嵌套一个元素用来条件渲染 -->
+    <div v-if="true">
+      <h3>html</h3>
+      <h3>css</h3>
+      <h3>js</h3>
+    </div>
+
+    <!-- 2. 通过template元素包裹，该元素在页面渲染中不会显示 -->
+    <template v-if="true">
+      <h3>vue</h3>
+      <h3>webpack</h3>
+      <h3>node</h3>
+    </template>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {
+
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

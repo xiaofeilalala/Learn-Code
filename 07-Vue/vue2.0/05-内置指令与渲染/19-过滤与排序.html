@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>过滤与排序</title>
+  <style>
+    label {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    input {
+      border: 1px solid #a7a7a7;
+      font-size: 20px;
+      outline: 0;
+      padding: 5px;
+    }
+
+    button {
+      background-color: #6380f9;
+      border: 1px solid #6380f9;
+      font-size: 18px;
+      outline: 0;
+      padding: 5px 12px;
+      color: #fff;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <label for="">学习课程</label>
+    <input type="text" name="keyword" v-model="keyword">
+    <button type="button" @click="sortType = 1">升序</button>
+    <button type="button" @click="sortType = 2">降序</button>
+    <button type="button" @click="sortType = 0">原顺序</button>
+    <ul>
+      <!-- <li v-for="list in selectStudy">
+        <h3>{{list.lesson}} ---- 价格：{{list.money}}元</h3>
+      </li> -->
+      <li v-for="list in studyArr">
+        <h3>{{list.lesson}} ---- 价格：{{list.money}}元</h3>
+      </li>
+    </ul>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {
+          keyword: '',
+          sortType: 0, // 0原顺序，1升序，2降序
+          study: [
+            { lesson: 'html', money: 50 },
+            { lesson: 'css', money: 80 },
+            { lesson: 'javascript', money: 120 },
+            { lesson: 'vue', money: 90 }
+          ],
+          studyArr: []
+        }
+      },
+      // 使用计算属性实现过滤与排序
+      // computed: {
+      //   selectStudy() {
+      //     const newArr = this.study.filter((val) => {
+      //       return val.lesson.includes(this.keyword) === true
+      //     })
+      //     if (this.sortType) {
+      //       newArr.sort((a, b) => {
+      //         return this.sortType === 1 ? b.money - a.money : a.money - b.money
+      //       })
+      //     }
+      //     return newArr
+      //   }
+      // }
+      // 使用监听器实现过滤与排序
+      watch: {
+        keyword: {
+          immediate: true,
+          handler(val) {
+            this.studyArr = this.study.filter((val) => {
+              return val.lesson.includes(this.keyword) === true
+            })
+          }
+        },
+        sortType: {
+          immediate: true,
+          handler(val) {
+            this.studyArr = this.study.filter((val) => {
+              return val.lesson.includes(this.keyword) === true
+            })
+            if (val) {
+              this.studyArr.sort((a, b) => {
+                return val === 1 ? b.money - a.money : a.money - b.money
+              })
+            }
+            return this.studyArr
+          }
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

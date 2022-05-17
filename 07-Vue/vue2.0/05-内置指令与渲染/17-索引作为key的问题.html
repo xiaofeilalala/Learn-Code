@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>索引作为key的问题</title>
+</head>
+
+<body>
+  <div id="app">
+    <ul>
+      <!-- 数组下标index作为key时，当数组数据逆序添加删除时会造成不必要的DOM更新 -->
+      <li v-for="(list, index) of lesson" :key="index">
+        <!-- <li v-for="(list, index) of lesson" :key="list.id"> -->
+        <div>{{list.name}}-{{list.value}}</div>
+      </li>
+    </ul>
+
+    <ul>
+      <!-- 数组下标index作为key时，元素结构中有input输入类表单时会复用临时状态 -->
+      <li v-for="(list, index) of lesson" :key="index">
+        <!-- <li v-for="(list, index) of lesson" :key="list.id"> -->
+        <div>{{list.name}}-{{list.value}} <input type="text"></div>
+      </li>
+    </ul>
+    <button @click.once="addArr">添加数据</button>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {
+          title: 'Hello Vue',
+          lesson: [
+            { id: 01, name: 'html', value: 70 },
+            { id: 02, name: 'css', value: 80 },
+            { id: 03, name: 'javascript', value: 60 }
+          ]
+        }
+      },
+      methods: {
+        addArr() {
+          this.lesson.splice(0, 0, { id: 04, name: 'vue', value: 55 })
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

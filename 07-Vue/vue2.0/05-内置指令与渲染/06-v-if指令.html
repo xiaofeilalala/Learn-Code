@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>v-if指令</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- v-if根据指令内的表达式条件渲染元素内容 -->
+    <!-- 当元素值为真值时渲染，值为假值时不渲染 -->
+    <h3 v-if="true">Hello Vue Boolean值</h3>
+    <h3 v-if="1 === 1">Hello Vue 等号运算符</h3>
+    <h3>v-if渲染后，后面的元素会跟着渲染</h3>
+    <!-- 值为假值无法渲染 -->
+    <h3 v-if="1 > 2">Hello Vue</h3>
+    <h3 v-if="true ? true : false">Hello Vue 三元表达式</h3>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: function() {
+        return {
+          
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

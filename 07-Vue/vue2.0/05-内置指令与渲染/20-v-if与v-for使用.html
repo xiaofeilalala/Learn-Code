@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>v-if与v-for使用</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- v-for同一节点上优先级高于v-if -->
+    <!-- 可将v-if作为条件判断该循环那些元素 -->
+    <ul>
+      <li v-for="list in lesson" v-if="list.isShow">
+        <h3>{{list.name}}</h3>
+      </li>
+    </ul>
+
+    <!-- 通过v-if条件判断跳过v-for循环 -->
+    <ul v-if="info.length">
+      <li v-for="list in info">
+        <h3>{{list.name}}</h3>
+      </li>
+    </ul>
+    <h3 v-else>没有数据</h3>
+
+    <button type="button" @click.once="addList">添加数据</button>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: function() {
+        return {
+          lesson: [
+            {name: 'html', isShow: false},
+            {name: 'css', isShow: false},
+            {name: 'javascript', isShow: true},
+            {name: 'vue', isShow: true}
+          ],
+          info: []
+        }
+      },
+      methods: {
+        addList() {
+          this.info.splice(0, 0,  
+            {name: 'html', isShow: false},
+            {name: 'css', isShow: false},
+            {name: 'javascript', isShow: true},
+            {name: 'vue', isShow: true})
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

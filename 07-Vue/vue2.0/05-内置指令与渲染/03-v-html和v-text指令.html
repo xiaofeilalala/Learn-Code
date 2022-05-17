@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>v-html与v-text</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- v-html更新元素HTML标签 替换整个内容 -->
+    <div v-html="html">内容</div>
+    <!-- v-text更新元素文本内容 替换整个内容 -->
+    <h3 v-text="text">内容</h3>
+    <!-- mustache标签文本内容更新 替换原始占位插值的数据内容 -->
+    <h3>内容{{mustache}}</h3>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: function() {
+        return {
+          html: '<h3>Hello v-html</h3>',
+          text: 'Hello v-text',
+          mustache: 'Hello mustache'
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>v-show与v-if区别</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- v-show用于展示元素的选项 -->
+    <!-- v-show指令相当于切换元素的display属性 -->
+    <h3 v-show="showTrue">{{title}}</h3>
+    <button type="button" @click="showToggle">切换v-show</button>
+    <!-- v-if作为初始渲染条件，如果为false则不会渲染到DOM中 -->
+    <h3 v-if="ifTrue">{{title}}</h3>
+    <button type="button" @click="ifToggle">切换v-if</button>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: function() {
+        return {
+          title: 'Hello Vue',
+          showTrue: true,
+          ifTrue: true
+        }
+      },
+      methods: {
+        showToggle() {
+          this.showTrue = !this.showTrue
+        },
+        ifToggle() {
+          this.ifTrue = !this.ifTrue
+        }
+      }
+    })
+    // 1. v-if 会使用DOM渲染 v-show则是使用display属性设置
+    // 2. v-if 当为假值则不会渲染只有条件为真才渲染 v-show元素一直在DOM中只是display属性值为none
+    // 3. v-if 会触发DOM渲染开销搞 v-show适合频繁切换
+    // 4. v-if 切换中条件块内的事件监听器子组件都会被销毁重建 v-show则不会
+  </script>
+</body>
+
+</html>

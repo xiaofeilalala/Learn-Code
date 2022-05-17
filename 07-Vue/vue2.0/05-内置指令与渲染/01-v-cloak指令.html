@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>v-cloak指令</title>
+  <style>
+    [v-cloak] {
+      display: none
+    }
+  </style>
+  <!-- 在文档前面引入vue文件时，会阻塞文档加载, 此时的渲染必须等vue.js文件加载完成才渲染 -->
+  <!-- <script src="../vue.js"></script> -->
+</head>
+
+<body>
+  <div id="app" v-cloak>
+    <!-- v-clock当实例对象加载完成时移除 放置白屏以及为编译的Mustache标签出现的情况 -->
+    <h3>{{title}}</h3>
+  </div>
+  <!-- 当网络比较慢或者其它原因时如果vue.js文件在文档后引入则会显示Mustache标签 -->
+  <script src="../vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: function() {
+        return {
+          title: 'Hello Vue'
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

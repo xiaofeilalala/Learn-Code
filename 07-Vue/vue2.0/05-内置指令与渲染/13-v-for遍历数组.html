@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>v-for遍历数组</title>
+</head>
+
+<body>
+  <div id="app">
+    <ul>
+      <!-- v-for遍历数组对象 -->
+      <li v-for="(list, index) of arr" :key="list.name">
+        <!-- v-for块内元素可访问所有父级作用域属性 -->
+        <h3>{{index}} {{list.name}}-{{list.message}}</h3>
+      </li>
+      <!-- index表示数组项索引 list表示遍历的数组项 -->
+    </ul>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: function() {
+        return {
+          arr: [
+            {name: '林俊杰', message: '新地球'},
+            {name: '邓紫棋', message: '新的心跳'},
+            {name: '薛之谦', message: '丑八怪'}
+          ]
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

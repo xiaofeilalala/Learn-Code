@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>v-if与v-for使用</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- v-for接受范围值，模版会重复渲染 -->
+    <h3 v-for="i in 5">{{i}}</h3>
+
+    <!-- 使用template元素，包裹渲染元素，渲染结果不会存在template元素 -->
+    <template v-for="(list, index) in lesson">
+      <h3>{{list.name}}</h3>
+      <h3>——————————————</h3>
+    </template>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: function() {
+        return {
+          lesson: [
+            {name: 'html', isShow: false},
+            {name: 'css', isShow: false},
+            {name: 'javascript', isShow: true},
+            {name: 'vue', isShow: true}
+          ],
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

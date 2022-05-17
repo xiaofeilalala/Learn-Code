@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>v-for遍历对象</title>
+</head>
+
+<body>
+  <div id="app">
+    <ul>
+      <!-- 通过v-for遍历对象 遍历对象通过in分隔符 -->
+      <li v-for="(value, key, index) in info" :key="value">
+        <h3>{{value}}-{{key}}-{{index}}</h3>
+        <!-- value表示对象的属性值 key表示对象的属性名 index表示属性的索引 -->
+      </li>
+    </ul>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: function() {
+        return {
+          // 定义对象数据
+          info: {
+            title: 'Hello Vue',
+            author: 'Jiang Fei',
+            date: '2022-05-16'
+          }
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

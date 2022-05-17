@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>v-for里的key的作用</title>
+</head>
+
+<body>
+  <div id="app">
+    <ul>
+      <!-- key作为元素唯一标识 当列表发生改变用来重用或者重新排序元素 -->
+      <li v-for="(list, index) of lesson">
+        <!-- <li v-for="(list, index) of lesson" :key="list.name"> -->
+        <!-- key值不能使用引用类型，只能是字符串与数值类型 -->
+        <div>{{list.name}} <input type="text"></div>
+        <!-- 当不指定key时，元素会复用相同类型的元素 -->
+      </li>
+    </ul>
+    <button @click.once="addArr">添加数据</button>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {
+          title: 'Hello Vue',
+          lesson: [
+            { name: 'html', maxLength: 70 },
+            { name: 'css', maxLength: 70 },
+            { name: 'js', maxLength: 80 }
+          ]
+        }
+      },
+      methods: {
+        addArr() {
+          this.lesson.splice(2, 0, { name: 'vue', maxLength: 50 })
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

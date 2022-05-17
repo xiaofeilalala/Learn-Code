@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>组件上使用v-for</title>
+</head>
+
+<body>
+  <div id="app">
+    <template>
+      <my-component :todo="todoList"></my-component>
+    </template>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    Vue.component('my-component', {
+      // 在组件上使用v-for需要传递props, 组件上绑定的数据不会传入到组件内
+      props: ['todo'],
+      template: `<ul><li v-for="list in todo" :key="list.name">{{list.name}}</li></ul>`
+      
+    })
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {
+          todoList: [
+            { name: 'html', isShow: false },
+            { name: 'css', isShow: false },
+            { name: 'javascript', isShow: true },
+            { name: 'vue', isShow: true }
+          ]
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

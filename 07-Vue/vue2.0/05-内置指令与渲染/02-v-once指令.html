@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>v-once指令</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- v-once初始化时渲染一次，数据改变不会更新改变渲染视为静态内容跳过 -->
+    <h3 v-once>{{title}}</h3>
+    <button type="button" @click="changeName">修改内容</button>
+    <!-- 组件初始化渲染 -->
+    <my-component v-once></my-component>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    Vue.component('my-component', {
+      template: `
+      <div>
+        <ul>
+          <li v-for="(val, index) in arr" :key="val" v-once>{{val}}</li>
+        </ul>
+        <button type="button" @click="changArr">修改内容</button>
+      </div>`,
+      data() {
+        return {
+          arr: ['html', 'css', 'js']
+        }
+      },
+      methods: {
+        changArr() {
+          console.log('asd')
+          this.arr.push('vue')
+        }
+      }
+    })
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {
+          title: 'Hello Vue'
+        }
+      },
+      methods: {
+        changeName() {
+          this.title = 'Hello JSX'
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

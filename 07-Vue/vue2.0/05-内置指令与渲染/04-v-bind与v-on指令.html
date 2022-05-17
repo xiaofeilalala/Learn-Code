@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>v-bind与v-on</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- v-bind动态绑定属性、class、样式 -->
+    <a v-bind:href="link">百度</a>
+    <h3 v-bind:style="headTitleStyle" v-bind:class="headTitleClass">绑定class与style</h3>
+    
+    <!-- v-on绑定DOM事件 -->
+    <h3>{{title}}</h3>
+    <button type="button" @click="changValue">修改内容</button>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {
+          link: 'https://www.baidu.com',
+          headTitleStyle: {
+            color: '#736af7',
+            fontSize: '30px'
+          },
+          headTitleClass: ['headtitle', 'box'],
+          title: 'v-on'
+        }
+      },
+      methods: {
+        changValue() {
+          this.title = '绑定DOM事件'
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

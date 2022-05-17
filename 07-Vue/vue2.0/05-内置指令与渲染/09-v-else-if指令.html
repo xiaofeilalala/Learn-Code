@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>v-else-if指令</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- v-if用于表示v-if的 else-if 语句块 可以连续使用 -->
+    <button type="button" @click="num++">num++</button>
+    <h3 v-if="num === 0">html</h3>
+    <h3 v-else-if="num === 1">css</h3>
+    <h3 v-else-if="num === 2">javascript</h3>
+
+    <!-- <div>必须紧跟v-if或v-else-if</div> -->
+    <!-- 必须跟在v-if和v-else-if指令后 -->
+    <h3 v-else-if="num === 3">vue</h3>
+    
+    <h3 v-else>react</h3>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: function() {
+        return {
+          num: 0
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

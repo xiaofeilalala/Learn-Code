@@ -5,15 +5,15 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>绑定元素class</title>
+  <title>v-show指令</title>
 </head>
 
 <body>
   <div id="app">
-    <!-- 绑定字符串作为元素的class -->
-    <h3 v-bind:class="attr">绑定字符串作为元素的class</h3>
-    <!-- 绑定对象作为元素的class -->
-    <h3 v-bind:class="{active: isActive}">绑定对象作为元素的class</h3>
+    <!-- v-show用于展示元素的选项 -->
+    <!-- v-show指令相当于切换元素的display属性 -->
+    <h3 v-show="true">{{title}}</h3>
+    <h3 v-show="false">{{title}}</h3>
   </div>
   <script src="../vue.js"></script>
   <script>
@@ -21,8 +21,7 @@
       el: '#app',
       data: function() {
         return {
-          attr: 'box',
-          isActive: true
+          title: 'Hello Vue'
         }
       }
     })

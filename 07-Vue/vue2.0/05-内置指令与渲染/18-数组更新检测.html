@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>数组更新检测</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 对象是通过getter与setter来实现数据监测的 -->
+    <!-- Vue能检测嵌套对象的变化 -->
+    <h3>{{message.title}} {{message.info.name}}</h3>
+    <ul>
+      <li v-for="list in arr" :key="list">
+        <h3>{{list}}</h3>
+      </li>
+    </ul>
+    <div>
+      <button @click="changObj">修改对象数据</button>
+      <button @click="changeArr">修改数组数据</button>
+    </div>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {
+          message: {
+            title: 'Hello Vue',
+            info: {
+              name: 'jsx',
+              age: 22
+            }
+          },
+          arr: ['html', 'css', 'js']
+        }
+      },
+      methods: {
+        changObj() {
+          // 直接修改对象属性，Vue会检测到数据修改并更新视图
+          this.message.info = { name: 'ljj', age: 23 }
+          console.log(this.message.info)
+        },
+        changeArr() {
+          // 通过[]修改数组。Vue无法检测数组变化，数据改变但不改变视图
+          // this.arr[0] = 'vue'
+          // 必须通过push, pop, shift, unshift, splice, sort, reverse方法操作才会触发视图更新
+          this.arr.splice(this.arr.length, 0, 'Vue')
+          console.log(this.arr)
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
