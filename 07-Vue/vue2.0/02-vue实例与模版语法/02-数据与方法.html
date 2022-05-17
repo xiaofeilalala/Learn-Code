@@ -23,27 +23,36 @@
     // Object.freeze()可以冻结一个对象
     Object.freeze(obj)
     // 通过Vue函数实例化对象
-    let vm = new Vue({
+    const vm = new Vue({
       // el 用于将Vue实例挂在页面中的DOM元素 可以是HtmlElement和css选择器
-      el: '#app',
+
+
       // data声明应用内需要双向绑定的数据
       // 这些属性的值发生改变时，视图将会产生响应，即匹配更新为新的值
       // 只有当实例被创建时就已经存在于data中的属性才是响应式的
       data: function () {
         return {
           title: 'jsx',
-          lesson: obj 
+          lesson: obj
         }
       },
+      // data选项有两种形式：1. 对象形式 2. 函数形式
+      // data: {
+      //   title: 'jsx',
+      //   lesson: obj
+      // },
+
       // methods用于定义Vue实例属性方法，可以通过vm实例访问
       methods: {
         // 方法中的this为Vue实例
         changeValue() {
           this.title = 'Hello Vue',
-          this.lesson.name = 'Vue options选项'
+            this.lesson.name = 'Vue options选项'
         }
       }
     })
+    // 如果Vue实例没有el选项，可以通过vm.$mount()手动挂载
+    vm.$mount('#app')
   </script>
 </body>
 
