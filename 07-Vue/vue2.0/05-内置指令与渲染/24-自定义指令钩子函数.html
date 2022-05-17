@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>自定义指令钩子函数</title>
+</head>
+
+<body>
+  <div id="app">
+    <h3>
+      <my-component :title="title"></my-component>
+    </h3>
+    <button type="button" @click="changeTitle">修改数据</button>
+    <button type="button" @click="destroy">实例销毁</button>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    Vue.component('my-component', {
+      template: `<div>
+          <h3 v-wenben="getTitle"></h3>
+        </div>`,
+      data() {
+        return {
+        
+        }
+      },
+      props: ['title'],
+      computed: {
+        getTitle() {
+          console.log(this.title)
+          return this.title
+        }
+      }
+    })
+
+    // 自定义指令钩子函数中this都指向window
+    Vue.directive('wenben', {
+      // 指令与元素初始化绑定触发
+      bind(el, binding) {
+        console.log('bind')
+        console.log(this)
+        el.innerText = binding.value
+      },
+      // 被绑定元素插入父节点时触发
+      inserted(el, binding) {
+        console.log('inserted')
+        console.log(this)
+        el.innerText = binding.value
+      },
+      // 虚拟DOM更新时触发
+      update(el, binding) {
+        console.log('update')
+        console.log(this)
+        el.innerText = binding.value
+      },
+      // 组件以及子组件虚拟DOM全部更新完成触发
+      componentUpdated() {
+        console.log('componentUpdated')
+        console.log(this)
+      },
+      unbind() {
+        // 指令与元素解除绑定时触发
+        console.log('unbind')
+        console.log(this)
+      }
+    })
+
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {
+          title: 'hello vue'
+        }
+      },
+      methods: {
+        changeTitle() {
+          this.title = 'Hello JSX'
+        },
+        destroy() {
+          // 组件实例销毁时解除绑定指令与事件
+          this.$destroy()
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

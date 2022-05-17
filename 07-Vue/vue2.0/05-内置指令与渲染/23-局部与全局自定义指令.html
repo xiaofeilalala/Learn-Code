@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>局部与全局自定义指令</title>
+</head>
+
+<body>
+  <div id="app">
+    <h3 v-wenben="title"></h3>
+    <!-- v-texts指令是在全局定义任何地方都可使用 -->
+    <h3 v-texts="title"></h3>
+  </div>
+
+  <div id="box">
+    <!-- v-wenben指令是在vm实例定义的不能在全局使用 -->
+    <!-- <h3 v-wenben="title"></h3> -->
+    <h3 v-texts="title"></h3>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+
+    // 1. directive和directives参数可以为函数或者对象
+    // 2. 直接传入函数则表示在update和binding函数触发时会执行，其它钩子触发不会执行
+    
+    // 通过Vue.directive在全局中定义
+    Vue.directive('texts', {
+      // 指令第一次绑定元素时触发
+      bind(el, binding) {
+        el.innerText = binding.value
+      },
+      // 组件虚拟DOM更新时调用
+      update(el, binding) {
+        el.innerText = binding.value
+      }
+    })
+
+    // vue实例1
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {
+          title: 'Hello Directive'
+        }
+      },
+      directives: {
+        // 局部定义通过directives选项在options中定义
+        wenben: function(el, binding) {
+          el.innerText = binding.value
+        }
+      }
+    })
+
+    // vue实例2
+    const vm1 = new Vue({
+      el: '#box',
+      data: function() {
+        return {
+          title: 'Hello Vue'
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>什么是自定义指令</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- v-开头的指令被称为内置指令 -->
+    <h3 v-text="title"></h3>
+    <!-- Vue允许自定义指令 自定义属性在模版使用时使用小写 在directive上建议使用单引号包裹 -->
+    <h3 v-wenben:write="value"></h3>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {
+          title: 'v-text指令',
+          value: '自定义指令'
+        }
+      },
+      directives: {
+        // 该写法只在bind和update时触发
+        wenben: function(el, binding) {
+          console.log(el, binding)
+          el.innerText = binding.value
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

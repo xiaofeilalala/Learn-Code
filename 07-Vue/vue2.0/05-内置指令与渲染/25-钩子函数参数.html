@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>钩子函数参数</title>
+</head>
+
+<body>
+  <div id="app">
+    <h3 v-wenben:show.end="title + '壮壮'"></h3>
+    <button @click="changeValue">修改数据</button>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {
+          title: 'hello vue'
+        }
+      },
+      directives: {
+        wenben: {
+          bind(el, binding, vnode, oldNode) {
+            console.log(el) // 指令绑定的元素
+            console.log(binding) // 对象包含多个属性
+            console.log(vnode) // 编译生成的虚拟DOM
+            console.log(oldNode) // 上一个虚拟DOM的节点只能在update或者componentUpdate使用
+            el.innerText = binding.value
+          },
+          update(el, binding, vnode, oldNode) {
+            console.log(oldNode); // 能获取上一个虚拟DOM节点属性内容
+            el.innerText = binding.value
+          }
+        }
+      },
+      methods: {
+        changeValue() {
+          this.title = 'Hello Vue'
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
