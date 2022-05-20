@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>全局cinfig.keyCodes</title>
+</head>
+
+<body>
+  <div id="app">
+    <input type="text" @keyup.outshift="keyEvent('shift')" value="shift">
+    <!-- 多字母别名用短横线形式 -->
+    <input type="text" @keyup.make-in-china="keyEvent('meta')" value="meta">
+    <!-- 数组形式，数组中的按键码都会触发回调 -->
+    <input type="text" @keyup.go="keyEvent('d或者right')" value="d按键或者right">
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    // 可以通过全局属性来自定义按键码别名
+    Vue.config.keyCodes = {
+      outshift: 16,
+      'make-in-china': 91,
+      go: [68, 39]
+    }
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {
+
+        }
+      },
+      methods: {
+        keyEvent(val) {
+          console.log(val)
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

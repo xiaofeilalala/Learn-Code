@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>.capture修饰符</title>
+  <style>
+    .father {
+      box-sizing: border-box;
+      width: 200px;
+      height: 200px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #fff;
+      text-align: center;
+      padding-top: 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      background-color: #29df9c;
+    }
+    .son {
+      width: 100px;
+      height: 100px;
+      text-align: center;
+      line-height: 100px;
+      margin: 10px auto;
+      border-radius: 8px;
+      background-color: #7837e1;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <!-- .capture捕获模式 -->
+    <div class="father" @click.capture="funcEvent('父元素-触发')">father
+      <div class="son" @click.capture="funcEvent('子元素-触发')">capture</div>
+      <!-- 点击h3捕获从外到内先响应外层父元素事件 -->
+    </div>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {
+
+        }
+      },
+      methods: {
+        // 冒泡 - 由内向外触发
+        // 捕获 - 由外向内触发
+        funcEvent(val) {
+          console.log(val)
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

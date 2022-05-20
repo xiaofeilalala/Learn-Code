@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>.self修饰符</title>
+  <style>
+    .father {
+      box-sizing: border-box;
+      width: 200px;
+      height: 200px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #fff;
+      text-align: center;
+      padding-top: 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      background-color: #29df9c;
+    }
+    .son {
+      width: 100px;
+      height: 100px;
+      text-align: center;
+      line-height: 100px;
+      margin: 10px auto;
+      border-radius: 8px;
+      background-color: #7837e1;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <!-- .self修饰符当事件不直接作用在自身时，跳过冒泡与捕获事件 -->
+    <div class="father" @click.self="funcEvent('父元素-触发')">father
+      <div class="son" @click.self="funcEvent('子元素-触发')">son</div>
+    </div>
+    <!-- 点击子元素只触发子元素事件 可以阻止冒泡 -->
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: function() {
+        return {
+          
+        }
+      },
+      methods: {
+        funcEvent(val) {
+          console.log(val)
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

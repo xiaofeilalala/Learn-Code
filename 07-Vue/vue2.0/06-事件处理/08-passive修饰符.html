@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>.passive修饰符</title>
+  <style>
+    .father {
+      box-sizing: border-box;
+      width: 250px;
+      height: 250px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #fff;
+      text-align: center;
+      padding-top: 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      background-color: #29df9c;
+      margin: 20px 0;
+    }
+    .son {
+      width: 100px;
+      height: 100px;
+      text-align: center;
+      line-height: 100px;
+      margin: 10px auto;
+      border-radius: 8px;
+      background-color: #7837e1;
+    }
+    .link {
+      display: block;
+      width: 160px;
+      height: 160px;
+      background-color: #e6633f;
+      margin: 10px auto;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <!-- .passive修饰符表示支持默认事件，默认事件不能被阻止 -->
+    <!-- 类似于addEventListener中的passive选项 -->
+    <button type="button" @click.passive="defaultEvent">支持默认事件</button>
+
+    <!-- 修饰符可以串联使用 .prevent.self会阻止默认行为所有点击-->
+    <div class="father" @click="funcEvent('father')">father
+      <a class="link" href="https://www.baidu.com" @click.prevent.self="funcEvent('link')">百度
+        <!-- 点击的时候会先.prevent阻止默认行为，然后判断是否是.self是则执行点击事件 -->
+        <div class="son" @click="funcEvent('son')">son</div>
+      </a>
+    </div>
+
+    <!-- 阻止对该元素自身的点击不会阻止默认行为 -->
+    <div class="father" @click="funcEvent('father')">father
+      <a class="link" href="https://www.baidu.com" @click.self.prevent="funcEvent('link')">百度
+        <!-- 会先判断self，不是self不会执行click事件，就不会执行阻止默认事件与指定事件 ，所以可以跳转 -->
+        <div class="son" @click="funcEvent('son')">son</div>
+      </a>
+    </div>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: function() {
+        return {
+          
+        }
+      },
+      methods: {
+        defaultEvent(e) {
+          // passive与prevent设置在一起prevent失效表示该元素不阻止默认事件
+          e.preventDefault();
+          console.log('支持默认事件')
+        },
+        funcEvent(val) {
+          console.log(val)
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>按键码别名</title>
+  <style>
+    input {
+      display: block;
+      margin: 10px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 为了兼容旧的浏览器 vue提供了内置的按键码 -->
+    <input type="text" value="enter" @keyup.enter="keyEvent('enter')">
+    <input type="text" value="tab" @keyup.tab="keyEvent('tab')">
+    <input type="text" value="delete" @keyup.delete="keyEvent('delete')">
+    <input type="text" value="esc" @keyup.esc="keyEvent('esc')">
+    <input type="text" value="space" @keyup.space="keyEvent('space')">
+    <input type="text" value="up" @keyup.up="keyEvent('up')">
+    <input type="text" value="down" @keyup.down="keyEvent('down')">
+    <input type="text" value="left" @keyup.left="keyEvent('left')">
+    <input type="text" value="right" @keyup.right="keyEvent('right')">
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {
+
+        }
+      },
+      methods: {
+        keyEvent(message) {
+          console.log(message)
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

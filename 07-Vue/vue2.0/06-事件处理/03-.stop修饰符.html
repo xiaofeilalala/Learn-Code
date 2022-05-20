@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>.stop修饰符</title>
+  <style>
+    .father {
+      box-sizing: border-box;
+      width: 200px;
+      height: 200px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #fff;
+      text-align: center;
+      padding-top: 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      background-color: #29df9c;
+    }
+    .son {
+      width: 100px;
+      height: 100px;
+      text-align: center;
+      line-height: 100px;
+      margin: 10px auto;
+      border-radius: 8px;
+      background-color: #7837e1;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <!-- .stop修饰符用于阻止冒泡行为 -->
+    <div class="father" @click="funcEvent('父元素-触发')">father
+      <div class="son" @click.stop="funcEvent('子元素-触发')">stop</div>
+      <!-- 点击h3触发冒泡父元素也会触发事件 -->
+      <!-- 设置.stop阻止冒泡 -->
+    </div>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: function() {
+        return {
+          
+        }
+      },
+      methods: {
+        funcEvent(val) {
+          console.log(val)
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

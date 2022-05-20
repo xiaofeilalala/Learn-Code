@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>按键码</title>
+</head>
+
+<body>
+  <div id="app">
+    <input type="text" @keyup="keyEvent" v-model="title">
+    <!-- 将按键名作为按键修饰符 -->
+    <input type="text" @keyup.page-down="keyName" value="按PageDown触发">
+    <!-- 将按键码作为按键修饰符 -->
+    <input type="text" @keyup.68="keyCode" value="按D触发">
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {
+          title: '获取按键名和按键码'
+        }
+      },
+      methods: {
+        keyEvent(e) {
+          // 1. 通过键盘事件对象key的属性获取按键名
+          // 2. 通过keyCode获取按键码 该属性已被废弃不建议使用
+          console.log('按键名 -' + e.key)
+          console.log('按键码 -' + e.keyCode)
+        },
+        keyName() {
+          console.log('按键名-触发')
+        },
+        keyCode() {
+          console.log('按键码-触发')
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

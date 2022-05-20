@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>.prevent修饰符</title>
+  <style>
+    form {
+      margin: 10px 0
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 超链接阻止默认跳转 -->
+    <a href="https://www.baidu.com" @click.prevent>百度</a>
+
+    <!-- 阻止表单默认提交事件 -->
+    <form action="">
+      <input type="submit" value="submit提交" @click.prevent>
+    </form>
+
+    <!-- .passive与.prevent一起使用 .prevent会失效 -->
+    <button type="button" @click.passive="funcEvent">不阻止默认事件</button>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: function() {
+        return {
+          
+        }
+      },
+      methods: {
+        funcEvent(e) {
+          e.preventDefault();
+          console.log('不阻止默认事件')
+          // Unable to preventDefault inside passive event listener invocation.
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

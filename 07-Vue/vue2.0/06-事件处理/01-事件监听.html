@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>事件监听</title>
+</head>
+
+<body>
+  <div id="app">
+     <h3>{{title}}</h3>
+     <!-- 可以通过v-on:或者@绑定事件监听 -->
+     <button type="button" v-on:click="changeValue">修改内容</button>
+     <!-- <button type="button" @click="changeValue"></button> -->
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: function() {
+        return {
+          title: 'hello vue'
+        }
+      },
+      methods: {
+        // 在methods选项中定义事件触发的回调函数
+        changeValue() {
+          // 不要使用箭头函数箭头函数会改变this
+          console.log(this); // this指向实例
+          console.log(vm === this); // true
+          this.title = 'Hello JSX'
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

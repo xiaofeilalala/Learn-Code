@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>系统修饰符</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 系统修饰符ctrl alt shift meta -->
+    <!-- 在window上meta时windows按键 在Mac上是command按键 -->
+    <!-- 按住alt键再释放其它键才会触发-->
+    <input type="text" @keyup.alt.67="clearInput" v-model="value">
+
+    <!-- 修饰键配合keyup事件时，事件触发时修饰键必须处于按下状态 -->
+    <!-- 1. keyup 修饰键必须按下再释放其它键时触发 -->
+    <input type="text" @keyup.ctrl="keyChangeValue" v-model="message">
+
+    <!-- 2. keydown 修饰键按下正常触发事件 -->
+    <input type="text" @keydown.ctrl="keyChangeValue" v-model="info">
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {
+          value: 'alt + c 清除内容',
+          message: 'keyup 按下修饰键再释放其它键',
+          info: 'keydown 修饰键按下正常触发事件'
+        }
+      },
+      methods: {
+        clearInput() {
+          this.value = ''
+        },
+        keyChangeValue(e) {
+          console.log(e.key);
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

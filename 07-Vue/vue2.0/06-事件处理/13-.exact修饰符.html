@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>.exact修饰符</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 即使 Alt 或 Shift 被一同按下时也会触发 -->
+    <button @click.ctrl="onClick">按下ctrl触发</button>
+
+    <!-- 有且只有 Ctrl 被按下的时候才触发 -->
+    <button v-on:click.ctrl.exact="onCtrlClick">只有ctrl按下触发</button>
+
+    <!-- 没有任何系统修饰符被按下的时候才触发 -->
+    <button v-on:click.exact="onClick">没有系统修饰符按下触发</button>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {
+
+        }
+      },
+      methods: {
+        onClick() {
+          console.log('onClick触发')
+        },
+        onCtrlClick() {
+          console.log('onCtrlClick触发')
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

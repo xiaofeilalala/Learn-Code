@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>事件处理方法</title>
+</head>
+
+<body>
+  <div id="app">
+    <h3>{{title}}</h3>
+    <!-- 不带参数默认传入event -->
+    <button type="button" @click="changeValue">changeValue</button>
+
+    <!-- 加括号传入无论是否传参 event对象无法接收 -->
+    <button type="button" @click="changeTitle('Hello JavaScript')">changeTitle</button>
+
+    <!-- 需要实参需要event对象，手动传入event -->
+    <button type="button" @click="changeMessage($event, 'Hello Ljj')">changeTitle</button>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {
+          title: 'Hello Vue'
+        }
+      },
+      methods: {
+        changeValue() {
+          this.title = 'Hello JSX'
+        },
+        changeTitle(message) {
+          this.title = message
+        },
+        changeMessage(event, val) {
+          console.log(event); // 此时参数为DOM事件对象
+          this.title = val
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
