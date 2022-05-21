@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>复选框双向绑定</title>
+</head>
+
+<body>
+  <div id="app">
+     <!-- 复选框双向绑定通过:checked属性以及@change事件修改属性值 -->
+     <!-- 单个复选框绑定布尔类型值 -->
+     <input type="checkbox" v-model="checked">
+     <h3>{{checked}}</h3>
+
+     <!-- 多行复选框绑定数组类型值 -->
+     <label for="">篮球</label>
+     <input type="checkbox" v-model="checkboxArr" value="篮球">
+
+     <label for="">音乐</label>
+     <input type="checkbox" v-model="checkboxArr" value="音乐">
+
+     <label for="">游戏</label>
+     <input type="checkbox" v-model="checkboxArr" value="游戏">
+     <!-- 不提供value或者绑定数据不是数组则表示绑定的是checked属性 -->
+     <!-- 提供value则表示绑定的是复选框的value属性 -->
+     <h3>{{checkboxArr}}</h3>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: function() {
+        return {
+          checked: false,
+          checkboxArr: [],
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

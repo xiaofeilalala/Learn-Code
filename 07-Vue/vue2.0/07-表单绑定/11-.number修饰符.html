@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>.number修饰符</title>
+</head>
+
+<body>
+  <div id="app">
+     <!-- 输入类input，输入后的内容都是string字符串类型 -->
+     <!-- .number 用于将输入的值转为数字类型 -->
+     <input type="text" v-model="stringInput" placeholder="输入的数字为字符串">
+     <h3>数据类型 {{typeof stringInput}}</h3>
+
+     <input type="text" v-model.number="numberInput" placeholder="只能输入数字">
+     <h3>数据类型 {{typeof numberInput}}</h3>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: function() {
+        return {
+          stringInput: 'hello vue',
+          numberInput: 100
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>单选按钮值绑定</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 通过:value动态绑定单选按钮选中后的value值 -->
+    <label for="">男</label>
+    <input type="radio" :value="value1" name="person" v-model="radioValue">
+
+    <label for="">女</label>
+    <input type="radio" :value="value2" name="person" v-model="radioValue">
+
+    <h3>{{radioValue}}</h3>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {
+          radioValue: '男生',
+          value1: '男生',
+          value2: '女生'
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

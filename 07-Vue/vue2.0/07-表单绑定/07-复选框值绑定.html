@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>复选框值绑定</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 单个复选框通过 true-value与false-value设置选中未选中的值 -->
+    <input type="checkbox" v-model="checkboxValue" :true-value="checkboxValue1" :false-value="checkboxValue2">
+    <h3>{{checkboxValue}}</h3>
+
+    <!-- 多个复选框值绑定 -->
+    <template v-for="list in checkboxArr">
+      <label for="">{{list}}</label>
+      <input type="checkbox" v-model="checkboxed" :value="list">
+    </template>
+    <h3>{{checkboxed}}</h3>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {
+          checkboxValue: 'hello Vue',
+          checkboxValue1: 'hello Vue',
+          checkboxValue2: 'Hello React',
+          checkboxed: [],
+          checkboxArr: ['篮球', '乒乓球', '羽毛球', '台球']
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

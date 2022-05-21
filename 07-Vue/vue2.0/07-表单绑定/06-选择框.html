@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>选择框双向绑定</title>
+</head>
+
+<body>
+  <div id="app">
+     <!-- 选择框是通过绑定select元素的value属性触发 @change事件来实现双向绑定的 -->
+     <!-- select绑定的value与option选择中的value匹配来选中 -->
+
+     <!-- 单选框绑定一个值 -->
+     <select v-model="mySelect">
+      <option disabled value="">请选择</option>
+       <option value="游戏">游戏</option>
+       <option value="音乐">音乐</option>
+       <option value="篮球">篮球</option>
+     </select>
+     <h3>{{mySelect}}</h3>
+
+     <!-- 多选框绑定一个数组 -->
+     <select v-model="mySelectArr" multiple>
+      <option disabled value="">请选择</option>
+       <option value="游戏">游戏</option>
+       <option value="音乐">音乐</option>
+       <option value="篮球">篮球</option>
+     </select>
+     <h3>{{mySelectArr}}</h3>
+
+     <!-- 动态绑定option元素的value属性 -->
+     <select v-model="mySelected">
+       <option v-for="list in mySelectBind" :value="list.value">{{list.text}}</option>
+     </select>
+     <h3>{{mySelected}}</h3>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: function() {
+        return {
+          mySelect: '',
+          mySelectArr: [],
+          mySelected: '',
+          mySelectBind: [
+            {text: '请选择', value: ''},
+            {text: 'html', value: 'html'},
+            {text: 'css', value: 'css'},
+            {text: 'js', value: 'js'}
+          ]
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

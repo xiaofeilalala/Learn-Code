@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>.lazy修饰符</title>
+</head>
+
+<body>
+  <div id="app">
+     <!-- .lazy修饰符 v-model使用着input事件触发，设置后改为change触发 -->
+     <!-- 输入框使用的是input事件，当数据修改时则执行 -->
+     <input type="text" v-model="inputValue">
+     <h3>{{inputValue}}</h3>
+
+     <!-- .change事件当元素获取焦点失去焦点时触发 -->
+     <input type="text" v-model.lazy="lazyValue">
+     <h3>{{lazyValue}}</h3>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: function() {
+        return {
+          inputValue: 'Hello vue',
+          lazyValue: 'Hello lazy'
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

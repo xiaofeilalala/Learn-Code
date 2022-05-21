@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+</head>
+
+<body>
+  <div id="app">
+     <!-- 动态绑定option的value值，作为select选中时的value属性值 -->
+     <select name="my-select" v-model="selecValue">
+      <option :value="list.value" v-for="list in options">{{list.name}}</option>
+     </select>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: function() {
+        return {
+          selecValue: '',
+          options: [
+            {name: '请选择', value: ''},
+            {name: 'html', value: 'html'},
+            {name: 'css', value: 'css'},
+            {name: 'javascript', value: 'javascript'}
+          ]
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

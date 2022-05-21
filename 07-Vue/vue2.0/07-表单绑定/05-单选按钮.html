@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>单选按钮双向绑定</title>
+</head>
+
+<body>
+  <div id="app">
+     <!-- 单选按钮通过绑定:checked属性 @change事件来获取单选按钮的value属性 -->
+     <label for="">Hello Vue</label>
+     <input type="radio" v-model="radioValue" value="vue">
+
+     <label for="">Hello React</label>
+     <input type="radio" v-model="radioValue" value="react">
+
+     <h3>{{radioValue}}</h3>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: function() {
+        return {
+          radioValue: 'vue'
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>多行文本</title>
+</head>
+
+<body>
+  <div id="app">
+     <!-- 多行文本textarea通过:value绑定属性 @input触发事件修改属性值 -->
+     <textarea v-model="textareaValue"></textarea>
+     <!-- <textarea v-model="textareaValue">{{textareaValue}}</textarea> -->
+     <!-- 文本区域插值不会生效必须使用v-model来代替 -->
+     <h3>{{textareaValue}}</h3>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: function() {
+        return {
+          textareaValue: 'Hello Vue'
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

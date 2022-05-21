@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>文本双向绑定</title>
+</head>
+
+<body>
+  <div id="app">
+     <!-- 文本框通过:value绑定属性 @input触发事件修改属性值 -->
+     <input type="text" v-model="inputValue">
+     <h3>{{inputValue}}</h3>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: function() {
+        return {
+          inputValue: '文本双向绑定'
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
