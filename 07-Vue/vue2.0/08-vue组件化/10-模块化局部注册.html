@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>模块化局部注册</title>
+</head>
+
+<body>
+  <div id="app">
+
+  </div>
+  <script src="../vue.js"></script>
+  <script type="module">
+    // 模块化局部注册
+    // 在vue模块化下 使用es6 Module 通过important引入组件
+    import ComponentA from './ComponentA.vue'
+
+    // 在配置当前组件的components
+    export default {
+      components: {
+        ComponentA,
+      }
+    }
+
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {}
+      }
+    })
+  </script>
+</body>
+
+</html>

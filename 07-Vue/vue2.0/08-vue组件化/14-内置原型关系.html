@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>内置原型关系</title>
+</head>
+
+<body>
+  <div id="app">
+    <component-a></component-a>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    let componentA = Vue.extend({
+      template: '<h1>{{message}}</h1>',
+      data() {
+        return {
+          message: 'Hello Vue'
+        }
+      }
+    })
+
+    let component = new componentA()
+
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {}
+      },
+      components: {
+        componentA
+      }
+    })
+
+    console.log(Vue)
+    console.log(componentA)
+    console.log(vm)
+    console.log(component)
+    // Vue构造函数的prototype 指向实例对象的原型
+    console.log(Vue.prototype === vm.__proto__) // true
+    // Vuecomponent构造函数的prototype 指向实例对象的原型
+    console.log(componentA.prototype === component.__proto__) // true
+    // Vue实例对象的原型的原型指向Object
+    console.log(vm.__proto__.__proto__ === Object.prototype) // true
+    // Vuecomponent实例原型的原型指向Vue实例对象的原型对象
+    console.log(component.__proto__.__proto__ === Object.prototype); // false
+    console.log(component.__proto__.__proto__ === vm.__proto__); // true
+    // null
+    console.log(vm.__proto__.__proto__.__proto__); // null
+    console.log(component.__proto__.__proto__.__proto__.__proto__); // null
+  </script>
+</body>
+
+</html>

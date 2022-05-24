@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>template标签定义</title>
+</head>
+
+<body>
+  <div id="app">
+    <title-head></title-head>
+  </div>
+  <!-- 通过template标签定义模版 template指定引入模版 -->
+  <!-- 必须在实例挂载的元素外 -->
+  <template id="title-head">
+    <h3>{{title}}</h3>
+  </template>
+  <script src="../vue.js"></script>
+  <script>
+    let titleHead = Vue.extend({
+      // template通过id属性引用模版
+      template: '#title-head',
+      data() {
+        return {
+          title: 'Hello Vue'
+        }
+      }
+    })
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return { }
+      },
+      components: {
+        titleHead
+      }
+    })
+  </script>
+</body>
+
+</html>

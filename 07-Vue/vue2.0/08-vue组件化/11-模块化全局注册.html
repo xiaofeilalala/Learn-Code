@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>模块化全局组件</title>
+</head>
+
+<body>
+  <div id="app">
+
+  </div>
+  <script src="../vue.js"></script>
+  <script type="module">
+    // 在模块化下全局注册组件必须在 new Vue之前注册
+    // 通过入口文件main.js中设置全局引入的组件
+    import Vue from 'vue'
+    import ComponentA from './ComponentA.vue'
+    Vue.component('ComponentA')
+
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {}
+      }
+    })
+  </script>
+</body>
+
+</html>

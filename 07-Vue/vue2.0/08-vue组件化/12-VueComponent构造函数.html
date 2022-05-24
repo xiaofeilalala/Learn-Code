@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vuecomponent构造函数</title>
+</head>
+
+<body>
+  <div id="app">
+    <component-b></component-b>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    // 组件通过Vue.extend创建，返回一个组件构造函数Vuecomponent
+    let componentA = Vue.extend({
+      template: '<h1>{{message}}</h1>',
+      data() {
+        return {
+          message: 'Hello Vue'
+        }
+      }
+    })
+    console.log(componentA)
+    // ƒ VueComponent(options) {
+    //   this._init(options);
+    // }
+
+    // 每次调用Vue.extend创建组件 其构造函数都不相同
+    let componentB = Vue.extend({
+      template:
+        `
+      <div>
+        <h3>{{message}}</h3>
+        <button @click="getThis">this指向</button>
+      </div>
+      `,
+      data() {
+        return {
+          message: 'Hello Vue'
+        }
+      },
+      methods: {
+        getThis() {
+          console.log(this)
+          // 指向VueComponent实例对象
+          // VueComponent {_uid: 1, _isVue: true, $options: {…}, _renderProxy: Proxy, _self: VueComponent, …}
+        }
+      }
+    })
+    console.log(componentB)
+    console.log(componentA === componentB); // false
+    console.log(new componentA() === new componentB()); // false
+
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {}
+      },
+      components: {
+        componentB
+      }
+    })
+    console.log(vm); // vue实例对象
+  </script>
+</body>
+
+</html>

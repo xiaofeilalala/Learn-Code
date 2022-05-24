@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>局部注册</title>
+</head>
+
+<body>
+  <div id="app">
+    <component-a></component-a>
+    <component-b></component-b>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    let componentB = Vue.extend({
+      name: 'ComponentB',
+      template: `<h3>{{message}}</h3>`,
+      data() {
+        return {
+          message: 'hello componentB'
+        }
+      }
+    })
+
+    let componentA = Vue.extend({
+      name: 'ComponentA',
+      // 局部注册的组件只能在当前注册的组件中使用
+      // 要在其它组件使用需要通过components选项引入组件
+      template:
+        `<div>
+        <h3>{{message}}</h3>
+        <component-b></component-b>
+      </div>`,
+      data() {
+        return {
+          message: 'hello componentA'
+        }
+      },
+      components: {
+        componentB
+      }
+    })
+
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {}
+      },
+      // 局部注册通过components选项
+      components: {
+        ComponentA: componentA,
+        'component-b': componentB
+      }
+    })
+  </script>
+</body>
+
+</html>

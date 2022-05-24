@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>template选项</title>
+</head>
+
+<body>
+  <div id="app">
+    <h3>Hello World</h3>
+    <head-title></head-title>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    let headTitle = Vue.extend({
+      // template 组件模版
+      // template选项只能有一个根元素  多个根元素会报错
+      // 可以在template中使用data methods computed等定义的数据
+      template: '<h3>{{title}}</h3><p>Hello jsx</p>',
+      data() {
+        return {
+          title: 'Hello extend'
+        }
+      }
+    })
+    const vm = new Vue({
+      // el提供实例挂在的元素目标 可以是选择器或者元素对象
+      el: '#app',
+      // Vue实例中有template属性会替换掉Vue实例绑定的元素 挂载元素的内容都将被忽略
+      // template: '<h3>{{title}}</h3>',
+      data: function () {
+        return {
+          title: 'hello vue'
+        }
+      },
+      components: {
+        headTitle
+      }
+    })
+  </script>
+</body>
+
+</html>

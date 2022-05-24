@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>全局注册</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 全局注册的组件可以在任何组件中使用 -->
+    <component-a></component-a>
+    <component-b></component-b>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    // 全局注册通过Vue.component()
+    // 第一个参数是组件名name，第二个参数组件构造器
+    Vue.component('component-a', Vue.extend({
+      name: 'ComponentA',
+      // 全局注册的组件可以在任何组件中直接使用
+      template: 
+      `<div>
+        <h3>{{message}}</h3>
+        <component-b></component-b>
+      </div>`,
+      data() {
+        return {
+          message: 'hello componentA'
+        }
+      }
+    }))
+
+    // 第二个参数是一个对象选项，默认会调用Vue.extend方法
+    Vue.component('component-b', Vue.extend({
+      name: 'ComponentB',
+      template: `<h3>{{message}}</h3>`,
+      data() {
+        return {
+          message: 'hello componentB'
+        }
+      }
+    }))
+
+    // 传入组件名 获取注册的组件返回构造器
+    let componentA = Vue.component('component-a')
+    console.dir(componentA)
+
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {}
+      }
+    })
+  </script>
+</body>
+
+</html>

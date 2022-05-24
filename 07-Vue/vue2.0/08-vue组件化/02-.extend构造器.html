@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>.extend构造器</title>
+</head>
+
+<body>
+  <div id="app">
+    <head-title></head-title>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    // Vue.extend组件构造器 —— 用于创建子组件，可传入与实例相同的options选项，除了el外
+    // 创建组件Vue.extend是一个VueComponent组件构造函数， title则为组件实例
+    // let headTitle = Vue.extend({
+    //   // template 组件模版
+    //   template: '<h3>{{title}}</h3>',
+    //   data() {
+    //     return {
+    //       title: 'Hello extend'
+    //     }
+    //   }
+    // })
+
+    // 可以省略Vue.extend 当注册组件时传入对象component会自动调用 Vue.extend
+    let headTitle = {
+      // template 组件模版
+      template: '<h3>{{title}}</h3>',
+      data() {
+        return {
+          title: 'Hello extend'
+        }
+      }
+    }
+
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {
+          
+        }
+      },
+      // components 局部注册组件
+      components: {
+        headTitle
+      }
+    })
+  </script>
+</body>
+
+</html>
