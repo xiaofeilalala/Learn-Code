@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>禁止组件根元素继承</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 禁止根元素继承非prop属性设置 inheritAttrs: false -->
+    <component-a :title="'Hello Vue'"></component-a>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    Vue.component('component-a', {
+      // div不会继承title属性
+      template: `
+      <div class="box">
+        <h3>Hello Vue</h3>
+      </div>`,
+      inheritAttrs: false
+    })
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {}
+      }
+    })
+  </script>
+</body>
+
+</html>

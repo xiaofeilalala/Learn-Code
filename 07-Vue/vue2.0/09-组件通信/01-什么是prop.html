@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>什么是props</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- prop就是在组件上的属性称为prop prop会传递到组件内部 -->
+    <component-a message="Hello Vue"></component-a>
+    <!-- prop可以是任何类型 prop不限制数量 -->
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    // 创建组件
+    let componentA = {
+      name: 'ComponentA',
+      // 传入的prop可以直接使用
+      template: `<h3>{{message}}</h3>`,
+      props: ['message']
+    }
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {}
+      },
+      // 注册组件
+      components: {
+        componentA
+      }
+    })
+  </script>
+</body>
+
+</html>

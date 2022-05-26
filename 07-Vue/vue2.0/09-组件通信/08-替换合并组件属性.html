@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>替换合并组件属性</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 外部传入的属性会替换组件内部属性 -->
+    <component-a :title="'Hello JSX'"></component-a>
+    <!-- 外部传入的class与style会与组件内部的合并 -->
+   <component-a :class="'main'" :style="'font-size: 20px'"></component-a>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    Vue.component('component-a', {
+      template: `
+      <div class="box" title="Hello Vue" style="color: #ff0000">
+        <h3>Hello Vue</h3>
+      </div>`
+    })
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {}
+      }
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>$attrs</title>
+</head>
+
+<body>
+  <div id="app">
+    <component-a :title="message"></component-a>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    let componentB = {
+      // $attrs手动决定这些属性会被赋予哪个元素
+      template: `
+      <div class="component-b">
+        <h3>componentB</h3>
+        <h3>{{title}}</h3>  
+      </div>
+      `,
+      props: {
+        title: {
+          type: String,
+          default: 'Hello Vue'
+        }
+      }
+    }
+
+    // $attrs可以配合inheritAttrs:false属性向内部组件传递数据
+    let componentA = {
+      template: `
+      <div class="component-a">
+        <h3>componentA</h3>  
+        <component-b v-bind="$attrs"></component-b>
+      </div>
+      `,
+      components: {
+        componentB
+      },
+      inheritAttrs: false
+    }
+
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {
+          message: 'Hello JSX'
+        }
+      },
+      components: {
+        componentA
+      }
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>prop验证</title>
+</head>
+
+<body>
+  <div id="app">
+    <component-a :prop-g="user"></component-a>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    // 组件可以prop指定验证
+    // type prop类型验证 prop可以是String Number Boolean Array Object Function Date Function Symbol 自定义构造函数
+    // default 指定默认值
+    // required 是否必填
+    // validator 自定义验证
+    function User(name, age) {
+      this.name = name;
+      this.age = age;
+    }
+    // 自定义构造函数验证通过instanceof来验证
+    // 验证传入的prop值是否是通过构造函数 new创建的
+    let user = new User('jsx', 22)
+    console.log(user);
+
+    Vue.component('component-a', {
+      template: `<h3>{{propG}}</h3>`,
+      props: {
+        // 基础类型
+        propA: Number,
+        // 数据类型多个值
+        propB: [String, Number],
+        // required必填
+        propC: {
+          type: Number,
+          required: false
+        },
+        // 默认值
+        propD: {
+          type: String,
+          default: '默认值'
+        },
+        // 默认值对象
+        propE: {
+          type: Object,
+          default: function() {
+            return {
+              message: 'Hello Vue'
+            }
+          }
+        },
+        // 自定义验证函数
+        // 自定义验证函数验证prop错误 则会控制台抛出异常
+        propF: {
+          type: Number,
+          validator: function(val) {
+            // validator结果为false则报错
+            return val === 100
+            // 传入的prop值必须为100的数字
+          } 
+        },
+        // 自定义构造函数用于类型验证
+        propG: {
+          type: User
+        }
+      }
+    })
+
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return { 
+          user: user
+        } 
+      }
+    })
+  </script>
+</body>
+
+</html>

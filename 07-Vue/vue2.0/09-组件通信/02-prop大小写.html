@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>prop大小写</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 在html中需要使用短横线分隔形式 -->
+    <!-- <conponent-a headTitle="Hello Vue"></conponent-a> -->
+    <component-a head-title="Hello Vue"></component-a>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    // html中大小写不敏感所有大写都会转为小写
+    // 驼峰命名的prop在html中需要短横线分隔形式命名
+    let componentA = {
+      template: `<h3>{{headTitle}}</h3>`,
+      props: ['headTitle']
+    }
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {}
+      },
+      components: {
+        componentA
+      }
+    })
+  </script>
+</body>
+
+</html>

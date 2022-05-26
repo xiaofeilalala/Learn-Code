@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>动态与静态prop</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 组件静态prop prop是给定的不能修改的值 -->
+    <component-a
+      :str="'hello vue'"
+      :num="100"
+      :bool="true"
+      :arr="['html', 'css', 'js']"
+      :obj="{ name: 'jsx' }"
+      v-bind="{study: '50%'}">
+    </component-a>
+    
+    <!-- 组件动态prop 通过传入设置的数据动态赋值 -->
+    <component-a
+      :str="dataStr"
+      :num="dataNum"
+      :bool="dataBool"
+      :arr="dataArr"
+      :obj="dataObj"
+      v-bind="lessonObj">
+    </component-a>
+    <!-- 将一个对象的所有属性都作为 prop 传入使用不带参数的 v-bind -->
+  </div>
+
+  <template id="box">
+    <div>
+      <h3>{{str}}</h3>
+      <h3>{{num}}</h3>
+      <h3>{{bool}}</h3>
+      <h3 v-for="list of arr">{{list}}</h3>
+      <h3>{{obj.name}}</h3>
+      <h3>{{study}}</h3>
+    </div>
+  </template>
+  <script src="../vue.js"></script>
+  <script>
+    let componentA = {
+      template: '#box',
+      data() {
+        return {}
+      },
+      props: {
+        str: String,
+        num: Number,
+        bool: Boolean,
+        arr: Array,
+        obj: Object,
+        study: String
+      }
+    }
+
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {
+          dataStr: 'string',
+          dataNum: 520,
+          dataBool: true,
+          dataArr: ['html', 'css', 'js'],
+          dataObj: {
+            name: 'jsx'
+          },
+          lessonObj: {
+            name: 'vue',
+            study: '50%'
+          }
+        }
+      },
+      components: {
+        componentA
+      }
+    })
+  </script>
+</body>
+
+</html>

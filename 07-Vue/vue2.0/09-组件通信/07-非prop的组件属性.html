@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>非prop的组件属性</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 非prop的属性 —— 组件上的属性没有相应的prop定义 -->
+    <component-a :title="'Hello Vue'"></component-a>
+    <!-- 会将这些属性添加到组件的根元素上 -->
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    Vue.component('component-a', {
+      template: `<div class="box">
+          <h3>Hello Vue</h3>
+        </div>`
+    })
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {}
+      }
+    })
+  </script>
+</body>
+
+</html>

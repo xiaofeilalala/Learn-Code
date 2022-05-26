@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>单向数据流</title>
+</head>
+
+<body>
+  <div id="app">
+    <button @click="changeTitle">修改title</button>
+    <component-a :message="title"></component-a>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    // 在vue中prop会使其父子prop形成向下绑定
+    // 父组件的prop更新会响应到子组件中，反过来则不可以，不能直接修改传入的prop的值
+    let componentA = {
+      template: `
+      <div>
+        <h3>{{message}}</h3>
+        <h3>{{value}}</h3>
+        <h3>{{getValue}}</h3>
+        <button @click="changeProp">修改value</button>  
+      </div>
+      `,
+      props: ['message'],
+      data() {
+        return {
+          // 在子组件定义一个data用来接受传入的prop用作其初始值
+          value: this.message
+        }
+      },
+      methods: {
+        changeProp() {
+          // 不要在子组件中修改prop值 vue是单向数据流的
+          this.value = 'Hello JSX'
+        }
+      },
+      // 通过computed来定义prop 当外部prop发生改变时内部响应更新
+      // 可以将原始props值转换为当前组件需要的属性
+      computed: {
+        getValue() {
+          return this.message
+        }
+      }
+    }
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {
+          title: 'hello vue'
+        }
+      },
+      components: {
+        componentA
+      },
+      methods: {
+        changeTitle() {
+          this.title = 'Hello Vue'
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

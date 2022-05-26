@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>prop类型</title>
+</head>
+
+<body>
+  <div id="app">
+    <component-a message="Hello Vue" info="prop类型"></component-a>
+    <component-b 
+      :str="'字符串'" 
+      :bool="true" 
+      :num="100" 
+      :arr="['html', 'css', 'js']" 
+      :obj="{name: 'jsx'}"
+      :func="function() { return 'function函数' }">
+    </component-b>
+  </div>
+  
+  <!-- componentA组件 -->
+  <template id="box">
+    <div>
+      <h3>{{message}}</h3>
+      <h3>{{info}}</h3>
+    </div>
+  </template>
+  
+  <!-- componentB组件 -->
+  <template id="pannel">
+    <div>
+      <h3>{{str}} {{bool}} {{num}}</h3>
+      <h3 v-for="list of arr">{{list}}</h3>
+      <h3>{{obj.name}}</h3>
+      <h3>{{func()}}</h3>
+    </div>
+  </template>
+  <script src="../vue.js"></script>
+  <script>
+    let componentA = {
+      template: '#box',
+      // 不需要指定传入prop的类型时，可以使用数组字符串形式
+      props: ['message', 'info']
+    }
+
+    let componentB = {
+      template: '#pannel',
+      props: {
+        str: String,
+        num: Number,
+        bool: Boolean,
+        arr: Array,
+        obj: Object,
+        func: Function
+      }
+    }
+
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {}
+      },
+      components: {
+        componentA,
+        componentB
+      }
+    })
+  </script>
+</body>
+
+</html>
