@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>$off</title>
+</head>
+
+<body>
+  <div id="app">
+    <h3>{{title}}</h3>
+    <h3>{{message}}</h3>
+    <component-a @title-event="getTitle" @message-event="getMessage"></component-a>
+  </div>
+
+  <template id="box">
+    <div class="box">
+      <button type="button" @click="changeTitle">$on title</button>
+      <button type="button" @click="changeMessage">$on message</button>
+      <button type="button" @click="removeEvent">$off</button>
+    </div>
+  </template>
+  <script src="../vue.js"></script>
+  <script>
+    // 取消自定义事件绑定
+    // 1. 通过$off 
+    // 2. 通过destory声明周期函数
+
+    let componentA = {
+      template: '#box',
+      mounted() {
+        // 移除这个监听器
+        this.$on('message-event', this.callback)
+      },
+      methods: {
+        changeTitle() {
+          this.$emit('title-event', 'Hello JSX')
+        },
+        changeMessage() {
+          this.$emit('message-event', 'Hello World')
+        },
+        removeEvent() {
+          // 只提供自定义事件，则移除该自定义事件的所有监听器
+          // this.$off('message-event')
+          // 数组形式移除多个自定义事件的所有监听器
+          // this.$off(['title-event', 'message-event'])
+          // 不传入参数 移除组件所有的事件监听器
+          // this.$off();
+          // 提供自定义事件与回调，则只移除回调的监听器
+          // this.$off('message-event', this.callback)
+
+          // 组件声明周期实例来实现移除事件监听器
+          this.$destroy()
+        },
+        callback(val) {
+          console.log(val)
+        }
+      }
+    }
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {
+          title: 'Hello Vue',
+          message: 'Hello JS'
+        }
+      },
+      components: {
+        componentA
+      },
+      methods: {
+        getTitle(val) {
+          console.log(val)
+          this.title = val
+        },
+        getMessage(val) {
+          console.log(val)
+          this.message = val
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

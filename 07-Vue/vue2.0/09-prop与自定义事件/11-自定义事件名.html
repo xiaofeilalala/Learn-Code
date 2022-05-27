@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>自定义事件名</title>
+</head>
+
+<body>
+  <div id="app">
+    <h3>{{message}}</h3>
+    <component-a v-on:get-component="changValue"></component-a>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    let componentA = {
+      template: '<button @click="sendMessage">修改父组件数据</button>',
+      data() {
+        return {
+          value: 'Hello JSX'
+        }
+      },
+      methods: {
+        sendMessage() {
+          // $emit触发事件名始推荐终使用 kebab-case 的事件名
+          this.$emit('get-component', this.value)
+          // $emit 为驼峰式 v-on 则无法绑定
+        }
+      },
+      props: ['getComponent']
+    }
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {
+          message: 'Hello Vue'
+        }
+      },
+      components: {
+        componentA
+      },
+      methods: {
+        changValue(value) {
+          console.log(value)
+          this.message = value
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

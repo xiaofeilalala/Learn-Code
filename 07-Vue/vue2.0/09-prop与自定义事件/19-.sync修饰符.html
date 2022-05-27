@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>.sync修饰符</title>
+</head>
+
+<body>
+  <div id="app">
+    <label for="">父组件</label>
+    <input type="text" v-model="message">
+    <!-- <component-a :message="message" v-on:update:message="message = $event"></component-a> -->
+    <!-- 父组件则通过$event 来接收经过子组件修改后的值 -->
+    <!-- v-on:update:message update是vue规定的语法书写格式 message是被绑定事件的属性-->
+    <component-a :message.sync="message"></component-a>
+  </div>
+  <template id="box">
+    <div>
+      <label for="">{{message}}</label>
+      <button @click="changMessage">$emit title</button>
+    </div>
+  </template>
+  <script src="../vue.js"></script>
+  <script>
+    let componentA = {
+      template: '#box',
+      props: ['message'],
+      methods: {
+        changMessage() {
+          this.$emit('update:message', 'Hello JSX')
+          // 在子组件使用$emit('update:money', money-100) 来通知父组件去响应
+        }
+      },
+      computed: {
+        getValue() {
+          return this.message
+        }
+      }
+    }
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {
+          message: 'Hello Vue'
+        }
+      },
+      components: {
+        componentA
+      },
+      methods: {
+        getMessage($event) {
+          console.log($event)
+          this.message = $event
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>$emit</title>
+</head>
+
+<body>
+  <div id="app">
+    <h3>{{message}}</h3>
+    <component-a :prop-value="changeMessage" @emit-value="changeMessage" @ref-value="changeMessage" ref="refComponent"></component-a>
+  </div>
+
+  <template id="box">
+    <div>
+      <button @click="propEvent">prop修改</button>
+      <button @click="emitEvent">$emit修改</button>
+      <button @click="refEvent">ref修改</button>
+    </div>
+  </template>
+  <script src="../vue.js"></script>
+  <script>
+    let componentA = {
+      template: '#box',
+      props: ['propValue'],
+      methods: {
+        // 1. 通过传递一个函数类型prop来实现子传递父
+        propEvent() {
+          this.propValue(this.prop)
+        },
+        // 2. 通过v-on与$emit实现子传递父
+        emitEvent() {
+          // 传递多个参数时可包装为对象
+          this.$emit('emit-value', this.emit, 'jsx', 'ljj')
+        },
+        // 3. 通过ref与$on实现子传递父
+        refEvent() {
+          // 监听组件上的ref-value自定义事件触发来传递数据
+          this.$emit('ref-value', this.ref, 'html', 'vue')
+        }
+      },
+      data() {
+        return {
+          prop: 'Hello Prop',
+          emit: 'Hello Emit',
+          ref: 'Hello Ref'
+        }
+      }
+    }
+
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {
+          message: 'Hello Vue'
+        }
+      },
+      components: {
+        componentA
+      },
+      methods: {
+        // 自定义事件传递对个参数时可以使用剩余参数
+        changeMessage(val, ...args) {
+          console.log(args)
+          this.message = val
+        }
+      },
+      mounted() {
+        this.$refs.refComponent.$on('ref-value', this.changeMessage)
+        // $on 监听实例上的自定义事件
+        // vm.$on 监听Vue实例
+        // this.$refs.refComponent 监听ref所定义组件实例
+      },
+    })
+  </script>
+</body>
+
+</html>

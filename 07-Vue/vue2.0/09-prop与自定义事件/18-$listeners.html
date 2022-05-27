@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>$listeners</title>
+</head>
+
+<body>
+  <div id="app">
+    <h3>{{title}}</h3>
+    <component-a @change-title="getTitle"></component-a>
+  </div>
+
+  <template id="box">
+    <div>
+      <div>
+        <h3>组件A</h3>
+        <button @click="componentAEvent">component-A</button>
+      </div>
+      <component-b v-on="$listeners"></component-b>
+    </div>
+  </template>
+
+  <template id="pannel">
+    <div>
+      <h3>组件B</h3>
+      <button @click="componentBEvent">component-b</button>
+    </div>
+  </template>
+  <script src="../vue.js"></script>
+  <script>
+    let componentB = {
+      template: '#pannel',
+      methods: {
+        componentBEvent() {
+          // 子组件也能接受到事件监听器
+          console.log(this.$listeners)
+          this.$emit('change-title', 'Love')
+        }
+      }
+    }
+
+    let componentA = {
+      template: '#box',
+      components: {
+        componentB
+      },
+      methods: {
+        componentAEvent() {
+          // 孙组件也能接受到事件监听器
+          this.$emit('change-title', 'Me')
+        }
+      }
+    }
+
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {
+          title: 'Hello Vue'
+        }
+      },
+      components: {
+        componentA
+      },
+      methods: {
+        getTitle(val) {
+          this.title = val
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

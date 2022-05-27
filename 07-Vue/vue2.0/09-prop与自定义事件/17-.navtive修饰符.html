@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>.navtive</title>
+</head>
+
+<body>
+  <div id="app">
+    <h3>{{title}}</h3>
+    <!-- 直接在组件上使用v-on都会被认为自定义事件 -->
+    <component-a @click="changeTitle"></component-a>
+    <!-- 当想直接在组件根元素绑定原生事件时可以使用.navtive修饰符 -->
+    <component-a @click.native="changeTitle"></component-a>
+  </div>
+
+  <template id="box">
+    <div @click="sendTitle" style="margin: 10px 0; width: 100px; height: 100px; background-color: #7852f3;"></div>
+  </template>
+  <script src="../vue.js"></script>
+  <script>
+    let componentA = {
+      template: '#box',
+      methods: {
+        sendTitle() {
+          this.$emit('click', 'Hello JSX')
+        }
+      }
+    }
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {
+          title: 'Hello Vue'
+        }
+      },
+      components: {
+        componentA
+      },
+      methods: {
+        changeTitle(val) {
+          this.title = val
+          console.log(val)
+          // 1. 未设置.native修饰符 此时点击事件为自定义事件 val为回调的参数
+          // 2. 设置.native修饰符 此时组件根元素绑定元素事件触发 val 为事件对象event
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

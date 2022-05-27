@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>$on</title>
+</head>
+
+<body>
+  <div id="app">
+    <h3>{{title}}</h3>
+    <component-a @component-event="getTitle" ref="component"></component-a>
+  </div>
+
+  <template id="box">
+    <div class="box">
+      <button type="button" @click="changeTitle">$on</button>
+    </div>
+  </template>
+  <script src="../vue.js"></script>
+  <script>
+    // $on用于监听当前实例上的自定义事件
+    let componentA = {
+      template: '#box',
+      methods: {
+        changeTitle() {
+          this.$emit('component-event', 'Hello JSX')
+        }
+      }
+    }
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {
+          title: 'Hello Vue'
+        }
+      },
+      components: {
+        componentA
+      },
+      methods: {
+        getTitle(val) {
+          console.log(val)
+          this.title = val
+        }
+      },
+      mounted() {
+        this.$refs.component.$on('component-event', this.getTitle)
+      },
+    })
+  </script>
+</body>
+
+</html>

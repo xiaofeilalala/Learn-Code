@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>自定义组件v-model</title>
+</head>
+
+<body>
+  <div id="app">
+    <h3>{{title}}</h3>
+    <component-a v-model="title"></component-a>
+    <!-- 组件上使用v-model相当于 -->
+    <!-- <component-a v-on:input="title = $event.target.value" v-bind:value="title"></component-a> -->
+    
+    <h3>{{message}}</h3>
+    <component-b v-model="message"></component-b>
+    <!-- 当组件为单选框、复选框等类型的输入控件value用于不同目的 -->
+  </div>
+
+  <template id="box">
+    <!-- 子组件模版接受默认value prop -->
+    <!-- 子组件通过 $emit 派发默认 input 事件 -->
+    <input type="text" :value="value" @input="changInput">
+  </template>
+
+  <template id="pannel">
+    <div>
+      <input type="checkbox" :checked="checked" @change="changeCheckbox">
+    </div>
+  </template>
+
+  <script src="../vue.js"></script>
+  <script>
+    let componentA = {
+      template: '#box',
+      props: ['value'],
+      methods: {
+        changInput(e) {
+          this.$emit('input', e.target.value)
+        }
+      }
+    }
+
+    let componentB = {
+      template: '#pannel',
+      // 通过model改变组件v-mdoel默认prop与事件
+      model: {
+        prop: 'checked',
+        event: 'change'
+      },
+      props: ['checked'],
+      methods: {
+        changeCheckbox(e) {
+          this.$emit('change', e.target.checked)
+        }
+      }
+    }
+
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {
+          title: 'Hello Vue',
+          message: true
+        }
+      },
+      components: {
+        componentA,
+        componentB
+      }
+    })
+  </script>
+</body>
+
+</html>

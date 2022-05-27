@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>$once</title>
+</head>
+
+<body>
+  <div id="app">
+    <h3>{{title}}</h3>
+    <component-a @change-title="getTitle" ref="component"></component-a>
+  </div>
+
+  <template id="box">
+    <div>
+      <button @click="onceEvent">$once title</button>
+    </div>
+  </template>
+  <script src="../vue.js"></script>
+  <script>
+    // $once 监听一个自定义事件 只触发一次 触发后监听器移除
+    let componentA = {
+      template: "#box",
+      data() {
+        return {
+          value: 'Hello World'
+        }
+      },
+      methods: {
+        onceEvent() {
+          this.$emit('change-title', 'Hello JSX')
+        }
+      }
+    }
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {
+          title: 'Hello Vue'
+        }
+      },
+      components: {
+        componentA
+      },
+      methods: {
+        getTitle(val) {
+          this.title = val
+          console.log(val)
+        }
+      },
+      mounted() {
+        this.$refs.component.$once('change-title', (val) => {
+          console.log(val)
+          this.title = val
+        })
+      }
+    })
+  </script>
+</body>
+
+</html>
