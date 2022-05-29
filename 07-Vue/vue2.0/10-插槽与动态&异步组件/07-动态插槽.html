@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>动态插槽</title>
+  <style>
+    .box, .box1{
+      display: block;
+      width: 200px;
+      height: 200px;
+      margin: 20px 0;
+      background-color: #ddd;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <component-a>
+      <!-- 通过[] 动态切换插槽 -->
+      <template v-slot:[title]>
+        <h3>Hello Vue</h3>
+      </template>
+    </component-a>
+    <button @click="changeSlot">动态插槽</button>
+  </div>
+
+  <template id="box">
+    <div class="main">
+      <div class="box">
+        <slot name="hello"></slot>
+      </div>
+      <div class="box1">
+        <slot name="goodbye"></slot>
+      </div>
+    </div>
+  </template>
+  <script src="../vue.js"></script>
+  <script>
+    let componentA = {
+      template: '#box'
+    }
+
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {
+          title: 'hello'
+        }
+      },
+      methods: {
+        changeSlot() {
+          this.title = 'goodbye'
+        }
+      },
+      components: {
+        componentA
+      }
+    })
+  </script>
+</body>
+
+</html>

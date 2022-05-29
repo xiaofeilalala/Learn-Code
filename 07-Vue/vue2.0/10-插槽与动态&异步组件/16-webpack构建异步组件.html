@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>webpack构建异步组件</title>
+</head>
+
+<body>
+  <div id="app">
+    
+  </div>
+
+  <script src="../vue.js"></script>
+  <script>
+    // 通过ES6 Module 模块化 import加载的模块会返回一个promise
+    // 异步组件
+    let localComponent = {
+      template: `<h3>局部异步组件</h3>`
+    }
+
+    let golbalComponent = {
+      template: `<h3>全局异步组件</h3>`
+    }
+    
+    // 全局注册异步组件
+    Vue.component('async.component', () => import('./golbalComponent.vue'))
+
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return { }
+      },
+      components: {
+        'my-component': () => import('./localComponent.vue')
+      }
+    })
+  </script>
+</body>
+
+</html>

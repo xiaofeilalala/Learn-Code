@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>编译作用域</title>
+</head>
+
+<body>
+  <div id="app">
+    <component-a :value="title">
+      <!-- 当前component-a 在app实例编译 作用域为app -->
+      <h3>{{title}}</h3>
+      <!-- 可以访问实例中定义的title -->
+      <!-- 不能访问组件的作用域 -->
+      <!-- <h3>{{message}}</h3> -->
+    </component-a>
+  </div>
+
+  <template id="box">
+    <div class="main">
+      <!-- 插槽只能访问当前定义组件内部作用域 -->
+      <slot></slot>
+    </div>
+  </template>
+  <script src="../vue.js"></script>
+  <script>
+    let componentA = {
+      template: '#box',
+      props: ['value'],
+      data() {
+        return {
+          message: 'Hello JSX'
+        }
+      }
+    }
+
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {
+          title: 'Hello World'
+        }
+      },
+      components: {
+        componentA
+      }
+    })
+  </script>
+</body>
+
+</html>

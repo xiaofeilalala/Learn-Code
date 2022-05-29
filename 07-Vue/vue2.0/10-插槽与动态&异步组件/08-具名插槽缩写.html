@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>具名插槽缩写</title>
+</head>
+
+<body>
+  <div id="app">
+    <component-a>
+      <!-- 具名插槽缩写通过#代替v-slot: -->
+      <template #header>
+        <h3>Hello Header</h3>
+      </template>
+
+      <!-- 默认插槽通过defalut -->
+      <template #default>
+        <h3>Hello Main</h3>
+      </template>
+
+      <template #footer>
+        <h3>Hello Footer</h3>
+      </template>
+    </component-a>
+  </div>
+
+  <template id="box">
+    <div class="main">
+      <header>
+        <slot name="header"></slot>
+      </header>
+      <main>
+        <slot></slot>
+      </main>
+      <footer>
+        <slot name="footer"></slot>
+      </footer>
+    </div>
+  </template>
+  <script src="../vue.js"></script>
+  <script>
+    let componentA = {
+      template: '#box'
+    }
+
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {}
+      },
+      components: {
+        componentA
+      }
+    })
+  </script>
+</body>
+
+</html>

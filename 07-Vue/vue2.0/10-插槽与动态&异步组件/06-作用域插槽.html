@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>作用域插槽</title>
+</head>
+
+<body>
+  <div id="app">
+    <component-a>
+      <!-- 组件内部内容 为当前app作用域内部组件无法访问 -->
+      <!-- 默认插槽可以省略插槽名参数 -->
+      <template v-slot="info">
+        {{info}}
+        <h3>{{info.value}}</h3>
+      </template>
+
+      <template v-slot:box="lessonInfo">
+        {{lessonInfo}}
+        <h3 v-for="list in lessonInfo.lesson">{{list}}</h3>
+      </template>
+    </component-a>
+  </div>
+
+  <template id="box">
+    <div class="main">
+      <!-- slot为当前组件作用域内外部无法访问 -->
+      <slot :value="value"></slot>
+
+      <!-- 具名插槽必须在v-slot上添加插槽名 -->
+      <slot name="box" :lesson="lesson"></slot>
+    </div>
+  </template>
+  <script src="../vue.js"></script>
+  <script>
+    let componentA = {
+      template: '#box',
+      data() {
+        return {
+          value: 'Hello Vue',
+          lesson: ['HTML', 'CSS', 'JavaScript']
+        }
+      }
+    }
+
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return { }
+      },
+      components: {
+        componentA
+      }
+    })
+  </script>
+</body>
+
+</html>

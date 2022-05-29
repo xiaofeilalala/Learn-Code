@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>具名插槽</title>
+</head>
+
+<body>
+  <div id="app">
+    <component-a>
+      <!-- v-slot只能定义在template元素上 -->
+      <template v-slot:header>
+        <h3>Header</h3>
+      </template>
+      
+      <!-- 插入的没有v-slot 或者没有被v-slot包裹的内容为默认插槽 -->
+      <template>
+        <h3>Main</h3>
+      </template>
+      <h3>Main</h3>
+
+      <template v-slot:footer>
+        <h3>footer</h3>
+      </template>
+      
+      <!-- 插槽名同名时 后面覆盖前面 -->
+      <template v-slot:header>
+        <h3>Rest Header</h3>
+      </template>
+    </component-a>
+  </div>
+
+  <template id="box">
+    <div class="main">
+      <!-- 具名插槽通过slot元素name属性定义插槽名称 -->
+      <header>
+        <slot name="header"></slot>
+      </header>
+      <main>
+        <!-- 不带name属性的为默认插槽 -->
+        <slot></slot>
+      </main>
+      <footer>
+        <slot name="footer"></slot>
+      </footer>
+    </div>
+  </template>
+  <script src="../vue.js"></script>
+  <script>
+    let componentA = {
+      template: '#box'
+    }
+
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {}
+      },
+      components: {
+        componentA
+      }
+    })
+  </script>
+</body>
+
+</html>

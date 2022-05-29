@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>默认插槽</title>
+</head>
+
+<body>
+  <div id="app">
+    <component-a>
+      <!-- 默认插槽会渲染没有v-slot包裹的元素 -->
+      <template v-slot:header>
+        <h3>Hello Vue</h3>
+      </template>
+
+      <h3>Hello JS</h3>
+
+      <template v-slot:footer>
+        <h3>Hello React</h3>
+      </template>
+    </component-a>
+  </div>
+
+  <template id="box">
+    <div class="main">
+      <!-- 默认插槽 则表示没有名称或者默认为default -->
+      <slot name="default"></slot>
+    </div>
+  </template>
+  <script src="../vue.js"></script>
+  <script>
+    let componentA = {
+      template: '#box'
+    }
+
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {}
+      },
+      components: {
+        componentA
+      }
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>component组件</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- is属性绑定显示的组件 可以是组件名也可以是组件选项对象 -->
+    <component :is="componentId" inline-template>
+      <!-- inline-template 内联模版 当在组件使用此属性时 组件内部内容作为模版渲染 -->
+      <div class="inline-template">
+        <h3>内联模版 - 组件内的内容作为模版渲染</h3>
+      </div>
+    </component>
+    <button @click="isComponent('a')">组件A</button>
+    <button @click="isComponent('b')">组件B</button>
+    <button @click="isComponent('c')">组件C</button>
+  </div>
+
+  <template id="component-a">
+    <h3>组件A</h3>
+  </template>
+
+  <template id="component-b">
+    <h3>组件B</h3>
+  </template>
+
+  <template id="component-c">
+    <h3>组件C</h3>
+  </template>
+
+  <script src="../vue.js"></script>
+  <script>
+    // component组件是内置组件 用于多个挂载的组件之间的切换
+    let componentA = {
+      template: '#component-a'
+    }
+
+    let componentB = {
+      template: '#component-b'
+    }
+
+    let componentC = {
+      template: '#component-c'
+    }
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {
+          componentId: componentA
+        }
+      },
+      components: {
+        componentA,
+        componentB,
+        componentC
+      },
+      methods: {
+        isComponent (val) {
+          if (val === 'a') {
+            this.componentId = componentA
+          } else if (val === 'b') {
+            this.componentId = componentB
+          } else {
+            this.componentId = componentC
+          }
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

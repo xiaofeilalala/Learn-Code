@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>后备内容</title>
+</head>
+
+<body>
+  <div id="app">
+   <component-a>
+     <!-- 如果插入了内容 则替换slot定义的默认内容 -->
+     <h3>Hello World</h3>
+   </component-a>
+  </div>
+
+  <template id="box">
+    <div class="main">
+      <!-- 后备内容则是默认内容 -->
+      <!-- 在slot元素内定义默认内容 当使用组件中间没插入内容时则会被渲染 -->
+      <slot>
+        <h3>Hello Vue</h3>
+      </slot>
+    </div>
+  </template>
+  <script src="../vue.js"></script>
+  <script>
+    let componentA = {
+      template: '#box'
+    }
+
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {}
+      },
+      components: {
+        componentA
+      }
+    })
+  </script>
+</body>
+
+</html>

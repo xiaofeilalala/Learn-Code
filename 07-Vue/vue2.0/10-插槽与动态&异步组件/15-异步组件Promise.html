@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>异步组件Promise</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 先加载async-component组件 再加载my-component -->
+    <async-component></async-component>
+    <my-component></my-component>
+  </div>
+
+  <script src="../vue.js"></script>
+  <script>
+    // 局部组件模版
+    let localComponent = {
+      template: `<h3>局部异步组件</h3>`
+    }
+
+    let localPromise = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(localComponent)
+      }, 3000)
+    })
+
+    // vue提供了工厂函数定义异步组件
+    let golbalComponent = {
+      template: `<h3>全局异步组件</h3>`
+    }
+
+    // 全局定义异步组件
+    // 可以通过Promise来定义异步组件
+    let golbalPromise = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(golbalComponent)
+      }, 2000)
+    })
+    Vue.component('async-component', () => golbalPromise)
+
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {}
+      },
+      // 局部异步组件定义
+      components: {
+        'my-component': () => localPromise
+      }
+    })
+  </script>
+</body>
+
+</html>

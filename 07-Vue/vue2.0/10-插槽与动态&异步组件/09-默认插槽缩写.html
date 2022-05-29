@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>默认插槽缩写</title>
+</head>
+
+<body>
+  <div id="app">
+    <component-a v-slot:defalut="info">
+      <h3>{{info.title}}</h3>
+      <!-- 当组件内部只有默认插槽时可将v-slot定义在组件上 -->
+      <template v-slot:hello>
+        <h3>Hello</h3>
+      </template>
+      <!-- 为了避免范围模糊，当存在其他命名槽时，默认槽还应使用<template>语法 -->
+    </component-a>
+  </div>
+
+  <template id="box">
+    <div class="main">
+      <slot :title="title"></slot>
+      <slot name="hello"></slot>
+    </div>
+  </template>
+  <script src="../vue.js"></script>
+  <script>
+    let componentA = {
+      template: '#box',
+      data() {
+        return {
+          title: 'Study Vue'
+        }
+      }
+    }
+
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return { }
+      },
+      components: {
+        componentA
+      }
+    })
+  </script>
+</body>
+
+</html>

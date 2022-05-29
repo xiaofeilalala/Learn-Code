@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>插槽内容</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- template未定义slot 组件插入的内容会被忽略 -->
+    <component-a>
+      <p>study vue slot</p>
+    </component-a>
+  </div>
+
+  <template id="box">
+    <div class="main">
+      <h3>Hello Vue</h3>
+      <!-- 通过slot元素 可以使组件中插入内容 -->
+      <slot></slot>
+    </div>
+  </template>
+  <script src="../vue.js"></script>
+  <script>
+    let componentA = {
+      template: '#box'
+    }
+
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {}
+      },
+      components: {
+        componentA
+      }
+    })
+  </script>
+</body>
+
+</html>

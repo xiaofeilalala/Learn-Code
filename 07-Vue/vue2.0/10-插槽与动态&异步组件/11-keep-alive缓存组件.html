@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>keep-alive缓存组件</title>
+  <style>
+    .component-b {
+      background-color: #ddd;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 未被keep-alive包裹的组件切换时会销毁 -->
+    <!-- 被包裹的元素初始加载，组件切换不会被销毁 包括嵌套的组件 -->
+    <keep-alive>
+      <component :is="componentId"></component>
+    </keep-alive>
+    <button @click="isComponent('a')">组件A</button>
+    <button @click="isComponent('b')">组件B</button>
+  </div>
+  
+  <template id="component-a">
+    <h3>组件A</h3>
+  </template>
+
+  <template id="component-b">
+    <div class="component-b">
+      <h3>组件B</h3>
+      <button @click="isComponent('c')">组件C</button>
+      <button @click="isComponent('d')">组件D</button>
+      <div class="pannel">
+        <component :is="componentChild"></component>
+      </div>
+    </div>
+  </template>
+  
+  <template id="component-c">
+    <h3>组件C</h3>
+  </template>
+
+  <template id="component-d">
+    <h3>组件D</h3>
+  </template>
+  <script src="../vue.js"></script>
+  <script>
+    // keep-alive缓存组件 可以缓存组件的实例
+    // keep-alive组件页面渲染时不会被渲染成DOM
+    
+    let componentA = {
+      template: '#component-a'
+    }
+
+    let componentC = {
+      template: '#component-c',
+      destroyed() {
+        console.log('销毁组件C')
+      },
+    }
+
+    let componentD = {
+      template: '#component-d',
+      destroyed() {
+        console.log('销毁组件D')
+      },
+    }
+
+    let componentB = {
+      template: '#component-b',
+      data() {
+        return {
+          componentChild: componentC
+        }
+      },
+      components: {
+        componentC,
+        componentD
+      },
+      methods: {
+        isComponent(val) {
+          if (val === 'c') {
+            this.componentChild = componentC
+          } else {
+            this.componentChild = componentD
+          } 
+        }
+      }
+    }
+    
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {
+          componentId: componentA
+        }
+      },
+      components: {
+        componentA,
+        componentB
+      },
+      methods: {
+        isComponent(val) {
+          if (val === 'a') {
+            this.componentId = componentA
+          } else {
+            this.componentId = componentB
+          } 
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
