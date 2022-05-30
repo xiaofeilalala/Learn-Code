@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>过渡模式</title>
+  <style>
+    .fade-enter-active, .fade-leave-active {
+      transition: all .5s
+    }
+
+    .fade-enter,
+    .fade-leave-to {
+      transform: translateX(10px);
+      opacity: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <!-- mode过渡模式 -->
+    <!-- in-out 新元素先过渡完成后当前元素过渡离开 -->
+    <!-- out-in 当前元素进行过渡完成后新元素过渡进入 -->
+    <transition name="fade" mode="out-in">
+      <h3 v-if="show" key="vue">Hello Vue</h3>
+      <h3 v-else key="jsx">Hello JSX</h3>
+    </transition>
+    <button @click="isShow">过渡模式</button>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {
+          show: true
+        }
+      },
+      methods: {
+        isShow() {
+          this.show = !this.show
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

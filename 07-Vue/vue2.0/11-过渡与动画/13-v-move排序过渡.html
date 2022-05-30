@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>v-move排序过渡</title>
+  <style>
+    .sort-move {
+      transition: all .5s;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <!-- v-move用于列表渲染排序时transform期间的css类 -->
+    <transition-group name="sort">
+      <h3 v-for="list of arr" :key="list">{{list}}</h3>
+    </transition-group>
+    <button @click="sortFunc">随机排序</button>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {
+          arr: ['HTML', 'CSS', 'JS', 'Vue', 'Node']
+        }
+      },
+      methods: {
+        sortFunc() {
+          this.arr = this.arr.sort(() => {
+            return Math.random() - 0.5
+          })  
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

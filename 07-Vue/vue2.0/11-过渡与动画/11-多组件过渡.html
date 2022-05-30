@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>多元素过渡</title>
+  <style>
+    .fade-enter-active, .fade-leave-active {
+      transition: all .5s
+    }
+
+    .fade-enter,
+    .fade-leave-to {
+      transform: translateX(10px);
+      opacity: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 多组件过渡将component组件包裹在transition里 -->
+    <transition name="fade" mode="out-in">
+      <component :is="componentId"></component>
+    </transition>
+    <button @click="toggleComponent">切换组件</button>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    let componentA = {
+      template: `<h3>组件A</h3>`
+    }
+
+    let componentB = {
+      template: `<h3>组件B</h3>`
+    }
+
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {
+          componentId: componentA,
+          isShow: true
+        }
+      },
+      methods: {
+        toggleComponent() {
+          this.isShow = !this.isShow
+          if (this.isShow) {
+            this.componentId = componentA
+          } else {
+            this.componentId = componentB
+          }
+        }
+      },
+      components: {
+        componentA,
+        componentB
+      }
+    })
+  </script>
+</body>
+
+</html>

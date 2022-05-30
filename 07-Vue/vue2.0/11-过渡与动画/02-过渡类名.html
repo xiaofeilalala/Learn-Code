@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>过渡类名</title>
+  <style>
+    /* enter-active 过渡开始状态 */
+    .show-enter-active {
+      transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+    }
+    
+    /* leave-active过渡生效状态 */
+    .show-leave-active {
+      transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+    }
+    
+    /* enter 过渡开始状态 */
+    /* leave-to 过渡结束状态 */
+    .show-enter, .show-leave-to {
+      transform: translateX(10px);
+      opacity: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <!-- name指定过渡组件名称 指定name后过渡类名前缀会被name替换 -->
+    <transition name="show">
+      <h3 v-show="show">hello vue</h3>
+    </transition>
+    <button @click="isShow">过渡</button>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {
+          show: true
+        }
+      },
+      methods: {
+        isShow() {
+          this.show = !this.show
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

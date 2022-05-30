@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>可复用过渡组件</title>
+  <style>
+    .multiplex-enter-active,
+    .multiplex-leave-active{
+      transition: all .5s
+    }
+
+    .multiplex-enter,
+    .multiplex-leave-to{
+      opacity: 0;
+      transform: translateX(40px);
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <my-component>
+      <h3 v-if="show">Hello Vue</h3>
+    </my-component>
+    <button @click="isShow">显示/隐藏</button>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    Vue.component('my-component', {
+      template: `
+        <transition made="out-in" name="multiplex">
+          <slot></slot>  
+        </transition>
+      `
+    })
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {
+          show: true
+        }
+      },
+      methods: {
+        isShow() {
+          this.show = !this.show
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

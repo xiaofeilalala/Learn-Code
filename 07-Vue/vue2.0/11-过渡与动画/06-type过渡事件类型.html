@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>type过渡事件类型</title>
+  <style>
+    /* 当设置animate动画与transition过渡时 */
+    /* type设置那个属性则表示监听哪个事件类型，监听事件类型完成后移除class */
+    .type-enter-active {
+      animation: type-animate 2s;
+      transition: .5s;
+    }
+
+    .type-leave-active {
+      animation: type-animate 2s reverse;
+      transition: .5s;
+    }
+    
+    /* 动画 */
+    @keyframes type-animate{
+      0% {
+        font-size: 24px;
+        color: #3496db;
+      }
+      50% {
+        font-size: 30px;
+        color: #db344d;
+      }
+      100% {
+        font-size: 20px;
+        color: #9834db;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <!-- type设置事件过渡类型 监听事件何时结束 -->
+    <!-- 默认用时长的为过渡事件类型 -->
+    <transition name="type" type="transition">
+      <h3 v-if="show">Hello Vue</h3>
+    </transition>
+    <button type="button" @click="isShow">过渡</button>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {
+          show: true
+        }
+      },
+      methods: {
+        isShow() {
+          this.show = !this.show
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

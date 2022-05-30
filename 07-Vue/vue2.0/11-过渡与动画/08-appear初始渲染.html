@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>appear初始渲染</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.0/animate.min.css" rel="stylesheet" type="text/css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
+  <style>
+    /* 初始化渲染css类名 */
+    .custom-appear-active-class {
+      transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+    }
+
+    .custom-appear-to-class, .custom-appear-class {
+      transform: translateX(100px);
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 通过animate.css库初始化加载 -->
+    <transition 
+    appear
+    appear-active-class="animated swing">
+      <h3 v-show="show">Hello JSX</h3>
+    </transition>
+
+    <transition 
+    appear
+    appear-class="custom-appear-class"
+    appear-to-class="custom-appear-to-class"
+    appear-active-class="custom-appear-active-class">
+      <h3 v-show="show">Hello JSX</h3>
+    </transition>   
+
+    <transition 
+    appear
+    @before-appear="beforeAppear"
+    @appear="appear"
+    @after-appear="afterAppear"
+    @appear-cancelled="appearCancelled"
+    :css="false">
+      <h3 v-show="show">Hello JSX</h3>
+    </transition>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {
+          show: true
+        }
+      },
+      methods: {
+        // 通过js钩子
+        beforeAppear(el) {
+          el.style.opacity = 0
+          el.style.transformOrigin = 'left'
+        },
+        // enter leave 中必须使用done
+        appear(el, done) {
+          Velocity(el, { opacity: 1, fontSize: '1.4em' }, { duration: 300 })
+          Velocity(el, { fontSize: '1em' }, { complete: done })
+        },
+        afterAppear(el, done) {
+          Velocity(el, { translateX: '15px', rotateZ: '50deg' }, { duration: 600 })
+          Velocity(el, { rotateZ: '100deg' }, { loop: 2 })
+          Velocity(el, {
+            rotateZ: '45deg',
+            translateY: '30px',
+            translateX: '30px',
+            opacity: 0
+          }, { complete: done })
+        },
+      }
+    })
+  </script>
+</body>
+
+</html>

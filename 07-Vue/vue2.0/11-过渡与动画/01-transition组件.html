@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>transition组件</title>
+  <style>
+    .term-enter-active,
+    .term-leave-active,
+    .reveal-enter-active,
+    .reveal-leave-active,
+    .component-enter-active,
+    .component-leave-active,
+    .root-enter-active,
+    .root-leave-active {
+      transition: opacity .5s;
+    }
+
+    .term-enter,
+    .term-leave-to,
+    .reveal-enter,
+    .reveal-leave-to,
+    .component-enter,
+    .component-leave-to,
+    .root-enter,
+    .root-leave-to {
+      opacity: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <!-- transition组件用来给元素组件添加进入/离开的过渡 -->
+    <!-- 1. 条件渲染 -->
+    <transition name="term">
+      <h3 v-if="isterm">条件渲染 v-if</h3>
+    </transition>
+
+    <!-- 2. 条件展示 -->
+    <transition name="reveal">
+      <h3 v-show="isreveal">条件展示 v-show</h3>
+    </transition>
+
+    <!-- 动态组件 -->
+    <transition name="component">
+      <component :is="componentId"></component>
+    </transition>
+
+    <!-- 作为组件根节点 -->
+    <component-a v-if="isroot"></component-a>
+
+    <!-- button控制 -->
+    <div class="btn-box">
+      <button type="button" @click="termFunc">条件渲染</button>
+      <button type="button" @click="revealFunc">条件展示</button>
+      <button type="button" @click="bindFunc">动态组件</button>
+      <button type="button" @click="rootFunc">组件根节点</button>
+    </div>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    let componentA = {
+      template:`
+        <transition name="root">
+          <h3>transition组件根节点</h3>  
+        </transition>`
+    }
+
+    let componentB = {
+      template:
+        `<h3>组件B</h3>`
+    }
+
+    let componentC = {
+      template:
+        `<h3>组件C</h3>`
+    }
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {
+          isterm: true,
+          isreveal: true,
+          componentId: componentB,
+          isroot: true
+        }
+      },
+      components: {
+        componentA,
+        componentB,
+        componentC
+      },
+      methods: {
+        termFunc() {
+          this.isterm = !this.isterm
+        },
+        revealFunc() {
+          this.isreveal = !this.isreveal
+        },
+        bindFunc() {
+          this.componentId = componentC
+        },
+        rootFunc() {
+          this.isroot = !this.isroot
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

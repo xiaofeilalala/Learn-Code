@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>多元素过渡</title>
+  <style>
+    .fade-enter-active, .fade-leave-active {
+      transition: all .5s
+    }
+
+    .fade-enter,
+    .fade-leave-to {
+      transform: translateX(10px);
+      opacity: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 当有多个相同元素切换过渡时 需要指定key值 防止复用相同类型元素 -->
+    <transition name="fade" mode="out-in">
+      <h3 v-if="show" key="vue">Hello Vue</h3>
+      <h3 v-else key="jsx">Hello JSX</h3>
+    </transition>
+
+    <transition name="fade" mode="out-in">
+      <h3 :key="state">{{stateMessage}}</h3>
+    </transition>
+    <button @click="isShow">多元素过渡</button>
+    <button @click="random">随机 key</button>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {
+          show: true,
+          state: 'HTML'
+        }
+      },
+      computed: {
+        stateMessage() {
+          switch (this.state) {
+            case 'HTML': return 'HTML'
+            case 'CSS': return 'CSS'
+            case 'JS': return 'JS'
+          }
+        }
+      },
+      methods: {
+        isShow() {
+          this.show = !this.show
+        },
+        random() {
+          const num = Math.floor(Math.random() * 3);
+          console.log(num)
+          if (num === 0) {
+            this.state = 'HTML'
+          } else if (num === 1) {
+            this.state = 'CSS'
+          } else {
+            this.state = 'JS'
+          }
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>过渡钩子函数</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
+  <style>
+    h3 {
+      display: inline-block;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <!-- :css="false" 表示跳过css检测 -->
+    <transition @before-enter="beforeEnter" @enter="enter" @leave="leave" :css="false">
+      <h3 v-if="show">Hello Vue</h3>
+    </transition>
+    <button type="button" @click="isShow">过渡</button>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {
+          show: true
+        }
+      },
+      methods: {
+        beforeEnter(el) {
+          el.style.opacity = 0
+          el.style.transformOrigin = 'left'
+        },
+        // enter leave 中必须使用done
+        enter(el, done) {
+          Velocity(el, { opacity: 1, fontSize: '1.4em' }, { duration: 300 })
+          Velocity(el, { fontSize: '1em' }, { complete: done })
+        },
+        leave(el, done) {
+          Velocity(el, { translateX: '15px', rotateZ: '50deg' }, { duration: 600 })
+          Velocity(el, { rotateZ: '100deg' }, { loop: 2 })
+          Velocity(el, {
+            rotateZ: '45deg',
+            translateY: '30px',
+            translateX: '30px',
+            opacity: 0
+          }, { complete: done })
+        },
+        isShow() {
+          this.show = !this.show
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

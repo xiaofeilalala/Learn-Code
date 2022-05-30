@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>自定义类名</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.0/animate.min.css" rel="stylesheet" type="text/css">
+  <style>
+
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 过渡可以自定义类名 -->
+    <!-- 在transition组件上设置属性 -->
+    <!-- 自定义类名可以使用animate.css  -->
+    <transition 
+    name="custom" 
+    enter-active-class="animated bounce" 
+    leave-active-class="animated rubberBand">
+      <h3 v-show="show" style="display: inline-block">Hello Vue</h3>
+    </transition>
+    <button type="button" @click="isShow">过渡</button>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {
+          show: true
+        }
+      },
+      methods: {
+        isShow() {
+          this.show = !this.show
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
