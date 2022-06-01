@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>全部导入</title>
+  <script type="module">
+    // 通过import*全部导入到一个对象内
+    import * as all from './export.js'
+    console.log(all.name)
+    all.sayHi()
+    let user = new all.User('ljj')
+    console.log(user.name)
+  </script>
+
+  <script type="module">
+    // 按需导入 通过import{} 按需求导入 没有引入的函数在打包时会删除减少打包体积
+    import {sayHi} from './export.js'
+    sayHi(); // Hi
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

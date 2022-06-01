@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>模块延时加载</title>
+  <!-- 普通脚本不会延时加载不会等待文档加载会阻塞文档加载 -->
+  <!-- 1. defer -->
+  <!-- 2. 脚本放置元素后 -->
+  <!-- defer async只能用于外部引入的脚本延时加载 -->
+  <script src="./normal.js"></script>
+
+  <!-- 模块脚本具有defer属性 延时加载不会阻塞文档加载 等文档加载完再加载 -->
+  <script type="module" async>
+    import { head } from './module.js'
+    // let head = document.querySelector('h3')
+    console.log(head)
+  </script>
+  <!-- 模块内联脚本可以使用async 不会等待文档加载不会阻塞 -->
+  <!-- 相同的外部脚本引入只运行一次 -->
+  <script type="module" src="./module.js"></script>
+  <script type="module" src="./module.js"></script>
+  
+  <!-- 对于从网络路径获取模块脚本时，需要配置cors跨域请求 -->
+  <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.14/vue.min.js"></script>
+</head>
+
+<body>
+  <h3>模块延时加载</h3>
+</body>
+
+</html>

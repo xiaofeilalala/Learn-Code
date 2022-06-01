@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>具名导入</title>
+  <script type="module">
+    // 具名导出 通过import{} 按export导出名导出
+    import {name, sayHi, User} from './export.js'
+    console.log(name)
+    sayHi()
+    let user = new User('ljj')
+    console.log(user.name)
+  </script>
+
+  <script type="module">
+    if (true) {
+      // import静态导入无法条件判断导入
+      import {name, sayHi, User} from './export.js'
+    }
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

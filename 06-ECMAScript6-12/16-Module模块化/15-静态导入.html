@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>import静态导入</title>
+  <script type="module">
+    // import静态导入只能在有module属性的script标签使用
+    // 1.路径必须是字符串类型
+    // 2.无法更具条件判断，在{}内的import与export无效
+    import name from getModuleName();
+
+    if (true) {
+      import {} from './module.js'
+    }
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

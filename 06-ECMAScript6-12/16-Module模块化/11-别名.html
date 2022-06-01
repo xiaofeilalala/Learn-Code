@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>别名</title>
+  <script type="module">
+    // 别名导出后 引入必须是导出的别名
+    import { hi, hello } from './alias.js'
+    hi()
+    hello()
+  </script>
+
+  <script type="module">
+    // import as 配置别名
+    import { hi as sayHi, hello as sayHello } from './alias.js'
+    sayHi()
+    sayHello()
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

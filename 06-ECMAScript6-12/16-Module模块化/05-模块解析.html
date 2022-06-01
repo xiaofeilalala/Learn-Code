@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>模块解析</title>
+  <script type="module">
+    // import.meta获取当前脚本url
+    console.log(import.meta.url)
+    
+    // 模块代码仅在第一次导入时被解析
+    // a模块导入module立即执行改变name属性 b模块引入module里的name是被更改的
+    import {} from './module-a.js'
+    import {} from './module-b.js'
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>混合导出</title>
+  <script type="module">
+    // 模块导出默认与具名导出时
+    // default表示默认导出 将default别名配置
+    import {default as sayHi, sayBye} from './mixin.js'
+    sayHi()
+    sayBye()
+  </script>
+  <script type="module">
+    // *所有导入时 default属性为默认导入
+    import * as user from './mixin.js'
+    user.default();
+    console.log(user)
+    user.sayBye()
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

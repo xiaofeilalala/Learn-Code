@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>模块作用域</title>
+  <script src="./normal.js"></script>
+
+  <!-- 模块A -->
+  <script type="module">
+    let module = 'module js'
+  </script>
+
+  <!-- 模块B -->
+  <script type="module">
+    // 对于模块只能使用导入导出 不能依赖全局变量
+    console.log(module)
+    //Uncaught ReferenceError module is not defined
+  </script>
+
+  <script>
+    // 不在模块下可访问外部组用于
+    console.log(normal)
+    console.log(module); 
+    //Uncaught ReferenceError module is not defined
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>模块路径与兼容</title>
+  <!-- 模块中import必须使用绝对或者相对路径 没有任何路径的模块无效 -->
+  <script type="module">
+    // 相对引用必须以“/”、“/”或“./”开头
+    import { module } from 'module.js'
+  </script>
+
+  <!-- 兼容处理 nomodule属性 -->
+  <script type="module">
+    alert("支持ES Module");
+  </script>
+
+  <script nomodule>
+    alert("不支持ES Module")
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

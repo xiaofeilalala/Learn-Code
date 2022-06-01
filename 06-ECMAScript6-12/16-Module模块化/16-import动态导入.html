@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>动态导入</title>
+  <script>
+    // import() 动态导入返回Promise resolve是一个包含所有导出模块的对象
+    const promise = import('./get.js')
+    promise.then((reslove, reject) => {
+      console.log(reslove)
+    })
+
+    // 按需加载动态导入
+    if (true) {
+      let result = import('./get.js').then(res => {
+        res.getName()
+      })
+    }
+
+    async function importFunc() {
+      let result = await import('./say.js')
+      console.log(result)
+      result.default()
+    }
+  </script>
+</head>
+
+<body>
+  <button onclick="importFunc()">按需加载</button>
+</body>
+
+</html>
