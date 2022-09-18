@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>选项合并</title>
+</head>
+
+<body>
+  <div id="app">
+    <h2>{{message}}</h2>
+    <button @click="sayHello">say hello</button>
+    <h2>{{getValue}}</h2>
+    <button @click="changeMessage">改变message值</button>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    // 局部mixins定义
+    const myMixin = {
+      // data选项
+      data() {
+        return {
+          message: 'jsx'
+        }
+      },
+      // methods选项
+      methods: {
+        sayHello () {
+          consokle.log('say Hello Mixins')
+        },
+        changeMessage () {
+          this.message = 'jsx-ljj'
+        }
+      },
+      // 生命周期函数
+      mounted() {
+        console.log('mounted Mixins')
+      },
+      // 计算属性
+      computed: {
+        getValue () {
+          return this.message + ' computed'
+        }
+      },
+      // 监听器
+      watch: {
+        message: function(oldValue, newValue) {
+          console.log('mixins', oldValue, newValue)
+        }
+      }
+    }
+    // Vue实例
+    const vm = new Vue({
+      el: '#app',
+      mixins: [myMixin],
+      // data选项合并，组件中的data属性会覆盖mixin混入中定义的data
+      data: function () {
+        return {
+          message: 'ljj'
+        }
+      },
+      methods: {
+        // methods 合并策略：组件同名methods方法覆盖mixins同名方法
+        sayHello () {
+          console.log('say Hello Vue')
+        }
+      },
+      created() {
+        // data 合并策略：组件同名data属性覆盖mixins同名属性
+        console.log(this.message)
+      },
+      // 声明周期合并策略：相同的选项将合并成数组，优先执行 `mixin` 混入中的生命周期函数，再执行组件内定义的生命周期函数
+      mounted() {
+        console.log('mounted Vue')
+      },
+      // 计算属性合并策略：组件同名computed属性覆盖mixins同名属性
+      computed: {
+        getValue () {
+          return this.message + ' computed'
+        }
+      },
+      // 监听器属性合并策略：相同的选项将合并成数组，优先执行 mixin 混入中的 watch 属性，再执行组件内定义的 watch 属性
+      watch: {
+        message: function(value, oldValue) {
+          console.log('Vue', value, oldValue)
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

@@ -5,15 +5,36 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title></title>
+  <title>插件使用</title>
 </head>
 
 <body>
   <div id="app">
-   
+
   </div>
   <script src="../vue.js"></script>
   <script>
+    const myPlugin = {
+      install: function (Vue, options) {
+        // 第一个参数表示Vue实例
+        // 第二个参数表示可选参数
+        console.log(options)
+        // 1.添加全局属性与方法
+        Vue.sayBay = 'bay'
+        Vue.sayHello = function() {
+          console.log('hello')
+        }
+      }
+    }
+    // Vue.use可以传入可选参数
+    Vue.use(myPlugin, {name: 'jsx'})
+    // 多次重复注册插件，只会注册一次该插件
+    Vue.use(myPlugin, {
+      name: 'jsx'
+    })
+    // 为Vue实例对象添加全局属性与方法
+    Vue.sayHello()
+    console.log(Vue.sayBay)
     const vm = new Vue({
       el: '#app',
       data: function () {

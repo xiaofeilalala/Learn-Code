@@ -5,15 +5,37 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title></title>
+  <title>reender函数</title>
 </head>
 
 <body>
   <div id="app">
-   
+    <my-component-a></my-component-a>
+    <my-component-b></my-component-b>
   </div>
   <script src="../vue.js"></script>
   <script>
+    // 模版template创建组件
+    Vue.component('my-component-a', {
+      template: '<h3>{{message}}</h3>',
+      data () {
+        return {
+          message: '组件A'
+        }
+      }
+    })
+
+    // render函数创建组件
+    Vue.component('my-component-b', {
+      render: function (createElement) {
+        return createElement('h3', this.message)
+      },
+      data () {
+        return {
+          message: '组件B'
+        }
+      }
+    })
     const vm = new Vue({
       el: '#app',
       data: function () {

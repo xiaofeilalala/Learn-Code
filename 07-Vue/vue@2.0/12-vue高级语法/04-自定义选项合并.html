@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>自定义选项合并</title>
+</head>
+<body>
+<div id="app">
+  <h2>{{message}}</h2>
+</div>
+<script src="../vue.js"></script>
+<script>
+  // vue中mixins混入有默认的合并选项方法，通过Vue.config.optionMergeStrategies查看
+  console.log(Vue.config.optionMergeStrategies)
+  // 自定义选项将使用默认策略，即简单地覆盖已有值
+  // 定义自定义选项合并策略
+  Vue.config.optionMergeStrategies.myOptions = function(parent, children) {
+    console.log(parent, children)
+    // => undefined 'jsx'
+    // => jsx ljj
+    // 合并后返回子实例中定义的选项
+    return children || parent
+  }
+
+  // 定义局部mixin
+  const myMixin = {
+    data() {
+      return {
+        message: 'hello world'
+      }
+    },
+    // 自定义选项myOptions
+    myOptions: 'jsx'
+  }
+  const vm = new Vue({
+    el: '#app',
+    mixins: [myMixin],
+    data() {
+      return {
+        message: 'Hello world Vue'
+      }
+    },
+    myOptions: 'ljj',
+    created() {
+      // 自定义选项使用默认合并策略
+      console.log(this.$options.myOptions)
+      // => ljj
+    }
+  })
+</script>
+</body>
+</html>

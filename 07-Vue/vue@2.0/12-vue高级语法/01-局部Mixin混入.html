@@ -5,20 +5,34 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title></title>
+  <title>局部Mixin混入</title>
 </head>
 
 <body>
   <div id="app">
-   
+    <h2>{{message}}</h2>
   </div>
   <script src="../vue.js"></script>
   <script>
+    // 定义局部mixin
+    const myMixin = {
+      data () {
+        return {
+          message: '局部混入',
+        }
+      }
+    }
     const vm = new Vue({
       el: '#app',
+      // mixins属性局部混入
+      mixins: [myMixin],
       data: function () {
         return {
+          
         }
+      },
+      created () {
+        console.log(this.$data)
       }
     })
   </script>

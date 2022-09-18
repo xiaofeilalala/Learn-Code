@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>全局Mixin混入</title>
+</head>
+
+<body>
+  <div id="app">
+    <h2>{{message}}</h2>
+    <my-component></my-component>
+  </div>
+
+  <!-- muComponent -->
+  <template id="my-component">
+    <div>
+      <h2>{{title}}</h2>
+      <!-- 全局mixin混入，每个组件都可以访问到mixin定义的属性 -->
+      <h2>{{message}}</h2>
+    </div>
+  </template>
+  <script src="../vue.js"></script>
+  <script>
+    // 定义全局混入
+    Vue.mixin({
+      data () {
+        return {
+          message: '全局混入',
+        }
+      }
+    })
+
+    // 自定义组件
+    const myComponent = Vue.extend({
+      // 引入template模版
+      template: '#my-component',
+      data() {
+        return {
+          title: '自定义组件'
+        }
+      }
+    })
+
+    // Vue实例
+    const vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {
+          
+        }
+      },
+      created () {
+        console.log(this.$data)
+      },
+      // 局部注册组件
+      components: {
+        myComponent
+      }
+    })
+  </script>
+</body>
+
+</html>

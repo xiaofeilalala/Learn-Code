@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>开发插件</title>
+</head>
+
+<body>
+<div id="app">
+  <!-- 使用插件中定义的指令 -->
+  <h3 v-texts="message"></h3>
+
+  <!-- 使用插件中定义的过滤器 -->
+  <h3>{{title | my-filter}}</h3>
+
+  <!-- 使用插件中定义的mixin -->
+  <h3>{{name}}</h3>
+
+  <!-- 调用插件中定义的实例方法与属性 -->
+  <button @click="$sayBye">实例方法与属性</button>
+
+  <!-- 使用插件全局注册组件 -->
+  <component-a></component-a>
+</div>
+<script src="../vue.js"></script>
+<script>
+  // 自定义插件
+  const myPlugin = {
+    install: function (Vue) {
+      // 全局方法与属性
+      Vue.sayHello = function () {
+        console.log('Hello')
+      }
+      // 自定义指令
+      Vue.directive('texts', {
+        // 指令第一次绑定元素时触发
+        bind(el, binding) {
+          console.log(binding)
+          el.innerText = binding.value
+        },
+        // 组件虚拟DOM更新时调用
+        update(el, binding) {
+          el.innerText = binding.value
+        }
+      })
+      // 过滤器
+      Vue.filter('my-filter', function(value) {
+        console.log(value)
+        return value + '-自定义插件'
+      })
+      // 混入mixin
+      Vue.mixin({
+        data () {
+          return {
+            name: 'jsx'
+          }
+        }
+      })
+      // 实例属性与方法
+      Vue.prototype.$sayBye = function () {
+        console.log('bye')
+      }
+      // 注册全局组件
+      Vue.component('component-a', {
+        template: '<h3>{{message}}</h3>',
+        data() {
+          return {
+            message: '全局组件'
+          }
+        }
+      })
+    }
+  }
+  // 注册插件
+  Vue.use(myPlugin)
+  // Vue定义的全局方法与属性
+  Vue.sayHello()
+  const vm = new Vue({
+    el: '#app',
+    data: function () {
+      return {
+        message: '自定义插件',
+        title: '过滤器'
+      }
+    }
+  })
+</script>
+</body>
+
+</html>
